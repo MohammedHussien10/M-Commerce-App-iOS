@@ -1,0 +1,608 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		22132AA62DEC974500FA9C90 /* Shopify_IOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22132AA52DEC974500FA9C90 /* Shopify_IOSApp.swift */; };
+		22132AA82DEC974500FA9C90 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22132AA72DEC974500FA9C90 /* ContentView.swift */; };
+		22132AAA2DEC974900FA9C90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22132AA92DEC974900FA9C90 /* Assets.xcassets */; };
+		22132AAD2DEC974900FA9C90 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22132AAC2DEC974900FA9C90 /* Preview Assets.xcassets */; };
+		22132AAF2DEC974900FA9C90 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22132AAE2DEC974900FA9C90 /* Persistence.swift */; };
+		22132AB22DEC974900FA9C90 /* Shopify_IOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22132AB02DEC974900FA9C90 /* Shopify_IOS.xcdatamodeld */; };
+		22132ABC2DEC974A00FA9C90 /* Shopify_IOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22132ABB2DEC974A00FA9C90 /* Shopify_IOSTests.swift */; };
+		22132AC62DEC974A00FA9C90 /* Shopify_IOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22132AC52DEC974A00FA9C90 /* Shopify_IOSUITests.swift */; };
+		22132AC82DEC974A00FA9C90 /* Shopify_IOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22132AC72DEC974A00FA9C90 /* Shopify_IOSUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		22132AB82DEC974A00FA9C90 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 22132A9A2DEC974400FA9C90 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 22132AA12DEC974500FA9C90;
+			remoteInfo = "Shopify-IOS";
+		};
+		22132AC22DEC974A00FA9C90 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 22132A9A2DEC974400FA9C90 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 22132AA12DEC974500FA9C90;
+			remoteInfo = "Shopify-IOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		22132AA22DEC974500FA9C90 /* Shopify-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shopify-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		22132AA52DEC974500FA9C90 /* Shopify_IOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shopify_IOSApp.swift; sourceTree = "<group>"; };
+		22132AA72DEC974500FA9C90 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		22132AA92DEC974900FA9C90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		22132AAC2DEC974900FA9C90 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		22132AAE2DEC974900FA9C90 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		22132AB12DEC974900FA9C90 /* Shopify_IOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shopify_IOS.xcdatamodel; sourceTree = "<group>"; };
+		22132AB72DEC974A00FA9C90 /* Shopify-IOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Shopify-IOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		22132ABB2DEC974A00FA9C90 /* Shopify_IOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shopify_IOSTests.swift; sourceTree = "<group>"; };
+		22132AC12DEC974A00FA9C90 /* Shopify-IOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Shopify-IOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		22132AC52DEC974A00FA9C90 /* Shopify_IOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shopify_IOSUITests.swift; sourceTree = "<group>"; };
+		22132AC72DEC974A00FA9C90 /* Shopify_IOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shopify_IOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		22132A9F2DEC974500FA9C90 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22132AB42DEC974A00FA9C90 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22132ABE2DEC974A00FA9C90 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		22132A992DEC974400FA9C90 = {
+			isa = PBXGroup;
+			children = (
+				22132AA42DEC974500FA9C90 /* Shopify-IOS */,
+				22132ABA2DEC974A00FA9C90 /* Shopify-IOSTests */,
+				22132AC42DEC974A00FA9C90 /* Shopify-IOSUITests */,
+				22132AA32DEC974500FA9C90 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		22132AA32DEC974500FA9C90 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				22132AA22DEC974500FA9C90 /* Shopify-IOS.app */,
+				22132AB72DEC974A00FA9C90 /* Shopify-IOSTests.xctest */,
+				22132AC12DEC974A00FA9C90 /* Shopify-IOSUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		22132AA42DEC974500FA9C90 /* Shopify-IOS */ = {
+			isa = PBXGroup;
+			children = (
+				22132AA52DEC974500FA9C90 /* Shopify_IOSApp.swift */,
+				22132AA72DEC974500FA9C90 /* ContentView.swift */,
+				22132AA92DEC974900FA9C90 /* Assets.xcassets */,
+				22132AAE2DEC974900FA9C90 /* Persistence.swift */,
+				22132AB02DEC974900FA9C90 /* Shopify_IOS.xcdatamodeld */,
+				22132AAB2DEC974900FA9C90 /* Preview Content */,
+			);
+			path = "Shopify-IOS";
+			sourceTree = "<group>";
+		};
+		22132AAB2DEC974900FA9C90 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				22132AAC2DEC974900FA9C90 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		22132ABA2DEC974A00FA9C90 /* Shopify-IOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				22132ABB2DEC974A00FA9C90 /* Shopify_IOSTests.swift */,
+			);
+			path = "Shopify-IOSTests";
+			sourceTree = "<group>";
+		};
+		22132AC42DEC974A00FA9C90 /* Shopify-IOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				22132AC52DEC974A00FA9C90 /* Shopify_IOSUITests.swift */,
+				22132AC72DEC974A00FA9C90 /* Shopify_IOSUITestsLaunchTests.swift */,
+			);
+			path = "Shopify-IOSUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		22132AA12DEC974500FA9C90 /* Shopify-IOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22132ACB2DEC974A00FA9C90 /* Build configuration list for PBXNativeTarget "Shopify-IOS" */;
+			buildPhases = (
+				22132A9E2DEC974500FA9C90 /* Sources */,
+				22132A9F2DEC974500FA9C90 /* Frameworks */,
+				22132AA02DEC974500FA9C90 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Shopify-IOS";
+			productName = "Shopify-IOS";
+			productReference = 22132AA22DEC974500FA9C90 /* Shopify-IOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		22132AB62DEC974A00FA9C90 /* Shopify-IOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22132ACE2DEC974A00FA9C90 /* Build configuration list for PBXNativeTarget "Shopify-IOSTests" */;
+			buildPhases = (
+				22132AB32DEC974A00FA9C90 /* Sources */,
+				22132AB42DEC974A00FA9C90 /* Frameworks */,
+				22132AB52DEC974A00FA9C90 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				22132AB92DEC974A00FA9C90 /* PBXTargetDependency */,
+			);
+			name = "Shopify-IOSTests";
+			productName = "Shopify-IOSTests";
+			productReference = 22132AB72DEC974A00FA9C90 /* Shopify-IOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		22132AC02DEC974A00FA9C90 /* Shopify-IOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22132AD12DEC974A00FA9C90 /* Build configuration list for PBXNativeTarget "Shopify-IOSUITests" */;
+			buildPhases = (
+				22132ABD2DEC974A00FA9C90 /* Sources */,
+				22132ABE2DEC974A00FA9C90 /* Frameworks */,
+				22132ABF2DEC974A00FA9C90 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				22132AC32DEC974A00FA9C90 /* PBXTargetDependency */,
+			);
+			name = "Shopify-IOSUITests";
+			productName = "Shopify-IOSUITests";
+			productReference = 22132AC12DEC974A00FA9C90 /* Shopify-IOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		22132A9A2DEC974400FA9C90 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					22132AA12DEC974500FA9C90 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					22132AB62DEC974A00FA9C90 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = 22132AA12DEC974500FA9C90;
+					};
+					22132AC02DEC974A00FA9C90 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = 22132AA12DEC974500FA9C90;
+					};
+				};
+			};
+			buildConfigurationList = 22132A9D2DEC974400FA9C90 /* Build configuration list for PBXProject "Shopify-IOS" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 22132A992DEC974400FA9C90;
+			productRefGroup = 22132AA32DEC974500FA9C90 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				22132AA12DEC974500FA9C90 /* Shopify-IOS */,
+				22132AB62DEC974A00FA9C90 /* Shopify-IOSTests */,
+				22132AC02DEC974A00FA9C90 /* Shopify-IOSUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		22132AA02DEC974500FA9C90 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22132AAD2DEC974900FA9C90 /* Preview Assets.xcassets in Resources */,
+				22132AAA2DEC974900FA9C90 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22132AB52DEC974A00FA9C90 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22132ABF2DEC974A00FA9C90 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		22132A9E2DEC974500FA9C90 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22132AB22DEC974900FA9C90 /* Shopify_IOS.xcdatamodeld in Sources */,
+				22132AAF2DEC974900FA9C90 /* Persistence.swift in Sources */,
+				22132AA82DEC974500FA9C90 /* ContentView.swift in Sources */,
+				22132AA62DEC974500FA9C90 /* Shopify_IOSApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22132AB32DEC974A00FA9C90 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22132ABC2DEC974A00FA9C90 /* Shopify_IOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22132ABD2DEC974A00FA9C90 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22132AC62DEC974A00FA9C90 /* Shopify_IOSUITests.swift in Sources */,
+				22132AC82DEC974A00FA9C90 /* Shopify_IOSUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		22132AB92DEC974A00FA9C90 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 22132AA12DEC974500FA9C90 /* Shopify-IOS */;
+			targetProxy = 22132AB82DEC974A00FA9C90 /* PBXContainerItemProxy */;
+		};
+		22132AC32DEC974A00FA9C90 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 22132AA12DEC974500FA9C90 /* Shopify-IOS */;
+			targetProxy = 22132AC22DEC974A00FA9C90 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		22132AC92DEC974A00FA9C90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		22132ACA2DEC974A00FA9C90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		22132ACC2DEC974A00FA9C90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Shopify-IOS/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "iti.Shopify-IOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		22132ACD2DEC974A00FA9C90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Shopify-IOS/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "iti.Shopify-IOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		22132ACF2DEC974A00FA9C90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "iti.Shopify-IOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Shopify-IOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Shopify-IOS";
+			};
+			name = Debug;
+		};
+		22132AD02DEC974A00FA9C90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "iti.Shopify-IOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Shopify-IOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Shopify-IOS";
+			};
+			name = Release;
+		};
+		22132AD22DEC974A00FA9C90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "iti.Shopify-IOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Shopify-IOS";
+			};
+			name = Debug;
+		};
+		22132AD32DEC974A00FA9C90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "iti.Shopify-IOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Shopify-IOS";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		22132A9D2DEC974400FA9C90 /* Build configuration list for PBXProject "Shopify-IOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22132AC92DEC974A00FA9C90 /* Debug */,
+				22132ACA2DEC974A00FA9C90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		22132ACB2DEC974A00FA9C90 /* Build configuration list for PBXNativeTarget "Shopify-IOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22132ACC2DEC974A00FA9C90 /* Debug */,
+				22132ACD2DEC974A00FA9C90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		22132ACE2DEC974A00FA9C90 /* Build configuration list for PBXNativeTarget "Shopify-IOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22132ACF2DEC974A00FA9C90 /* Debug */,
+				22132AD02DEC974A00FA9C90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		22132AD12DEC974A00FA9C90 /* Build configuration list for PBXNativeTarget "Shopify-IOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22132AD22DEC974A00FA9C90 /* Debug */,
+				22132AD32DEC974A00FA9C90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		22132AB02DEC974900FA9C90 /* Shopify_IOS.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				22132AB12DEC974900FA9C90 /* Shopify_IOS.xcdatamodel */,
+			);
+			currentVersion = 22132AB12DEC974900FA9C90 /* Shopify_IOS.xcdatamodel */;
+			path = Shopify_IOS.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 22132A9A2DEC974400FA9C90 /* Project object */;
+}
