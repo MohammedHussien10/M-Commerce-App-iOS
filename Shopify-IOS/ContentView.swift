@@ -37,6 +37,8 @@ struct ContentView: View {
                         Label("Add Item", systemImage: "plus")
                     }
                 }
+            }.onAppear {
+                fetchProducts()
             }
             Text("Select an item")
         }
@@ -72,6 +74,20 @@ struct ContentView: View {
             }
         }
     }
+    
+    func fetchProducts(){
+        let query = GraphQLSchema.GetProductsQuery()
+        NetworkManager.sharedStoreFront.queryGraphQLRequest(query: query) { result in
+            switch result {
+            case .success(let success):
+                success.products.edges.forEach { edge in
+                    print(edge.node.title)
+                }
+            case .failure(let failure):
+                print(failure.localizedDescription)
+            }
+        }
+    }
 }
 
 private let itemFormatter: DateFormatter = {
@@ -81,6 +97,6 @@ private let itemFormatter: DateFormatter = {
     return formatter
 }()
 
-#Preview {
-    ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-}
+//#Preview {
+//    ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+//}
