@@ -76,12 +76,13 @@ struct ContentView: View {
     }
     
     func fetchProducts(){
-        let query = GraphQLSchema.GetProductsQuery()
-        NetworkManager.sharedStoreFront.queryGraphQLRequest(query: query) { result in
+        let query = GraphQLSchema.GetAllProductsQuery(first: 100)
+        
+        NetworkManager.sharedAdmin.queryGraphQLRequest(query: query) { result in
             switch result {
             case .success(let success):
-                success.products.edges.forEach { edge in
-                    print(edge.node.title)
+                success.products.nodes.forEach { node in
+                    print(node.title)
                 }
             case .failure(let failure):
                 print(failure.localizedDescription)

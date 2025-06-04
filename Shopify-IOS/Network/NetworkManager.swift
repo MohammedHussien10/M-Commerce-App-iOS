@@ -2,8 +2,6 @@ import Apollo
 import Foundation
 
 protocol NetworkManagerProtocol {
-    var service: ApolloClient { get }
-
     func queryGraphQLRequest<T: GraphQLQuery>(
         query: T,
         completion: @escaping (Result<T.Data, Error>) -> Void
@@ -26,16 +24,7 @@ final class NetworkManager: NetworkManagerProtocol {
         self.requestType = requestType
     }
 
-    static func getInstance(requestType: RequestType) -> NetworkManager {
-        switch requestType {
-        case .admin:
-            return sharedAdmin
-        case .storeFront:
-            return sharedStoreFront
-        }
-    }
-
-    private lazy var _service: ApolloClient = {
+    private lazy var service: ApolloClient = {
         let store = ApolloStore()
         let client = URLSessionClient()
         let provider = NetworkInterceptorProvider(store: store, client: client, requestType: requestType)
@@ -52,10 +41,6 @@ final class NetworkManager: NetworkManagerProtocol {
 
         return ApolloClient(networkTransport: requestChainTransport, store: store)
     }()
-
-    var service: ApolloClient {
-        return _service
-    }
 
     func queryGraphQLRequest<T: GraphQLQuery>(
         query: T,

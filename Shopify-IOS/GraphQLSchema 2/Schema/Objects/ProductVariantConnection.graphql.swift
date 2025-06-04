@@ -4,9 +4,9 @@
 import ApolloAPI
 
 extension GraphQLSchema.Objects {
-  /// An auto-generated type which holds one Product and a cursor during pagination.
-  static let ProductEdge = ApolloAPI.Object(
-    typename: "ProductEdge",
+  /// An auto-generated type for paginating through multiple ProductVariants.
+  static let ProductVariantConnection = ApolloAPI.Object(
+    typename: "ProductVariantConnection",
     implementedInterfaces: [],
     keyFields: nil
   )
