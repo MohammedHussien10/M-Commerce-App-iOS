@@ -258,11 +258,12 @@
 		22132AA42DEC974500FA9C90 /* Shopify-IOS */ = {
 			isa = PBXGroup;
 			children = (
+				22593AB02DF3793D00F2C88C /* App */,
+				22593AA42DF3770F00F2C88C /* PresentationLayer */,
 				22132AAB2DEC974900FA9C90 /* Preview Content */,
 				22593AAF2DF378E900F2C88C /* Resources */,
 				22593AAE2DF378DB00F2C88C /* Units */,
 				22593AA52DF3774700F2C88C /* DataLayer */,
-				22593AA42DF3770F00F2C88C /* PresentationLayer */,
 			);
 			path = "Shopify-IOS";
 			sourceTree = "<group>";
@@ -295,8 +296,10 @@
 		22593AA42DF3770F00F2C88C /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
-				22593AB12DF3794700F2C88C /* Views */,
-				22593AB02DF3793D00F2C88C /* App */,
+				22D488F92DF3EB740085AAE1 /* CategoriesScreen */,
+				22D488F82DF3EB630085AAE1 /* HomeScreen */,
+				225B4FBF2DF393CD002DBF82 /* ViewsContainer */,
+				2286A3D92DF37A180062E65F /* Settings */,
 			);
 			path = PresentationLayer;
 			sourceTree = "<group>";
@@ -304,8 +307,8 @@
 		22593AA52DF3774700F2C88C /* DataLayer */ = {
 			isa = PBXGroup;
 			children = (
-				22593AA62DF377C300F2C88C /* Coredata Layer */,
 				22EBEF4E2DF241D600EF8FA6 /* Network */,
+				22593AA62DF377C300F2C88C /* Coredata Layer */,
 			);
 			path = DataLayer;
 			sourceTree = "<group>";
@@ -344,22 +347,11 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		22593AB12DF3794700F2C88C /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				22D488F92DF3EB740085AAE1 /* CategoriesScreen */,
-				22D488F82DF3EB630085AAE1 /* HomeScreen */,
-				225B4FBF2DF393CD002DBF82 /* ViewsContainer */,
-				2286A3D92DF37A180062E65F /* Settings */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		225B4FBF2DF393CD002DBF82 /* ViewsContainer */ = {
 			isa = PBXGroup;
 			children = (
-				225B4FBB2DF37C7F002DBF82 /* ContentView.swift */,
-				225B4FC02DF394D9002DBF82 /* ViewsContainer.swift */,
+				7B314B522DF49F8E00320F96 /* Views */,
+				7B314B532DF49F9900320F96 /* ViewModels */,
 			);
 			path = ViewsContainer;
 			sourceTree = "<group>";
@@ -367,8 +359,8 @@
 		2286A3D92DF37A180062E65F /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				2286A3DA2DF37A380062E65F /* Settings.swift */,
-				225B4FBD2DF38241002DBF82 /* SettingsCell.swift */,
+				7B314B542DF49FA200320F96 /* Views */,
+				7B314B552DF49FA800320F96 /* ViewModels */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -376,7 +368,8 @@
 		22D488F82DF3EB630085AAE1 /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
-				22D488FC2DF3EC580085AAE1 /* HomeScreen.swift */,
+				7B314B572DF49FCD00320F96 /* Views */,
+				7B314B582DF49FD600320F96 /* ViewModels */,
 			);
 			path = HomeScreen;
 			sourceTree = "<group>";
@@ -384,7 +377,8 @@
 		22D488F92DF3EB740085AAE1 /* CategoriesScreen */ = {
 			isa = PBXGroup;
 			children = (
-				22D488FA2DF3EC480085AAE1 /* CategoriesScreen.swift */,
+				7B314B502DF49F5F00320F96 /* Views */,
+				7B314B512DF49F6900320F96 /* ViewModels */,
 			);
 			path = CategoriesScreen;
 			sourceTree = "<group>";
@@ -586,6 +580,68 @@
 				7B314B0E2DF49DB300320F96 /* GraphQLCodeGen.graphql.swift */,
 			);
 			path = GraphQLCodeGen;
+			sourceTree = "<group>";
+		};
+		7B314B502DF49F5F00320F96 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				22D488FA2DF3EC480085AAE1 /* CategoriesScreen.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7B314B512DF49F6900320F96 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		7B314B522DF49F8E00320F96 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				225B4FBB2DF37C7F002DBF82 /* ContentView.swift */,
+				225B4FC02DF394D9002DBF82 /* ViewsContainer.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7B314B532DF49F9900320F96 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		7B314B542DF49FA200320F96 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2286A3DA2DF37A380062E65F /* Settings.swift */,
+				225B4FBD2DF38241002DBF82 /* SettingsCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7B314B552DF49FA800320F96 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		7B314B572DF49FCD00320F96 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				22D488FC2DF3EC580085AAE1 /* HomeScreen.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7B314B582DF49FD600320F96 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

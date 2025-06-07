@@ -9,7 +9,6 @@ import Apollo
 import Foundation
 
 struct NetworkInterceptorProvider: InterceptorProvider {
-    
     private let store: ApolloStore
     private let client: URLSessionClient
     private let requestType: RequestType
