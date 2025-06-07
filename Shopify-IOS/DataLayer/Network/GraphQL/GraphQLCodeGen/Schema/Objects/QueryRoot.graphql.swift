@@ -3,7 +3,7 @@
 
 import ApolloAPI
 
-extension GraphQLSchema.Objects {
+extension GraphQLCodeGen.Objects {
   /// The schema’s entry-point for queries. This acts as the public, top-level API from which all queries must start.
   static let QueryRoot = ApolloAPI.Object(
     typename: "QueryRoot",

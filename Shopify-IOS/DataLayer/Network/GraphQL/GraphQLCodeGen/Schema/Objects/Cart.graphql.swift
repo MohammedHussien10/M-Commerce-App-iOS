@@ -3,7 +3,7 @@
 
 import ApolloAPI
 
-extension GraphQLSchema.Objects {
+extension GraphQLCodeGen.Objects {
   /// A cart represents the merchandise that a buyer intends to purchase,
   /// and the estimated cost associated with the cart. Learn how to
   /// [interact with a cart](https://shopify.dev/custom-storefronts/internationalization/international-pricing)
@@ -11,8 +11,8 @@ extension GraphQLSchema.Objects {
   static let Cart = ApolloAPI.Object(
     typename: "Cart",
     implementedInterfaces: [
-      GraphQLSchema.Interfaces.HasMetafields.self,
-      GraphQLSchema.Interfaces.Node.self
+      GraphQLCodeGen.Interfaces.HasMetafields.self,
+      GraphQLCodeGen.Interfaces.Node.self
     ],
     keyFields: nil
   )

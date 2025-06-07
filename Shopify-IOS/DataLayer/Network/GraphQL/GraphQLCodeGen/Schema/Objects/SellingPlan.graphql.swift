@@ -3,11 +3,11 @@
 
 import ApolloAPI
 
-extension GraphQLSchema.Objects {
+extension GraphQLCodeGen.Objects {
   /// Represents how products and variants can be sold and purchased.
   static let SellingPlan = ApolloAPI.Object(
     typename: "SellingPlan",
-    implementedInterfaces: [GraphQLSchema.Interfaces.HasMetafields.self],
+    implementedInterfaces: [GraphQLCodeGen.Interfaces.HasMetafields.self],
     keyFields: nil
   )
 }

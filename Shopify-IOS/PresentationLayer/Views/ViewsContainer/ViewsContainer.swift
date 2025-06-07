@@ -31,7 +31,7 @@ struct ViewsContainer: View {
     }
     
     func fetchProducts(){
-        let query = GraphQLSchema.GetAllProductsQuery(first: 100)
+        let query = GraphQLCodeGen.GetAllProductsQuery(first: 100)
         
         NetworkManager.sharedStoreFront.queryGraphQLRequest(query: query) { result in
             switch result {

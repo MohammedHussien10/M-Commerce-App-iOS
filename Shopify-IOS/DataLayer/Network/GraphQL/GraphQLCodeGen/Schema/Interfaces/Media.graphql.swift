@@ -3,7 +3,7 @@
 
 import ApolloAPI
 
-extension GraphQLSchema.Interfaces {
+extension GraphQLCodeGen.Interfaces {
   /// Represents a media interface.
   static let Media = ApolloAPI.Interface(
     name: "Media",

@@ -3,13 +3,13 @@
 
 import ApolloAPI
 
-extension GraphQLSchema.Objects {
+extension GraphQLCodeGen.Objects {
   /// A product variant represents a different version of a product, such as differing sizes or differing colors.
   static let ProductVariant = ApolloAPI.Object(
     typename: "ProductVariant",
     implementedInterfaces: [
-      GraphQLSchema.Interfaces.HasMetafields.self,
-      GraphQLSchema.Interfaces.Node.self
+      GraphQLCodeGen.Interfaces.HasMetafields.self,
+      GraphQLCodeGen.Interfaces.Node.self
     ],
     keyFields: nil
   )

@@ -3,13 +3,13 @@
 
 import ApolloAPI
 
-extension GraphQLSchema.Objects {
+extension GraphQLCodeGen.Objects {
   /// An instance of a user-defined model based on a MetaobjectDefinition.
   static let Metaobject = ApolloAPI.Object(
     typename: "Metaobject",
     implementedInterfaces: [
-      GraphQLSchema.Interfaces.Node.self,
-      GraphQLSchema.Interfaces.OnlineStorePublishable.self
+      GraphQLCodeGen.Interfaces.Node.self,
+      GraphQLCodeGen.Interfaces.OnlineStorePublishable.self
     ],
     keyFields: nil
   )

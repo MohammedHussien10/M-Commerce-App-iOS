@@ -3,13 +3,13 @@
 
 import ApolloAPI
 
-extension GraphQLSchema.Objects {
+extension GraphQLCodeGen.Objects {
   /// Represents information about a company which is also a customer of the shop.
   static let Company = ApolloAPI.Object(
     typename: "Company",
     implementedInterfaces: [
-      GraphQLSchema.Interfaces.HasMetafields.self,
-      GraphQLSchema.Interfaces.Node.self
+      GraphQLCodeGen.Interfaces.HasMetafields.self,
+      GraphQLCodeGen.Interfaces.Node.self
     ],
     keyFields: nil
   )

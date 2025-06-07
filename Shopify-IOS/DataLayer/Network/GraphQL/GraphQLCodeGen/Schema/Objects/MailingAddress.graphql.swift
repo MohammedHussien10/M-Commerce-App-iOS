@@ -3,11 +3,11 @@
 
 import ApolloAPI
 
-extension GraphQLSchema.Objects {
+extension GraphQLCodeGen.Objects {
   /// Represents a mailing address for customers and shipping.
   static let MailingAddress = ApolloAPI.Object(
     typename: "MailingAddress",
-    implementedInterfaces: [GraphQLSchema.Interfaces.Node.self],
+    implementedInterfaces: [GraphQLCodeGen.Interfaces.Node.self],
     keyFields: nil
   )
 }

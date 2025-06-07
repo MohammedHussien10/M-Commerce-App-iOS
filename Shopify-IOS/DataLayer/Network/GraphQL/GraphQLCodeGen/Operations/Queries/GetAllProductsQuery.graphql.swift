@@ -3,7 +3,7 @@
 
 @_exported import ApolloAPI
 
-extension GraphQLSchema {
+extension GraphQLCodeGen {
   class GetAllProductsQuery: GraphQLQuery {
     static let operationName: String = "GetAllProducts"
     static let operationDocument: ApolloAPI.OperationDocument = .init(
@@ -19,11 +19,11 @@ extension GraphQLSchema {
 
     public var __variables: Variables? { ["first": first] }
 
-    struct Data: GraphQLSchema.SelectionSet {
+    struct Data: GraphQLCodeGen.SelectionSet {
       let __data: DataDict
       init(_dataDict: DataDict) { __data = _dataDict }
 
-      static var __parentType: any ApolloAPI.ParentType { GraphQLSchema.Objects.QueryRoot }
+      static var __parentType: any ApolloAPI.ParentType { GraphQLCodeGen.Objects.QueryRoot }
       static var __selections: [ApolloAPI.Selection] { [
         .field("products", Products.self, arguments: ["first": .variable("first")]),
       ] }
@@ -34,11 +34,11 @@ extension GraphQLSchema {
       /// Products
       ///
       /// Parent Type: `ProductConnection`
-      struct Products: GraphQLSchema.SelectionSet {
+      struct Products: GraphQLCodeGen.SelectionSet {
         let __data: DataDict
         init(_dataDict: DataDict) { __data = _dataDict }
 
-        static var __parentType: any ApolloAPI.ParentType { GraphQLSchema.Objects.ProductConnection }
+        static var __parentType: any ApolloAPI.ParentType { GraphQLCodeGen.Objects.ProductConnection }
         static var __selections: [ApolloAPI.Selection] { [
           .field("__typename", String.self),
           .field("nodes", [Node].self),
@@ -50,20 +50,20 @@ extension GraphQLSchema {
         /// Products.Node
         ///
         /// Parent Type: `Product`
-        struct Node: GraphQLSchema.SelectionSet {
+        struct Node: GraphQLCodeGen.SelectionSet {
           let __data: DataDict
           init(_dataDict: DataDict) { __data = _dataDict }
 
-          static var __parentType: any ApolloAPI.ParentType { GraphQLSchema.Objects.Product }
+          static var __parentType: any ApolloAPI.ParentType { GraphQLCodeGen.Objects.Product }
           static var __selections: [ApolloAPI.Selection] { [
             .field("__typename", String.self),
             .field("availableForSale", Bool.self),
             .field("category", Category?.self),
-            .field("descriptionHtml", GraphQLSchema.HTML.self),
+            .field("descriptionHtml", GraphQLCodeGen.HTML.self),
             .field("encodedVariantAvailability", String?.self),
             .field("encodedVariantExistence", String?.self),
             .field("featuredImage", FeaturedImage?.self),
-            .field("id", GraphQLSchema.ID.self),
+            .field("id", GraphQLCodeGen.ID.self),
             .field("images", Images.self, arguments: ["first": .variable("first")]),
             .field("productType", String.self),
             .field("title", String.self),
@@ -80,7 +80,7 @@ extension GraphQLSchema {
           /// The description of the product, with
           /// HTML tags. For example, the description might include
           /// bold `<strong></strong>` and italic `<i></i>` text.
-          var descriptionHtml: GraphQLSchema.HTML { __data["descriptionHtml"] }
+          var descriptionHtml: GraphQLCodeGen.HTML { __data["descriptionHtml"] }
           /// An encoded string containing all option value combinations
           /// with a corresponding variant that is currently available for sale.
           ///
@@ -139,7 +139,7 @@ extension GraphQLSchema {
           /// This field is functionally equivalent to `images(first: 1)`.
           var featuredImage: FeaturedImage? { __data["featuredImage"] }
           /// A globally-unique ID.
-          var id: GraphQLSchema.ID { __data["id"] }
+          var id: GraphQLCodeGen.ID { __data["id"] }
           /// List of images associated with the product.
           var images: Images { __data["images"] }
           /// The [product type](https://help.shopify.com/manual/products/details/product-type)
@@ -160,19 +160,19 @@ extension GraphQLSchema {
           /// Products.Node.Category
           ///
           /// Parent Type: `TaxonomyCategory`
-          struct Category: GraphQLSchema.SelectionSet {
+          struct Category: GraphQLCodeGen.SelectionSet {
             let __data: DataDict
             init(_dataDict: DataDict) { __data = _dataDict }
 
-            static var __parentType: any ApolloAPI.ParentType { GraphQLSchema.Objects.TaxonomyCategory }
+            static var __parentType: any ApolloAPI.ParentType { GraphQLCodeGen.Objects.TaxonomyCategory }
             static var __selections: [ApolloAPI.Selection] { [
               .field("__typename", String.self),
-              .field("id", GraphQLSchema.ID.self),
+              .field("id", GraphQLCodeGen.ID.self),
               .field("name", String.self),
             ] }
 
             /// A static identifier for the taxonomy category.
-            var id: GraphQLSchema.ID { __data["id"] }
+            var id: GraphQLCodeGen.ID { __data["id"] }
             /// The localized name of the taxonomy category.
             var name: String { __data["name"] }
           }
@@ -180,14 +180,14 @@ extension GraphQLSchema {
           /// Products.Node.FeaturedImage
           ///
           /// Parent Type: `Image`
-          struct FeaturedImage: GraphQLSchema.SelectionSet {
+          struct FeaturedImage: GraphQLCodeGen.SelectionSet {
             let __data: DataDict
             init(_dataDict: DataDict) { __data = _dataDict }
 
-            static var __parentType: any ApolloAPI.ParentType { GraphQLSchema.Objects.Image }
+            static var __parentType: any ApolloAPI.ParentType { GraphQLCodeGen.Objects.Image }
             static var __selections: [ApolloAPI.Selection] { [
               .field("__typename", String.self),
-              .field("url", GraphQLSchema.URL.self),
+              .field("url", GraphQLCodeGen.URL.self),
             ] }
 
             /// The location of the image as a URL.
@@ -197,17 +197,17 @@ extension GraphQLSchema {
             /// All transformation options are considered "best-effort". Any transformation that the original image type doesn't support will be ignored.
             ///
             /// If you need multiple variations of the same image, then you can use [GraphQL aliases](https://graphql.org/learn/queries/#aliases).
-            var url: GraphQLSchema.URL { __data["url"] }
+            var url: GraphQLCodeGen.URL { __data["url"] }
           }
 
           /// Products.Node.Images
           ///
           /// Parent Type: `ImageConnection`
-          struct Images: GraphQLSchema.SelectionSet {
+          struct Images: GraphQLCodeGen.SelectionSet {
             let __data: DataDict
             init(_dataDict: DataDict) { __data = _dataDict }
 
-            static var __parentType: any ApolloAPI.ParentType { GraphQLSchema.Objects.ImageConnection }
+            static var __parentType: any ApolloAPI.ParentType { GraphQLCodeGen.Objects.ImageConnection }
             static var __selections: [ApolloAPI.Selection] { [
               .field("__typename", String.self),
               .field("nodes", [Node].self),
@@ -219,14 +219,14 @@ extension GraphQLSchema {
             /// Products.Node.Images.Node
             ///
             /// Parent Type: `Image`
-            struct Node: GraphQLSchema.SelectionSet {
+            struct Node: GraphQLCodeGen.SelectionSet {
               let __data: DataDict
               init(_dataDict: DataDict) { __data = _dataDict }
 
-              static var __parentType: any ApolloAPI.ParentType { GraphQLSchema.Objects.Image }
+              static var __parentType: any ApolloAPI.ParentType { GraphQLCodeGen.Objects.Image }
               static var __selections: [ApolloAPI.Selection] { [
                 .field("__typename", String.self),
-                .field("url", GraphQLSchema.URL.self),
+                .field("url", GraphQLCodeGen.URL.self),
               ] }
 
               /// The location of the image as a URL.
@@ -236,38 +236,38 @@ extension GraphQLSchema {
               /// All transformation options are considered "best-effort". Any transformation that the original image type doesn't support will be ignored.
               ///
               /// If you need multiple variations of the same image, then you can use [GraphQL aliases](https://graphql.org/learn/queries/#aliases).
-              var url: GraphQLSchema.URL { __data["url"] }
+              var url: GraphQLCodeGen.URL { __data["url"] }
             }
           }
 
           /// Products.Node.VariantsCount
           ///
           /// Parent Type: `Count`
-          struct VariantsCount: GraphQLSchema.SelectionSet {
+          struct VariantsCount: GraphQLCodeGen.SelectionSet {
             let __data: DataDict
             init(_dataDict: DataDict) { __data = _dataDict }
 
-            static var __parentType: any ApolloAPI.ParentType { GraphQLSchema.Objects.Count }
+            static var __parentType: any ApolloAPI.ParentType { GraphQLCodeGen.Objects.Count }
             static var __selections: [ApolloAPI.Selection] { [
               .field("__typename", String.self),
               .field("count", Int.self),
-              .field("precision", GraphQLEnum<GraphQLSchema.CountPrecision>.self),
+              .field("precision", GraphQLEnum<GraphQLCodeGen.CountPrecision>.self),
             ] }
 
             /// Count of elements.
             var count: Int { __data["count"] }
             /// Precision of count, how exact is the value.
-            var precision: GraphQLEnum<GraphQLSchema.CountPrecision> { __data["precision"] }
+            var precision: GraphQLEnum<GraphQLCodeGen.CountPrecision> { __data["precision"] }
           }
 
           /// Products.Node.Variants
           ///
           /// Parent Type: `ProductVariantConnection`
-          struct Variants: GraphQLSchema.SelectionSet {
+          struct Variants: GraphQLCodeGen.SelectionSet {
             let __data: DataDict
             init(_dataDict: DataDict) { __data = _dataDict }
 
-            static var __parentType: any ApolloAPI.ParentType { GraphQLSchema.Objects.ProductVariantConnection }
+            static var __parentType: any ApolloAPI.ParentType { GraphQLCodeGen.Objects.ProductVariantConnection }
             static var __selections: [ApolloAPI.Selection] { [
               .field("__typename", String.self),
               .field("nodes", [Node].self),
@@ -279,18 +279,18 @@ extension GraphQLSchema {
             /// Products.Node.Variants.Node
             ///
             /// Parent Type: `ProductVariant`
-            struct Node: GraphQLSchema.SelectionSet {
+            struct Node: GraphQLCodeGen.SelectionSet {
               let __data: DataDict
               init(_dataDict: DataDict) { __data = _dataDict }
 
-              static var __parentType: any ApolloAPI.ParentType { GraphQLSchema.Objects.ProductVariant }
+              static var __parentType: any ApolloAPI.ParentType { GraphQLCodeGen.Objects.ProductVariant }
               static var __selections: [ApolloAPI.Selection] { [
                 .field("__typename", String.self),
                 .field("barcode", String?.self),
                 .field("availableForSale", Bool.self),
                 .field("currentlyNotInStock", Bool.self),
                 .field("image", Image?.self),
-                .field("id", GraphQLSchema.ID.self),
+                .field("id", GraphQLCodeGen.ID.self),
                 .field("price", Price.self),
                 .field("sku", String?.self),
                 .field("title", String.self),
@@ -308,7 +308,7 @@ extension GraphQLSchema {
               /// Image associated with the product variant. This field falls back to the product image if no image is available.
               var image: Image? { __data["image"] }
               /// A globally-unique ID.
-              var id: GraphQLSchema.ID { __data["id"] }
+              var id: GraphQLCodeGen.ID { __data["id"] }
               /// The product variant’s price.
               var price: Price { __data["price"] }
               /// The SKU (stock keeping unit) associated with the variant.
@@ -325,14 +325,14 @@ extension GraphQLSchema {
               /// Products.Node.Variants.Node.Image
               ///
               /// Parent Type: `Image`
-              struct Image: GraphQLSchema.SelectionSet {
+              struct Image: GraphQLCodeGen.SelectionSet {
                 let __data: DataDict
                 init(_dataDict: DataDict) { __data = _dataDict }
 
-                static var __parentType: any ApolloAPI.ParentType { GraphQLSchema.Objects.Image }
+                static var __parentType: any ApolloAPI.ParentType { GraphQLCodeGen.Objects.Image }
                 static var __selections: [ApolloAPI.Selection] { [
                   .field("__typename", String.self),
-                  .field("url", GraphQLSchema.URL.self),
+                  .field("url", GraphQLCodeGen.URL.self),
                 ] }
 
                 /// The location of the image as a URL.
@@ -342,57 +342,57 @@ extension GraphQLSchema {
                 /// All transformation options are considered "best-effort". Any transformation that the original image type doesn't support will be ignored.
                 ///
                 /// If you need multiple variations of the same image, then you can use [GraphQL aliases](https://graphql.org/learn/queries/#aliases).
-                var url: GraphQLSchema.URL { __data["url"] }
+                var url: GraphQLCodeGen.URL { __data["url"] }
               }
 
               /// Products.Node.Variants.Node.Price
               ///
               /// Parent Type: `MoneyV2`
-              struct Price: GraphQLSchema.SelectionSet {
+              struct Price: GraphQLCodeGen.SelectionSet {
                 let __data: DataDict
                 init(_dataDict: DataDict) { __data = _dataDict }
 
-                static var __parentType: any ApolloAPI.ParentType { GraphQLSchema.Objects.MoneyV2 }
+                static var __parentType: any ApolloAPI.ParentType { GraphQLCodeGen.Objects.MoneyV2 }
                 static var __selections: [ApolloAPI.Selection] { [
                   .field("__typename", String.self),
-                  .field("amount", GraphQLSchema.Decimal.self),
-                  .field("currencyCode", GraphQLEnum<GraphQLSchema.CurrencyCode>.self),
+                  .field("amount", GraphQLCodeGen.Decimal.self),
+                  .field("currencyCode", GraphQLEnum<GraphQLCodeGen.CurrencyCode>.self),
                 ] }
 
                 /// Decimal money amount.
-                var amount: GraphQLSchema.Decimal { __data["amount"] }
+                var amount: GraphQLCodeGen.Decimal { __data["amount"] }
                 /// Currency of the money.
-                var currencyCode: GraphQLEnum<GraphQLSchema.CurrencyCode> { __data["currencyCode"] }
+                var currencyCode: GraphQLEnum<GraphQLCodeGen.CurrencyCode> { __data["currencyCode"] }
               }
 
               /// Products.Node.Variants.Node.UnitPrice
               ///
               /// Parent Type: `MoneyV2`
-              struct UnitPrice: GraphQLSchema.SelectionSet {
+              struct UnitPrice: GraphQLCodeGen.SelectionSet {
                 let __data: DataDict
                 init(_dataDict: DataDict) { __data = _dataDict }
 
-                static var __parentType: any ApolloAPI.ParentType { GraphQLSchema.Objects.MoneyV2 }
+                static var __parentType: any ApolloAPI.ParentType { GraphQLCodeGen.Objects.MoneyV2 }
                 static var __selections: [ApolloAPI.Selection] { [
                   .field("__typename", String.self),
-                  .field("amount", GraphQLSchema.Decimal.self),
-                  .field("currencyCode", GraphQLEnum<GraphQLSchema.CurrencyCode>.self),
+                  .field("amount", GraphQLCodeGen.Decimal.self),
+                  .field("currencyCode", GraphQLEnum<GraphQLCodeGen.CurrencyCode>.self),
                 ] }
 
                 /// Decimal money amount.
-                var amount: GraphQLSchema.Decimal { __data["amount"] }
+                var amount: GraphQLCodeGen.Decimal { __data["amount"] }
                 /// Currency of the money.
-                var currencyCode: GraphQLEnum<GraphQLSchema.CurrencyCode> { __data["currencyCode"] }
+                var currencyCode: GraphQLEnum<GraphQLCodeGen.CurrencyCode> { __data["currencyCode"] }
               }
 
               /// Products.Node.Variants.Node.QuantityRule
               ///
               /// Parent Type: `QuantityRule`
-              struct QuantityRule: GraphQLSchema.SelectionSet {
+              struct QuantityRule: GraphQLCodeGen.SelectionSet {
                 let __data: DataDict
                 init(_dataDict: DataDict) { __data = _dataDict }
 
-                static var __parentType: any ApolloAPI.ParentType { GraphQLSchema.Objects.QuantityRule }
+                static var __parentType: any ApolloAPI.ParentType { GraphQLCodeGen.Objects.QuantityRule }
                 static var __selections: [ApolloAPI.Selection] { [
                   .field("__typename", String.self),
                   .field("increment", Int.self),
@@ -417,16 +417,16 @@ extension GraphQLSchema {
               /// Products.Node.Variants.Node.Product
               ///
               /// Parent Type: `Product`
-              struct Product: GraphQLSchema.SelectionSet {
+              struct Product: GraphQLCodeGen.SelectionSet {
                 let __data: DataDict
                 init(_dataDict: DataDict) { __data = _dataDict }
 
-                static var __parentType: any ApolloAPI.ParentType { GraphQLSchema.Objects.Product }
+                static var __parentType: any ApolloAPI.ParentType { GraphQLCodeGen.Objects.Product }
                 static var __selections: [ApolloAPI.Selection] { [
                   .field("__typename", String.self),
                   .field("availableForSale", Bool.self),
-                  .field("descriptionHtml", GraphQLSchema.HTML.self),
-                  .field("id", GraphQLSchema.ID.self),
+                  .field("descriptionHtml", GraphQLCodeGen.HTML.self),
+                  .field("id", GraphQLCodeGen.ID.self),
                   .field("featuredImage", FeaturedImage?.self),
                   .field("title", String.self),
                   .field("totalInventory", Int?.self),
@@ -438,9 +438,9 @@ extension GraphQLSchema {
                 /// The description of the product, with
                 /// HTML tags. For example, the description might include
                 /// bold `<strong></strong>` and italic `<i></i>` text.
-                var descriptionHtml: GraphQLSchema.HTML { __data["descriptionHtml"] }
+                var descriptionHtml: GraphQLCodeGen.HTML { __data["descriptionHtml"] }
                 /// A globally-unique ID.
-                var id: GraphQLSchema.ID { __data["id"] }
+                var id: GraphQLCodeGen.ID { __data["id"] }
                 /// The featured image for the product.
                 ///
                 /// This field is functionally equivalent to `images(first: 1)`.
@@ -456,14 +456,14 @@ extension GraphQLSchema {
                 /// Products.Node.Variants.Node.Product.FeaturedImage
                 ///
                 /// Parent Type: `Image`
-                struct FeaturedImage: GraphQLSchema.SelectionSet {
+                struct FeaturedImage: GraphQLCodeGen.SelectionSet {
                   let __data: DataDict
                   init(_dataDict: DataDict) { __data = _dataDict }
 
-                  static var __parentType: any ApolloAPI.ParentType { GraphQLSchema.Objects.Image }
+                  static var __parentType: any ApolloAPI.ParentType { GraphQLCodeGen.Objects.Image }
                   static var __selections: [ApolloAPI.Selection] { [
                     .field("__typename", String.self),
-                    .field("url", GraphQLSchema.URL.self),
+                    .field("url", GraphQLCodeGen.URL.self),
                   ] }
 
                   /// The location of the image as a URL.
@@ -473,7 +473,7 @@ extension GraphQLSchema {
                   /// All transformation options are considered "best-effort". Any transformation that the original image type doesn't support will be ignored.
                   ///
                   /// If you need multiple variations of the same image, then you can use [GraphQL aliases](https://graphql.org/learn/queries/#aliases).
-                  var url: GraphQLSchema.URL { __data["url"] }
+                  var url: GraphQLCodeGen.URL { __data["url"] }
                 }
               }
             }

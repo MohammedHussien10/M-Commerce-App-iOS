@@ -3,7 +3,7 @@
 
 import ApolloAPI
 
-extension GraphQLSchema.Objects {
+extension GraphQLCodeGen.Objects {
   /// The `Product` object lets you manage products in a merchant’s store.
   ///
   /// Products are the goods and services that merchants offer to customers.
@@ -17,10 +17,10 @@ extension GraphQLSchema.Objects {
   static let Product = ApolloAPI.Object(
     typename: "Product",
     implementedInterfaces: [
-      GraphQLSchema.Interfaces.HasMetafields.self,
-      GraphQLSchema.Interfaces.Node.self,
-      GraphQLSchema.Interfaces.OnlineStorePublishable.self,
-      GraphQLSchema.Interfaces.Trackable.self
+      GraphQLCodeGen.Interfaces.HasMetafields.self,
+      GraphQLCodeGen.Interfaces.Node.self,
+      GraphQLCodeGen.Interfaces.OnlineStorePublishable.self,
+      GraphQLCodeGen.Interfaces.Trackable.self
     ],
     keyFields: nil
   )

@@ -3,80 +3,80 @@
 
 import ApolloAPI
 
-protocol GraphQLSchema_SelectionSet: ApolloAPI.SelectionSet & ApolloAPI.RootSelectionSet
-where Schema == GraphQLSchema.SchemaMetadata {}
+protocol GraphQLCodeGen_SelectionSet: ApolloAPI.SelectionSet & ApolloAPI.RootSelectionSet
+where Schema == GraphQLCodeGen.SchemaMetadata {}
 
-protocol GraphQLSchema_InlineFragment: ApolloAPI.SelectionSet & ApolloAPI.InlineFragment
-where Schema == GraphQLSchema.SchemaMetadata {}
+protocol GraphQLCodeGen_InlineFragment: ApolloAPI.SelectionSet & ApolloAPI.InlineFragment
+where Schema == GraphQLCodeGen.SchemaMetadata {}
 
-protocol GraphQLSchema_MutableSelectionSet: ApolloAPI.MutableRootSelectionSet
-where Schema == GraphQLSchema.SchemaMetadata {}
+protocol GraphQLCodeGen_MutableSelectionSet: ApolloAPI.MutableRootSelectionSet
+where Schema == GraphQLCodeGen.SchemaMetadata {}
 
-protocol GraphQLSchema_MutableInlineFragment: ApolloAPI.MutableSelectionSet & ApolloAPI.InlineFragment
-where Schema == GraphQLSchema.SchemaMetadata {}
+protocol GraphQLCodeGen_MutableInlineFragment: ApolloAPI.MutableSelectionSet & ApolloAPI.InlineFragment
+where Schema == GraphQLCodeGen.SchemaMetadata {}
 
-extension GraphQLSchema {
-  typealias SelectionSet = GraphQLSchema_SelectionSet
+extension GraphQLCodeGen {
+  typealias SelectionSet = GraphQLCodeGen_SelectionSet
 
-  typealias InlineFragment = GraphQLSchema_InlineFragment
+  typealias InlineFragment = GraphQLCodeGen_InlineFragment
 
-  typealias MutableSelectionSet = GraphQLSchema_MutableSelectionSet
+  typealias MutableSelectionSet = GraphQLCodeGen_MutableSelectionSet
 
-  typealias MutableInlineFragment = GraphQLSchema_MutableInlineFragment
+  typealias MutableInlineFragment = GraphQLCodeGen_MutableInlineFragment
 
   enum SchemaMetadata: ApolloAPI.SchemaMetadata {
     static let configuration: any ApolloAPI.SchemaConfiguration.Type = SchemaConfiguration.self
 
     static func objectType(forTypename typename: String) -> ApolloAPI.Object? {
       switch typename {
-      case "AppliedGiftCard": return GraphQLSchema.Objects.AppliedGiftCard
-      case "Article": return GraphQLSchema.Objects.Article
-      case "Blog": return GraphQLSchema.Objects.Blog
-      case "Cart": return GraphQLSchema.Objects.Cart
-      case "CartLine": return GraphQLSchema.Objects.CartLine
-      case "Collection": return GraphQLSchema.Objects.Collection
-      case "Comment": return GraphQLSchema.Objects.Comment
-      case "Company": return GraphQLSchema.Objects.Company
-      case "CompanyContact": return GraphQLSchema.Objects.CompanyContact
-      case "CompanyLocation": return GraphQLSchema.Objects.CompanyLocation
-      case "ComponentizableCartLine": return GraphQLSchema.Objects.ComponentizableCartLine
-      case "Count": return GraphQLSchema.Objects.Count
-      case "Customer": return GraphQLSchema.Objects.Customer
-      case "ExternalVideo": return GraphQLSchema.Objects.ExternalVideo
-      case "GenericFile": return GraphQLSchema.Objects.GenericFile
-      case "Image": return GraphQLSchema.Objects.Image
-      case "ImageConnection": return GraphQLSchema.Objects.ImageConnection
-      case "Location": return GraphQLSchema.Objects.Location
-      case "MailingAddress": return GraphQLSchema.Objects.MailingAddress
-      case "Market": return GraphQLSchema.Objects.Market
-      case "MediaImage": return GraphQLSchema.Objects.MediaImage
-      case "MediaPresentation": return GraphQLSchema.Objects.MediaPresentation
-      case "Menu": return GraphQLSchema.Objects.Menu
-      case "MenuItem": return GraphQLSchema.Objects.MenuItem
-      case "Metafield": return GraphQLSchema.Objects.Metafield
-      case "Metaobject": return GraphQLSchema.Objects.Metaobject
-      case "Model3d": return GraphQLSchema.Objects.Model3d
-      case "MoneyV2": return GraphQLSchema.Objects.MoneyV2
-      case "Order": return GraphQLSchema.Objects.Order
-      case "Page": return GraphQLSchema.Objects.Page
-      case "Product": return GraphQLSchema.Objects.Product
-      case "ProductConnection": return GraphQLSchema.Objects.ProductConnection
-      case "ProductOption": return GraphQLSchema.Objects.ProductOption
-      case "ProductOptionValue": return GraphQLSchema.Objects.ProductOptionValue
-      case "ProductVariant": return GraphQLSchema.Objects.ProductVariant
-      case "ProductVariantConnection": return GraphQLSchema.Objects.ProductVariantConnection
-      case "QuantityRule": return GraphQLSchema.Objects.QuantityRule
-      case "QueryRoot": return GraphQLSchema.Objects.QueryRoot
-      case "SearchQuerySuggestion": return GraphQLSchema.Objects.SearchQuerySuggestion
-      case "SellingPlan": return GraphQLSchema.Objects.SellingPlan
-      case "Shop": return GraphQLSchema.Objects.Shop
-      case "ShopPayInstallmentsFinancingPlan": return GraphQLSchema.Objects.ShopPayInstallmentsFinancingPlan
-      case "ShopPayInstallmentsFinancingPlanTerm": return GraphQLSchema.Objects.ShopPayInstallmentsFinancingPlanTerm
-      case "ShopPayInstallmentsProductVariantPricing": return GraphQLSchema.Objects.ShopPayInstallmentsProductVariantPricing
-      case "ShopPolicy": return GraphQLSchema.Objects.ShopPolicy
-      case "TaxonomyCategory": return GraphQLSchema.Objects.TaxonomyCategory
-      case "UrlRedirect": return GraphQLSchema.Objects.UrlRedirect
-      case "Video": return GraphQLSchema.Objects.Video
+      case "AppliedGiftCard": return GraphQLCodeGen.Objects.AppliedGiftCard
+      case "Article": return GraphQLCodeGen.Objects.Article
+      case "Blog": return GraphQLCodeGen.Objects.Blog
+      case "Cart": return GraphQLCodeGen.Objects.Cart
+      case "CartLine": return GraphQLCodeGen.Objects.CartLine
+      case "Collection": return GraphQLCodeGen.Objects.Collection
+      case "Comment": return GraphQLCodeGen.Objects.Comment
+      case "Company": return GraphQLCodeGen.Objects.Company
+      case "CompanyContact": return GraphQLCodeGen.Objects.CompanyContact
+      case "CompanyLocation": return GraphQLCodeGen.Objects.CompanyLocation
+      case "ComponentizableCartLine": return GraphQLCodeGen.Objects.ComponentizableCartLine
+      case "Count": return GraphQLCodeGen.Objects.Count
+      case "Customer": return GraphQLCodeGen.Objects.Customer
+      case "ExternalVideo": return GraphQLCodeGen.Objects.ExternalVideo
+      case "GenericFile": return GraphQLCodeGen.Objects.GenericFile
+      case "Image": return GraphQLCodeGen.Objects.Image
+      case "ImageConnection": return GraphQLCodeGen.Objects.ImageConnection
+      case "Location": return GraphQLCodeGen.Objects.Location
+      case "MailingAddress": return GraphQLCodeGen.Objects.MailingAddress
+      case "Market": return GraphQLCodeGen.Objects.Market
+      case "MediaImage": return GraphQLCodeGen.Objects.MediaImage
+      case "MediaPresentation": return GraphQLCodeGen.Objects.MediaPresentation
+      case "Menu": return GraphQLCodeGen.Objects.Menu
+      case "MenuItem": return GraphQLCodeGen.Objects.MenuItem
+      case "Metafield": return GraphQLCodeGen.Objects.Metafield
+      case "Metaobject": return GraphQLCodeGen.Objects.Metaobject
+      case "Model3d": return GraphQLCodeGen.Objects.Model3d
+      case "MoneyV2": return GraphQLCodeGen.Objects.MoneyV2
+      case "Order": return GraphQLCodeGen.Objects.Order
+      case "Page": return GraphQLCodeGen.Objects.Page
+      case "Product": return GraphQLCodeGen.Objects.Product
+      case "ProductConnection": return GraphQLCodeGen.Objects.ProductConnection
+      case "ProductOption": return GraphQLCodeGen.Objects.ProductOption
+      case "ProductOptionValue": return GraphQLCodeGen.Objects.ProductOptionValue
+      case "ProductVariant": return GraphQLCodeGen.Objects.ProductVariant
+      case "ProductVariantConnection": return GraphQLCodeGen.Objects.ProductVariantConnection
+      case "QuantityRule": return GraphQLCodeGen.Objects.QuantityRule
+      case "QueryRoot": return GraphQLCodeGen.Objects.QueryRoot
+      case "SearchQuerySuggestion": return GraphQLCodeGen.Objects.SearchQuerySuggestion
+      case "SellingPlan": return GraphQLCodeGen.Objects.SellingPlan
+      case "Shop": return GraphQLCodeGen.Objects.Shop
+      case "ShopPayInstallmentsFinancingPlan": return GraphQLCodeGen.Objects.ShopPayInstallmentsFinancingPlan
+      case "ShopPayInstallmentsFinancingPlanTerm": return GraphQLCodeGen.Objects.ShopPayInstallmentsFinancingPlanTerm
+      case "ShopPayInstallmentsProductVariantPricing": return GraphQLCodeGen.Objects.ShopPayInstallmentsProductVariantPricing
+      case "ShopPolicy": return GraphQLCodeGen.Objects.ShopPolicy
+      case "TaxonomyCategory": return GraphQLCodeGen.Objects.TaxonomyCategory
+      case "UrlRedirect": return GraphQLCodeGen.Objects.UrlRedirect
+      case "Video": return GraphQLCodeGen.Objects.Video
       default: return nil
       }
     }

@@ -3,7 +3,7 @@
 
 import ApolloAPI
 
-extension GraphQLSchema.Objects {
+extension GraphQLCodeGen.Objects {
   /// An auto-generated type for paginating through multiple Products.
   static let ProductConnection = ApolloAPI.Object(
     typename: "ProductConnection",

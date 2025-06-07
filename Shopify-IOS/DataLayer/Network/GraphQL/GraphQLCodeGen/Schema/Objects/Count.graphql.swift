@@ -3,7 +3,7 @@
 
 import ApolloAPI
 
-extension GraphQLSchema.Objects {
+extension GraphQLCodeGen.Objects {
   /// Details for count of elements.
   static let Count = ApolloAPI.Object(
     typename: "Count",

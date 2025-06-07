@@ -3,11 +3,11 @@
 
 import ApolloAPI
 
-extension GraphQLSchema.Objects {
+extension GraphQLCodeGen.Objects {
   /// A comment on an article.
   static let Comment = ApolloAPI.Object(
     typename: "Comment",
-    implementedInterfaces: [GraphQLSchema.Interfaces.Node.self],
+    implementedInterfaces: [GraphQLCodeGen.Interfaces.Node.self],
     keyFields: nil
   )
 }

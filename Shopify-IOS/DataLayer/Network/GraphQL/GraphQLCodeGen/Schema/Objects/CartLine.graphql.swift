@@ -3,13 +3,13 @@
 
 import ApolloAPI
 
-extension GraphQLSchema.Objects {
+extension GraphQLCodeGen.Objects {
   /// Represents information about the merchandise in the cart.
   static let CartLine = ApolloAPI.Object(
     typename: "CartLine",
     implementedInterfaces: [
-      GraphQLSchema.Interfaces.BaseCartLine.self,
-      GraphQLSchema.Interfaces.Node.self
+      GraphQLCodeGen.Interfaces.BaseCartLine.self,
+      GraphQLCodeGen.Interfaces.Node.self
     ],
     keyFields: nil
   )

@@ -3,7 +3,7 @@
 
 import ApolloAPI
 
-extension GraphQLSchema.Interfaces {
+extension GraphQLCodeGen.Interfaces {
   /// An object with an ID field to support global identification, in accordance with the
   /// [Relay specification](https://relay.dev/graphql/objectidentification.htm#sec-Node-Interface).
   /// This interface is used by the [node](/docs/api/storefront/latest/queries/node)

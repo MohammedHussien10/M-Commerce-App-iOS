@@ -7,7 +7,7 @@
 
 import ApolloAPI
 
-extension GraphQLSchema {
+extension GraphQLCodeGen {
   /// A signed decimal number, which supports arbitrary precision and is serialized as a string.
   ///
   /// Example values: `"29.99"`, `"29.999"`.

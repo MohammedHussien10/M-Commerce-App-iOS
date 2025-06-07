@@ -3,7 +3,7 @@
 
 import ApolloAPI
 
-extension GraphQLSchema.Interfaces {
+extension GraphQLCodeGen.Interfaces {
   /// Represents a resource that can be published to the Online Store sales channel.
   static let OnlineStorePublishable = ApolloAPI.Interface(
     name: "OnlineStorePublishable",

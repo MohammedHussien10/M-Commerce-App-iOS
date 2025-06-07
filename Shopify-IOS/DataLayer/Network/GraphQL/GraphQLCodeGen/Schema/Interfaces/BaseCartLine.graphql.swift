@@ -3,7 +3,7 @@
 
 import ApolloAPI
 
-extension GraphQLSchema.Interfaces {
+extension GraphQLCodeGen.Interfaces {
   /// Represents a cart line common fields.
   static let BaseCartLine = ApolloAPI.Interface(
     name: "BaseCartLine",

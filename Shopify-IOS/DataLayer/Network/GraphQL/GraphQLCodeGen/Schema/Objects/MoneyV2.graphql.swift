@@ -3,7 +3,7 @@
 
 import ApolloAPI
 
-extension GraphQLSchema.Objects {
+extension GraphQLCodeGen.Objects {
   /// A monetary value with currency.
   static let MoneyV2 = ApolloAPI.Object(
     typename: "MoneyV2",

@@ -3,7 +3,7 @@
 
 import ApolloAPI
 
-extension GraphQLSchema.Objects {
+extension GraphQLCodeGen.Objects {
   /// The quantity rule for the product variant in a given context.
   static let QuantityRule = ApolloAPI.Object(
     typename: "QuantityRule",

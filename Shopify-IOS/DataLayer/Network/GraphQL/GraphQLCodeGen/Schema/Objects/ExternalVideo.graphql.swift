@@ -3,13 +3,13 @@
 
 import ApolloAPI
 
-extension GraphQLSchema.Objects {
+extension GraphQLCodeGen.Objects {
   /// Represents a video hosted outside of Shopify.
   static let ExternalVideo = ApolloAPI.Object(
     typename: "ExternalVideo",
     implementedInterfaces: [
-      GraphQLSchema.Interfaces.Media.self,
-      GraphQLSchema.Interfaces.Node.self
+      GraphQLCodeGen.Interfaces.Media.self,
+      GraphQLCodeGen.Interfaces.Node.self
     ],
     keyFields: nil
   )

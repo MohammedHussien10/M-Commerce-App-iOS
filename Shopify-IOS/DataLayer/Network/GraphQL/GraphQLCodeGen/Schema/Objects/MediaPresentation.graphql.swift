@@ -3,11 +3,11 @@
 
 import ApolloAPI
 
-extension GraphQLSchema.Objects {
+extension GraphQLCodeGen.Objects {
   /// A media presentation.
   static let MediaPresentation = ApolloAPI.Object(
     typename: "MediaPresentation",
-    implementedInterfaces: [GraphQLSchema.Interfaces.Node.self],
+    implementedInterfaces: [GraphQLCodeGen.Interfaces.Node.self],
     keyFields: nil
   )
 }

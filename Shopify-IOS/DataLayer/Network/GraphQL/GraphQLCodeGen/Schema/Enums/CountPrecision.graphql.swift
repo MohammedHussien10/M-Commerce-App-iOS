@@ -3,7 +3,7 @@
 
 import ApolloAPI
 
-extension GraphQLSchema {
+extension GraphQLCodeGen {
   /// The precision of the value returned by a count field.
   enum CountPrecision: String, EnumType {
     /// The count is exactly the value.

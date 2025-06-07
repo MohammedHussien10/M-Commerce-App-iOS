@@ -3,11 +3,11 @@
 
 import ApolloAPI
 
-extension GraphQLSchema.Objects {
+extension GraphQLCodeGen.Objects {
   /// A company's main point of contact.
   static let CompanyContact = ApolloAPI.Object(
     typename: "CompanyContact",
-    implementedInterfaces: [GraphQLSchema.Interfaces.Node.self],
+    implementedInterfaces: [GraphQLCodeGen.Interfaces.Node.self],
     keyFields: nil
   )
 }

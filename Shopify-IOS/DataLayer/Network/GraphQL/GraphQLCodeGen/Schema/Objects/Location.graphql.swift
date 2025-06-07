@@ -3,13 +3,13 @@
 
 import ApolloAPI
 
-extension GraphQLSchema.Objects {
+extension GraphQLCodeGen.Objects {
   /// Represents a location where product inventory is held.
   static let Location = ApolloAPI.Object(
     typename: "Location",
     implementedInterfaces: [
-      GraphQLSchema.Interfaces.HasMetafields.self,
-      GraphQLSchema.Interfaces.Node.self
+      GraphQLCodeGen.Interfaces.HasMetafields.self,
+      GraphQLCodeGen.Interfaces.Node.self
     ],
     keyFields: nil
   )

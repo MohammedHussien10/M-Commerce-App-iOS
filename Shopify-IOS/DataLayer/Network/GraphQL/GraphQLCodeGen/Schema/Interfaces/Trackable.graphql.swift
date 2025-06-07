@@ -3,7 +3,7 @@
 
 import ApolloAPI
 
-extension GraphQLSchema.Interfaces {
+extension GraphQLCodeGen.Interfaces {
   /// Represents a resource that you can track the origin of the search traffic.
   static let Trackable = ApolloAPI.Interface(
     name: "Trackable",

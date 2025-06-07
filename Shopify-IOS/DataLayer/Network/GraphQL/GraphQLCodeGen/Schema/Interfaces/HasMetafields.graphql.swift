@@ -3,7 +3,7 @@
 
 import ApolloAPI
 
-extension GraphQLSchema.Interfaces {
+extension GraphQLCodeGen.Interfaces {
   /// Represents information about the metafields associated to the specified resource.
   static let HasMetafields = ApolloAPI.Interface(
     name: "HasMetafields",

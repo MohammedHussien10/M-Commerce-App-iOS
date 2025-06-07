@@ -3,11 +3,11 @@
 
 import ApolloAPI
 
-extension GraphQLSchema.Objects {
+extension GraphQLCodeGen.Objects {
   /// The terms of the financing plan in Shop Pay Installments.
   static let ShopPayInstallmentsFinancingPlanTerm = ApolloAPI.Object(
     typename: "ShopPayInstallmentsFinancingPlanTerm",
-    implementedInterfaces: [GraphQLSchema.Interfaces.Node.self],
+    implementedInterfaces: [GraphQLCodeGen.Interfaces.Node.self],
     keyFields: nil
   )
 }

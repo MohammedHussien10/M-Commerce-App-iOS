@@ -3,7 +3,7 @@
 
 import ApolloAPI
 
-extension GraphQLSchema.Objects {
+extension GraphQLCodeGen.Objects {
   /// Represents an image resource.
   static let Image = ApolloAPI.Object(
     typename: "Image",

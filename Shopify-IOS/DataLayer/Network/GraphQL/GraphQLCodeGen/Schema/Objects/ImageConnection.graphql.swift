@@ -3,7 +3,7 @@
 
 import ApolloAPI
 
-extension GraphQLSchema.Objects {
+extension GraphQLCodeGen.Objects {
   /// An auto-generated type for paginating through multiple Images.
   static let ImageConnection = ApolloAPI.Object(
     typename: "ImageConnection",

@@ -3,12 +3,12 @@
 
 import ApolloAPI
 
-extension GraphQLSchema.Objects {
+extension GraphQLCodeGen.Objects {
   /// A [navigation menu](https://help.shopify.com/manual/online-store/menus-and-links) representing a hierarchy
   /// of hyperlinks (items).
   static let Menu = ApolloAPI.Object(
     typename: "Menu",
-    implementedInterfaces: [GraphQLSchema.Interfaces.Node.self],
+    implementedInterfaces: [GraphQLCodeGen.Interfaces.Node.self],
     keyFields: nil
   )
 }

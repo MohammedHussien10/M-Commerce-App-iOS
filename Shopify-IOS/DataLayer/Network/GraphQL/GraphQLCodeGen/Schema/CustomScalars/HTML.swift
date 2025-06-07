@@ -7,7 +7,7 @@
 
 import ApolloAPI
 
-extension GraphQLSchema {
+extension GraphQLCodeGen {
   /// A string containing HTML code. Refer to the [HTML spec](https://html.spec.whatwg.org/#elements-3) for a
   /// complete list of HTML elements.
   ///
