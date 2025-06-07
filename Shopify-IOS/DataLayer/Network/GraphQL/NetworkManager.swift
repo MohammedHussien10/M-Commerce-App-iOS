@@ -1,22 +1,15 @@
+//
+//  NetworkManager.swift
+//  Shopify-IOS
+//
+//  Created by Noha Ali Gomaa on 07/06/2025.
+//
+
 import Apollo
 import Foundation
 
-protocol NetworkManagerProtocol {
-    func queryGraphQLRequest<T: GraphQLQuery>(
-        query: T,
-        completion: @escaping (Result<T.Data, Error>) -> Void
-    )
-
-    func performGraphQLRequest<T: GraphQLMutation>(
-        mutation: T,
-        completion: @escaping (Result<T.Data, Error>) -> Void
-    )
-}
-
 final class NetworkManager: NetworkManagerProtocol {
-
     private let requestType: RequestType
-
     static var sharedAdmin: NetworkManager = NetworkManager(requestType: .admin)
     static var sharedStoreFront: NetworkManager = NetworkManager(requestType: .storeFront)
 
@@ -28,8 +21,8 @@ final class NetworkManager: NetworkManagerProtocol {
         let store = ApolloStore()
         let client = URLSessionClient()
         let provider = NetworkInterceptorProvider(store: store, client: client, requestType: requestType)
-
         let url: URL
+        
         switch requestType {
         case .admin:
             url = URL(string: NetworkConstants.baseUrlAdmin)!
@@ -37,9 +30,13 @@ final class NetworkManager: NetworkManagerProtocol {
             url = URL(string: NetworkConstants.baseUrlStoreFront)!
         }
 
-        let requestChainTransport = RequestChainNetworkTransport(interceptorProvider: provider, endpointURL: url)
-
-        return ApolloClient(networkTransport: requestChainTransport, store: store)
+        return ApolloClient(
+            networkTransport: RequestChainNetworkTransport(
+                interceptorProvider: provider,
+                endpointURL: url
+            ) ,
+            store: store
+        )
     }()
 
     func queryGraphQLRequest<T: GraphQLQuery>(
@@ -86,7 +83,4 @@ final class NetworkManager: NetworkManagerProtocol {
 }
 
 
-enum RequestType {
-    case admin
-    case storeFront
-}
+
