@@ -11,8 +11,10 @@ struct CategoriesScreen: View {
     var body: some View {
         
         NavigationStack{
-
+            VStack{
+                
             }.navigationTitle("Category")
+            }
     }
 }
 

@@ -10,8 +10,10 @@ import SwiftUI
 struct HomeScreen: View {
     var body: some View {
         NavigationStack{
-
+            VStack{
+                
             }.navigationTitle("Home")
+            }
         }
     }
 

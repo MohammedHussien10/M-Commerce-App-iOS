@@ -15,10 +15,16 @@
 		22132ABC2DEC974A00FA9C90 /* Shopify_IOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22132ABB2DEC974A00FA9C90 /* Shopify_IOSTests.swift */; };
 		22132AC62DEC974A00FA9C90 /* Shopify_IOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22132AC52DEC974A00FA9C90 /* Shopify_IOSUITests.swift */; };
 		22132AC82DEC974A00FA9C90 /* Shopify_IOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22132AC72DEC974A00FA9C90 /* Shopify_IOSUITestsLaunchTests.swift */; };
+		225B4FBC2DF37C7F002DBF82 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225B4FBB2DF37C7F002DBF82 /* ContentView.swift */; };
+		225B4FBE2DF38241002DBF82 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225B4FBD2DF38241002DBF82 /* SettingsCell.swift */; };
+		225B4FC12DF394D9002DBF82 /* ViewsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225B4FC02DF394D9002DBF82 /* ViewsContainer.swift */; };
+		2286A3DB2DF37A380062E65F /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2286A3DA2DF37A380062E65F /* Settings.swift */; };
+		22D488FB2DF3EC480085AAE1 /* CategoriesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D488FA2DF3EC480085AAE1 /* CategoriesScreen.swift */; };
+		22D488FD2DF3EC580085AAE1 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D488FC2DF3EC580085AAE1 /* HomeScreen.swift */; };
+		22D488FF2DF3F2670085AAE1 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D488FE2DF3F2670085AAE1 /* Colors.swift */; };
 		22EBEF542DF241D700EF8FA6 /* schema.graphqls in Resources */ = {isa = PBXBuildFile; fileRef = 22EBEF4D2DF241D600EF8FA6 /* schema.graphqls */; };
 		22EBEF552DF241D700EF8FA6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EBEF4F2DF241D600EF8FA6 /* NetworkManager.swift */; };
 		22EBEF562DF241D700EF8FA6 /* NetworkInterceptorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EBEF502DF241D600EF8FA6 /* NetworkInterceptorProvider.swift */; };
-		22EBEF572DF241D700EF8FA6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EBEF512DF241D600EF8FA6 /* ContentView.swift */; };
 		22EBEF582DF241D700EF8FA6 /* Configurations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22EBEF522DF241D600EF8FA6 /* Configurations.plist */; };
 		22EBEF592DF241D700EF8FA6 /* GetProducts.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 22EBEF532DF241D700EF8FA6 /* GetProducts.graphql */; };
 		22EBEF5C2DF2424100EF8FA6 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 22EBEF5B2DF2424100EF8FA6 /* Apollo */; };
@@ -117,10 +123,16 @@
 		22132AC12DEC974A00FA9C90 /* Shopify-IOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Shopify-IOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22132AC52DEC974A00FA9C90 /* Shopify_IOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shopify_IOSUITests.swift; sourceTree = "<group>"; };
 		22132AC72DEC974A00FA9C90 /* Shopify_IOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shopify_IOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		225B4FBB2DF37C7F002DBF82 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		225B4FBD2DF38241002DBF82 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		225B4FC02DF394D9002DBF82 /* ViewsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewsContainer.swift; sourceTree = "<group>"; };
+		2286A3DA2DF37A380062E65F /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		22D488FA2DF3EC480085AAE1 /* CategoriesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesScreen.swift; sourceTree = "<group>"; };
+		22D488FC2DF3EC580085AAE1 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		22D488FE2DF3F2670085AAE1 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		22EBEF4D2DF241D600EF8FA6 /* schema.graphqls */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = schema.graphqls; sourceTree = "<group>"; };
 		22EBEF4F2DF241D600EF8FA6 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		22EBEF502DF241D600EF8FA6 /* NetworkInterceptorProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkInterceptorProvider.swift; sourceTree = "<group>"; };
-		22EBEF512DF241D600EF8FA6 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = "../../M-Commerce-App-Noha/Shopify-IOS/ContentView.swift"; sourceTree = "<group>"; };
 		22EBEF522DF241D600EF8FA6 /* Configurations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configurations.plist; sourceTree = "<group>"; };
 		22EBEF532DF241D700EF8FA6 /* GetProducts.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GetProducts.graphql; sourceTree = "<group>"; };
 		22EBEF5E2DF2427A00EF8FA6 /* GraphQLSchema.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLSchema.graphql.swift; sourceTree = "<group>"; };
@@ -238,17 +250,11 @@
 		22132AA42DEC974500FA9C90 /* Shopify-IOS */ = {
 			isa = PBXGroup;
 			children = (
-				22EBEF5D2DF2427A00EF8FA6 /* GraphQLSchema */,
-				22EBEF522DF241D600EF8FA6 /* Configurations.plist */,
-				22EBEF512DF241D600EF8FA6 /* ContentView.swift */,
-				22EBEF532DF241D700EF8FA6 /* GetProducts.graphql */,
-				22EBEF4C2DF241D600EF8FA6 /* GraphQLSchemas */,
-				22EBEF4E2DF241D600EF8FA6 /* Network */,
-				22132AA52DEC974500FA9C90 /* Shopify_IOSApp.swift */,
-				22132AA92DEC974900FA9C90 /* Assets.xcassets */,
-				22132AAE2DEC974900FA9C90 /* Persistence.swift */,
-				22132AB02DEC974900FA9C90 /* Shopify_IOS.xcdatamodeld */,
 				22132AAB2DEC974900FA9C90 /* Preview Content */,
+				22593AAF2DF378E900F2C88C /* Resources */,
+				22593AAE2DF378DB00F2C88C /* Units */,
+				22593AA52DF3774700F2C88C /* DataLayer */,
+				22593AA42DF3770F00F2C88C /* PresentationLayer */,
 			);
 			path = "Shopify-IOS";
 			sourceTree = "<group>";
@@ -276,6 +282,122 @@
 				22132AC72DEC974A00FA9C90 /* Shopify_IOSUITestsLaunchTests.swift */,
 			);
 			path = "Shopify-IOSUITests";
+			sourceTree = "<group>";
+		};
+		22593AA42DF3770F00F2C88C /* PresentationLayer */ = {
+			isa = PBXGroup;
+			children = (
+				22593AB12DF3794700F2C88C /* Views */,
+				22593AB02DF3793D00F2C88C /* App */,
+			);
+			path = PresentationLayer;
+			sourceTree = "<group>";
+		};
+		22593AA52DF3774700F2C88C /* DataLayer */ = {
+			isa = PBXGroup;
+			children = (
+				22EBEF4E2DF241D600EF8FA6 /* Network */,
+				22593AA62DF377C300F2C88C /* db */,
+				22EBEF5D2DF2427A00EF8FA6 /* GraphQLSchema */,
+				22EBEF532DF241D700EF8FA6 /* GetProducts.graphql */,
+				22EBEF4C2DF241D600EF8FA6 /* GraphQLSchemas */,
+			);
+			path = DataLayer;
+			sourceTree = "<group>";
+		};
+		22593AA62DF377C300F2C88C /* db */ = {
+			isa = PBXGroup;
+			children = (
+				22132AAE2DEC974900FA9C90 /* Persistence.swift */,
+				22132AB02DEC974900FA9C90 /* Shopify_IOS.xcdatamodeld */,
+			);
+			path = db;
+			sourceTree = "<group>";
+		};
+		22593AAE2DF378DB00F2C88C /* Units */ = {
+			isa = PBXGroup;
+			children = (
+				22D489012DF3F3F60085AAE1 /* Configs */,
+				22D489002DF3F2FE0085AAE1 /* Colors */,
+			);
+			path = Units;
+			sourceTree = "<group>";
+		};
+		22593AAF2DF378E900F2C88C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				22132AA92DEC974900FA9C90 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		22593AB02DF3793D00F2C88C /* App */ = {
+			isa = PBXGroup;
+			children = (
+				22132AA52DEC974500FA9C90 /* Shopify_IOSApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		22593AB12DF3794700F2C88C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				22D488F92DF3EB740085AAE1 /* CategoriesScreen */,
+				22D488F82DF3EB630085AAE1 /* HomeScreen */,
+				225B4FBF2DF393CD002DBF82 /* ViewsContainer */,
+				2286A3D92DF37A180062E65F /* Settings */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		225B4FBF2DF393CD002DBF82 /* ViewsContainer */ = {
+			isa = PBXGroup;
+			children = (
+				225B4FBB2DF37C7F002DBF82 /* ContentView.swift */,
+				225B4FC02DF394D9002DBF82 /* ViewsContainer.swift */,
+			);
+			path = ViewsContainer;
+			sourceTree = "<group>";
+		};
+		2286A3D92DF37A180062E65F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				2286A3DA2DF37A380062E65F /* Settings.swift */,
+				225B4FBD2DF38241002DBF82 /* SettingsCell.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		22D488F82DF3EB630085AAE1 /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				22D488FC2DF3EC580085AAE1 /* HomeScreen.swift */,
+			);
+			path = HomeScreen;
+			sourceTree = "<group>";
+		};
+		22D488F92DF3EB740085AAE1 /* CategoriesScreen */ = {
+			isa = PBXGroup;
+			children = (
+				22D488FA2DF3EC480085AAE1 /* CategoriesScreen.swift */,
+			);
+			path = CategoriesScreen;
+			sourceTree = "<group>";
+		};
+		22D489002DF3F2FE0085AAE1 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				22D488FE2DF3F2670085AAE1 /* Colors.swift */,
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
+		22D489012DF3F3F60085AAE1 /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				22EBEF522DF241D600EF8FA6 /* Configurations.plist */,
+			);
+			path = Configs;
 			sourceTree = "<group>";
 		};
 		22EBEF4C2DF241D600EF8FA6 /* GraphQLSchemas */ = {
@@ -572,12 +694,13 @@
 				22EBEFDB2DF2427A00EF8FA6 /* MediaPresentation.graphql.swift in Sources */,
 				22EBEFBC2DF2427A00EF8FA6 /* Count.graphql.swift in Sources */,
 				22EBEFB12DF2427A00EF8FA6 /* Blog.graphql.swift in Sources */,
+				22D488FF2DF3F2670085AAE1 /* Colors.swift in Sources */,
+				22D488FD2DF3EC580085AAE1 /* HomeScreen.swift in Sources */,
 				22EBEFA72DF2427A00EF8FA6 /* ID.swift in Sources */,
 				22EBEFDC2DF2427A00EF8FA6 /* ShopPayInstallmentsProductVariantPricing.graphql.swift in Sources */,
 				22EBEFD62DF2427A00EF8FA6 /* ComponentizableCartLine.graphql.swift in Sources */,
 				22EBEFD82DF2427A00EF8FA6 /* Video.graphql.swift in Sources */,
 				22EBEFBB2DF2427A00EF8FA6 /* ProductOption.graphql.swift in Sources */,
-				22EBEF572DF241D700EF8FA6 /* ContentView.swift in Sources */,
 				22EBEFB32DF2427A00EF8FA6 /* MenuItem.graphql.swift in Sources */,
 				22EBEF562DF241D700EF8FA6 /* NetworkInterceptorProvider.swift in Sources */,
 				22EBEFBA2DF2427A00EF8FA6 /* TaxonomyCategory.graphql.swift in Sources */,
@@ -589,6 +712,7 @@
 				22EBEFD02DF2427A00EF8FA6 /* SearchQuerySuggestion.graphql.swift in Sources */,
 				22EBEFB82DF2427A00EF8FA6 /* ImageConnection.graphql.swift in Sources */,
 				22EBEFE02DF2427A00EF8FA6 /* Trackable.graphql.swift in Sources */,
+				2286A3DB2DF37A380062E65F /* Settings.swift in Sources */,
 				22EBEFC22DF2427A00EF8FA6 /* CompanyContact.graphql.swift in Sources */,
 				22EBEFC82DF2427A00EF8FA6 /* CompanyLocation.graphql.swift in Sources */,
 				22132AAF2DEC974900FA9C90 /* Persistence.swift in Sources */,
@@ -599,6 +723,7 @@
 				22EBEFB02DF2427A00EF8FA6 /* ProductVariant.graphql.swift in Sources */,
 				22EBEFD92DF2427A00EF8FA6 /* Product.graphql.swift in Sources */,
 				22EBEFC32DF2427A00EF8FA6 /* Menu.graphql.swift in Sources */,
+				225B4FBE2DF38241002DBF82 /* SettingsCell.swift in Sources */,
 				22EBEFE42DF2427A00EF8FA6 /* Node.graphql.swift in Sources */,
 				22EBEFB52DF2427A00EF8FA6 /* Comment.graphql.swift in Sources */,
 				22EBEFB42DF2427A00EF8FA6 /* Order.graphql.swift in Sources */,
@@ -616,6 +741,8 @@
 				22EBEFC72DF2427A00EF8FA6 /* QueryRoot.graphql.swift in Sources */,
 				22EBEFE22DF2427A00EF8FA6 /* BaseCartLine.graphql.swift in Sources */,
 				22EBEFA82DF2427A00EF8FA6 /* Decimal.swift in Sources */,
+				225B4FC12DF394D9002DBF82 /* ViewsContainer.swift in Sources */,
+				22D488FB2DF3EC480085AAE1 /* CategoriesScreen.swift in Sources */,
 				22EBEFC92DF2427A00EF8FA6 /* Cart.graphql.swift in Sources */,
 				22EBEFCB2DF2427A00EF8FA6 /* Customer.graphql.swift in Sources */,
 				22EBEFAD2DF2427A00EF8FA6 /* Image.graphql.swift in Sources */,
@@ -625,6 +752,7 @@
 				22EBEFBE2DF2427A00EF8FA6 /* Collection.graphql.swift in Sources */,
 				22EBEFAE2DF2427A00EF8FA6 /* ProductOptionValue.graphql.swift in Sources */,
 				22EBEFB62DF2427A00EF8FA6 /* UrlRedirect.graphql.swift in Sources */,
+				225B4FBC2DF37C7F002DBF82 /* ContentView.swift in Sources */,
 				22EBEFC52DF2427A00EF8FA6 /* Location.graphql.swift in Sources */,
 				22EBEFAA2DF2427A00EF8FA6 /* URL.swift in Sources */,
 				22EBEFDF2DF2427A00EF8FA6 /* Media.graphql.swift in Sources */,
