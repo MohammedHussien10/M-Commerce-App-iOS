@@ -9,11 +9,12 @@ import SwiftUI
 
 @main
 struct Shopify_IOSApp: App {
+
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ViewsContainer()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
