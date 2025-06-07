@@ -1,5 +1,5 @@
 {
-  "schemaNamespace" : "GraphQLSchema",
+  "schemaNamespace" : "GraphQLCodeGen",
   "input" : {
     "operationSearchPaths" : [
       "**/*.graphql"
@@ -14,7 +14,7 @@
       }
     },
     "schemaTypes" : {
-      "path" : "./Shopify-IOS/GraphQLSchema",
+      "path" : "./Shopify-IOS/DataLayer/Network/GraphQL/GraphQLCodeGen",
       "moduleType" : {
         "embeddedInTarget" : {
           "name" : "Shopify-IOS"
