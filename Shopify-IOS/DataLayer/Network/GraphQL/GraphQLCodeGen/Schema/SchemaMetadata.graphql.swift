@@ -35,6 +35,7 @@ extension GraphQLCodeGen {
       case "Cart": return GraphQLCodeGen.Objects.Cart
       case "CartLine": return GraphQLCodeGen.Objects.CartLine
       case "Collection": return GraphQLCodeGen.Objects.Collection
+      case "CollectionConnection": return GraphQLCodeGen.Objects.CollectionConnection
       case "Comment": return GraphQLCodeGen.Objects.Comment
       case "Company": return GraphQLCodeGen.Objects.Company
       case "CompanyContact": return GraphQLCodeGen.Objects.CompanyContact

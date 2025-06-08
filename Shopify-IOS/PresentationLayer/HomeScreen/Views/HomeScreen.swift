@@ -8,14 +8,49 @@
 import SwiftUI
 
 struct HomeScreen: View {
+    @StateObject private var viewModel = HomeViewModel()
     var body: some View {
-        NavigationStack{
-            VStack{
+        NavigationStack {
+            ScrollView {
+                VStack(spacing: 16) {
+                    HeaderWithIconAndLogo(
+                        leftIcon: "magnifyingglass",
+                        rightIcon: "panda",
+                        onLeftIconTap: {
+                            print("Search tapped")
+                        },
+                        onRightIconTap: {
+                            print("Cart tapped")
+                        })
+
+                    // Example visible content
+                    Text("Welcome to Genie!")
+                        .font(.title2)
+                        .frame(alignment: .trailing)
+                        .bold()
+
+                    Coupons()
+                    
+                    ProductHeader()
                 
-            }.navigationTitle("Home")
+                    if viewModel.isLoading {
+                        ProgressView("Loading products...")
+                    } else if let error = viewModel.errorMessage {
+                        Text("Error: \(error)")
+                            .foregroundColor(.red)
+                    } else {
+                        ProductsView(products: viewModel.products)
+                    }
+                }
+                .padding()
+            }
+            .onAppear {
+                viewModel.fetchProducts()
             }
         }
     }
+}
+
 
 
 
