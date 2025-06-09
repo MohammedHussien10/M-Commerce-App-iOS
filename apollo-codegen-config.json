@@ -1,0 +1,29 @@
+{
+  "schemaNamespace" : "GraphQLCodeGen",
+  "input" : {
+    "operationSearchPaths" : [
+      "**/*.graphql"
+    ],
+    "schemaSearchPaths" : [
+      "**/*.graphqls"
+    ]
+  },
+  "output" : {
+    "testMocks" : {
+      "none" : {
+      }
+    },
+    "schemaTypes" : {
+      "path" : "./Shopify-IOS/DataLayer/Network/GraphQL/GraphQLCodeGen",
+      "moduleType" : {
+        "embeddedInTarget" : {
+          "name" : "Shopify-IOS"
+        }
+      }
+    },
+    "operations" : {
+      "inSchemaModule" : {
+      }
+    }
+  }
+}
