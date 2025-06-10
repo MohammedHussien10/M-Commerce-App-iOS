@@ -41,7 +41,7 @@ struct ContactUS: View {
                         ContactUsRow(icon: "envelope.fill", title: "Email", subtitle: "genieStore2025@gmail.com")
                         ContactUsRow(icon: "map.fill", title: "Location", subtitle: "Ismailia, Egypt")
                     }
-                    .padding(.top, 30)
+                    .padding(.top, 70)
                 }
                 .padding()
             }

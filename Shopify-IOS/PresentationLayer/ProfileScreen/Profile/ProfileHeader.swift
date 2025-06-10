@@ -13,7 +13,7 @@ struct ProfileHeader: View {
     var personImg:String?
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 20) {
+        VStack(alignment: .center, spacing: 20) {
             if let profileImg = personImg, let url = URL(string: profileImg){
                 KFImage(url).placeholder{
                     Image("profileAvatar").resizable()
@@ -23,18 +23,19 @@ struct ProfileHeader: View {
             }else{
                 Image("profileAvatar")
                     .resizable()
-                    .frame(width: 200,height: 150)
+                    .frame(width: 180,height: 150)
             }
                 
             
-            Text(personName)
+            Text(personName.isEmpty ? "Person Name" : personName)
                 .font(.headline)
-            Text(personEmail)
+            Text(personEmail.isEmpty ? "Person Email" : personEmail)
                 .font(.subheadline)
                 .foregroundColor(.gray)
             
             
-        }
+        }.frame(maxWidth: .infinity, alignment: .center)
+
     }
 }
 

@@ -34,13 +34,15 @@ struct AboutUs: View {
                                .fontWeight(.semibold)
                            
                            HStack {
+                               
                                Image(systemName: "person")
-                               Text("Mohammed Hussien")
+                               Text("Noha Ail")
+
                            }
                            
                            HStack {
                                Image(systemName: "person")
-                               Text("Noha Ail")
+                               Text("Mohammed Hussien")
                            }
                            
                            HStack {

@@ -28,7 +28,7 @@ struct ViewsContainer: View {
                 case .favorites:
                     Text("Favorites View")
                 case .profile:
-                    SettingsScreen()
+                    ProfileScreen()
                 }
 
                 VStack {

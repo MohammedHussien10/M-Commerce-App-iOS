@@ -8,11 +8,33 @@
 import SwiftUI
 
 struct ProfileCell: View {
+    var nameOfCell: String
+    var CellIcon: String
+    var dropIcon: String
+    var trailingText: String? = nil
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Image(systemName: CellIcon)
+                .foregroundColor(.black)
+            
+            Text(nameOfCell)
+                .font(.headline) 
+                .foregroundColor(.primary)
+            Spacer()
+            if let trailingText = trailingText {
+                            Text(trailingText)
+                                .foregroundColor(.gray)
+                        }
+            
+            if !dropIcon.isEmpty {
+                Image(systemName: dropIcon)
+                    .foregroundColor(.black)
+            }
+        }
+        .padding()
     }
 }
 
-#Preview {
-    ProfileCell()
-}
+//#Preview {
+//    ProfileCell()
+//}
