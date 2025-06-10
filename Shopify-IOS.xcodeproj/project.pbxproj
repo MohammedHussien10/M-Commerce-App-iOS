@@ -123,7 +123,13 @@
 		226A37292DF667B1008D43E2 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A37232DF667B1008D43E2 /* SettingsCell.swift */; };
 		226A372A2DF667B1008D43E2 /* ContactUsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A37252DF667B1008D43E2 /* ContactUsRow.swift */; };
 		226A372B2DF667B1008D43E2 /* ContactUS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A37262DF667B1008D43E2 /* ContactUS.swift */; };
-		226A372C2DF667B1008D43E2 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A37272DF667B1008D43E2 /* Settings.swift */; };
+		226A372C2DF667B1008D43E2 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A37272DF667B1008D43E2 /* SettingsScreen.swift */; };
+		22DA21952DF67C74001FA5E0 /* Addresses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA21942DF67C74001FA5E0 /* Addresses.swift */; };
+		22DA21982DF68151001FA5E0 /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA21972DF68151001FA5E0 /* ProfileScreen.swift */; };
+		22DA219A2DF690C3001FA5E0 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA21992DF690C3001FA5E0 /* ProfileHeader.swift */; };
+		22DA219D2DF69CE5001FA5E0 /* Orders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA219C2DF69CE5001FA5E0 /* Orders.swift */; };
+		22DA21A32DF79E51001FA5E0 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA21A22DF79E51001FA5E0 /* ProfileViewModel.swift */; };
+		22DA21A82DF7BF1E001FA5E0 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA21A72DF7BF1E001FA5E0 /* ProfileCell.swift */; };
 		22EBEF5C2DF2424100EF8FA6 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 22EBEF5B2DF2424100EF8FA6 /* Apollo */; };
 /* End PBXBuildFile section */
 
@@ -263,7 +269,13 @@
 		226A37232DF667B1008D43E2 /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		226A37252DF667B1008D43E2 /* ContactUsRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUsRow.swift; sourceTree = "<group>"; };
 		226A37262DF667B1008D43E2 /* ContactUS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUS.swift; sourceTree = "<group>"; };
-		226A37272DF667B1008D43E2 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		226A37272DF667B1008D43E2 /* SettingsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
+		22DA21942DF67C74001FA5E0 /* Addresses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Addresses.swift; sourceTree = "<group>"; };
+		22DA21972DF68151001FA5E0 /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
+		22DA21992DF690C3001FA5E0 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
+		22DA219C2DF69CE5001FA5E0 /* Orders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orders.swift; sourceTree = "<group>"; };
+		22DA21A22DF79E51001FA5E0 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		22DA21A72DF7BF1E001FA5E0 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -422,7 +434,7 @@
 		221E10AA2DF6619600D3B4CD /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
-				226A37202DF667B1008D43E2 /* Settings */,
+				22DA21962DF68020001FA5E0 /* ProfileScreen */,
 				221E10AF2DF6619600D3B4CD /* ViewsContainer */,
 				221E10B42DF6619600D3B4CD /* Products */,
 				221E10B72DF6619600D3B4CD /* CategoriesScreen */,
@@ -745,10 +757,11 @@
 		226A37202DF667B1008D43E2 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				226A37272DF667B1008D43E2 /* SettingsScreen.swift */,
+				22DA21932DF67C5A001FA5E0 /* Addresses */,
 				226A37212DF667B1008D43E2 /* AboutUs */,
 				226A37232DF667B1008D43E2 /* SettingsCell.swift */,
 				226A37242DF667B1008D43E2 /* ContactUS */,
-				226A37272DF667B1008D43E2 /* Settings.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -768,6 +781,51 @@
 				226A37262DF667B1008D43E2 /* ContactUS.swift */,
 			);
 			path = ContactUS;
+			sourceTree = "<group>";
+		};
+		22DA21932DF67C5A001FA5E0 /* Addresses */ = {
+			isa = PBXGroup;
+			children = (
+				22DA21942DF67C74001FA5E0 /* Addresses.swift */,
+			);
+			path = Addresses;
+			sourceTree = "<group>";
+		};
+		22DA21962DF68020001FA5E0 /* ProfileScreen */ = {
+			isa = PBXGroup;
+			children = (
+				22DA21A42DF7BEB9001FA5E0 /* Profile */,
+				22DA21A12DF79B7F001FA5E0 /* ProfileViewModel */,
+				22DA219B2DF69C31001FA5E0 /* Orders */,
+				226A37202DF667B1008D43E2 /* Settings */,
+			);
+			path = ProfileScreen;
+			sourceTree = "<group>";
+		};
+		22DA219B2DF69C31001FA5E0 /* Orders */ = {
+			isa = PBXGroup;
+			children = (
+				22DA219C2DF69CE5001FA5E0 /* Orders.swift */,
+			);
+			path = Orders;
+			sourceTree = "<group>";
+		};
+		22DA21A12DF79B7F001FA5E0 /* ProfileViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				22DA21A22DF79E51001FA5E0 /* ProfileViewModel.swift */,
+			);
+			path = ProfileViewModel;
+			sourceTree = "<group>";
+		};
+		22DA21A42DF7BEB9001FA5E0 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				22DA21972DF68151001FA5E0 /* ProfileScreen.swift */,
+				22DA21992DF690C3001FA5E0 /* ProfileHeader.swift */,
+				22DA21A72DF7BF1E001FA5E0 /* ProfileCell.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -924,6 +982,7 @@
 				221E113C2DF6619600D3B4CD /* ViewsContainer.swift in Sources */,
 				221E11652DF6619600D3B4CD /* UrlRedirect.graphql.swift in Sources */,
 				221E117F2DF6619700D3B4CD /* SearchQuerySuggestion.graphql.swift in Sources */,
+				22DA21A82DF7BF1E001FA5E0 /* ProfileCell.swift in Sources */,
 				221E112E2DF6619600D3B4CD /* QuantityRuel.swift in Sources */,
 				221E118C2DF6619700D3B4CD /* ShopPayInstallmentsProductVariantPricing.graphql.swift in Sources */,
 				221E11682DF6619600D3B4CD /* GenericFile.graphql.swift in Sources */,
@@ -938,7 +997,9 @@
 				221E118D2DF6619700D3B4CD /* SchemaConfiguration.swift in Sources */,
 				221E11832DF6619700D3B4CD /* Metafield.graphql.swift in Sources */,
 				221E117C2DF6619700D3B4CD /* MailingAddress.graphql.swift in Sources */,
+				22DA219D2DF69CE5001FA5E0 /* Orders.swift in Sources */,
 				221E11622DF6619600D3B4CD /* MenuItem.graphql.swift in Sources */,
+				22DA21982DF68151001FA5E0 /* ProfileScreen.swift in Sources */,
 				221E112F2DF6619600D3B4CD /* Category.swift in Sources */,
 				221E116F2DF6619600D3B4CD /* ExternalVideo.graphql.swift in Sources */,
 				221E114E2DF6619600D3B4CD /* RequestType.swift in Sources */,
@@ -973,12 +1034,14 @@
 				221E11542DF6619600D3B4CD /* GetAllProductsQuery.graphql.swift in Sources */,
 				221E11492DF6619600D3B4CD /* HomeScreen.swift in Sources */,
 				221E113D2DF6619600D3B4CD /* CustomTabBarShap.swift in Sources */,
+				22DA219A2DF690C3001FA5E0 /* ProfileHeader.swift in Sources */,
+				22DA21A32DF79E51001FA5E0 /* ProfileViewModel.swift in Sources */,
 				226A37292DF667B1008D43E2 /* SettingsCell.swift in Sources */,
 				221E113F2DF6619600D3B4CD /* CategoriesScreen.swift in Sources */,
 				221E11562DF6619600D3B4CD /* ID.swift in Sources */,
 				221E11962DF6619700D3B4CD /* NetworkInterceptorProvider.swift in Sources */,
 				221E118E2DF6619700D3B4CD /* SchemaMetadata.graphql.swift in Sources */,
-				226A372C2DF667B1008D43E2 /* Settings.swift in Sources */,
+				226A372C2DF667B1008D43E2 /* SettingsScreen.swift in Sources */,
 				221E11892DF6619700D3B4CD /* Product.graphql.swift in Sources */,
 				221E11932DF6619700D3B4CD /* OnlineStorePublishable.graphql.swift in Sources */,
 				221E112B2DF6619600D3B4CD /* Mappable.swift in Sources */,
@@ -1009,6 +1072,7 @@
 				221E11672DF6619600D3B4CD /* ImageConnection.graphql.swift in Sources */,
 				221E113E2DF6619600D3B4CD /* ProductDetailsView.swift in Sources */,
 				221E118A2DF6619700D3B4CD /* ShopPolicy.graphql.swift in Sources */,
+				22DA21952DF67C74001FA5E0 /* Addresses.swift in Sources */,
 				221E11692DF6619600D3B4CD /* TaxonomyCategory.graphql.swift in Sources */,
 				221E114F2DF6619600D3B4CD /* NetworkConstants.swift in Sources */,
 				226A37282DF667B1008D43E2 /* AboutUs.swift in Sources */,

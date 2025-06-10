@@ -17,8 +17,9 @@ struct SettingsScreen: View {
             ScrollView {
                 VStack {
                     Spacer().frame(height: 30)
-                    SettingsCell(nameOfCell: "Addresses", CellIcon: "house", dropIcon: "chevron.down")
-                    
+                    NavigationLink(destination: Addresses()) {
+                        SettingsCell(nameOfCell: "Addresses", CellIcon: "house", dropIcon: "chevron.down")
+                    }
                     Divider()
                     
                     

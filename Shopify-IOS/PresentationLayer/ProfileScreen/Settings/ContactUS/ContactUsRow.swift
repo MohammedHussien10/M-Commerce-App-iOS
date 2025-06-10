@@ -30,6 +30,3 @@ struct ContactUsRow: View {
         }
 }
 
-//#Preview {
-//    ContactUsRow(icon: "envelope", title: "Email", subtitle: "MNAShop@2025@gmail.com")
-//}
