@@ -38,7 +38,7 @@ struct ContactUS: View {
                     .padding(.top, 10)
                     VStack(alignment: .leading, spacing: 20) {
                         ContactUsRow(icon: "phone.fill", title: "Call", subtitle: "17002")
-                        ContactUsRow(icon: "envelope.fill", title: "Email", subtitle: "genie2025@gmail.com")
+                        ContactUsRow(icon: "envelope.fill", title: "Email", subtitle: "genieStore2025@gmail.com")
                         ContactUsRow(icon: "map.fill", title: "Location", subtitle: "Ismailia, Egypt")
                     }
                     .padding(.top, 30)

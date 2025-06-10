@@ -17,11 +17,11 @@ struct AboutUs: View {
                            .frame(width: 200, height: 150)
                            .padding(.top)
                        
-                       Text("Genie Shop")
+                       Text("Genie Store")
                            .font(.largeTitle)
                            .fontWeight(.bold)
                        
-                       Text("Genie Shop is your go-to app for all your shopping needs and We provide a seamless and secure experience for finding the best deals on your favorite products.")
+                       Text("Genie Store is your go-to app for all your shopping needs and We provide a seamless and secure experience for finding the best deals on your favorite products.")
                            .font(.body)
                            .foregroundColor(.secondary)
                        
