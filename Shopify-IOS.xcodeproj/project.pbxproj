@@ -124,6 +124,10 @@
 		226A372A2DF667B1008D43E2 /* ContactUsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A37252DF667B1008D43E2 /* ContactUsRow.swift */; };
 		226A372B2DF667B1008D43E2 /* ContactUS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A37262DF667B1008D43E2 /* ContactUS.swift */; };
 		226A372C2DF667B1008D43E2 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A37272DF667B1008D43E2 /* SettingsScreen.swift */; };
+		22CDF8CD2DFA369B00DBA7D2 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CDF8CC2DFA369B00DBA7D2 /* SettingsViewModel.swift */; };
+		22CDF8D02DFA988B00DBA7D2 /* CurrencyOfProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CDF8CF2DFA988B00DBA7D2 /* CurrencyOfProduct.swift */; };
+		22CDF8D32DFAA87600DBA7D2 /* CurrencySettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CDF8D22DFAA87600DBA7D2 /* CurrencySettingsCell.swift */; };
+		22CDF8D62DFAAD0300DBA7D2 /* priceFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CDF8D52DFAAD0300DBA7D2 /* priceFormatter.swift */; };
 		22DA21952DF67C74001FA5E0 /* Addresses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA21942DF67C74001FA5E0 /* Addresses.swift */; };
 		22DA21982DF68151001FA5E0 /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA21972DF68151001FA5E0 /* ProfileScreen.swift */; };
 		22DA219A2DF690C3001FA5E0 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA21992DF690C3001FA5E0 /* ProfileHeader.swift */; };
@@ -270,6 +274,10 @@
 		226A37252DF667B1008D43E2 /* ContactUsRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUsRow.swift; sourceTree = "<group>"; };
 		226A37262DF667B1008D43E2 /* ContactUS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUS.swift; sourceTree = "<group>"; };
 		226A37272DF667B1008D43E2 /* SettingsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
+		22CDF8CC2DFA369B00DBA7D2 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		22CDF8CF2DFA988B00DBA7D2 /* CurrencyOfProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyOfProduct.swift; sourceTree = "<group>"; };
+		22CDF8D22DFAA87600DBA7D2 /* CurrencySettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencySettingsCell.swift; sourceTree = "<group>"; };
+		22CDF8D52DFAAD0300DBA7D2 /* priceFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = priceFormatter.swift; sourceTree = "<group>"; };
 		22DA21942DF67C74001FA5E0 /* Addresses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Addresses.swift; sourceTree = "<group>"; };
 		22DA21972DF68151001FA5E0 /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		22DA21992DF690C3001FA5E0 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
@@ -368,6 +376,7 @@
 		221E10952DF6619600D3B4CD /* Domin */ = {
 			isa = PBXGroup;
 			children = (
+				22CDF8CE2DFA986700DBA7D2 /* Enums */,
 				221E10962DF6619600D3B4CD /* Entity */,
 				221E109D2DF6619600D3B4CD /* Utilites */,
 			);
@@ -409,6 +418,7 @@
 		221E10A52DF6619600D3B4CD /* Units */ = {
 			isa = PBXGroup;
 			children = (
+				22CDF8D42DFAACE100DBA7D2 /* Price Formatter */,
 				221E10A62DF6619600D3B4CD /* Colors */,
 				221E10A82DF6619600D3B4CD /* Configs */,
 			);
@@ -757,10 +767,11 @@
 		226A37202DF667B1008D43E2 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				22CDF8CB2DFA368000DBA7D2 /* SettingsViewModel */,
+				22CDF8D12DFAA86100DBA7D2 /* Cells */,
 				226A37272DF667B1008D43E2 /* SettingsScreen.swift */,
 				22DA21932DF67C5A001FA5E0 /* Addresses */,
 				226A37212DF667B1008D43E2 /* AboutUs */,
-				226A37232DF667B1008D43E2 /* SettingsCell.swift */,
 				226A37242DF667B1008D43E2 /* ContactUS */,
 			);
 			path = Settings;
@@ -781,6 +792,39 @@
 				226A37262DF667B1008D43E2 /* ContactUS.swift */,
 			);
 			path = ContactUS;
+			sourceTree = "<group>";
+		};
+		22CDF8CB2DFA368000DBA7D2 /* SettingsViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				22CDF8CC2DFA369B00DBA7D2 /* SettingsViewModel.swift */,
+			);
+			path = SettingsViewModel;
+			sourceTree = "<group>";
+		};
+		22CDF8CE2DFA986700DBA7D2 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				22CDF8CF2DFA988B00DBA7D2 /* CurrencyOfProduct.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		22CDF8D12DFAA86100DBA7D2 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				226A37232DF667B1008D43E2 /* SettingsCell.swift */,
+				22CDF8D22DFAA87600DBA7D2 /* CurrencySettingsCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		22CDF8D42DFAACE100DBA7D2 /* Price Formatter */ = {
+			isa = PBXGroup;
+			children = (
+				22CDF8D52DFAAD0300DBA7D2 /* priceFormatter.swift */,
+			);
+			path = "Price Formatter";
 			sourceTree = "<group>";
 		};
 		22DA21932DF67C5A001FA5E0 /* Addresses */ = {
@@ -977,6 +1021,7 @@
 				221E11552DF6619600D3B4CD /* GetCollectionsQuery.graphql.swift in Sources */,
 				221E11462DF6619600D3B4CD /* ProductHeader.swift in Sources */,
 				221E11822DF6619700D3B4CD /* Market.graphql.swift in Sources */,
+				22CDF8D62DFAAD0300DBA7D2 /* priceFormatter.swift in Sources */,
 				221E114D2DF6619600D3B4CD /* TokenInterceptor.swift in Sources */,
 				221E11762DF6619700D3B4CD /* QueryRoot.graphql.swift in Sources */,
 				221E113C2DF6619600D3B4CD /* ViewsContainer.swift in Sources */,
@@ -1004,6 +1049,7 @@
 				221E116F2DF6619600D3B4CD /* ExternalVideo.graphql.swift in Sources */,
 				221E114E2DF6619600D3B4CD /* RequestType.swift in Sources */,
 				221E117D2DF6619700D3B4CD /* ShopPayInstallmentsFinancingPlan.graphql.swift in Sources */,
+				22CDF8CD2DFA369B00DBA7D2 /* SettingsViewModel.swift in Sources */,
 				221E115F2DF6619600D3B4CD /* ProductVariant.graphql.swift in Sources */,
 				221E11452DF6619600D3B4CD /* imge.swift in Sources */,
 				221E11942DF6619700D3B4CD /* Node.graphql.swift in Sources */,
@@ -1019,6 +1065,7 @@
 				221E11772DF6619700D3B4CD /* CompanyLocation.graphql.swift in Sources */,
 				221E11432DF6619600D3B4CD /* ProductItem.swift in Sources */,
 				221E11592DF6619600D3B4CD /* URL.swift in Sources */,
+				22CDF8D02DFA988B00DBA7D2 /* CurrencyOfProduct.swift in Sources */,
 				221E11742DF6619600D3B4CD /* Location.graphql.swift in Sources */,
 				221E118F2DF6619700D3B4CD /* Media.graphql.swift in Sources */,
 				221E112D2DF6619600D3B4CD /* Variants.swift in Sources */,
@@ -1045,6 +1092,7 @@
 				221E11892DF6619700D3B4CD /* Product.graphql.swift in Sources */,
 				221E11932DF6619700D3B4CD /* OnlineStorePublishable.graphql.swift in Sources */,
 				221E112B2DF6619600D3B4CD /* Mappable.swift in Sources */,
+				22CDF8D32DFAA87600DBA7D2 /* CurrencySettingsCell.swift in Sources */,
 				221E11312DF6619600D3B4CD /* ArrayExtention.swift in Sources */,
 				221E11302DF6619600D3B4CD /* Product.swift in Sources */,
 				221E117A2DF6619700D3B4CD /* Customer.graphql.swift in Sources */,

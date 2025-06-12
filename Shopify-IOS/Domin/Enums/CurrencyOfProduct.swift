@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Currency:String,CaseIterable,Identifiable{
+enum CurrencyOfProduct:String,CaseIterable,Identifiable{
     
     var id  : String {rawValue}
     

@@ -11,7 +11,7 @@ struct SettingsCell: View {
     var nameOfCell: String
     var CellIcon: String
     var dropIcon: String
-    @Binding  var trailingText: CurrencyOfProduct?
+   @Binding var trailingText: String?
     var body: some View {
         HStack {
             Image(systemName: CellIcon)
@@ -21,9 +21,9 @@ struct SettingsCell: View {
                 .font(.headline)                .foregroundColor(.primary)
             Spacer()
             if let trailingText = trailingText {
-                         Text(trailingText.rawValue)
-                             .foregroundColor(.gray)
-                     }
+                            Text(trailingText)
+                                .foregroundColor(.gray)
+                        }
             
             if !dropIcon.isEmpty {
                 Image(systemName: dropIcon)

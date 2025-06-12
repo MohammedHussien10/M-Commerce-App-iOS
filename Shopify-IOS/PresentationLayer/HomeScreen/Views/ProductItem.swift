@@ -10,7 +10,7 @@ import Kingfisher
 
 struct ProductItem: View {
     let product: Product
-
+    let currency = UserDefaults.standard.string(forKey: "selectedCurrency") ?? "USD"
     var body: some View {
         NavigationLink(destination: ProductDetailsView()) {
             VStack(alignment: .leading, spacing: 4) {
@@ -39,7 +39,7 @@ struct ProductItem: View {
 
                     if let firstVariant = product.variants.first {
                         let price = firstVariant.price.amount
-                        Text("\(price)")
+                        Text(price.priceFormatter(with: currency))
                             .font(.system(size: 17, weight: .bold, design: .rounded))
                             .foregroundColor(.black)
                     } else {

@@ -8,17 +8,16 @@
 import SwiftUI
 
 struct SettingsScreen: View {
-    
-    @State private var selectedCurrency = "USD"
+    @State private var addressText: String? = "Cairo"
+    @StateObject var settingsViewModel = SettingsViewModel()
     @State private var showCurrencyPicker = false
-    let currencies = ["USD", "EUR", "EGP"]
     var body: some View {
         NavigationStack{
             ScrollView {
                 VStack {
                     Spacer().frame(height: 30)
                     NavigationLink(destination: Addresses()) {
-                        SettingsCell(nameOfCell: "Addresses", CellIcon: "house", dropIcon: "chevron.down")
+                        SettingsCell(nameOfCell: "Addresses", CellIcon: "house", dropIcon: "chevron.down", trailingText: $addressText)
                     }
                     Divider()
                     
@@ -28,19 +27,19 @@ struct SettingsScreen: View {
                             showCurrencyPicker.toggle()
                         }
                     }) {
-                        SettingsCell(
+                        CurrencySettingsCell(
                             nameOfCell: "Currency",
                             CellIcon: "dollarsign",
                             dropIcon: "chevron.down",
-                            trailingText: selectedCurrency
+                            trailingText: settingsViewModel.selectedCurrency
                         )
                     }
                     .buttonStyle(PlainButtonStyle())
                     
                     if showCurrencyPicker {
-                        Picker("Select Currency", selection: $selectedCurrency) {
-                            ForEach(currencies, id: \.self) { currency in
-                                Text(currency)
+                        Picker("Select Currency", selection: $settingsViewModel.selectedCurrency) {
+                            ForEach(CurrencyOfProduct.allCases) { currency in
+                                Text(currency.rawValue).tag(currency)
                             }
                         }
                         .pickerStyle(WheelPickerStyle()) 
@@ -48,11 +47,11 @@ struct SettingsScreen: View {
                     }
                     Divider()
                     NavigationLink(destination: ContactUS()) {
-                        SettingsCell(nameOfCell: "Contact Us", CellIcon: "phone", dropIcon: "")
+                        SettingsCell(nameOfCell: "Contact Us", CellIcon: "phone", dropIcon: "", trailingText: .constant(nil))
                     }
                     Divider()
                     NavigationLink(destination: AboutUs()) {
-                        SettingsCell(nameOfCell: "About Us", CellIcon: "info.circle", dropIcon: "")
+                        SettingsCell(nameOfCell: "About Us", CellIcon: "info.circle", dropIcon: "", trailingText: .constant(nil))
                     }
                 }
                 .padding()
