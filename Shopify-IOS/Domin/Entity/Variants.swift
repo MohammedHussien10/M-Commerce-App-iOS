@@ -17,4 +17,6 @@ struct Variant: Identifiable,  Codable  {
     let price: Money
     let unitPrice: Money?
     let quantityRule: QuantityRule
+    let selectedOptions: [SelectedOption]
 }
+

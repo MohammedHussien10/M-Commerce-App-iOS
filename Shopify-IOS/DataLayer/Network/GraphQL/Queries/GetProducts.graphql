@@ -45,6 +45,10 @@ query GetAllProducts($first: Int) {
             amount
             currencyCode
           }
+          selectedOptions {
+            name
+            value 
+          }
           quantityRule {
             increment
             maximum

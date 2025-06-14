@@ -8,7 +8,7 @@ extension GraphQLCodeGen {
     static let operationName: String = "GetAllProducts"
     static let operationDocument: ApolloAPI.OperationDocument = .init(
       definition: .init(
-        #"query GetAllProducts($first: Int) { products(first: $first) { __typename nodes { __typename availableForSale category { __typename id name } descriptionHtml encodedVariantAvailability encodedVariantExistence featuredImage { __typename url } id images(first: $first) { __typename nodes { __typename url } } productType title totalInventory vendor variantsCount { __typename count precision } variants(first: $first) { __typename nodes { __typename barcode availableForSale currentlyNotInStock image { __typename url } id price { __typename amount currencyCode } sku title unitPrice { __typename amount currencyCode } quantityRule { __typename increment maximum minimum } product { __typename availableForSale descriptionHtml id featuredImage { __typename url } title totalInventory vendor } } } } } }"#
+        #"query GetAllProducts($first: Int) { products(first: $first) { __typename nodes { __typename availableForSale category { __typename id name } descriptionHtml encodedVariantAvailability encodedVariantExistence featuredImage { __typename url } id images(first: $first) { __typename nodes { __typename url } } productType title totalInventory vendor variantsCount { __typename count precision } variants(first: $first) { __typename nodes { __typename barcode availableForSale currentlyNotInStock image { __typename url } id price { __typename amount currencyCode } sku title unitPrice { __typename amount currencyCode } selectedOptions { __typename name value } quantityRule { __typename increment maximum minimum } product { __typename availableForSale descriptionHtml id featuredImage { __typename url } title totalInventory vendor } } } } } }"#
       ))
 
     public var first: GraphQLNullable<Int>
@@ -295,6 +295,7 @@ extension GraphQLCodeGen {
                 .field("sku", String?.self),
                 .field("title", String.self),
                 .field("unitPrice", UnitPrice?.self),
+                .field("selectedOptions", [SelectedOption].self),
                 .field("quantityRule", QuantityRule.self),
                 .field("product", Product.self),
               ] }
@@ -317,6 +318,8 @@ extension GraphQLCodeGen {
               var title: String { __data["title"] }
               /// The unit price value for the variant based on the variant's measurement.
               var unitPrice: UnitPrice? { __data["unitPrice"] }
+              /// List of product options applied to the variant.
+              var selectedOptions: [SelectedOption] { __data["selectedOptions"] }
               /// The quantity rule for the product variant in a given context.
               var quantityRule: QuantityRule { __data["quantityRule"] }
               /// The product object that the product variant belongs to.
@@ -383,6 +386,26 @@ extension GraphQLCodeGen {
                 var amount: GraphQLCodeGen.Decimal { __data["amount"] }
                 /// Currency of the money.
                 var currencyCode: GraphQLEnum<GraphQLCodeGen.CurrencyCode> { __data["currencyCode"] }
+              }
+
+              /// Products.Node.Variants.Node.SelectedOption
+              ///
+              /// Parent Type: `SelectedOption`
+              struct SelectedOption: GraphQLCodeGen.SelectionSet {
+                let __data: DataDict
+                init(_dataDict: DataDict) { __data = _dataDict }
+
+                static var __parentType: any ApolloAPI.ParentType { GraphQLCodeGen.Objects.SelectedOption }
+                static var __selections: [ApolloAPI.Selection] { [
+                  .field("__typename", String.self),
+                  .field("name", String.self),
+                  .field("value", String.self),
+                ] }
+
+                /// The product option’s name.
+                var name: String { __data["name"] }
+                /// The product option’s value.
+                var value: String { __data["value"] }
               }
 
               /// Products.Node.Variants.Node.QuantityRule

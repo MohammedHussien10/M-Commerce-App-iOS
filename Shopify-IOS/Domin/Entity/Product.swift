@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct Product {
+struct Product :Identifiable{
     let id: String
     let title: String
     let descriptionHtml: String
