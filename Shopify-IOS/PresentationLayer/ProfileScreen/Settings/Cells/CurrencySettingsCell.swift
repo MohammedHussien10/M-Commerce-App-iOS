@@ -1,17 +1,18 @@
 //
-//  SettingsCell.swift
+//  File.swift
 //  Shopify-IOS
 //
-//  Created by Macos on 06/06/2025.
+//  Created by Macos on 12/06/2025.
 //
 
+import Foundation
 import SwiftUI
 
-struct SettingsCell: View {
+struct CurrencySettingsCell: View {
     var nameOfCell: String
     var CellIcon: String
     var dropIcon: String
-    var trailingText: String? = nil
+    var trailingText: CurrencyOfProduct?
     var body: some View {
         HStack {
             Image(systemName: CellIcon)
@@ -21,7 +22,7 @@ struct SettingsCell: View {
                 .font(.headline)                .foregroundColor(.primary)
             Spacer()
             if let trailingText = trailingText {
-                            Text(trailingText)
+                Text(trailingText.rawValue)
                                 .foregroundColor(.gray)
                         }
             
@@ -33,9 +34,3 @@ struct SettingsCell: View {
         .padding()
     }
 }
-
-#Preview {
-    SettingsCell(nameOfCell: "Addresses", CellIcon: "house", dropIcon: "chevron.down")
-    
-}
-
