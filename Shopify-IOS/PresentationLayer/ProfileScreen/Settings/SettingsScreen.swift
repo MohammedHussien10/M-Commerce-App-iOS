@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct SettingsScreen: View {
-    @State private var addressText: String? = "Cairo"
     @StateObject var settingsViewModel = SettingsViewModel()
     @State private var showCurrencyPicker = false
     var body: some View {
@@ -16,8 +15,8 @@ struct SettingsScreen: View {
             ScrollView {
                 VStack {
                     Spacer().frame(height: 30)
-                    NavigationLink(destination: Addresses()) {
-                        SettingsCell(nameOfCell: "Addresses", CellIcon: "house", dropIcon: "chevron.down", trailingText: $addressText)
+                    NavigationLink(destination: AddressesScreen()) {
+                        SettingsCell(nameOfCell: "Addresses", CellIcon: "house", dropIcon: "chevron.right", trailingText: .constant(nil))
                     }
                     Divider()
                     

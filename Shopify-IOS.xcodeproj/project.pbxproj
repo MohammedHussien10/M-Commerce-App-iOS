@@ -124,11 +124,17 @@
 		226A372A2DF667B1008D43E2 /* ContactUsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A37252DF667B1008D43E2 /* ContactUsRow.swift */; };
 		226A372B2DF667B1008D43E2 /* ContactUS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A37262DF667B1008D43E2 /* ContactUS.swift */; };
 		226A372C2DF667B1008D43E2 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A37272DF667B1008D43E2 /* SettingsScreen.swift */; };
+		227CB3DB2DFBD86E00F36E91 /* AddressModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 227CB3D92DFBD86E00F36E91 /* AddressModel.xcdatamodeld */; };
+		227CB3DD2DFBD8CB00F36E91 /* AddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227CB3DC2DFBD8CB00F36E91 /* AddressViewModel.swift */; };
+		227CB3E02DFBDA2300F36E91 /* RepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227CB3DF2DFBDA2300F36E91 /* RepositoryProtocol.swift */; };
+		227CB3E22DFBDA4600F36E91 /* RepositoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227CB3E12DFBDA4600F36E91 /* RepositoryImp.swift */; };
+		227CB3E42DFBDDE900F36E91 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227CB3E32DFBDDE900F36E91 /* CoreDataManager.swift */; };
 		22CDF8CD2DFA369B00DBA7D2 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CDF8CC2DFA369B00DBA7D2 /* SettingsViewModel.swift */; };
 		22CDF8D02DFA988B00DBA7D2 /* CurrencyOfProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CDF8CF2DFA988B00DBA7D2 /* CurrencyOfProduct.swift */; };
 		22CDF8D32DFAA87600DBA7D2 /* CurrencySettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CDF8D22DFAA87600DBA7D2 /* CurrencySettingsCell.swift */; };
 		22CDF8D62DFAAD0300DBA7D2 /* priceFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CDF8D52DFAAD0300DBA7D2 /* priceFormatter.swift */; };
-		22DA21952DF67C74001FA5E0 /* Addresses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA21942DF67C74001FA5E0 /* Addresses.swift */; };
+		22D017642DFCECA100F1E517 /* AddAddressScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D017632DFCECA100F1E517 /* AddAddressScreen.swift */; };
+		22DA21952DF67C74001FA5E0 /* AddressesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA21942DF67C74001FA5E0 /* AddressesScreen.swift */; };
 		22DA21982DF68151001FA5E0 /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA21972DF68151001FA5E0 /* ProfileScreen.swift */; };
 		22DA219A2DF690C3001FA5E0 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA21992DF690C3001FA5E0 /* ProfileHeader.swift */; };
 		22DA219D2DF69CE5001FA5E0 /* Orders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA219C2DF69CE5001FA5E0 /* Orders.swift */; };
@@ -274,11 +280,17 @@
 		226A37252DF667B1008D43E2 /* ContactUsRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUsRow.swift; sourceTree = "<group>"; };
 		226A37262DF667B1008D43E2 /* ContactUS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUS.swift; sourceTree = "<group>"; };
 		226A37272DF667B1008D43E2 /* SettingsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
+		227CB3DA2DFBD86E00F36E91 /* AddressModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AddressModel.xcdatamodel; sourceTree = "<group>"; };
+		227CB3DC2DFBD8CB00F36E91 /* AddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewModel.swift; sourceTree = "<group>"; };
+		227CB3DF2DFBDA2300F36E91 /* RepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryProtocol.swift; sourceTree = "<group>"; };
+		227CB3E12DFBDA4600F36E91 /* RepositoryImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryImp.swift; sourceTree = "<group>"; };
+		227CB3E32DFBDDE900F36E91 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		22CDF8CC2DFA369B00DBA7D2 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		22CDF8CF2DFA988B00DBA7D2 /* CurrencyOfProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyOfProduct.swift; sourceTree = "<group>"; };
 		22CDF8D22DFAA87600DBA7D2 /* CurrencySettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencySettingsCell.swift; sourceTree = "<group>"; };
 		22CDF8D52DFAAD0300DBA7D2 /* priceFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = priceFormatter.swift; sourceTree = "<group>"; };
-		22DA21942DF67C74001FA5E0 /* Addresses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Addresses.swift; sourceTree = "<group>"; };
+		22D017632DFCECA100F1E517 /* AddAddressScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressScreen.swift; sourceTree = "<group>"; };
+		22DA21942DF67C74001FA5E0 /* AddressesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressesScreen.swift; sourceTree = "<group>"; };
 		22DA21972DF68151001FA5E0 /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		22DA21992DF690C3001FA5E0 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		22DA219C2DF69CE5001FA5E0 /* Orders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orders.swift; sourceTree = "<group>"; };
@@ -555,6 +567,7 @@
 		221E10CA2DF6619600D3B4CD /* DataLayer */ = {
 			isa = PBXGroup;
 			children = (
+				227CB3DE2DFBD9B900F36E91 /* Repository */,
 				221E10CB2DF6619600D3B4CD /* Coredata Layer */,
 				221E10CF2DF6619600D3B4CD /* Network */,
 			);
@@ -564,8 +577,10 @@
 		221E10CB2DF6619600D3B4CD /* Coredata Layer */ = {
 			isa = PBXGroup;
 			children = (
+				227CB3D92DFBD86E00F36E91 /* AddressModel.xcdatamodeld */,
 				221E10CC2DF6619600D3B4CD /* Shopify_IOS.xcdatamodeld */,
 				221E10CE2DF6619600D3B4CD /* Persistence.swift */,
+				227CB3E32DFBDDE900F36E91 /* CoreDataManager.swift */,
 			);
 			path = "Coredata Layer";
 			sourceTree = "<group>";
@@ -794,6 +809,15 @@
 			path = ContactUS;
 			sourceTree = "<group>";
 		};
+		227CB3DE2DFBD9B900F36E91 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				227CB3DF2DFBDA2300F36E91 /* RepositoryProtocol.swift */,
+				227CB3E12DFBDA4600F36E91 /* RepositoryImp.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
 		22CDF8CB2DFA368000DBA7D2 /* SettingsViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -830,7 +854,9 @@
 		22DA21932DF67C5A001FA5E0 /* Addresses */ = {
 			isa = PBXGroup;
 			children = (
-				22DA21942DF67C74001FA5E0 /* Addresses.swift */,
+				22DA21942DF67C74001FA5E0 /* AddressesScreen.swift */,
+				227CB3DC2DFBD8CB00F36E91 /* AddressViewModel.swift */,
+				22D017632DFCECA100F1E517 /* AddAddressScreen.swift */,
 			);
 			path = Addresses;
 			sourceTree = "<group>";
@@ -1031,6 +1057,7 @@
 				221E112E2DF6619600D3B4CD /* QuantityRuel.swift in Sources */,
 				221E118C2DF6619700D3B4CD /* ShopPayInstallmentsProductVariantPricing.graphql.swift in Sources */,
 				221E11682DF6619600D3B4CD /* GenericFile.graphql.swift in Sources */,
+				227CB3DB2DFBD86E00F36E91 /* AddressModel.xcdatamodeld in Sources */,
 				221E119F2DF664F600D3B4CD /* ContentView.swift in Sources */,
 				221E11972DF6619700D3B4CD /* NetworkManagerProtocol.swift in Sources */,
 				221E11372DF6619600D3B4CD /* Colors.swift in Sources */,
@@ -1073,15 +1100,18 @@
 				221E11502DF6619600D3B4CD /* NetworkManager.swift in Sources */,
 				221E11472DF6619600D3B4CD /* Header.swift in Sources */,
 				221E11332DF6619600D3B4CD /* ImageViewExtension.swift in Sources */,
+				22D017642DFCECA100F1E517 /* AddAddressScreen.swift in Sources */,
 				221E11882DF6619700D3B4CD /* Video.graphql.swift in Sources */,
 				221E11532DF6619600D3B4CD /* GraphQLCodeGen.graphql.swift in Sources */,
 				221E116A2DF6619600D3B4CD /* ProductOption.graphql.swift in Sources */,
 				221E116B2DF6619600D3B4CD /* Count.graphql.swift in Sources */,
 				221E116C2DF6619600D3B4CD /* QuantityRule.graphql.swift in Sources */,
+				227CB3E02DFBDA2300F36E91 /* RepositoryProtocol.swift in Sources */,
 				221E11542DF6619600D3B4CD /* GetAllProductsQuery.graphql.swift in Sources */,
 				221E11492DF6619600D3B4CD /* HomeScreen.swift in Sources */,
 				221E113D2DF6619600D3B4CD /* CustomTabBarShap.swift in Sources */,
 				22DA219A2DF690C3001FA5E0 /* ProfileHeader.swift in Sources */,
+				227CB3E22DFBDA4600F36E91 /* RepositoryImp.swift in Sources */,
 				22DA21A32DF79E51001FA5E0 /* ProfileViewModel.swift in Sources */,
 				226A37292DF667B1008D43E2 /* SettingsCell.swift in Sources */,
 				221E113F2DF6619600D3B4CD /* CategoriesScreen.swift in Sources */,
@@ -1100,6 +1130,7 @@
 				221E11662DF6619600D3B4CD /* Shop.graphql.swift in Sources */,
 				221E11902DF6619700D3B4CD /* Trackable.graphql.swift in Sources */,
 				221E118B2DF6619700D3B4CD /* MediaPresentation.graphql.swift in Sources */,
+				227CB3E42DFBDDE900F36E91 /* CoreDataManager.swift in Sources */,
 				221E11782DF6619700D3B4CD /* Cart.graphql.swift in Sources */,
 				221E11852DF6619700D3B4CD /* AppliedGiftCard.graphql.swift in Sources */,
 				221E11482DF6619600D3B4CD /* Coupons.swift in Sources */,
@@ -1110,6 +1141,7 @@
 				221E11442DF6619600D3B4CD /* ProductsView.swift in Sources */,
 				221E11752DF6619700D3B4CD /* Metaobject.graphql.swift in Sources */,
 				221E11722DF6619600D3B4CD /* Menu.graphql.swift in Sources */,
+				227CB3DD2DFBD8CB00F36E91 /* AddressViewModel.swift in Sources */,
 				226A372B2DF667B1008D43E2 /* ContactUS.swift in Sources */,
 				221E115B2DF6619600D3B4CD /* CurrencyCode.graphql.swift in Sources */,
 				221E115A2DF6619600D3B4CD /* CountPrecision.graphql.swift in Sources */,
@@ -1120,7 +1152,7 @@
 				221E11672DF6619600D3B4CD /* ImageConnection.graphql.swift in Sources */,
 				221E113E2DF6619600D3B4CD /* ProductDetailsView.swift in Sources */,
 				221E118A2DF6619700D3B4CD /* ShopPolicy.graphql.swift in Sources */,
-				22DA21952DF67C74001FA5E0 /* Addresses.swift in Sources */,
+				22DA21952DF67C74001FA5E0 /* AddressesScreen.swift in Sources */,
 				221E11692DF6619600D3B4CD /* TaxonomyCategory.graphql.swift in Sources */,
 				221E114F2DF6619600D3B4CD /* NetworkConstants.swift in Sources */,
 				226A37282DF667B1008D43E2 /* AboutUs.swift in Sources */,
@@ -1503,6 +1535,16 @@
 			);
 			currentVersion = 221E10CD2DF6619600D3B4CD /* Shopify_IOS.xcdatamodel */;
 			path = Shopify_IOS.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		227CB3D92DFBD86E00F36E91 /* AddressModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				227CB3DA2DFBD86E00F36E91 /* AddressModel.xcdatamodel */,
+			);
+			currentVersion = 227CB3DA2DFBD86E00F36E91 /* AddressModel.xcdatamodel */;
+			path = AddressModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
