@@ -1,7 +1,9 @@
-query GetAllProducts($first: Int) {
-  products(first: $first) {
-    nodes {
-      availableForSale
+
+query GetCollection($handle: String, $first: Int) {
+  collection(handle: $handle) {
+    products(first: $first) {
+      nodes {
+        availableForSale
       category {
         id
         name
@@ -67,7 +69,8 @@ query GetAllProducts($first: Int) {
           }
         }
       }
-      tags
+        tags
+      }
     }
   }
 }

@@ -60,6 +60,6 @@ struct ProductItem: View {
                     .stroke(Color.orange, lineWidth: 1.5) // Orange border
             )
            
-        }
+        }.tint(.orange)
     }
 }

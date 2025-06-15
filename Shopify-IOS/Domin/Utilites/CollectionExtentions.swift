@@ -1,24 +1,35 @@
 //
-//  ProducteExtentions.swift
+//  CollectionExtentions.swift
 //  Shopify-IOS
 //
-//  Created by Noha Ali Gomaa on 08/06/2025.
+//  Created by Noha Ali Gomaa on 15/06/2025.
 //
 
 import Foundation
 
-extension GraphQLCodeGen.GetAllProductsQuery.Data.Products: Mappable{
-    typealias DomainModel = [Product]
-    
-    func toDomain() -> DomainModel {
-        return self.nodes.toDomain()
+extension GraphQLCodeGen.GetCollectionsQuery.Data.Collections.Node: Mappable {
+    typealias DomainModel = CollectionModel
+
+    func toDomain() -> CollectionModel {
+        return CollectionModel(
+            id: self.id,
+            title: self.title,
+            handle: self.handle,
+            description: self.description,
+            imageUrl: self.image?.url
+           
+        )
     }
 }
 
-extension GraphQLCodeGen.GetAllProductsQuery.Data.Products.Node: Mappable {
-    typealias DomainModel = Product
+extension GraphQLCodeGen.GetCollectionQuery.Data{
+    func toDomainProducts() -> [Product] {
+        return collection?.products.nodes.map { $0.toDomain() } ?? []
+    }
+}
 
-    func toDomain() -> DomainModel {
+extension GraphQLCodeGen.GetCollectionQuery.Data.Collection.Products.Node: Mappable {
+    func toDomain() -> Product {
         return Product(
             id: id,
             title: title,
@@ -31,30 +42,11 @@ extension GraphQLCodeGen.GetAllProductsQuery.Data.Products.Node: Mappable {
             images: images.nodes.compactMap { URL(string: $0.url) },
             category: category.map { ProductCategory(id: $0.id, name: $0.name) },
             variants: variants.nodes.map { $0.toDomain() },
-            tags: tags 
+            tags: tags
         )
     }
 }
-
-extension GraphQLCodeGen.GetAllProductsQuery.Data.Products.Node.Variants.Node.QuantityRule {
-    func toDomain() -> QuantityRule {
-        return QuantityRule(
-            increment: increment,
-            maximum: maximum ?? 1,
-            minimum: minimum
-        )
-    }
-}
-extension GraphQLCodeGen.GetAllProductsQuery.Data.Products.Node.Variants.Node.SelectedOption {
-    func toDomain() -> SelectedOption {
-        return SelectedOption(
-            name: name ,
-            value: value
-        )
-    }
-}
-
-extension GraphQLCodeGen.GetAllProductsQuery.Data.Products.Node.Variants.Node {
+extension GraphQLCodeGen.GetCollectionQuery.Data.Collection.Products.Node.Variants.Node: Mappable {
     func toDomain() -> Variant {
         return Variant(
             id: id,
@@ -81,5 +73,21 @@ extension GraphQLCodeGen.GetAllProductsQuery.Data.Products.Node.Variants.Node {
         )
     }
 }
-
+extension GraphQLCodeGen.GetCollectionQuery.Data.Collection.Products.Node.Variants.Node.QuantityRule {
+    func toDomain() -> QuantityRule {
+        return QuantityRule(
+            increment: increment,
+            maximum: maximum ?? 1,
+            minimum: minimum
+        )
+    }
+}
+extension GraphQLCodeGen.GetCollectionQuery.Data.Collection.Products.Node.Variants.Node.SelectedOption {
+    func toDomain() -> SelectedOption {
+        return SelectedOption(
+            name: name ,
+            value: value
+        )
+    }
+}
 
