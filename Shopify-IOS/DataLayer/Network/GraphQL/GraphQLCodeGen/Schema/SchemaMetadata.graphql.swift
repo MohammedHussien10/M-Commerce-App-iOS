@@ -69,6 +69,7 @@ extension GraphQLCodeGen {
       case "QuantityRule": return GraphQLCodeGen.Objects.QuantityRule
       case "QueryRoot": return GraphQLCodeGen.Objects.QueryRoot
       case "SearchQuerySuggestion": return GraphQLCodeGen.Objects.SearchQuerySuggestion
+      case "SelectedOption": return GraphQLCodeGen.Objects.SelectedOption
       case "SellingPlan": return GraphQLCodeGen.Objects.SellingPlan
       case "Shop": return GraphQLCodeGen.Objects.Shop
       case "ShopPayInstallmentsFinancingPlan": return GraphQLCodeGen.Objects.ShopPayInstallmentsFinancingPlan

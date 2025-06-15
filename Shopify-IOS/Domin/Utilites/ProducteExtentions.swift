@@ -43,6 +43,14 @@ extension GraphQLCodeGen.GetAllProductsQuery.Data.Products.Node.Variants.Node.Qu
         )
     }
 }
+extension GraphQLCodeGen.GetAllProductsQuery.Data.Products.Node.Variants.Node.SelectedOption {
+    func toDomain() -> SelectedOption {
+        return SelectedOption(
+            name: name ,
+            value: value
+        )
+    }
+}
 
 extension GraphQLCodeGen.GetAllProductsQuery.Data.Products.Node.Variants.Node {
     func toDomain() -> Variant {
@@ -64,7 +72,8 @@ extension GraphQLCodeGen.GetAllProductsQuery.Data.Products.Node.Variants.Node {
                     currencyCode: $0.currencyCode.rawValue
                 )
             },
-            quantityRule: quantityRule.toDomain()
+            quantityRule: quantityRule.toDomain(),
+            selectedOptions: selectedOptions.map { $0.toDomain() }
 
 
         )

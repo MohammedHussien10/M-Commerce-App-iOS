@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeScreen: View {
     @StateObject private var viewModel = HomeViewModel()
+    @State private var showSearchView = false
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -18,6 +19,7 @@ struct HomeScreen: View {
                         rightIcon: "panda",
                         onLeftIconTap: {
                             print("Search tapped")
+                            showSearchView = true
                         },
                         onRightIconTap: {
                             print("Cart tapped")
@@ -46,6 +48,9 @@ struct HomeScreen: View {
             }
             .onAppear {
                 viewModel.fetchProducts()
+            }
+            .navigationDestination(isPresented: $showSearchView) {
+                SearchView()
             }
         }
     }

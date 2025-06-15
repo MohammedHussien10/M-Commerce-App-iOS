@@ -12,7 +12,7 @@ struct ProductItem: View {
     let product: Product
     let currency = UserDefaults.standard.string(forKey: "selectedCurrency") ?? "USD"
     var body: some View {
-        NavigationLink(destination: ProductDetailsView()) {
+        NavigationLink(destination: ProductDetailsView(viewModel: ProductDetailsViewModel(product: product))) {
             VStack(alignment: .leading, spacing: 4) {
                     // Product Image
                     KFImage(product.images.first ?? URL(string: "https://theperfectroundgolf.com/wp-content/uploads/2022/04/placeholder.png")!)
