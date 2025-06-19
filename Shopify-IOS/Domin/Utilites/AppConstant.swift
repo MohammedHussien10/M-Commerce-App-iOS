@@ -23,5 +23,21 @@ struct Constants {
         static let lightFont = "OpenSans-Light"
     }
 }
+func getTags(products: [Product])->[String]{
+    var tags :[String] = ["men", "women", "kid"]
+    products.forEach { Product in
+        Product.tags.forEach { Substring in
+           tags.append(String(Substring))
+        }
+    }
+    let set = Set(tags)
+    tags = Array(set)
+   return tags
+}
+
+func getType(products: [Product])->[String]{
+    let types = products.compactMap { $0.productType }
+    return Array(Set(types))
+}
 let columnSpacing: CGFloat = 10
 let rowSpacing: CGFloat = 10

@@ -75,6 +75,10 @@
 		22DA21A32DF79E51001FA5E0 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA21A22DF79E51001FA5E0 /* ProfileViewModel.swift */; };
 		22DA21A82DF7BF1E001FA5E0 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA21A72DF7BF1E001FA5E0 /* ProfileCell.swift */; };
 		22EBEF5C2DF2424100EF8FA6 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 22EBEF5B2DF2424100EF8FA6 /* Apollo */; };
+		7B4C95332E030039000B916E /* Taps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4C95322E030039000B916E /* Taps.swift */; };
+		7B4C95392E030BB9000B916E /* ViewExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4C95382E030BA2000B916E /* ViewExtention.swift */; };
+		7B4C953B2E030C43000B916E /* PartialSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4C953A2E030C31000B916E /* PartialSheet.swift */; };
+		7B4C953D2E03F26B000B916E /* RangeSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4C953C2E03F26B000B916E /* RangeSliderView.swift */; };
 		7B65D1B32DFEF31100E7A378 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B65D1B12DFEF31100E7A378 /* Collection.swift */; };
 		7B65D1B52DFEF33700E7A378 /* CollectionExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B65D1B42DFEF32B00E7A378 /* CollectionExtentions.swift */; };
 		7B65D1B72DFEFAF800E7A378 /* BrandList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B65D1B62DFEFAF800E7A378 /* BrandList.swift */; };
@@ -247,6 +251,10 @@
 		22DA219C2DF69CE5001FA5E0 /* Orders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orders.swift; sourceTree = "<group>"; };
 		22DA21A22DF79E51001FA5E0 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		22DA21A72DF7BF1E001FA5E0 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		7B4C95322E030039000B916E /* Taps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taps.swift; sourceTree = "<group>"; };
+		7B4C95382E030BA2000B916E /* ViewExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtention.swift; sourceTree = "<group>"; };
+		7B4C953A2E030C31000B916E /* PartialSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartialSheet.swift; sourceTree = "<group>"; };
+		7B4C953C2E03F26B000B916E /* RangeSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeSliderView.swift; sourceTree = "<group>"; };
 		7B65D1B12DFEF31100E7A378 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		7B65D1B42DFEF32B00E7A378 /* CollectionExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtentions.swift; sourceTree = "<group>"; };
 		7B65D1B62DFEFAF800E7A378 /* BrandList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandList.swift; sourceTree = "<group>"; };
@@ -333,6 +341,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		7B4C95342E030170000B916E /* ViewModel */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ViewModel; sourceTree = "<group>"; };
 		7B65D1BA2DFF061600E7A378 /* Brands */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Brands; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -452,6 +461,8 @@
 		221E109D2DF6619600D3B4CD /* Utilites */ = {
 			isa = PBXGroup;
 			children = (
+				7B4C953A2E030C31000B916E /* PartialSheet.swift */,
+				7B4C95382E030BA2000B916E /* ViewExtention.swift */,
 				7B65D1B42DFEF32B00E7A378 /* CollectionExtentions.swift */,
 				221E109E2DF6619600D3B4CD /* ArrayExtention.swift */,
 				221E109F2DF6619600D3B4CD /* AppConstant.swift */,
@@ -551,6 +562,7 @@
 		221E10B72DF6619600D3B4CD /* CategoriesScreen */ = {
 			isa = PBXGroup;
 			children = (
+				7B4C95342E030170000B916E /* ViewModel */,
 				221E10B82DF6619600D3B4CD /* Views */,
 			);
 			path = CategoriesScreen;
@@ -560,6 +572,8 @@
 			isa = PBXGroup;
 			children = (
 				221E10B92DF6619600D3B4CD /* CategoriesScreen.swift */,
+				7B4C95322E030039000B916E /* Taps.swift */,
+				7B4C953C2E03F26B000B916E /* RangeSliderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -978,6 +992,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				7B4C95342E030170000B916E /* ViewModel */,
 				7B65D1BA2DFF061600E7A378 /* Brands */,
 			);
 			name = "Shopify-IOS";
@@ -1120,6 +1135,7 @@
 				221E119F2DF664F600D3B4CD /* ContentView.swift in Sources */,
 				221E11972DF6619700D3B4CD /* NetworkManagerProtocol.swift in Sources */,
 				221E11372DF6619600D3B4CD /* Colors.swift in Sources */,
+				7B4C95332E030039000B916E /* Taps.swift in Sources */,
 				221E11402DF6619600D3B4CD /* HomeViewModel.swift in Sources */,
 				7B65D1B32DFEF31100E7A378 /* Collection.swift in Sources */,
 				C20599552DFAA9C1008CD6FE /* ProductDetailsViewModel.swift in Sources */,
@@ -1145,6 +1161,7 @@
 				22D017642DFCECA100F1E517 /* AddAddressScreen.swift in Sources */,
 				227CB3E02DFBDA2300F36E91 /* RepositoryProtocol.swift in Sources */,
 				221E11492DF6619600D3B4CD /* HomeScreen.swift in Sources */,
+				7B4C953B2E030C43000B916E /* PartialSheet.swift in Sources */,
 				221E113D2DF6619600D3B4CD /* CustomTabBarShap.swift in Sources */,
 				22DA219A2DF690C3001FA5E0 /* ProfileHeader.swift in Sources */,
 				227CB3E22DFBDA4600F36E91 /* RepositoryImp.swift in Sources */,
@@ -1157,6 +1174,7 @@
 				7B65D1B92DFF057800E7A378 /* BrandItem.swift in Sources */,
 				221E11962DF6619700D3B4CD /* NetworkInterceptorProvider.swift in Sources */,
 				C20599592DFAB09D008CD6FE /* Section2.swift in Sources */,
+				7B4C95392E030BB9000B916E /* ViewExtention.swift in Sources */,
 				226A372C2DF667B1008D43E2 /* SettingsScreen.swift in Sources */,
 				221E112B2DF6619600D3B4CD /* Mappable.swift in Sources */,
 				22CDF8D32DFAA87600DBA7D2 /* CurrencySettingsCell.swift in Sources */,
@@ -1193,6 +1211,7 @@
 				7B65D34B2DFF379800E7A378 /* ImageConnection.graphql.swift in Sources */,
 				7B65D34C2DFF379800E7A378 /* MailingAddress.graphql.swift in Sources */,
 				7B65D34D2DFF379800E7A378 /* Model3d.graphql.swift in Sources */,
+				7B4C953D2E03F26B000B916E /* RangeSliderView.swift in Sources */,
 				7B65D34E2DFF379800E7A378 /* MoneyV2.graphql.swift in Sources */,
 				7B65D34F2DFF379800E7A378 /* GetCollectionQuery.graphql.swift in Sources */,
 				7B65D3502DFF379800E7A378 /* CurrencyCode.graphql.swift in Sources */,
