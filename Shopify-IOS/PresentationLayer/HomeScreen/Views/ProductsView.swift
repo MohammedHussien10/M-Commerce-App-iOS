@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProductsView: View {
     let products : [Product]
+    @EnvironmentObject var cartViewModel: CartViewModel
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible())
@@ -18,7 +19,7 @@ struct ProductsView: View {
         LazyVGrid(columns: columns, spacing: 16) {
             ForEach(products, id: \.id) { product in
                
-               ProductItem(product: product).onAppear {
+                ProductItem(product: product).onAppear {
                    print(product.title)
                }
             }

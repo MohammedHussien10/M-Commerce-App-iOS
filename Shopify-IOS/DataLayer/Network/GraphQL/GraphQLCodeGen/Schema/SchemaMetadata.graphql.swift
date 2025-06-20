@@ -31,9 +31,15 @@ extension GraphQLCodeGen {
       switch typename {
       case "AppliedGiftCard": return GraphQLCodeGen.Objects.AppliedGiftCard
       case "Article": return GraphQLCodeGen.Objects.Article
+      case "BaseCartLineConnection": return GraphQLCodeGen.Objects.BaseCartLineConnection
+      case "BaseCartLineEdge": return GraphQLCodeGen.Objects.BaseCartLineEdge
       case "Blog": return GraphQLCodeGen.Objects.Blog
       case "Cart": return GraphQLCodeGen.Objects.Cart
+      case "CartCreatePayload": return GraphQLCodeGen.Objects.CartCreatePayload
       case "CartLine": return GraphQLCodeGen.Objects.CartLine
+      case "CartLinesAddPayload": return GraphQLCodeGen.Objects.CartLinesAddPayload
+      case "CartLinesUpdatePayload": return GraphQLCodeGen.Objects.CartLinesUpdatePayload
+      case "CartUserError": return GraphQLCodeGen.Objects.CartUserError
       case "Collection": return GraphQLCodeGen.Objects.Collection
       case "CollectionConnection": return GraphQLCodeGen.Objects.CollectionConnection
       case "Comment": return GraphQLCodeGen.Objects.Comment
@@ -43,6 +49,7 @@ extension GraphQLCodeGen {
       case "ComponentizableCartLine": return GraphQLCodeGen.Objects.ComponentizableCartLine
       case "Count": return GraphQLCodeGen.Objects.Count
       case "Customer": return GraphQLCodeGen.Objects.Customer
+      case "CustomerUserError": return GraphQLCodeGen.Objects.CustomerUserError
       case "ExternalVideo": return GraphQLCodeGen.Objects.ExternalVideo
       case "GenericFile": return GraphQLCodeGen.Objects.GenericFile
       case "Image": return GraphQLCodeGen.Objects.Image
@@ -55,9 +62,12 @@ extension GraphQLCodeGen {
       case "Menu": return GraphQLCodeGen.Objects.Menu
       case "MenuItem": return GraphQLCodeGen.Objects.MenuItem
       case "Metafield": return GraphQLCodeGen.Objects.Metafield
+      case "MetafieldDeleteUserError": return GraphQLCodeGen.Objects.MetafieldDeleteUserError
+      case "MetafieldsSetUserError": return GraphQLCodeGen.Objects.MetafieldsSetUserError
       case "Metaobject": return GraphQLCodeGen.Objects.Metaobject
       case "Model3d": return GraphQLCodeGen.Objects.Model3d
       case "MoneyV2": return GraphQLCodeGen.Objects.MoneyV2
+      case "Mutation": return GraphQLCodeGen.Objects.Mutation
       case "Order": return GraphQLCodeGen.Objects.Order
       case "Page": return GraphQLCodeGen.Objects.Page
       case "Product": return GraphQLCodeGen.Objects.Product
@@ -78,6 +88,8 @@ extension GraphQLCodeGen {
       case "ShopPolicy": return GraphQLCodeGen.Objects.ShopPolicy
       case "TaxonomyCategory": return GraphQLCodeGen.Objects.TaxonomyCategory
       case "UrlRedirect": return GraphQLCodeGen.Objects.UrlRedirect
+      case "UserError": return GraphQLCodeGen.Objects.UserError
+      case "UserErrorsShopPayPaymentRequestSessionUserErrors": return GraphQLCodeGen.Objects.UserErrorsShopPayPaymentRequestSessionUserErrors
       case "Video": return GraphQLCodeGen.Objects.Video
       default: return nil
       }

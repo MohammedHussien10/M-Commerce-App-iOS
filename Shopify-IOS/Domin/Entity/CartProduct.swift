@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+struct CartProduct: Identifiable {
+    let id: String
+    let quantity: Int
+    let title: String
+    let imageURL: String
+    let price: Double
+}

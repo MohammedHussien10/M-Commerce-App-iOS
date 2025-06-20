@@ -24,7 +24,7 @@ struct ViewsContainer: View {
                 case .grid:
                     CategoriesScreen()
                 case .cart:
-                    Text("Cart View")
+                    ShoppingCartScreen()
                 case .favorites:
                     Text("Favorites View")
                 case .profile:

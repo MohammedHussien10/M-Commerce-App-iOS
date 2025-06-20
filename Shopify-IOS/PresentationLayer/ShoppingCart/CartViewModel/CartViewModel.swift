@@ -6,3 +6,75 @@
 //
 
 import Foundation
+
+class CartViewModel: ObservableObject {
+    @Published var cartId: String? = nil
+    @Published var cartProducts: [CartProduct] = []
+
+    private let useCase: CartUseCaseProtocol
+
+    init(useCase: CartUseCaseProtocol) {
+        self.useCase = useCase
+        createCartIfNeeded()
+    }
+
+    func createCartIfNeeded() {
+        useCase.createCart { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let cartId):
+                    self?.cartId = cartId
+                    self?.loadCartProducts()
+                case .failure(let error):
+                    print("Failed to create cart:", error)
+                }
+            }
+        }
+    }
+
+
+    func addProduct(productId: String, quantity: Int) {
+        guard let cartId = cartId else { return }
+        useCase.addToCart(cartId: cartId, productId: productId, quantity: quantity) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success:
+                    print("Product added to cart")
+                    // Optionally: reload cart lines
+                case .failure(let error):
+                    print("Failed to add to cart:", error)
+                }
+            }
+        }
+    }
+    
+    func loadCartProducts() {
+        guard let cartId = cartId else { return }
+        
+        useCase.getCart(cartId: cartId) { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let cart):
+                    let products = cart.lines.edges.compactMap { edge -> CartProduct? in
+                        guard let variant = edge.node.merchandise.asProductVariant else { return nil }
+
+                        return CartProduct(
+                            id: edge.node.id,
+                            quantity: edge.node.quantity,
+                            title: variant.title,
+                            imageURL: variant.image?.url ?? "",
+                            price: Double(variant.price.amount) ?? 0.0
+                        )
+                    }
+                    self?.cartProducts = products
+
+                case .failure(let error):
+                    print("Failed to load cart: \(error.localizedDescription)")
+                }
+            }
+        }
+    }
+
+
+
+}

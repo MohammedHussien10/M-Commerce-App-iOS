@@ -6,3 +6,26 @@
 //
 
 import Foundation
+final class CartUseCase: CartUseCaseProtocol {
+    private let repository: RepositoryProtocol
+
+       init(repository: RepositoryProtocol) {
+           self.repository = repository
+       }
+
+       func createCart(completion: @escaping (Result<String, Error>) -> Void) {
+           repository.createCart(completion: completion)
+       }
+
+       func addToCart(cartId: String, productId: String, quantity: Int, completion: @escaping (Result<Void, Error>) -> Void) {
+           repository.addToCart(cartId: cartId, productId: productId, quantity: quantity, completion: completion)
+       }
+
+       func updateCartLine(cartId: String, lineId: String, quantity: Int, completion: @escaping (Result<Void, Error>) -> Void) {
+           repository.updateCartLine(cartId: cartId, lineId: lineId, quantity: quantity, completion: completion)
+       }
+       func getCart(cartId: String, completion: @escaping (Result<GraphQLCodeGen.GetCartQuery.Data.Cart, Error>) -> Void) {
+                repository.getCart(cartId: cartId, completion: completion)
+       }
+
+}

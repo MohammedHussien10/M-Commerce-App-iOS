@@ -9,6 +9,8 @@ import Apollo
 import Foundation
 
 final class NetworkManager: NetworkManagerProtocol {
+  
+    
     private let requestType: RequestType
     static var sharedAdmin: NetworkManager = NetworkManager(requestType: .admin)
     static var sharedStoreFront: NetworkManager = NetworkManager(requestType: .storeFront)
@@ -80,6 +82,24 @@ final class NetworkManager: NetworkManagerProtocol {
             }
         }
     }
+
+    //
+    
+//    func performGraphQLRequest<T: GraphQLMutation>(
+//        mutation: T,
+//        completion: @escaping (Result<GraphQLResult<T.Data>, Error>) -> Void
+//    ) {
+//        service.perform(mutation: mutation) { result in
+//            switch result {
+//            case .success(let graphQLResult):
+//                completion(.success(graphQLResult))
+//            case .failure(let error):
+//                completion(.failure(error))
+//            }
+//        }
+//    }
+
+  
 }
 
 

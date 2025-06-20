@@ -7,7 +7,7 @@
 import Foundation
 import Combine
 class ProductDetailsViewModel: ObservableObject {
-    @Published private var product: Product
+    @Published var product: Product
     @Published var isLoading = false
     @Published var errorMessage: String?
     func fetchProducts() {

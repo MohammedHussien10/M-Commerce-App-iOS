@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SearchView: View {
     @StateObject private var viewModel = SearchViewModel()
+    @EnvironmentObject var cartViewModel: CartViewModel
 
     var body: some View {
         NavigationView {
