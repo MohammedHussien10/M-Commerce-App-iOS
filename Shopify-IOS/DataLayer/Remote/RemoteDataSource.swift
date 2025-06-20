@@ -103,6 +103,27 @@ class RemoteDataSource: RemoteDataSourceProtocol {
           }
     }
     
+    func removeCartLine(cartId: String, lineId: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        let mutation = GraphQLCodeGen.RemoveFromCartMutation(
+            cartId: GraphQLCodeGen.ID(cartId),
+            lineIds: [GraphQLCodeGen.ID(lineId)]
+        )
+
+        NetworkManager.sharedStoreFront.performGraphQLRequest(mutation: mutation) { result in
+            switch result {
+            case .success(let data):
+                if let errors = data.cartLinesRemove?.userErrors, !errors.isEmpty {
+                    let message = errors.first?.message ?? "Unknown error"
+                    completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: message])))
+                } else {
+                    completion(.success(()))
+                }
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+
     }
     
   

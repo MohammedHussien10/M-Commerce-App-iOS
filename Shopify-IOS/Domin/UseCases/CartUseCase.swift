@@ -27,5 +27,8 @@ final class CartUseCase: CartUseCaseProtocol {
        func getCart(cartId: String, completion: @escaping (Result<GraphQLCodeGen.GetCartQuery.Data.Cart, Error>) -> Void) {
                 repository.getCart(cartId: cartId, completion: completion)
        }
+       func removeCartLine(cartId: String, lineId: String, completion: @escaping (Result<Void, Error>) -> Void) {
+            repository.removeCartLine(cartId: cartId, lineId: lineId, completion: completion)
+       }
 
 }

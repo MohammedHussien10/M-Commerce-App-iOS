@@ -10,6 +10,7 @@ class ProductDetailsViewModel: ObservableObject {
     @Published var product: Product
     @Published var isLoading = false
     @Published var errorMessage: String?
+    let currency = UserDefaults.standard.string(forKey: "selectedCurrency") ?? "USD"
     func fetchProducts() {
         isLoading = true
         errorMessage = nil
@@ -46,7 +47,8 @@ class ProductDetailsViewModel: ObservableObject {
         return product.descriptionHtml
     }
     var price: String {
-        return "\(product.variants.first!.price.amount) \(product.variants.first!.price.currencyCode)"
+        return "\(product.variants.first!.price.amount.priceFormatter(with: currency))"
+        //\(product.variants.first!.price.currencyCode)
     }
     var sizes: [String] {
         let allSizes = product.variants

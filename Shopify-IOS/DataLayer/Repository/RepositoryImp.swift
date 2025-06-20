@@ -55,5 +55,8 @@ class RepositoryImp: RepositoryProtocol{
     func getCart(cartId: String, completion: @escaping (Result<GraphQLCodeGen.GetCartQuery.Data.Cart, Error>) -> Void) {
         remoteDataSource.getCart(cartId: cartId, completion: completion)
     }
+    func removeCartLine(cartId: String, lineId: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        remoteDataSource.removeCartLine(cartId: cartId, lineId: lineId, completion: completion)
+    }
 
 }

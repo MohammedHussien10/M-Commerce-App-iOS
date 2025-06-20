@@ -19,7 +19,10 @@ struct ShoppingCartScreen: View {
                         cartId: cartId,
                         onUpdateQuantity: { lineId, newQuantity in
                             cartViewModel.updateProductQuantity(cartId: cartId, lineId: lineId, newQuantity: newQuantity)
-                        }
+                        },
+                        onRemove: { lineId in
+                                  cartViewModel.removeProduct(lineId: lineId)  
+                          }
                     )
                 }
             }

@@ -11,7 +11,7 @@ struct CartProductRow: View {
     let product: CartProduct
     let cartId: String
     var onUpdateQuantity: (_ lineId: String, _ newQuantity: Int) -> Void
-
+    var onRemove: (_ lineId: String) -> Void
     var body: some View {
         HStack(alignment: .top) {
             AsyncImage(url: URL(string: product.imageURL)) { image in
@@ -23,11 +23,11 @@ struct CartProductRow: View {
             }
             .frame(width: 80, height: 80)
             .cornerRadius(12)
-
+            
             VStack(alignment: .leading, spacing: 6) {
                 Text(product.title)
                     .font(.headline)
-
+                
                 HStack {
                     Button(action: {
                         if product.quantity > 1 {
@@ -36,22 +36,29 @@ struct CartProductRow: View {
                     }) {
                         Image(systemName: "minus.circle")
                     }
-
+                    
                     Text("\(product.quantity)")
                         .padding(.horizontal)
-
+                    
                     Button(action: {
                         onUpdateQuantity(product.id, product.quantity + 1)
                     }) {
                         Image(systemName: "plus.circle")
                     }
                 }
-
+                
                 Text(String(format: "$%.2f", product.price * Double(product.quantity)))
                     .font(.subheadline)
                     .foregroundColor(.green)
+                Button(action: {
+                    onRemove(product.id)
+                }) {
+                    Image(systemName: "trash")
+                        .foregroundColor(.red)
+                }
+                
             }
-
+            
             Spacer()
         }
         .padding(.vertical, 8)

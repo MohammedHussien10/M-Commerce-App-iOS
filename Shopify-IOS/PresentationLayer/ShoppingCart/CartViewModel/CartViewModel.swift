@@ -99,6 +99,20 @@ class CartViewModel: ObservableObject {
     }
 
 
+    func removeProduct(lineId: String) {
+        guard let cartId = cartId else { return }
+        useCase.removeCartLine(cartId: cartId, lineId: lineId) { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success:
+                    print("Product removed from cart")
+                    self?.loadCartProducts()
+                case .failure(let error):
+                    print("Failed to remove product: \(error.localizedDescription)")
+                }
+            }
+        }
+    }
 
 
 

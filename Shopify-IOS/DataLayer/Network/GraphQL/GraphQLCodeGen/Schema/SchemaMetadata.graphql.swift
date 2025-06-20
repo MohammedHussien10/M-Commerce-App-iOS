@@ -38,6 +38,7 @@ extension GraphQLCodeGen {
       case "CartCreatePayload": return GraphQLCodeGen.Objects.CartCreatePayload
       case "CartLine": return GraphQLCodeGen.Objects.CartLine
       case "CartLinesAddPayload": return GraphQLCodeGen.Objects.CartLinesAddPayload
+      case "CartLinesRemovePayload": return GraphQLCodeGen.Objects.CartLinesRemovePayload
       case "CartLinesUpdatePayload": return GraphQLCodeGen.Objects.CartLinesUpdatePayload
       case "CartUserError": return GraphQLCodeGen.Objects.CartUserError
       case "Collection": return GraphQLCodeGen.Objects.Collection

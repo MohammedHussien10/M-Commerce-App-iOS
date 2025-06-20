@@ -15,4 +15,5 @@ protocol RemoteDataSourceProtocol {
     func addToCart(cartId: String, productId: String, quantity: Int, completion: @escaping (Result<Void, Error>) -> Void)
     func updateCartLine(cartId: String, lineId: String, quantity: Int, completion: @escaping (Result<Void, Error>) -> Void)
     func getCart(cartId: String, completion: @escaping (Result<GraphQLCodeGen.GetCartQuery.Data.Cart, Error>) -> Void)
+    func removeCartLine(cartId: String, lineId: String, completion: @escaping (Result<Void, Error>) -> Void)
 }

@@ -145,7 +145,6 @@
 		222548072E024238004DAF5D /* AddToCartMutation.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 222548062E024238004DAF5D /* AddToCartMutation.graphql */; };
 		2225480A2E024B32004DAF5D /* RemoteDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222548092E024B32004DAF5D /* RemoteDataSourceProtocol.swift */; };
 		2225480C2E024B8B004DAF5D /* RemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225480B2E024B8B004DAF5D /* RemoteDataSource.swift */; };
-		2253E89A2E051376003FA9C6 /* GraphQLCodeGen.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2253E8992E051376003FA9C6 /* GraphQLCodeGen.graphql.swift */; };
 		2253E8A72E0513B1003FA9C6 /* CartAddressInput.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2253E89B2E0513B0003FA9C6 /* CartAddressInput.graphql.swift */; };
 		2253E8A82E0513B1003FA9C6 /* CartBuyerIdentityInput.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2253E89C2E0513B0003FA9C6 /* CartBuyerIdentityInput.graphql.swift */; };
 		2253E8A92E0513B1003FA9C6 /* CartDeliveryCoordinatesPreferenceInput.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2253E89D2E0513B0003FA9C6 /* CartDeliveryCoordinatesPreferenceInput.graphql.swift */; };
@@ -188,6 +187,10 @@
 		22DA219D2DF69CE5001FA5E0 /* Orders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA219C2DF69CE5001FA5E0 /* Orders.swift */; };
 		22DA21A32DF79E51001FA5E0 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA21A22DF79E51001FA5E0 /* ProfileViewModel.swift */; };
 		22DA21A82DF7BF1E001FA5E0 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA21A72DF7BF1E001FA5E0 /* ProfileCell.swift */; };
+		22DB2AA42E05600700F90A9A /* RemoveFromCart.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 22DB2AA32E05600700F90A9A /* RemoveFromCart.graphql */; };
+		22DB2AA62E05625600F90A9A /* GraphQLCodeGen.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DB2AA52E05625600F90A9A /* GraphQLCodeGen.graphql.swift */; };
+		22DB2AA82E0562A100F90A9A /* RemoveFromCartMutation.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DB2AA72E0562A100F90A9A /* RemoveFromCartMutation.graphql.swift */; };
+		22DB2AAA2E05637600F90A9A /* CartLinesRemovePayload.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DB2AA92E05637600F90A9A /* CartLinesRemovePayload.graphql.swift */; };
 		22EBEF5C2DF2424100EF8FA6 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 22EBEF5B2DF2424100EF8FA6 /* Apollo */; };
 		C20599532DFAA94F008CD6FE /* Section1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20599522DFAA94F008CD6FE /* Section1.swift */; };
 		C20599552DFAA9C1008CD6FE /* ProductDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20599542DFAA9C0008CD6FE /* ProductDetailsViewModel.swift */; };
@@ -358,7 +361,6 @@
 		222548062E024238004DAF5D /* AddToCartMutation.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = AddToCartMutation.graphql; sourceTree = "<group>"; };
 		222548092E024B32004DAF5D /* RemoteDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSourceProtocol.swift; sourceTree = "<group>"; };
 		2225480B2E024B8B004DAF5D /* RemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSource.swift; sourceTree = "<group>"; };
-		2253E8992E051376003FA9C6 /* GraphQLCodeGen.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLCodeGen.graphql.swift; sourceTree = "<group>"; };
 		2253E89B2E0513B0003FA9C6 /* CartAddressInput.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartAddressInput.graphql.swift; sourceTree = "<group>"; };
 		2253E89C2E0513B0003FA9C6 /* CartBuyerIdentityInput.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartBuyerIdentityInput.graphql.swift; sourceTree = "<group>"; };
 		2253E89D2E0513B0003FA9C6 /* CartDeliveryCoordinatesPreferenceInput.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartDeliveryCoordinatesPreferenceInput.graphql.swift; sourceTree = "<group>"; };
@@ -401,6 +403,10 @@
 		22DA219C2DF69CE5001FA5E0 /* Orders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orders.swift; sourceTree = "<group>"; };
 		22DA21A22DF79E51001FA5E0 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		22DA21A72DF7BF1E001FA5E0 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		22DB2AA32E05600700F90A9A /* RemoveFromCart.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = RemoveFromCart.graphql; sourceTree = "<group>"; };
+		22DB2AA52E05625600F90A9A /* GraphQLCodeGen.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLCodeGen.graphql.swift; sourceTree = "<group>"; };
+		22DB2AA72E0562A100F90A9A /* RemoveFromCartMutation.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveFromCartMutation.graphql.swift; sourceTree = "<group>"; };
+		22DB2AA92E05637600F90A9A /* CartLinesRemovePayload.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartLinesRemovePayload.graphql.swift; sourceTree = "<group>"; };
 		C20599522DFAA94F008CD6FE /* Section1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section1.swift; sourceTree = "<group>"; };
 		C20599542DFAA9C0008CD6FE /* ProductDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewModel.swift; sourceTree = "<group>"; };
 		C20599582DFAB09D008CD6FE /* Section2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section2.swift; sourceTree = "<group>"; };
@@ -442,6 +448,7 @@
 		220E91352E050C6E00F900D7 /* Mutations */ = {
 			isa = PBXGroup;
 			children = (
+				22DB2AA72E0562A100F90A9A /* RemoveFromCartMutation.graphql.swift */,
 				220E91362E050C6E00F900D7 /* UpdateCartLineMutation.graphql.swift */,
 				220E91372E050C6E00F900D7 /* AddToCartMutation.graphql.swift */,
 				220E91382E050C6E00F900D7 /* CreateCartMutation.graphql.swift */,
@@ -486,6 +493,7 @@
 		220E91482E050D5E00F900D7 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				22DB2AA92E05637600F90A9A /* CartLinesRemovePayload.graphql.swift */,
 				220E91492E050D5E00F900D7 /* Image.graphql.swift */,
 				220E914A2E050D5E00F900D7 /* ProductOptionValue.graphql.swift */,
 				220E914B2E050D5E00F900D7 /* SellingPlan.graphql.swift */,
@@ -897,6 +905,7 @@
 				222548062E024238004DAF5D /* AddToCartMutation.graphql */,
 				221B7AF32E03918F005150CF /* UpdateCartLineMutation.graphql */,
 				221B7B032E039B14005150CF /* GetCart.graphql */,
+				22DB2AA32E05600700F90A9A /* RemoveFromCart.graphql */,
 			);
 			path = Queries;
 			sourceTree = "<group>";
@@ -904,7 +913,7 @@
 		221E10D92DF6619600D3B4CD /* GraphQLCodeGen */ = {
 			isa = PBXGroup;
 			children = (
-				2253E8992E051376003FA9C6 /* GraphQLCodeGen.graphql.swift */,
+				22DB2AA52E05625600F90A9A /* GraphQLCodeGen.graphql.swift */,
 				221E10DB2DF6619600D3B4CD /* Operations */,
 				221E10DF2DF6619600D3B4CD /* Schema */,
 			);
@@ -1256,6 +1265,7 @@
 			files = (
 				222548072E024238004DAF5D /* AddToCartMutation.graphql in Resources */,
 				2285ED7B2E0238C400C11573 /* CreateCartMutation.graphql in Resources */,
+				22DB2AA42E05600700F90A9A /* RemoveFromCart.graphql in Resources */,
 				221E11512DF6619600D3B4CD /* GetProducts.graphql in Resources */,
 				221E11352DF6619600D3B4CD /* Preview Assets.xcassets in Resources */,
 				221E11522DF6619600D3B4CD /* GetCollections.graphql in Resources */,
@@ -1409,6 +1419,7 @@
 				220E91C22E050D5F00F900D7 /* MediaPresentation.graphql.swift in Sources */,
 				220E91B82E050D5F00F900D7 /* Metafield.graphql.swift in Sources */,
 				220E91AA2E050D5F00F900D7 /* UserError.graphql.swift in Sources */,
+				22DB2AA62E05625600F90A9A /* GraphQLCodeGen.graphql.swift in Sources */,
 				2253E8AC2E0513B1003FA9C6 /* CartInput.graphql.swift in Sources */,
 				220E91BE2E050D5F00F900D7 /* MediaImage.graphql.swift in Sources */,
 				C20599532DFAA94F008CD6FE /* Section1.swift in Sources */,
@@ -1435,7 +1446,6 @@
 				220E91A02E050D5F00F900D7 /* Company.graphql.swift in Sources */,
 				220E919E2E050D5F00F900D7 /* CompanyContact.graphql.swift in Sources */,
 				221E11442DF6619600D3B4CD /* ProductsView.swift in Sources */,
-				2253E89A2E051376003FA9C6 /* GraphQLCodeGen.graphql.swift in Sources */,
 				220E91AF2E050D5F00F900D7 /* CustomerUserError.graphql.swift in Sources */,
 				227CB3DD2DFBD8CB00F36E91 /* AddressViewModel.swift in Sources */,
 				220E91AC2E050D5F00F900D7 /* CartLine.graphql.swift in Sources */,
@@ -1452,11 +1462,13 @@
 				220E91DA2E050DBC00F900D7 /* Trackable.graphql.swift in Sources */,
 				22DA21952DF67C74001FA5E0 /* AddressesScreen.swift in Sources */,
 				2225480C2E024B8B004DAF5D /* RemoteDataSource.swift in Sources */,
+				22DB2AAA2E05637600F90A9A /* CartLinesRemovePayload.graphql.swift in Sources */,
 				220E91A52E050D5F00F900D7 /* QueryRoot.graphql.swift in Sources */,
 				221E114F2DF6619600D3B4CD /* NetworkConstants.swift in Sources */,
 				220E91BB2E050D5F00F900D7 /* CartUserError.graphql.swift in Sources */,
 				220E91BF2E050D5F00F900D7 /* Video.graphql.swift in Sources */,
 				220E91D92E050DBC00F900D7 /* Media.graphql.swift in Sources */,
+				22DB2AA82E0562A100F90A9A /* RemoveFromCartMutation.graphql.swift in Sources */,
 				220E91C42E050D5F00F900D7 /* MetafieldsSetUserError.graphql.swift in Sources */,
 				220E91422E050CF800F900D7 /* AttributeInput.graphql.swift in Sources */,
 				220E91A12E050D5F00F900D7 /* Mutation.graphql.swift in Sources */,

@@ -9,7 +9,6 @@ import SwiftUI
 import Kingfisher
 struct Section1: View {
     @ObservedObject var viewModel: ProductDetailsViewModel
-    
     @State private var selectedImageIndex = 0
     @State private var selectedSize: String = ""
     @State private var selectedColor: String = ""
