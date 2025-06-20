@@ -8,10 +8,16 @@ extension GraphQLCodeGen {
     static let operationName: String = "CreateCart"
     static let operationDocument: ApolloAPI.OperationDocument = .init(
       definition: .init(
-        #"mutation CreateCart { cartCreate { __typename cart { __typename id checkoutUrl } userErrors { __typename field message } } }"#
+        #"mutation CreateCart($input: CartInput) { cartCreate(input: $input) { __typename cart { __typename id checkoutUrl } userErrors { __typename field message } } }"#
       ))
 
-    public init() {}
+    public var input: GraphQLNullable<CartInput>
+
+    public init(input: GraphQLNullable<CartInput>) {
+      self.input = input
+    }
+
+    public var __variables: Variables? { ["input": input] }
 
     struct Data: GraphQLCodeGen.SelectionSet {
       let __data: DataDict
@@ -19,7 +25,7 @@ extension GraphQLCodeGen {
 
       static var __parentType: any ApolloAPI.ParentType { GraphQLCodeGen.Objects.Mutation }
       static var __selections: [ApolloAPI.Selection] { [
-        .field("cartCreate", CartCreate?.self),
+        .field("cartCreate", CartCreate?.self, arguments: ["input": .variable("input")]),
       ] }
 
       /// Creates a new cart.

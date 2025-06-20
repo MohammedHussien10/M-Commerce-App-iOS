@@ -32,7 +32,11 @@ struct Section3: View {
 //            }.padding(.top,10)
             
             Button(action: {
-                cartViewModel.addProduct(productId: viewModel.product.id, quantity: 1)
+                if let variantId = viewModel.product.variants.first?.id {
+                      cartViewModel.addProduct(productId: variantId, quantity: 1)
+                  } else {
+                      print("No variant ID available to add to cart")
+                  }
             }) {
                 Text("Add to Cart")
                     .fontWeight(.bold)

@@ -75,6 +75,31 @@ class CartViewModel: ObservableObject {
         }
     }
 
+    
+    func updateProductQuantity(cartId: String, lineId: String, newQuantity: Int) {
+        if let index = cartProducts.firstIndex(where: { $0.id == lineId }) {
+            var updatedProduct = cartProducts[index]
+            updatedProduct.quantity = newQuantity
+            cartProducts[index] = updatedProduct 
+        }
+
+
+        useCase.updateCartLine(cartId: cartId, lineId: lineId, quantity: newQuantity) { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success:
+                    print("Quantity updated successfully")
+                    self?.loadCartProducts() 
+      
+                case .failure(let error):
+                    print("Failed to update quantity:", error)
+                }
+            }
+        }
+    }
+
+
+
 
 
 }

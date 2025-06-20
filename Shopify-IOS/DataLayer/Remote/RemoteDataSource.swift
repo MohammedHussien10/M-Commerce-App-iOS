@@ -10,9 +10,18 @@ class RemoteDataSource: RemoteDataSourceProtocol {
    
     
     func createCart(completion: @escaping (Result<String, Error>) -> Void) {
+        let buyerIdentity = GraphQLCodeGen.CartBuyerIdentityInput(
+            email: "mohammedhussien10101010@gmail.com"
+        )
+
+        let cartInput = GraphQLCodeGen.CartInput(
+            buyerIdentity: GraphQLNullable(buyerIdentity)
+        )
+
+        let mutation = GraphQLCodeGen.CreateCartMutation(input: GraphQLNullable(cartInput))
+
         
-        
-        NetworkManager.sharedStoreFront.performGraphQLRequest(mutation: GraphQLCodeGen.CreateCartMutation()) { result in
+        NetworkManager.sharedStoreFront.performGraphQLRequest(mutation: mutation) { result in
             switch result {
             case .success(let data):
                 if let cartId = data.cartCreate?.cart?.id {

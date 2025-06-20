@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CartProductRow: View {
     let product: CartProduct
+    let cartId: String
+    var onUpdateQuantity: (_ lineId: String, _ newQuantity: Int) -> Void
 
     var body: some View {
         HStack(alignment: .top) {
@@ -26,10 +28,26 @@ struct CartProductRow: View {
                 Text(product.title)
                     .font(.headline)
 
-                Text("Quantity: \(product.quantity)")
-                    .font(.subheadline)
+                HStack {
+                    Button(action: {
+                        if product.quantity > 1 {
+                            onUpdateQuantity(product.id, product.quantity - 1)
+                        }
+                    }) {
+                        Image(systemName: "minus.circle")
+                    }
 
-                Text(String(format: "$%.2f", product.price))
+                    Text("\(product.quantity)")
+                        .padding(.horizontal)
+
+                    Button(action: {
+                        onUpdateQuantity(product.id, product.quantity + 1)
+                    }) {
+                        Image(systemName: "plus.circle")
+                    }
+                }
+
+                Text(String(format: "$%.2f", product.price * Double(product.quantity)))
                     .font(.subheadline)
                     .foregroundColor(.green)
             }
@@ -39,6 +57,7 @@ struct CartProductRow: View {
         .padding(.vertical, 8)
     }
 }
+
 
 
 //#Preview {
