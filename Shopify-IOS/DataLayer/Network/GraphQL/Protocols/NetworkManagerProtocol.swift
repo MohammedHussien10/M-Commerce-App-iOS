@@ -12,10 +12,12 @@ protocol NetworkManagerProtocol {
         query: T,
         completion: @escaping (Result<T.Data, Error>) -> Void
     )
-
+    
     func performGraphQLRequest<T: GraphQLMutation>(
         mutation: T,
         completion: @escaping (Result<T.Data, Error>) -> Void
     )
+    
+    
 }
 

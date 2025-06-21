@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProductDetailsView: View {
     @ObservedObject var viewModel: ProductDetailsViewModel
+    @EnvironmentObject var cartViewModel: CartViewModel
     @State private var isFavorited = false
     var body: some View {
         ScrollView {

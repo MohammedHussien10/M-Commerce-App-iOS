@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProductsView: View {
     let products : [Product]
+    @EnvironmentObject var cartViewModel: CartViewModel
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible())

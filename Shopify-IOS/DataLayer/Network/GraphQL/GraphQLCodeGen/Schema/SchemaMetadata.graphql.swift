@@ -31,9 +31,15 @@ extension GraphQLCodeGen {
       switch typename {
       case "AppliedGiftCard": return GraphQLCodeGen.Objects.AppliedGiftCard
       case "Article": return GraphQLCodeGen.Objects.Article
+      case "BaseCartLineConnection": return GraphQLCodeGen.Objects.BaseCartLineConnection
+      case "BaseCartLineEdge": return GraphQLCodeGen.Objects.BaseCartLineEdge
       case "Blog": return GraphQLCodeGen.Objects.Blog
       case "Cart": return GraphQLCodeGen.Objects.Cart
+      case "CartCreatePayload": return GraphQLCodeGen.Objects.CartCreatePayload
       case "CartLine": return GraphQLCodeGen.Objects.CartLine
+      case "CartLinesAddPayload": return GraphQLCodeGen.Objects.CartLinesAddPayload
+      case "CartLinesRemovePayload": return GraphQLCodeGen.Objects.CartLinesRemovePayload
+      case "CartLinesUpdatePayload": return GraphQLCodeGen.Objects.CartLinesUpdatePayload
       case "CartUserError": return GraphQLCodeGen.Objects.CartUserError
       case "Collection": return GraphQLCodeGen.Objects.Collection
       case "CollectionConnection": return GraphQLCodeGen.Objects.CollectionConnection

@@ -13,11 +13,19 @@ struct Shopify_IOSApp: App {
 
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 
-    var body: some Scene {
-        WindowGroup {
-            RootView()
-        }
-    }
+    @StateObject private var cartViewModel = CartViewModel(
+         useCase: CartUseCase(
+             repository: RepositoryImp(remoteDataSource: RemoteDataSource())
+         )
+     )
+
+     var body: some Scene {
+         WindowGroup {
+             ViewsContainer()
+                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                 .environmentObject(cartViewModel) 
+         }
+     }
 }
 
 

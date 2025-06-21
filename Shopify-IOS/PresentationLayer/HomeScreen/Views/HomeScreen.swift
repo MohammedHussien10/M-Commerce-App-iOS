@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeScreen: View {
     @StateObject private var viewModel = HomeViewModel()
+    @EnvironmentObject var cartViewModel: CartViewModel
     @State private var showSearchView = false
     var body: some View {
         NavigationStack {

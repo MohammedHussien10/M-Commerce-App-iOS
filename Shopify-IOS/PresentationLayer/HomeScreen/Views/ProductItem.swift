@@ -10,6 +10,7 @@ import Kingfisher
 
 struct ProductItem: View {
     let product: Product
+    @EnvironmentObject var cartViewModel: CartViewModel
     let currency = UserDefaults.standard.string(forKey: "selectedCurrency") ?? "USD"
     var body: some View {
         NavigationLink(destination: ProductDetailsView(viewModel: ProductDetailsViewModel(product: product))) {

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddressesScreen: View {
     // MARK: - Properties
-    @StateObject private var addressViewModel = AddressViewModel(repository: RepositoryImp())
+    @StateObject private var addressViewModel = AddressViewModel(repository: RepositoryImp(remoteDataSource: RemoteDataSource()))
     @State private var showAddAddress = false
     @State private var showDeleteAlert = false
     @State private var indexSetToDelete: IndexSet? = nil
