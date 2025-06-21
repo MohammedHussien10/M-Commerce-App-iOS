@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct Product :Identifiable{
+struct Product :Identifiable,Codable{
     let id: String
     let title: String
     let descriptionHtml: String
@@ -18,4 +18,5 @@ struct Product :Identifiable{
     let images: [URL]
     let category: ProductCategory?
     let variants: [Variant]
+    let tags: [String]
 }

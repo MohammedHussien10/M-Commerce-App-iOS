@@ -33,7 +33,7 @@ struct HomeScreen: View {
 
                     Coupons()
                     
-                    ProductHeader()
+                   
                 
                     if viewModel.isLoading {
                         ProgressView("Loading products...")
@@ -41,18 +41,26 @@ struct HomeScreen: View {
                         Text("Error: \(error)")
                             .foregroundColor(.red)
                     } else {
-                        ProductsView(products: viewModel.products)
+                        BrandsHeader()
+                        BrandList(collections: viewModel.collections)
+                        ProductHeader()
+                        ProductsView(products:  Array(viewModel.products.prefix(4)))
                     }
                 }
                 .padding()
             }
+            Rectangle()
+              .fill(Color.white.opacity(0.2))
+              .frame(height: 50)
+                             
             .onAppear {
                 viewModel.fetchProducts()
+                viewModel.fetchCollections()
             }
             .navigationDestination(isPresented: $showSearchView) {
                 SearchView()
             }
-        }
+        }.tint(.orange)
     }
 }
 

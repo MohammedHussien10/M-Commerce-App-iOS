@@ -8,7 +8,7 @@ extension GraphQLCodeGen {
     static let operationName: String = "GetAllProducts"
     static let operationDocument: ApolloAPI.OperationDocument = .init(
       definition: .init(
-        #"query GetAllProducts($first: Int) { products(first: $first) { __typename nodes { __typename availableForSale category { __typename id name } descriptionHtml encodedVariantAvailability encodedVariantExistence featuredImage { __typename url } id images(first: $first) { __typename nodes { __typename url } } productType title totalInventory vendor variantsCount { __typename count precision } variants(first: $first) { __typename nodes { __typename barcode availableForSale currentlyNotInStock image { __typename url } id price { __typename amount currencyCode } sku title unitPrice { __typename amount currencyCode } selectedOptions { __typename name value } quantityRule { __typename increment maximum minimum } product { __typename availableForSale descriptionHtml id featuredImage { __typename url } title totalInventory vendor } } } } } }"#
+        #"query GetAllProducts($first: Int) { products(first: $first) { __typename nodes { __typename availableForSale category { __typename id name } descriptionHtml encodedVariantAvailability encodedVariantExistence featuredImage { __typename url } id images(first: $first) { __typename nodes { __typename url } } productType title totalInventory vendor variantsCount { __typename count precision } variants(first: $first) { __typename nodes { __typename barcode availableForSale currentlyNotInStock image { __typename url } id price { __typename amount currencyCode } sku title unitPrice { __typename amount currencyCode } selectedOptions { __typename name value } quantityRule { __typename increment maximum minimum } product { __typename availableForSale descriptionHtml id featuredImage { __typename url } title totalInventory vendor } } } tags } } }"#
       ))
 
     public var first: GraphQLNullable<Int>
@@ -71,6 +71,7 @@ extension GraphQLCodeGen {
             .field("vendor", String.self),
             .field("variantsCount", VariantsCount?.self),
             .field("variants", Variants.self, arguments: ["first": .variable("first")]),
+            .field("tags", [String].self),
           ] }
 
           /// Indicates if at least one product variant is available for sale.
@@ -156,6 +157,14 @@ extension GraphQLCodeGen {
           var variantsCount: VariantsCount? { __data["variantsCount"] }
           /// A list of [variants](/docs/api/storefront/latest/objects/ProductVariant) that are associated with the product.
           var variants: Variants { __data["variants"] }
+          /// A comma-separated list of searchable keywords that are
+          /// associated with the product. For example, a merchant might apply the `sports`
+          /// and `summer` tags to products that are associated with sportwear for summer.
+          /// Updating `tags` overwrites any existing tags that were previously added to the product.
+          /// To add new tags without overwriting existing tags,
+          /// use the GraphQL Admin API's [`tagsAdd`](/docs/api/admin-graphql/latest/mutations/tagsadd)
+          /// mutation.
+          var tags: [String] { __data["tags"] }
 
           /// Products.Node.Category
           ///

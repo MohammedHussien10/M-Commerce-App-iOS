@@ -56,6 +56,6 @@ struct HeaderWithIconAndLogo: View {
             }
         }
         .frame(height: 40)
-        .background(Color.white.shadow(radius: 2))
+        .background(Color.white.shadow(radius: 1))
     }
 }

@@ -15,16 +15,34 @@ struct ProductsView: View {
     ]
     var body: some View {
         
-        LazyVGrid(columns: columns, spacing: 16) {
-            ForEach(products, id: \.id) { product in
-               
-               ProductItem(product: product).onAppear {
-                   print(product.title)
-               }
-            }
-        }
-
-    }
+        if products.isEmpty {
+              VStack {
+                  Spacer()
+                  Image("out-of-stock") 
+                      .resizable()
+                      .scaledToFit()
+                      .frame(width: 200, height: 200)
+                      .padding()
+                  Text("No Products Found")
+                      .font(.headline)
+                      .foregroundColor(.gray)
+                  Spacer()
+              }
+              .frame(maxWidth: .infinity, maxHeight: .infinity)
+          } else {
+              ScrollView {
+                  LazyVGrid(columns: columns, spacing: 16) {
+                      ForEach(products, id: \.id) { product in
+                          ProductItem(product: product)
+                              .onAppear {
+                                  print(product.title)
+                              }
+                      }
+                  }
+                  .padding()
+              }
+          }
+      }
 }
 //
 //#Preview {
