@@ -36,7 +36,7 @@ struct CartProductRow: View {
                     }) {
                         Image(systemName: "minus.circle")
                     }
-                    
+                    .buttonStyle(.plain)
                     Text("\(product.quantity)")
                         .padding(.horizontal)
                     
@@ -45,18 +45,18 @@ struct CartProductRow: View {
                     }) {
                         Image(systemName: "plus.circle")
                     }
+                    .buttonStyle(.plain)
+                    Text(String(format: "$%.2f", product.price * Double(product.quantity)))
+                              .font(.subheadline)
+                              .foregroundColor(.green)
+                    Button(action: {
+                        onRemove(product.id)
+                    }) {
+                        Image(systemName: "trash")
+                            .foregroundColor(.red)
+                    }
+                    .buttonStyle(.plain)
                 }
-                
-                Text(String(format: "$%.2f", product.price * Double(product.quantity)))
-                    .font(.subheadline)
-                    .foregroundColor(.green)
-                Button(action: {
-                    onRemove(product.id)
-                }) {
-                    Image(systemName: "trash")
-                        .foregroundColor(.red)
-                }
-                
             }
             
             Spacer()
