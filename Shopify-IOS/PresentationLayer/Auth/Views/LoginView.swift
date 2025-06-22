@@ -12,6 +12,7 @@ struct LoginView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var isPasswordVisible: Bool = false
+    @State private var navigateToSign = false
 
     var body: some View {
         NavigationStack
@@ -55,22 +56,6 @@ struct LoginView: View {
                         .onTapGesture {
                             isPasswordVisible.toggle()
                         }
-                    
-                    HStack {
-                        Spacer()
-                        Button(action: {
-//                            if email.isEmpty {
-//                                authViewModel.alertMessage = "Please enter your email first"
-//                                authViewModel.showAlert = true
-//                            } else {
-//                                authViewModel.resetPassword(email: email)
-//                            }
-                        }) {
-                            Text("Forget your password ?")
-                                .font(.footnote)
-                                .foregroundColor(Color.orange)
-                        }
-                    }
                     Spacer().frame(height: 20)
                     Button(action: {
                         authViewModel.login(email: email, password: password){}
@@ -89,11 +74,14 @@ struct LoginView: View {
                     HStack {
                         Text("Don't have an account?")
                             .foregroundColor(.gray)
-                        NavigationLink(destination: SignUpView(authViewModel: authViewModel)) {
+                        Button(action: {
+                            navigateToSign = true
+                        }) {
                             Text("Sign Up")
                                 .foregroundColor(.white)
                                 .bold()
                         }
+
 
                     }
                 }.frame(maxWidth: .infinity , maxHeight: 550)
@@ -101,13 +89,12 @@ struct LoginView: View {
                     .background(Color.black)
                     .cornerRadius(30)
                     .ignoresSafeArea(edges: .bottom)
+                    .navigationDestination(isPresented: $navigateToSign) {
+                        SignUpView(authViewModel: authViewModel)
+                        
+                    }
             }
             .background(Color.white.ignoresSafeArea())
         }
     }
 }
-
-
-//#Preview {
-//    LoginView()
-//}

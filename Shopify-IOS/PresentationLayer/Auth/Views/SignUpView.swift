@@ -17,6 +17,7 @@ struct SignUpView: View {
     @State private var isPasswordVisible: Bool = false
     @State private var isConfirmPasswordVisible: Bool = false
     @State private var navigateToVerify = false
+    @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         NavigationStack
@@ -89,7 +90,9 @@ struct SignUpView: View {
                     HStack {
                         Text("Already have an account?")
                             .foregroundColor(.gray)
-                        NavigationLink(destination: LoginView(authViewModel: authViewModel)) {
+                        Button(action: {
+                            dismiss()
+                        }) {
                             Text("Sign In")
                                 .foregroundColor(.white)
                                 .bold()
