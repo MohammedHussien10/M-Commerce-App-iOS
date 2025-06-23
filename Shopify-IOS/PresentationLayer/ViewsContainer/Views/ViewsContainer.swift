@@ -10,7 +10,7 @@ import Apollo
 
 struct ViewsContainer: View {
     @State private var selectedTab: Tab = .home
-
+    @ObservedObject var authViewModel: AuthViewModel
        enum Tab {
            case home, grid, cart, favorites, profile
        }
@@ -28,7 +28,7 @@ struct ViewsContainer: View {
                 case .favorites:
                     Text("Favorites View")
                 case .profile:
-                    ProfileScreen()
+                    ProfileScreen(authViewModel: authViewModel)
                 }
 
                 VStack {

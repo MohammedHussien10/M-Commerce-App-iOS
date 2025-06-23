@@ -50,6 +50,9 @@ extension GraphQLCodeGen {
       case "ComponentizableCartLine": return GraphQLCodeGen.Objects.ComponentizableCartLine
       case "Count": return GraphQLCodeGen.Objects.Count
       case "Customer": return GraphQLCodeGen.Objects.Customer
+      case "CustomerAccessToken": return GraphQLCodeGen.Objects.CustomerAccessToken
+      case "CustomerAccessTokenCreatePayload": return GraphQLCodeGen.Objects.CustomerAccessTokenCreatePayload
+      case "CustomerCreatePayload": return GraphQLCodeGen.Objects.CustomerCreatePayload
       case "CustomerUserError": return GraphQLCodeGen.Objects.CustomerUserError
       case "ExternalVideo": return GraphQLCodeGen.Objects.ExternalVideo
       case "GenericFile": return GraphQLCodeGen.Objects.GenericFile

@@ -8,10 +8,9 @@
 import SwiftUI
 import Kingfisher
 struct ProfileScreen: View {
-    
+    @ObservedObject var authViewModel: AuthViewModel
     @StateObject var profileViewModel = ProfileViewModel()
     var body: some View {
-        NavigationStack{
             ScrollView {
                 
                 VStack(alignment: .leading, spacing: 5) {
@@ -44,6 +43,7 @@ struct ProfileScreen: View {
                     Divider()
                     
                     Button(action: {
+                        authViewModel.logout()
                     }) {
                         Text("Logout")
                             .fontWeight(.bold)
@@ -53,7 +53,10 @@ struct ProfileScreen: View {
                             .background(Color.orangeColor("FF7F00"))
                             .cornerRadius(8)
                     }.padding(.top,10)
-                    
+                        .alert(authViewModel.alertMessage, isPresented: $authViewModel.showAlert) {
+                            Button("OK", role: .cancel) { }
+                        }
+
                     .toolbar {
                         ToolbarItem(placement: .navigationBarTrailing) {
                             
@@ -67,7 +70,7 @@ struct ProfileScreen: View {
                     }
                 }
             }     .padding()
-        }.onAppear {
+            .onAppear {
             profileViewModel.fetchUserData()
             profileViewModel.fetchOrders()
         }

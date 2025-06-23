@@ -197,8 +197,38 @@
 		C20599592DFAB09D008CD6FE /* Section2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20599582DFAB09D008CD6FE /* Section2.swift */; };
 		C205995B2DFAB2C5008CD6FE /* Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C205995A2DFAB2C5008CD6FE /* Reviews.swift */; };
 		C205995D2DFAB47B008CD6FE /* Section3.swift in Sources */ = {isa = PBXBuildFile; fileRef = C205995C2DFAB47B008CD6FE /* Section3.swift */; };
+		C21BB2882E03AF9D0013F56F /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21BB2862E03AF9D0013F56F /* CustomTextField.swift */; };
+		C21BB2892E03AF9D0013F56F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21BB2842E03AF9D0013F56F /* LoginView.swift */; };
+		C21BB28A2E03AF9D0013F56F /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21BB2822E03AF9D0013F56F /* SignUpView.swift */; };
+		C21BB28C2E03BBFA0013F56F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C21BB28B2E03BBFA0013F56F /* GoogleService-Info.plist */; };
+		C21BB28F2E03BFA50013F56F /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = C21BB28E2E03BFA50013F56F /* FirebaseAnalytics */; };
+		C21BB2912E03BFA50013F56F /* FirebaseAnalyticsCore in Frameworks */ = {isa = PBXBuildFile; productRef = C21BB2902E03BFA50013F56F /* FirebaseAnalyticsCore */; };
+		C21BB2932E03BFA50013F56F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C21BB2922E03BFA50013F56F /* FirebaseAuth */; };
+		C21BB2952E03C65A0013F56F /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21BB2942E03C6580013F56F /* AuthViewModel.swift */; };
+		C21BB2992E03D2460013F56F /* EmailVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21BB2982E03D2440013F56F /* EmailVerificationView.swift */; };
+		C21BB29B2E04276B0013F56F /* customerCreate.graphql in Resources */ = {isa = PBXBuildFile; fileRef = C21BB29A2E04275D0013F56F /* customerCreate.graphql */; };
+		C21BB2A82E0428460013F56F /* UserError.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21BB2A62E0428460013F56F /* UserError.graphql.swift */; };
+		C21BB2A92E0428460013F56F /* UserErrorsShopPayPaymentRequestSessionUserErrors.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21BB2A72E0428460013F56F /* UserErrorsShopPayPaymentRequestSessionUserErrors.graphql.swift */; };
+		C21BB2AA2E0428460013F56F /* CustomerCreatePayload.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21BB2A12E0428460013F56F /* CustomerCreatePayload.graphql.swift */; };
+		C21BB2AB2E0428460013F56F /* MetafieldDeleteUserError.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21BB2A32E0428460013F56F /* MetafieldDeleteUserError.graphql.swift */; };
+		C21BB2AC2E0428460013F56F /* CartUserError.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21BB2A02E0428460013F56F /* CartUserError.graphql.swift */; };
+		C21BB2AD2E0428460013F56F /* CustomerUserError.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21BB2A22E0428460013F56F /* CustomerUserError.graphql.swift */; };
+		C21BB2AE2E0428460013F56F /* MetafieldsSetUserError.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21BB2A42E0428460013F56F /* MetafieldsSetUserError.graphql.swift */; };
+		C21BB2AF2E0428460013F56F /* Mutation.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21BB2A52E0428460013F56F /* Mutation.graphql.swift */; };
+		C21BB2B12E04288C0013F56F /* DisplayableError.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21BB2B02E04288C0013F56F /* DisplayableError.graphql.swift */; };
+		C21BB2C32E0436420013F56F /* CustomerCreateMutation.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21BB2C22E0436420013F56F /* CustomerCreateMutation.graphql.swift */; };
+		C21BB2C62E0439360013F56F /* CustomerCreateInput.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21BB2C42E0439360013F56F /* CustomerCreateInput.graphql.swift */; };
+		C22E1A252E05094F00340107 /* CustomerAccessTokenCreate.graphql in Resources */ = {isa = PBXBuildFile; fileRef = C22E1A242E05093800340107 /* CustomerAccessTokenCreate.graphql */; };
+		C22E1A272E0509CF00340107 /* GraphQLCodeGen.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22E1A262E0509CF00340107 /* GraphQLCodeGen.graphql.swift */; };
+		C22E1A292E0509E700340107 /* CustomerAccessTokenCreateMutation.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22E1A282E0509E700340107 /* CustomerAccessTokenCreateMutation.graphql.swift */; };
+		C22E1A2B2E050A0100340107 /* CustomerAccessTokenCreateInput.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22E1A2A2E050A0100340107 /* CustomerAccessTokenCreateInput.graphql.swift */; };
+		C22E1A2D2E050A1500340107 /* DateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22E1A2C2E050A1500340107 /* DateTime.swift */; };
+		C22E1A302E050A3200340107 /* CustomerAccessTokenCreatePayload.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22E1A2F2E050A3200340107 /* CustomerAccessTokenCreatePayload.graphql.swift */; };
+		C22E1A312E050A3200340107 /* CustomerAccessToken.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22E1A2E2E050A3200340107 /* CustomerAccessToken.graphql.swift */; };
+		C22E1A352E05183100340107 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22E1A342E05182F00340107 /* RootView.swift */; };
 		C2488BD92DFB0A7C00B11CA5 /* GetAllProductsQuery.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2488BD82DFB0A7C00B11CA5 /* GetAllProductsQuery.graphql.swift */; };
 		C2488BDB2DFB0B4400B11CA5 /* SelectedOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2488BDA2DFB0B4100B11CA5 /* SelectedOption.swift */; };
+		C2488BDF2DFB12C700B11CA5 /* SelectedOption.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2488BDE2DFB12C700B11CA5 /* SelectedOption.graphql.swift */; };
 		C2488BE22DFBB75E00B11CA5 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2488BE12DFBB75E00B11CA5 /* SearchView.swift */; };
 		C2488BE52DFBB81100B11CA5 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2488BE32DFBB80E00B11CA5 /* SearchViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -412,8 +442,35 @@
 		C20599582DFAB09D008CD6FE /* Section2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section2.swift; sourceTree = "<group>"; };
 		C205995A2DFAB2C5008CD6FE /* Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviews.swift; sourceTree = "<group>"; };
 		C205995C2DFAB47B008CD6FE /* Section3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section3.swift; sourceTree = "<group>"; };
+		C21BB2822E03AF9D0013F56F /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		C21BB2842E03AF9D0013F56F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		C21BB2862E03AF9D0013F56F /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		C21BB28B2E03BBFA0013F56F /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C21BB2942E03C6580013F56F /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		C21BB2982E03D2440013F56F /* EmailVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationView.swift; sourceTree = "<group>"; };
+		C21BB29A2E04275D0013F56F /* customerCreate.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = customerCreate.graphql; sourceTree = "<group>"; };
+		C21BB2A02E0428460013F56F /* CartUserError.graphql.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartUserError.graphql.swift; sourceTree = "<group>"; };
+		C21BB2A12E0428460013F56F /* CustomerCreatePayload.graphql.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerCreatePayload.graphql.swift; sourceTree = "<group>"; };
+		C21BB2A22E0428460013F56F /* CustomerUserError.graphql.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerUserError.graphql.swift; sourceTree = "<group>"; };
+		C21BB2A32E0428460013F56F /* MetafieldDeleteUserError.graphql.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetafieldDeleteUserError.graphql.swift; sourceTree = "<group>"; };
+		C21BB2A42E0428460013F56F /* MetafieldsSetUserError.graphql.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetafieldsSetUserError.graphql.swift; sourceTree = "<group>"; };
+		C21BB2A52E0428460013F56F /* Mutation.graphql.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mutation.graphql.swift; sourceTree = "<group>"; };
+		C21BB2A62E0428460013F56F /* UserError.graphql.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.graphql.swift; sourceTree = "<group>"; };
+		C21BB2A72E0428460013F56F /* UserErrorsShopPayPaymentRequestSessionUserErrors.graphql.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserErrorsShopPayPaymentRequestSessionUserErrors.graphql.swift; sourceTree = "<group>"; };
+		C21BB2B02E04288C0013F56F /* DisplayableError.graphql.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayableError.graphql.swift; sourceTree = "<group>"; };
+		C21BB2C22E0436420013F56F /* CustomerCreateMutation.graphql.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerCreateMutation.graphql.swift; sourceTree = "<group>"; };
+		C21BB2C42E0439360013F56F /* CustomerCreateInput.graphql.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerCreateInput.graphql.swift; sourceTree = "<group>"; };
+		C22E1A242E05093800340107 /* CustomerAccessTokenCreate.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = CustomerAccessTokenCreate.graphql; sourceTree = "<group>"; };
+		C22E1A262E0509CF00340107 /* GraphQLCodeGen.graphql.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLCodeGen.graphql.swift; sourceTree = "<group>"; };
+		C22E1A282E0509E700340107 /* CustomerAccessTokenCreateMutation.graphql.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerAccessTokenCreateMutation.graphql.swift; sourceTree = "<group>"; };
+		C22E1A2A2E050A0100340107 /* CustomerAccessTokenCreateInput.graphql.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerAccessTokenCreateInput.graphql.swift; sourceTree = "<group>"; };
+		C22E1A2C2E050A1500340107 /* DateTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTime.swift; sourceTree = "<group>"; };
+		C22E1A2E2E050A3200340107 /* CustomerAccessToken.graphql.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerAccessToken.graphql.swift; sourceTree = "<group>"; };
+		C22E1A2F2E050A3200340107 /* CustomerAccessTokenCreatePayload.graphql.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerAccessTokenCreatePayload.graphql.swift; sourceTree = "<group>"; };
+		C22E1A342E05182F00340107 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		C2488BD82DFB0A7C00B11CA5 /* GetAllProductsQuery.graphql.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllProductsQuery.graphql.swift; sourceTree = "<group>"; };
 		C2488BDA2DFB0B4100B11CA5 /* SelectedOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedOption.swift; sourceTree = "<group>"; };
+		C2488BDE2DFB12C700B11CA5 /* SelectedOption.graphql.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedOption.graphql.swift; sourceTree = "<group>"; };
 		C2488BE12DFBB75E00B11CA5 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		C2488BE32DFBB80E00B11CA5 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -424,7 +481,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				221E119D2DF6635500D3B4CD /* Kingfisher in Frameworks */,
+				C21BB2932E03BFA50013F56F /* FirebaseAuth in Frameworks */,
 				22EBEF5C2DF2424100EF8FA6 /* Apollo in Frameworks */,
+				C21BB28F2E03BFA50013F56F /* FirebaseAnalytics in Frameworks */,
+				C21BB2912E03BFA50013F56F /* FirebaseAnalyticsCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,6 +656,7 @@
 		22132A992DEC974400FA9C90 = {
 			isa = PBXGroup;
 			children = (
+				C21BB28B2E03BBFA0013F56F /* GoogleService-Info.plist */,
 				22132AA42DEC974500FA9C90 /* Shopify-IOS */,
 				22132ABA2DEC974A00FA9C90 /* Shopify-IOSTests */,
 				22132AC42DEC974A00FA9C90 /* Shopify-IOSUITests */,
@@ -728,6 +789,7 @@
 			isa = PBXGroup;
 			children = (
 				2285ED812E023CA500C11573 /* ShoppingCart */,
+				C21BB2872E03AF9D0013F56F /* Auth */,
 				C2488BE62DFBB81900B11CA5 /* SearchScreen */,
 				22DA21962DF68020001FA5E0 /* ProfileScreen */,
 				221E10AF2DF6619600D3B4CD /* ViewsContainer */,
@@ -875,6 +937,7 @@
 		221E10D02DF6619600D3B4CD /* GraphQL */ = {
 			isa = PBXGroup;
 			children = (
+				C21BB2B72E042D930013F56F /* Mutations */,
 				221E10D12DF6619600D3B4CD /* TokenInterceptor.swift */,
 				221E10D22DF6619600D3B4CD /* Enums */,
 				221E10D52DF6619600D3B4CD /* NetworkManager.swift */,
@@ -952,6 +1015,108 @@
 				221E111B2DF6619600D3B4CD /* SchemaMetadata.graphql.swift */,
 			);
 			path = Schema;
+			sourceTree = "<group>";
+		};
+		221E10E02DF6619600D3B4CD /* CustomScalars */ = {
+			isa = PBXGroup;
+			children = (
+				C22E1A2C2E050A1500340107 /* DateTime.swift */,
+				221E10E12DF6619600D3B4CD /* ID.swift */,
+				221E10E22DF6619600D3B4CD /* Decimal.swift */,
+				221E10E32DF6619600D3B4CD /* HTML.swift */,
+				221E10E42DF6619600D3B4CD /* URL.swift */,
+			);
+			path = CustomScalars;
+			sourceTree = "<group>";
+		};
+		221E10E52DF6619600D3B4CD /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				221E10E62DF6619600D3B4CD /* CountPrecision.graphql.swift */,
+				221E10E72DF6619600D3B4CD /* CurrencyCode.graphql.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		221E10E82DF6619600D3B4CD /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				C22E1A2E2E050A3200340107 /* CustomerAccessToken.graphql.swift */,
+				C22E1A2F2E050A3200340107 /* CustomerAccessTokenCreatePayload.graphql.swift */,
+				C21BB2A02E0428460013F56F /* CartUserError.graphql.swift */,
+				C21BB2A12E0428460013F56F /* CustomerCreatePayload.graphql.swift */,
+				C21BB2A22E0428460013F56F /* CustomerUserError.graphql.swift */,
+				C21BB2A32E0428460013F56F /* MetafieldDeleteUserError.graphql.swift */,
+				C21BB2A42E0428460013F56F /* MetafieldsSetUserError.graphql.swift */,
+				C21BB2A52E0428460013F56F /* Mutation.graphql.swift */,
+				C21BB2A62E0428460013F56F /* UserError.graphql.swift */,
+				C21BB2A72E0428460013F56F /* UserErrorsShopPayPaymentRequestSessionUserErrors.graphql.swift */,
+				C2488BDE2DFB12C700B11CA5 /* SelectedOption.graphql.swift */,
+				221E10E92DF6619600D3B4CD /* Image.graphql.swift */,
+				221E10EA2DF6619600D3B4CD /* ProductOptionValue.graphql.swift */,
+				221E10EB2DF6619600D3B4CD /* SellingPlan.graphql.swift */,
+				221E10EC2DF6619600D3B4CD /* ProductVariant.graphql.swift */,
+				221E10ED2DF6619600D3B4CD /* Blog.graphql.swift */,
+				221E10EE2DF6619600D3B4CD /* Model3d.graphql.swift */,
+				221E10EF2DF6619600D3B4CD /* MenuItem.graphql.swift */,
+				221E10F02DF6619600D3B4CD /* Order.graphql.swift */,
+				221E10F12DF6619600D3B4CD /* Comment.graphql.swift */,
+				221E10F22DF6619600D3B4CD /* UrlRedirect.graphql.swift */,
+				221E10F32DF6619600D3B4CD /* Shop.graphql.swift */,
+				221E10F42DF6619600D3B4CD /* ImageConnection.graphql.swift */,
+				221E10F52DF6619600D3B4CD /* GenericFile.graphql.swift */,
+				221E10F62DF6619600D3B4CD /* TaxonomyCategory.graphql.swift */,
+				221E10F72DF6619600D3B4CD /* ProductOption.graphql.swift */,
+				221E10F82DF6619600D3B4CD /* Count.graphql.swift */,
+				221E10F92DF6619600D3B4CD /* QuantityRule.graphql.swift */,
+				221E10FA2DF6619600D3B4CD /* Collection.graphql.swift */,
+				221E10FB2DF6619600D3B4CD /* ShopPayInstallmentsFinancingPlanTerm.graphql.swift */,
+				221E10FC2DF6619600D3B4CD /* ExternalVideo.graphql.swift */,
+				221E10FD2DF6619600D3B4CD /* ProductConnection.graphql.swift */,
+				221E10FE2DF6619600D3B4CD /* CompanyContact.graphql.swift */,
+				221E10FF2DF6619600D3B4CD /* Menu.graphql.swift */,
+				221E11002DF6619600D3B4CD /* Company.graphql.swift */,
+				221E11012DF6619600D3B4CD /* Location.graphql.swift */,
+				221E11022DF6619600D3B4CD /* Metaobject.graphql.swift */,
+				221E11032DF6619600D3B4CD /* QueryRoot.graphql.swift */,
+				221E11042DF6619600D3B4CD /* CompanyLocation.graphql.swift */,
+				221E11052DF6619600D3B4CD /* Cart.graphql.swift */,
+				221E11062DF6619600D3B4CD /* MoneyV2.graphql.swift */,
+				221E11072DF6619600D3B4CD /* Customer.graphql.swift */,
+				221E11082DF6619600D3B4CD /* CartLine.graphql.swift */,
+				221E11092DF6619600D3B4CD /* MailingAddress.graphql.swift */,
+				221E110A2DF6619600D3B4CD /* ShopPayInstallmentsFinancingPlan.graphql.swift */,
+				221E110B2DF6619600D3B4CD /* Page.graphql.swift */,
+				221E110C2DF6619600D3B4CD /* SearchQuerySuggestion.graphql.swift */,
+				221E110D2DF6619600D3B4CD /* CollectionConnection.graphql.swift */,
+				221E110E2DF6619600D3B4CD /* ProductVariantConnection.graphql.swift */,
+				221E110F2DF6619600D3B4CD /* Market.graphql.swift */,
+				221E11102DF6619600D3B4CD /* Metafield.graphql.swift */,
+				221E11112DF6619600D3B4CD /* Article.graphql.swift */,
+				221E11122DF6619600D3B4CD /* AppliedGiftCard.graphql.swift */,
+				221E11132DF6619600D3B4CD /* ComponentizableCartLine.graphql.swift */,
+				221E11142DF6619600D3B4CD /* MediaImage.graphql.swift */,
+				221E11152DF6619600D3B4CD /* Video.graphql.swift */,
+				221E11162DF6619600D3B4CD /* Product.graphql.swift */,
+				221E11172DF6619600D3B4CD /* ShopPolicy.graphql.swift */,
+				221E11182DF6619600D3B4CD /* MediaPresentation.graphql.swift */,
+				221E11192DF6619600D3B4CD /* ShopPayInstallmentsProductVariantPricing.graphql.swift */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		221E111C2DF6619600D3B4CD /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				C21BB2B02E04288C0013F56F /* DisplayableError.graphql.swift */,
+				221E111D2DF6619600D3B4CD /* Media.graphql.swift */,
+				221E111E2DF6619600D3B4CD /* Trackable.graphql.swift */,
+				221E111F2DF6619600D3B4CD /* HasMetafields.graphql.swift */,
+				221E11202DF6619600D3B4CD /* BaseCartLine.graphql.swift */,
+				221E11212DF6619600D3B4CD /* OnlineStorePublishable.graphql.swift */,
+				221E11222DF6619600D3B4CD /* Node.graphql.swift */,
+			);
+			path = Interfaces;
 			sourceTree = "<group>";
 		};
 		221E11232DF6619600D3B4CD /* GraphQLSchemas */ = {
@@ -1141,6 +1306,54 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		C21BB2872E03AF9D0013F56F /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				C21BB2C72E044C8F0013F56F /* Views */,
+				C21BB2942E03C6580013F56F /* AuthViewModel.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		C21BB2B72E042D930013F56F /* Mutations */ = {
+			isa = PBXGroup;
+			children = (
+				C22E1A242E05093800340107 /* CustomerAccessTokenCreate.graphql */,
+				C21BB29A2E04275D0013F56F /* customerCreate.graphql */,
+			);
+			path = Mutations;
+			sourceTree = "<group>";
+		};
+		C21BB2BA2E042DE70013F56F /* Mutations */ = {
+			isa = PBXGroup;
+			children = (
+				C22E1A282E0509E700340107 /* CustomerAccessTokenCreateMutation.graphql.swift */,
+				C21BB2C22E0436420013F56F /* CustomerCreateMutation.graphql.swift */,
+			);
+			path = Mutations;
+			sourceTree = "<group>";
+		};
+		C21BB2C52E0439360013F56F /* InputObjects */ = {
+			isa = PBXGroup;
+			children = (
+				C22E1A2A2E050A0100340107 /* CustomerAccessTokenCreateInput.graphql.swift */,
+				C21BB2C42E0439360013F56F /* CustomerCreateInput.graphql.swift */,
+			);
+			path = InputObjects;
+			sourceTree = "<group>";
+		};
+		C21BB2C72E044C8F0013F56F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C22E1A342E05182F00340107 /* RootView.swift */,
+				C21BB2822E03AF9D0013F56F /* SignUpView.swift */,
+				C21BB2842E03AF9D0013F56F /* LoginView.swift */,
+				C21BB2982E03D2440013F56F /* EmailVerificationView.swift */,
+				C21BB2862E03AF9D0013F56F /* CustomTextField.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		C2488BE62DFBB81900B11CA5 /* SearchScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -1169,6 +1382,9 @@
 			packageProductDependencies = (
 				22EBEF5B2DF2424100EF8FA6 /* Apollo */,
 				221E119C2DF6635500D3B4CD /* Kingfisher */,
+				C21BB28E2E03BFA50013F56F /* FirebaseAnalytics */,
+				C21BB2902E03BFA50013F56F /* FirebaseAnalyticsCore */,
+				C21BB2922E03BFA50013F56F /* FirebaseAuth */,
 			);
 			productName = "Shopify-IOS";
 			productReference = 22132AA22DEC974500FA9C90 /* Shopify-IOS.app */;
@@ -1246,6 +1462,7 @@
 			packageReferences = (
 				22EBEF5A2DF2424100EF8FA6 /* XCRemoteSwiftPackageReference "apollo-ios" */,
 				221E119B2DF6635500D3B4CD /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				C21BB28D2E03BFA50013F56F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 22132AA32DEC974500FA9C90 /* Products */;
 			projectDirPath = "";
@@ -1267,8 +1484,11 @@
 				2285ED7B2E0238C400C11573 /* CreateCartMutation.graphql in Resources */,
 				22DB2AA42E05600700F90A9A /* RemoveFromCart.graphql in Resources */,
 				221E11512DF6619600D3B4CD /* GetProducts.graphql in Resources */,
+				C21BB28C2E03BBFA0013F56F /* GoogleService-Info.plist in Resources */,
 				221E11352DF6619600D3B4CD /* Preview Assets.xcassets in Resources */,
+				C22E1A252E05094F00340107 /* CustomerAccessTokenCreate.graphql in Resources */,
 				221E11522DF6619600D3B4CD /* GetCollections.graphql in Resources */,
+				C21BB29B2E04276B0013F56F /* customerCreate.graphql in Resources */,
 				221E11422DF6619600D3B4CD /* covers.json in Resources */,
 				221E11382DF6619600D3B4CD /* Configurations.plist in Resources */,
 				221E112A2DF6619600D3B4CD /* Assets.xcassets in Resources */,
@@ -1317,7 +1537,11 @@
 				2253E8A82E0513B1003FA9C6 /* CartBuyerIdentityInput.graphql.swift in Sources */,
 				221E114D2DF6619600D3B4CD /* TokenInterceptor.swift in Sources */,
 				221E113C2DF6619600D3B4CD /* ViewsContainer.swift in Sources */,
+				C21BB2B12E04288C0013F56F /* DisplayableError.graphql.swift in Sources */,
+				221E11652DF6619600D3B4CD /* UrlRedirect.graphql.swift in Sources */,
+				221E117F2DF6619700D3B4CD /* SearchQuerySuggestion.graphql.swift in Sources */,
 				22DA21A82DF7BF1E001FA5E0 /* ProfileCell.swift in Sources */,
+				C21BB2C62E0439360013F56F /* CustomerCreateInput.graphql.swift in Sources */,
 				221E112E2DF6619600D3B4CD /* QuantityRuel.swift in Sources */,
 				2253E8B72E0514E2003FA9C6 /* DeliveryAddressValidationStrategy.graphql.swift in Sources */,
 				227CB3DB2DFBD86E00F36E91 /* AddressModel.xcdatamodeld in Sources */,
@@ -1335,6 +1559,17 @@
 				221E118D2DF6619700D3B4CD /* SchemaConfiguration.swift in Sources */,
 				C20599552DFAA9C1008CD6FE /* ProductDetailsViewModel.swift in Sources */,
 				220E91C02E050D5F00F900D7 /* Product.graphql.swift in Sources */,
+				C22E1A302E050A3200340107 /* CustomerAccessTokenCreatePayload.graphql.swift in Sources */,
+				C22E1A312E050A3200340107 /* CustomerAccessToken.graphql.swift in Sources */,
+				C22E1A292E0509E700340107 /* CustomerAccessTokenCreateMutation.graphql.swift in Sources */,
+				221E11792DF6619700D3B4CD /* MoneyV2.graphql.swift in Sources */,
+				221E11712DF6619600D3B4CD /* CompanyContact.graphql.swift in Sources */,
+				C22E1A2D2E050A1500340107 /* DateTime.swift in Sources */,
+				221E116E2DF6619600D3B4CD /* ShopPayInstallmentsFinancingPlanTerm.graphql.swift in Sources */,
+				221E117E2DF6619700D3B4CD /* Page.graphql.swift in Sources */,
+				C22E1A352E05183100340107 /* RootView.swift in Sources */,
+				C22E1A272E0509CF00340107 /* GraphQLCodeGen.graphql.swift in Sources */,
+				221E11832DF6619700D3B4CD /* Metafield.graphql.swift in Sources */,
 				C205995B2DFAB2C5008CD6FE /* Reviews.swift in Sources */,
 				220E91882E050D5F00F900D7 /* ProductOptionValue.graphql.swift in Sources */,
 				22DA219D2DF69CE5001FA5E0 /* Orders.swift in Sources */,
@@ -1396,20 +1631,29 @@
 				220E91DF2E050DBC00F900D7 /* Node.graphql.swift in Sources */,
 				227CB3E22DFBDA4600F36E91 /* RepositoryImp.swift in Sources */,
 				C2488BE52DFBB81100B11CA5 /* SearchViewModel.swift in Sources */,
+				C21BB2C32E0436420013F56F /* CustomerCreateMutation.graphql.swift in Sources */,
 				22DA21A32DF79E51001FA5E0 /* ProfileViewModel.swift in Sources */,
 				220E91CF2E050D9A00F900D7 /* HTML.swift in Sources */,
 				226A37292DF667B1008D43E2 /* SettingsCell.swift in Sources */,
 				220E91A72E050D5F00F900D7 /* Cart.graphql.swift in Sources */,
 				221E113F2DF6619600D3B4CD /* CategoriesScreen.swift in Sources */,
+				C21BB2992E03D2460013F56F /* EmailVerificationView.swift in Sources */,
+				221E11562DF6619600D3B4CD /* ID.swift in Sources */,
 				221E11962DF6619700D3B4CD /* NetworkInterceptorProvider.swift in Sources */,
 				220E91912E050D5F00F900D7 /* Comment.graphql.swift in Sources */,
 				221E118E2DF6619700D3B4CD /* SchemaMetadata.graphql.swift in Sources */,
+				C22E1A2B2E050A0100340107 /* CustomerAccessTokenCreateInput.graphql.swift in Sources */,
 				C20599592DFAB09D008CD6FE /* Section2.swift in Sources */,
 				226A372C2DF667B1008D43E2 /* SettingsScreen.swift in Sources */,
 				220E918C2E050D5F00F900D7 /* UserErrorsShopPayPaymentRequestSessionUserErrors.graphql.swift in Sources */,
 				220E91922E050D5F00F900D7 /* UrlRedirect.graphql.swift in Sources */,
 				220E91DD2E050DBC00F900D7 /* DisplayableError.graphql.swift in Sources */,
 				2253E8AA2E0513B1003FA9C6 /* CartDeliveryInput.graphql.swift in Sources */,
+				221E11892DF6619700D3B4CD /* Product.graphql.swift in Sources */,
+				C21BB2882E03AF9D0013F56F /* CustomTextField.swift in Sources */,
+				C21BB2892E03AF9D0013F56F /* LoginView.swift in Sources */,
+				C21BB28A2E03AF9D0013F56F /* SignUpView.swift in Sources */,
+				221E11932DF6619700D3B4CD /* OnlineStorePublishable.graphql.swift in Sources */,
 				221E112B2DF6619600D3B4CD /* Mappable.swift in Sources */,
 				2225480A2E024B32004DAF5D /* RemoteDataSourceProtocol.swift in Sources */,
 				220E918B2E050D5F00F900D7 /* Blog.graphql.swift in Sources */,
@@ -1430,6 +1674,8 @@
 				220E91B32E050D5F00F900D7 /* MetafieldDeleteUserError.graphql.swift in Sources */,
 				221E11302DF6619600D3B4CD /* Product.swift in Sources */,
 				2253E8AD2E0513B1003FA9C6 /* CartInputMetafieldInput.graphql.swift in Sources */,
+				C21BB2952E03C65A0013F56F /* AuthViewModel.swift in Sources */,
+				221E117A2DF6619700D3B4CD /* Customer.graphql.swift in Sources */,
 				221E11342DF6619600D3B4CD /* ProducteExtentions.swift in Sources */,
 				221B7B082E039B5E005150CF /* GetCartQuery.graphql.swift in Sources */,
 				220E91932E050D5F00F900D7 /* Shop.graphql.swift in Sources */,
@@ -1472,6 +1718,13 @@
 				220E91C42E050D5F00F900D7 /* MetafieldsSetUserError.graphql.swift in Sources */,
 				220E91422E050CF800F900D7 /* AttributeInput.graphql.swift in Sources */,
 				220E91A12E050D5F00F900D7 /* Mutation.graphql.swift in Sources */,
+				C2488BDF2DFB12C700B11CA5 /* SelectedOption.graphql.swift in Sources */,
+				221E11692DF6619600D3B4CD /* TaxonomyCategory.graphql.swift in Sources */,
+				C21BB2A82E0428460013F56F /* UserError.graphql.swift in Sources */,
+				C21BB2A92E0428460013F56F /* UserErrorsShopPayPaymentRequestSessionUserErrors.graphql.swift in Sources */,
+				C21BB2AA2E0428460013F56F /* CustomerCreatePayload.graphql.swift in Sources */,
+				C21BB2AB2E0428460013F56F /* MetafieldDeleteUserError.graphql.swift in Sources */,
+				C21BB2AD2E0428460013F56F /* CustomerUserError.graphql.swift in Sources */,
 				226A37282DF667B1008D43E2 /* AboutUs.swift in Sources */,
 				220E91A22E050D5F00F900D7 /* Location.graphql.swift in Sources */,
 				221E114C2DF6619600D3B4CD /* Persistence.swift in Sources */,
@@ -1825,6 +2078,14 @@
 				minimumVersion = 1.22.0;
 			};
 		};
+		C21BB28D2E03BFA50013F56F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.14.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1837,6 +2098,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 22EBEF5A2DF2424100EF8FA6 /* XCRemoteSwiftPackageReference "apollo-ios" */;
 			productName = Apollo;
+		};
+		C21BB28E2E03BFA50013F56F /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C21BB28D2E03BFA50013F56F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		C21BB2902E03BFA50013F56F /* FirebaseAnalyticsCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C21BB28D2E03BFA50013F56F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsCore;
+		};
+		C21BB2922E03BFA50013F56F /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C21BB28D2E03BFA50013F56F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
 		};
 /* End XCSwiftPackageProductDependency section */
 

@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct Shopify_IOSApp: App {
 
-    let persistenceController = PersistenceController.shared
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 
     @StateObject private var cartViewModel = CartViewModel(
          useCase: CartUseCase(
@@ -18,11 +19,20 @@ struct Shopify_IOSApp: App {
          )
      )
 
-     var body: some Scene {
-         WindowGroup {
-             ViewsContainer()
-                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                 .environmentObject(cartViewModel) 
-         }
-     }
+    var body: some Scene {
+        WindowGroup {
+            RootView() .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(cartViewModel)
+        }
+    }
+}
+
+
+
+class AppDelegate: NSObject, UIApplicationDelegate {
+  func application(_ application: UIApplication,didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+      FirebaseApp.configure()
+      print("config firebase")
+    return true
+  }
 }

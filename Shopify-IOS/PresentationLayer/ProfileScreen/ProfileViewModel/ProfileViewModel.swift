@@ -12,6 +12,7 @@ class ProfileViewModel: ObservableObject {
     @Published var personEmail: String = ""
     @Published var personImageURL: String = ""
     @Published var orders: [Order] = []
+    let token = UserDefaults.standard.string(forKey: "ShopifyAccessToken")
     func fetchUserData() {
 //        
 //            self.personName = user.displayName ?? "default name"
