@@ -25,7 +25,6 @@ struct ProductDetailsView: View {
             } else {
                 VStack(alignment: .leading, spacing: 20) {
                     Section1(viewModel: viewModel)
-                    Section2()
                     Section3(viewModel: viewModel)
                 }.padding(.bottom, 100)
             }
@@ -46,11 +45,10 @@ struct ProductDetailsView: View {
                             .foregroundColor(Color.orangeColor("FF7F00"))
                     }
                     ZStack(alignment: .topTrailing) {
-                        Button {
-                            print ("cart")
-                        } label: {
+                        NavigationLink(destination: ShoppingCartScreen()) {
                             Image(systemName: "cart")
                                 .foregroundColor(Color.orangeColor("FF7F00"))
+                                .font(.title)
                         }
                     }
                 }

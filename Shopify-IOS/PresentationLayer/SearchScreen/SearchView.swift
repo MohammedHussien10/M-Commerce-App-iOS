@@ -9,16 +9,34 @@ import SwiftUI
 
 struct SearchView: View {
     @StateObject private var viewModel = SearchViewModel()
-    @EnvironmentObject var cartViewModel: CartViewModel
+    @Environment(\.dismiss) private var dismiss
 
     var body: some View {
-        NavigationView {
+        ScrollView(.vertical, showsIndicators: false) {
             VStack(spacing: 8) {
-                TextField("Search", text: $viewModel.searchText)
-                    .padding(12)
+                    HStack(spacing: 8) {
+                        Image(systemName: "magnifyingglass")
+                            .foregroundColor(.gray)
+                        TextField("Search for products...", text: $viewModel.searchText)
+                            .foregroundColor(.primary)
+                            .padding(.vertical, 10)
+                        
+                        if !viewModel.searchText.isEmpty {
+                            Button(action: {
+                                withAnimation {
+                                    viewModel.searchText = ""
+                                }
+                            }) {
+                                Image(systemName: "xmark.circle.fill")
+                                    .foregroundColor(.gray)
+                            }
+                        }
+                    }
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 6)
                     .background(Color(.systemGray6))
-                    .cornerRadius(10)
-                    .padding(.horizontal)
+                    .cornerRadius(20)
+                    .shadow(color: Color.black.opacity(0.05), radius: 4, x: 0, y: 2)
 
                 if viewModel.isLoading {
                     ProgressView("Loading...")
@@ -43,7 +61,33 @@ struct SearchView: View {
                     }
                 }
             }
-            .navigationTitle("Search")
+            .onAppear{
+                let appearance = UINavigationBarAppearance()
+                  appearance.titleTextAttributes = [
+                      .foregroundColor: UIColor.orange,
+                      .font: UIFont.boldSystemFont(ofSize: 26)
+                  ]
+                  UINavigationBar.appearance().standardAppearance = appearance
+                  UINavigationBar.appearance().scrollEdgeAppearance = appearance
+              
+            }   .navigationTitle("Search")
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarBackButtonHidden(true)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button(action: {
+                            dismiss()
+                        }) {
+                            Image(systemName: "chevron.left")
+                                .foregroundColor(.orange)
+                                .font(.system(size: 18, weight: .bold))
+                        }
+                    }
+                }
+
         }
     }
 }
+
+
+    

@@ -12,7 +12,6 @@ struct Section1: View {
     @State private var selectedImageIndex = 0
     @State private var selectedSize: String = ""
     @State private var selectedColor: String = ""
-    var reviews: [String] = ["nice", "good", "bad", "awesome"]
 
     var body: some View {
         TabView(selection: $selectedImageIndex) {
@@ -48,7 +47,7 @@ struct Section1: View {
                     .font(.title2)
                     .foregroundColor(.orange)
             }
-            if !viewModel.sizes.isEmpty /*&& viewModel.sizes.count > 1*/{
+            if !viewModel.sizes.isEmpty{
                             HStack {
                                 Text("Sizes:")
                                     .font(.subheadline)
@@ -62,7 +61,7 @@ struct Section1: View {
                             }
                             .padding(.vertical)
                         }
-            if !viewModel.colorOptions.isEmpty /*&& viewModel.colorOptions.count > 1*/{
+            if !viewModel.colorOptions.isEmpty{
                 HStack {
                     Text("Available Colors:")
                         .font(.subheadline)

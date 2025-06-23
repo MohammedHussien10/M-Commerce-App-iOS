@@ -93,21 +93,12 @@ class AuthViewModel: ObservableObject {
             print(error.localizedDescription)
         }
     }
-//    func resetPassword(email: String) {
-//        Auth.auth().sendPasswordReset(withEmail: email) { error in
-//            if let error = error {
-//                self.setAlert("Failed to send reset email")
-//                print("faild to send reset email \(error.localizedDescription)")
-//            } else {
-//                self.setAlert("Password reset email sent . Please check your inbox")
-//            }
-//        }
-//    }
+
 
     func refreshUserVerificationStatus(completion: @escaping () -> Void) {
         Auth.auth().currentUser?.reload(completion: { error in
             if let error = error {
-                self.setAlert("Something went wrong. Please try again later.")
+                self.setAlert("Faild to refresh user")
                 print("faild to refresh user \(error.localizedDescription)")
                 return
             }

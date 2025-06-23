@@ -8,7 +8,7 @@ import SwiftUI
 
 struct EmailVerificationView: View {
     @ObservedObject var authViewModel: AuthViewModel
-    @State private var navigateToHome = false
+    @State private var navigateToLogin = false
 
     var body: some View {
         NavigationStack {
@@ -23,7 +23,7 @@ struct EmailVerificationView: View {
                     .font(.title).bold()
                 Button("I Verified My Email") {
                     authViewModel.refreshUserVerificationStatus {
-                        navigateToHome = true
+                        navigateToLogin = true
                     }
                 }
                 .padding()
@@ -32,16 +32,17 @@ struct EmailVerificationView: View {
                 .foregroundColor(.white)
                 .cornerRadius(12)
 
-                NavigationLink(destination: HomeScreen(), isActive: $navigateToHome) {
+                NavigationLink(destination: LoginView(authViewModel: authViewModel), isActive: $navigateToLogin) {
                     EmptyView()
                 }
             }
             .padding()
-            .alert("Notice", isPresented: $authViewModel.showAlert) {
+            .alert(" ", isPresented: $authViewModel.showAlert) {
                 Button("OK", role: .cancel) {}
             } message: {
                 Text(authViewModel.alertMessage)
             }
+            .navigationBarBackButtonHidden(true)
         }
     }
 }

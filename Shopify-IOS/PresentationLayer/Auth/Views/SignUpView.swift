@@ -17,6 +17,7 @@ struct SignUpView: View {
     @State private var isPasswordVisible: Bool = false
     @State private var isConfirmPasswordVisible: Bool = false
     @State private var navigateToVerify = false
+    @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         NavigationStack
@@ -89,7 +90,9 @@ struct SignUpView: View {
                     HStack {
                         Text("Already have an account?")
                             .foregroundColor(.gray)
-                        NavigationLink(destination: LoginView(authViewModel: authViewModel)) {
+                        Button(action: {
+                            dismiss()
+                        }) {
                             Text("Sign In")
                                 .foregroundColor(.white)
                                 .bold()
@@ -97,15 +100,27 @@ struct SignUpView: View {
                     }
                     Spacer(minLength: 20)
 
-                }.frame(maxWidth: .infinity , maxHeight: 650)
+                }.frame(maxWidth: .infinity , maxHeight: .infinity)
                 .padding()
                 .background(Color.black)
                 .cornerRadius(30)
-               
-
+                .ignoresSafeArea(edges: .bottom)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button(action: {
+                            dismiss()
+                        }) {
+                            Image(systemName: "chevron.left")
+                                .foregroundColor(.orange)
+                                .font(.system(size: 18, weight: .bold))
+                        }
+                    }
+                }
                 
             }
             .background(Color.white.ignoresSafeArea())
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
             .navigationDestination(isPresented: $navigateToVerify) {
                 EmailVerificationView(authViewModel: authViewModel)
                 
