@@ -12,6 +12,7 @@ struct ShoppingCartScreen: View {
 
     var body: some View {
         NavigationView {
+            VStack {
             List(cartViewModel.cartProducts) { product in
                 if let cartId = cartViewModel.cartId {
                     CartProductRow(
@@ -25,6 +26,22 @@ struct ShoppingCartScreen: View {
                           }
                     )
                 }
+            }
+            .listStyle(PlainListStyle())
+
+                
+                
+                NavigationLink(destination: CheckoutScreen(products: cartViewModel.cartProducts)) {
+                    Text("Check Out")
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Constants.AppColor.primaryColor)
+                        .foregroundColor(.white)
+                        .cornerRadius(12)
+                        .padding(.horizontal)
+                }
+                .padding(.bottom, 16)
+                Spacer().frame(height: 60)
             }
             .navigationTitle("Shopping Cart")
             .onAppear {

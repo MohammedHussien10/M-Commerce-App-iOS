@@ -1,0 +1,29 @@
+{
+  "schemaNamespace" : "StoreFrontNameSpace",
+  "input" : {
+    "operationSearchPaths" : [
+      "./Shopify-IOS/DataLayer/Network/GraphQL/StoreFrontOperations/**/*.graphql"
+    ],
+    "schemaSearchPaths" : [
+      "./Shopify-IOS/DataLayer/Network/GraphQL/GraphQLSchemas/StoreFrontschema.graphqls"
+    ]
+  },
+  "output" : {
+    "testMocks" : {
+      "none" : {
+      }
+    },
+    "schemaTypes": {
+       "path": "./Shopify-IOS/DataLayer/Network/GraphQL/StoreFront/StoreFrontSPM",
+       "moduleType": {
+         "swiftPackageManager": {
+           "baseOutputPath": "./Shopify-IOS/DataLayer/Network/GraphQL/StoreFront"
+         }
+       }
+     },
+    "operations" : {
+      "inSchemaModule" : {
+      }
+    }
+  }
+}

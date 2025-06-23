@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import StoreFrontNameSpace
 
 class HomeViewModel: ObservableObject {
     @Published var products: [Product] = []
@@ -18,7 +19,7 @@ class HomeViewModel: ObservableObject {
         isLoading = true
         errorMessage = nil
         
-        let query = GraphQLCodeGen.GetAllProductsQuery(first: 100)
+        let query = StoreFrontNameSpace.GetAllProductsQuery(first: 100)
         
         NetworkManager.sharedStoreFront.queryGraphQLRequest(query: query) { [weak self ]result in
             DispatchQueue.main.async {
@@ -37,7 +38,7 @@ class HomeViewModel: ObservableObject {
          isLoading = true
          errorMessage = nil
 
-        let query =  GraphQLCodeGen.GetCollectionsQuery(first: 50)
+        let query =  StoreFrontNameSpace.GetCollectionsQuery(first: 50)
 
          NetworkManager.sharedStoreFront.queryGraphQLRequest(query: query) { [weak self] result in
              DispatchQueue.main.async {

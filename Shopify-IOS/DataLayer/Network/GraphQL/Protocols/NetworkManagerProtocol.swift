@@ -6,6 +6,7 @@
 //
 
 import Apollo
+import StoreFrontNameSpace
 
 protocol NetworkManagerProtocol {
     func queryGraphQLRequest<T: GraphQLQuery>(

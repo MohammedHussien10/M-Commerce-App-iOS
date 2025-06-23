@@ -22,24 +22,24 @@ struct ProfileScreen: View {
         
                       Text("Recent Orders")
                           .font(.headline)
-
-                      ForEach(profileViewModel.orders.prefix(4)) { order in
-                          Text(order.name)
-                              .padding(.vertical, 4)
-                              .padding(.horizontal)
-                              .background(Color.gray.opacity(0.1))
-                              .cornerRadius(8)
-                      }
+//
+//                      ForEach(profileViewModel.orders.prefix(4)) { order in
+//                          Text(order.name)
+//                              .padding(.vertical, 4)
+//                              .padding(.horizontal)
+//                              .background(Color.gray.opacity(0.1))
+//                              .cornerRadius(8)
+//                      }
 
                     
-                      if profileViewModel.orders.count > 4 {
-                          NavigationLink(destination: Orders()) {
-                              Text("More Orders")
-                                  .font(.subheadline)
-                                  .foregroundColor(.blue)
-                          }
-                          .padding(.top, 5)
-                      }
+//                      if profileViewModel.orders.count > 4 {
+//                          NavigationLink(destination: Orders()) {
+//                              Text("More Orders")
+//                                  .font(.subheadline)
+//                                  .foregroundColor(.blue)
+//                          }
+//                          .padding(.top, 5)
+//                      }
                     Divider()
                     
                     Button(action: {
@@ -72,7 +72,7 @@ struct ProfileScreen: View {
             }     .padding()
             .onAppear {
             profileViewModel.fetchUserData()
-            profileViewModel.fetchOrders()
+//            profileViewModel.fetchOrders()
         }
     }
 }

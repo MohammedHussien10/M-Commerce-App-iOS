@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import StoreFrontNameSpace
 
 class SearchViewModel: ObservableObject {
     @Published var searchText: String = ""
@@ -24,7 +25,7 @@ class SearchViewModel: ObservableObject {
 
     private func fetchAllProducts() {
         isLoading = true
-        let query = GraphQLCodeGen.GetAllProductsQuery(first: 100)
+        let query = StoreFrontNameSpace.GetAllProductsQuery(first: 100)
 
         NetworkManager.sharedStoreFront.queryGraphQLRequest(query: query) { [weak self] result in
             DispatchQueue.main.async {

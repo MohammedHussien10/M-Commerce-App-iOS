@@ -9,6 +9,7 @@ import Foundation
 
 struct CartProduct: Identifiable {
     let id: String
+    let Variantid: String
     var quantity: Int
     let title: String
     let imageURL: String

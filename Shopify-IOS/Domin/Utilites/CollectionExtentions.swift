@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import StoreFrontNameSpace
 
-extension GraphQLCodeGen.GetCollectionsQuery.Data.Collections.Node: Mappable {
+extension StoreFrontNameSpace.GetCollectionsQuery.Data.Collections.Node: Mappable {
     typealias DomainModel = CollectionModel
 
     func toDomain() -> CollectionModel {
@@ -22,13 +23,13 @@ extension GraphQLCodeGen.GetCollectionsQuery.Data.Collections.Node: Mappable {
     }
 }
 
-extension GraphQLCodeGen.GetCollectionQuery.Data{
+extension StoreFrontNameSpace.GetCollectionQuery.Data{
     func toDomainProducts() -> [Product] {
         return collection?.products.nodes.map { $0.toDomain() } ?? []
     }
 }
 
-extension GraphQLCodeGen.GetCollectionQuery.Data.Collection.Products.Node: Mappable {
+extension StoreFrontNameSpace.GetCollectionQuery.Data.Collection.Products.Node: Mappable {
     func toDomain() -> Product {
         return Product(
             id: id,
@@ -46,7 +47,7 @@ extension GraphQLCodeGen.GetCollectionQuery.Data.Collection.Products.Node: Mappa
         )
     }
 }
-extension GraphQLCodeGen.GetCollectionQuery.Data.Collection.Products.Node.Variants.Node: Mappable {
+extension StoreFrontNameSpace.GetCollectionQuery.Data.Collection.Products.Node.Variants.Node: Mappable {
     func toDomain() -> Variant {
         return Variant(
             id: id,
@@ -73,7 +74,7 @@ extension GraphQLCodeGen.GetCollectionQuery.Data.Collection.Products.Node.Varian
         )
     }
 }
-extension GraphQLCodeGen.GetCollectionQuery.Data.Collection.Products.Node.Variants.Node.QuantityRule {
+extension StoreFrontNameSpace.GetCollectionQuery.Data.Collection.Products.Node.Variants.Node.QuantityRule {
     func toDomain() -> QuantityRule {
         return QuantityRule(
             increment: increment,
@@ -82,7 +83,7 @@ extension GraphQLCodeGen.GetCollectionQuery.Data.Collection.Products.Node.Varian
         )
     }
 }
-extension GraphQLCodeGen.GetCollectionQuery.Data.Collection.Products.Node.Variants.Node.SelectedOption {
+extension StoreFrontNameSpace.GetCollectionQuery.Data.Collection.Products.Node.Variants.Node.SelectedOption {
     func toDomain() -> SelectedOption {
         return SelectedOption(
             name: name ,

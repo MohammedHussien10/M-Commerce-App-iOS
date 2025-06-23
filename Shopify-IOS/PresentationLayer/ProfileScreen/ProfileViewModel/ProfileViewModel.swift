@@ -6,12 +6,13 @@
 //
 
 import Foundation
+import AdminNameSpace
 
 class ProfileViewModel: ObservableObject {
     @Published var personName: String = ""
     @Published var personEmail: String = ""
     @Published var personImageURL: String = ""
-    @Published var orders: [Order] = []
+//    @Published var orders: [Order] = []
     let token = UserDefaults.standard.string(forKey: "ShopifyAccessToken")
     func fetchUserData() {
 //        
@@ -22,19 +23,17 @@ class ProfileViewModel: ObservableObject {
     }
     
     
-    func fetchOrders() {
-        self.orders = [
-            Order(id: "1", name: "Order 1"),
-            Order(id: "2", name: "Order 2"),
-            Order(id: "3", name: "Order 3"),
-            Order(id: "4", name: "Order 4"),
-            Order(id: "5", name: "Order 5")
-        ]
-    }
-    
-  
-}
-struct Order: Identifiable {
-    let id: String
-    var name: String
+//    func fetchOrders() {
+//        let query = AdminNameSpace.GetOrdersQuery(first: 100, query: "email:amirashabana1968@gmail.com")
+//        NetworkManager.sharedAdmin.queryGraphQLRequest(query: query) { result in
+//            switch result {
+//            case .success(let success):
+////                self.orders = success.orders.edges.map { order in
+//////                    Order(from: <#any Decoder#>, id: order.node.id, name: order.node.name)
+////                }
+//            case .failure(let error):
+//                print("error : \(error.localizedDescription)")
+//            }
+//        }
+//    }
 }

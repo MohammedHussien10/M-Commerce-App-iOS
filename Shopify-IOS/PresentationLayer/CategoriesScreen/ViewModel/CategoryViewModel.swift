@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import StoreFrontNameSpace
 
 class CategoryViewModel: ObservableObject {
     @Published var items: [Product]?
@@ -40,7 +40,7 @@ class CategoryViewModel: ObservableObject {
         isLoading = true
         errorMessage = nil
         
-        let query = GraphQLCodeGen.GetAllProductsQuery(first: 100)
+        let query = StoreFrontNameSpace.GetAllProductsQuery(first: 100)
         
         NetworkManager.sharedStoreFront.queryGraphQLRequest(query: query) { [weak self ]result in
             DispatchQueue.main.async {

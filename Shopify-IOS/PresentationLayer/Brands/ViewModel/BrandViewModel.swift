@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import StoreFrontNameSpace
+
 class BrandViewModel : ObservableObject {
     @Published var products: [Product] = []
     @Published var isLoading = false
@@ -17,7 +19,7 @@ class BrandViewModel : ObservableObject {
         
         let handle: GraphQLNullable<String> = .some(handle)
         let first: GraphQLNullable<Int> = .some(20)
-        let query = GraphQLCodeGen.GetCollectionQuery(handle: handle, first: first)
+        let query = StoreFrontNameSpace.GetCollectionQuery(handle: handle, first: first)
         
         NetworkManager.sharedStoreFront.queryGraphQLRequest(query: query) { [weak self] result in
             DispatchQueue.main.async {

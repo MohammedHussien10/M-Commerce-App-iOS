@@ -6,19 +6,21 @@
 //
 
 import Foundation
+import StoreFrontNameSpace
+
 class RemoteDataSource: RemoteDataSourceProtocol {
    
     
     func createCart(completion: @escaping (Result<String, Error>) -> Void) {
-        let buyerIdentity = GraphQLCodeGen.CartBuyerIdentityInput(
+        let buyerIdentity = StoreFrontNameSpace.CartBuyerIdentityInput(
             email: "mohammedhussien10101010@gmail.com"
         )
 
-        let cartInput = GraphQLCodeGen.CartInput(
+        let cartInput = StoreFrontNameSpace.CartInput(
             buyerIdentity: GraphQLNullable(buyerIdentity)
         )
 
-        let mutation = GraphQLCodeGen.CreateCartMutation(input: GraphQLNullable(cartInput))
+        let mutation = StoreFrontNameSpace.CreateCartMutation(input: GraphQLNullable(cartInput))
 
         
         NetworkManager.sharedStoreFront.performGraphQLRequest(mutation: mutation) { result in
@@ -38,9 +40,9 @@ class RemoteDataSource: RemoteDataSourceProtocol {
     
     // MARK: - Cart
     func addToCart(cartId: String, productId: String, quantity: Int, completion: @escaping (Result<Void, Error>) -> Void) {
-        let line = GraphQLCodeGen.CartLineInput(quantity: GraphQLNullable<Int>(integerLiteral: quantity),merchandiseId: GraphQLCodeGen.ID(productId))
+        let line = StoreFrontNameSpace.CartLineInput(quantity: GraphQLNullable<Int>(integerLiteral: quantity),merchandiseId: StoreFrontNameSpace.ID(productId))
 
-        let mutation = GraphQLCodeGen.AddToCartMutation(cartId: GraphQLCodeGen.ID(cartId), lines: [line])
+        let mutation = StoreFrontNameSpace.AddToCartMutation(cartId: StoreFrontNameSpace.ID(cartId), lines: [line])
 
         NetworkManager.sharedStoreFront.performGraphQLRequest(mutation: mutation) { result in
             switch result {
@@ -61,13 +63,13 @@ class RemoteDataSource: RemoteDataSourceProtocol {
 
     
     func updateCartLine(cartId: String, lineId: String, quantity: Int, completion: @escaping (Result<Void, Error>) -> Void) {
-        let lineUpdate = GraphQLCodeGen.CartLineUpdateInput(
-            id: GraphQLCodeGen.ID(lineId),
+        let lineUpdate = StoreFrontNameSpace.CartLineUpdateInput(
+            id: StoreFrontNameSpace.ID(lineId),
             quantity: GraphQLNullable<Int>(integerLiteral: quantity)
         )
 
-        let mutation = GraphQLCodeGen.UpdateCartLineMutation(
-            cartId: GraphQLCodeGen.ID(cartId),
+        let mutation = StoreFrontNameSpace.UpdateCartLineMutation(
+            cartId: StoreFrontNameSpace.ID(cartId),
             lines: [lineUpdate]
         )
 
@@ -87,8 +89,8 @@ class RemoteDataSource: RemoteDataSourceProtocol {
     }
 
 
-    func getCart(cartId: String, completion: @escaping (Result<GraphQLCodeGen.GetCartQuery.Data.Cart, Error>) -> Void) {
-        let query = GraphQLCodeGen.GetCartQuery(cartId: GraphQLCodeGen.ID(cartId))
+    func getCart(cartId: String, completion: @escaping (Result<StoreFrontNameSpace.GetCartQuery.Data.Cart, Error>) -> Void) {
+        let query = StoreFrontNameSpace.GetCartQuery(cartId: StoreFrontNameSpace.ID(cartId))
           NetworkManager.sharedStoreFront.queryGraphQLRequest(query: query) { result in
               switch result {
               case .success(let data):
@@ -104,9 +106,9 @@ class RemoteDataSource: RemoteDataSourceProtocol {
     }
     
     func removeCartLine(cartId: String, lineId: String, completion: @escaping (Result<Void, Error>) -> Void) {
-        let mutation = GraphQLCodeGen.RemoveFromCartMutation(
-            cartId: GraphQLCodeGen.ID(cartId),
-            lineIds: [GraphQLCodeGen.ID(lineId)]
+        let mutation = StoreFrontNameSpace.RemoveFromCartMutation(
+            cartId: StoreFrontNameSpace.ID(cartId),
+            lineIds: [StoreFrontNameSpace.ID(lineId)]
         )
 
         NetworkManager.sharedStoreFront.performGraphQLRequest(mutation: mutation) { result in

@@ -7,6 +7,7 @@
 
 import Apollo
 import Foundation
+import StoreFrontNameSpace
 
 struct TokenInterceptor: ApolloInterceptor {
     var id: String

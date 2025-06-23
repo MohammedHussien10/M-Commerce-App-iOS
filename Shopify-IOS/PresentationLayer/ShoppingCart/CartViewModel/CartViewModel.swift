@@ -60,6 +60,7 @@ class CartViewModel: ObservableObject {
 
                         return CartProduct(
                             id: edge.node.id,
+                            Variantid: variant.id,
                             quantity: edge.node.quantity,
                             title: variant.title,
                             imageURL: variant.image?.url ?? "",

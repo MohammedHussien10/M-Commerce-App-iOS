@@ -8,6 +8,7 @@ import Foundation
 import Firebase
 import SwiftUI
 import FirebaseAuth
+import StoreFrontNameSpace
 
 class AuthViewModel: ObservableObject {
     @Published var isLoggedIn = false
@@ -136,7 +137,7 @@ extension AuthViewModel {
 
 extension AuthViewModel {
     func createShopifyCustomer(email: String, password: String, firstName: String, lastName: String) {
-        let input = GraphQLCodeGen.CustomerCreateInput(
+        let input = StoreFrontNameSpace.CustomerCreateInput(
             firstName: .some(firstName),
             lastName: .some(lastName),
             email: email,
@@ -144,13 +145,14 @@ extension AuthViewModel {
         )
 
 
-        let mutation = GraphQLCodeGen.CustomerCreateMutation(input: input)
+        let mutation = StoreFrontNameSpace.CustomerCreateMutation(input: input)
 
         NetworkManager.sharedStoreFront.performGraphQLRequest(mutation: mutation) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let data):
                     if let error = data.customerCreate?.customerUserErrors.first?.message {
+                        UserDefaults.standard.set(data.customerCreate?.customer?.id, forKey: "CurrentCustomerID")
                         self.setAlert("Something went wrong. Please try again later.")
                         print("Errror for creating customer in shopify \(error)")
                     } else if let email = data.customerCreate?.customer?.email {
@@ -165,12 +167,12 @@ extension AuthViewModel {
     }
     
     func createShopifyAccessToken(email: String, password: String, completion: @escaping (String?) -> Void) {
-            let input = GraphQLCodeGen.CustomerAccessTokenCreateInput(
+            let input = StoreFrontNameSpace.CustomerAccessTokenCreateInput(
                 email: email,
                 password: password
             )
 
-            let mutation = GraphQLCodeGen.CustomerAccessTokenCreateMutation(input: input)
+            let mutation = StoreFrontNameSpace.CustomerAccessTokenCreateMutation(input: input)
 
             NetworkManager.sharedStoreFront.performGraphQLRequest(mutation: mutation) { result in
                 DispatchQueue.main.async {

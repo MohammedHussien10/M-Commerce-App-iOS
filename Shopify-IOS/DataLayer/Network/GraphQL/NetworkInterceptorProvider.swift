@@ -7,6 +7,7 @@
 
 import Apollo
 import Foundation
+import StoreFrontNameSpace
 
 struct NetworkInterceptorProvider: InterceptorProvider {
     private let store: ApolloStore

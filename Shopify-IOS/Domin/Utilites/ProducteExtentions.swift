@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import StoreFrontNameSpace
 
-extension GraphQLCodeGen.GetAllProductsQuery.Data.Products: Mappable{
+extension StoreFrontNameSpace.GetAllProductsQuery.Data.Products: Mappable{
     typealias DomainModel = [Product]
     
     func toDomain() -> DomainModel {
@@ -15,7 +16,7 @@ extension GraphQLCodeGen.GetAllProductsQuery.Data.Products: Mappable{
     }
 }
 
-extension GraphQLCodeGen.GetAllProductsQuery.Data.Products.Node: Mappable {
+extension StoreFrontNameSpace.GetAllProductsQuery.Data.Products.Node: Mappable {
     typealias DomainModel = Product
 
     func toDomain() -> DomainModel {
@@ -36,7 +37,7 @@ extension GraphQLCodeGen.GetAllProductsQuery.Data.Products.Node: Mappable {
     }
 }
 
-extension GraphQLCodeGen.GetAllProductsQuery.Data.Products.Node.Variants.Node.QuantityRule {
+extension StoreFrontNameSpace.GetAllProductsQuery.Data.Products.Node.Variants.Node.QuantityRule {
     func toDomain() -> QuantityRule {
         return QuantityRule(
             increment: increment,
@@ -45,7 +46,7 @@ extension GraphQLCodeGen.GetAllProductsQuery.Data.Products.Node.Variants.Node.Qu
         )
     }
 }
-extension GraphQLCodeGen.GetAllProductsQuery.Data.Products.Node.Variants.Node.SelectedOption {
+extension StoreFrontNameSpace.GetAllProductsQuery.Data.Products.Node.Variants.Node.SelectedOption {
     func toDomain() -> SelectedOption {
         return SelectedOption(
             name: name ,
@@ -54,7 +55,7 @@ extension GraphQLCodeGen.GetAllProductsQuery.Data.Products.Node.Variants.Node.Se
     }
 }
 
-extension GraphQLCodeGen.GetAllProductsQuery.Data.Products.Node.Variants.Node {
+extension StoreFrontNameSpace.GetAllProductsQuery.Data.Products.Node.Variants.Node {
     func toDomain() -> Variant {
         return Variant(
             id: id,

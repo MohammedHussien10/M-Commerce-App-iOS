@@ -46,6 +46,7 @@ struct CartProductRow: View {
                         Image(systemName: "plus.circle")
                     }
                     .buttonStyle(.plain)
+                    Spacer()
                     Text(String(format: "$%.2f", product.price * Double(product.quantity)))
                               .font(.subheadline)
                               .foregroundColor(.green)

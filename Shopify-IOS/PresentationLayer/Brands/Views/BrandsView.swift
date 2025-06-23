@@ -18,6 +18,9 @@ struct BrandsView: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false){
             VStack(alignment: .leading, spacing: 16) {
+                Rectangle()
+                  .fill(Color.white.opacity(0.2))
+                  .frame(height: 30)
                 LazyVGrid(columns: columns, spacing: 16) {
                     if viewModel.isLoading {
                         ProgressView("Loading \(collection.title) products...")
@@ -27,6 +30,7 @@ struct BrandsView: View {
                             .foregroundColor(.red)
                             .padding()
                     } else {
+                       
                         ForEach(viewModel.products, id: \.id) { product in
                             
                             ProductItem(product: product).onAppear {

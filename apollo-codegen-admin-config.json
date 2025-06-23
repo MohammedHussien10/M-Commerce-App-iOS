@@ -1,0 +1,29 @@
+{
+  "schemaNamespace" : "AdminNameSpace",
+  "input" : {
+    "operationSearchPaths" : [
+      "./Shopify-IOS/DataLayer/Network/GraphQL/AdminOperations/**/*.graphql"
+    ],
+    "schemaSearchPaths" : [
+      "./Shopify-IOS/DataLayer/Network/GraphQL/GraphQLSchemas/Adminschema.graphqls"
+    ]
+  },
+  "output" : {
+    "testMocks" : {
+      "none" : {
+      }
+    },
+    "schemaTypes": {
+       "path": "./Shopify-IOS/DataLayer/Network/GraphQL/Admin/AdminSPM",
+       "moduleType": {
+         "swiftPackageManager": {
+           "baseOutputPath": "./Shopify-IOS/DataLayer/Network/GraphQL/Admin"
+         }
+       }
+     },
+    "operations" : {
+      "inSchemaModule" : {
+      }
+    }
+  }
+}

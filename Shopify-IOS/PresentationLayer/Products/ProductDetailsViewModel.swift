@@ -6,6 +6,8 @@
 //
 import Foundation
 import Combine
+import StoreFrontNameSpace
+
 class ProductDetailsViewModel: ObservableObject {
     @Published var product: Product
     @Published var isLoading = false
@@ -15,7 +17,7 @@ class ProductDetailsViewModel: ObservableObject {
         isLoading = true
         errorMessage = nil
         
-        let query = GraphQLCodeGen.GetAllProductsQuery(first: 10)
+        let query = StoreFrontNameSpace.GetAllProductsQuery(first: 10)
         
         NetworkManager.sharedStoreFront.queryGraphQLRequest(query: query) { [weak self ]result in
             DispatchQueue.main.async {
@@ -33,7 +35,7 @@ class ProductDetailsViewModel: ObservableObject {
     init(product: Product) {
         self.product = product
     }
-    var imageUrl: [URL] {
+    var imageUrl: [Foundation.URL] {
         return product.images
     }
     var Title: String {

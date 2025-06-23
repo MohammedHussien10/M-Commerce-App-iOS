@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import StoreFrontNameSpace
+
 // MARK: - Repository Implementation
 class RepositoryImp: RepositoryProtocol{
     
@@ -52,7 +54,7 @@ class RepositoryImp: RepositoryProtocol{
     func updateCartLine(cartId: String, lineId: String, quantity: Int, completion: @escaping (Result<Void, Error>) -> Void) {
         remoteDataSource.updateCartLine(cartId: cartId, lineId: lineId, quantity: quantity, completion: completion)
     }
-    func getCart(cartId: String, completion: @escaping (Result<GraphQLCodeGen.GetCartQuery.Data.Cart, Error>) -> Void) {
+    func getCart(cartId: String, completion: @escaping (Result<StoreFrontNameSpace.GetCartQuery.Data.Cart, Error>) -> Void) {
         remoteDataSource.getCart(cartId: cartId, completion: completion)
     }
     func removeCartLine(cartId: String, lineId: String, completion: @escaping (Result<Void, Error>) -> Void) {

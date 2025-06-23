@@ -7,6 +7,7 @@
 
 import Apollo
 import Foundation
+import StoreFrontNameSpace
 
 final class NetworkManager: NetworkManagerProtocol {
   
@@ -23,7 +24,7 @@ final class NetworkManager: NetworkManagerProtocol {
         let store = ApolloStore()
         let client = URLSessionClient()
         let provider = NetworkInterceptorProvider(store: store, client: client, requestType: requestType)
-        let url: URL
+        let url: Foundation.URL
         
         switch requestType {
         case .admin:
@@ -83,23 +84,6 @@ final class NetworkManager: NetworkManagerProtocol {
         }
     }
 
-    //
-    
-//    func performGraphQLRequest<T: GraphQLMutation>(
-//        mutation: T,
-//        completion: @escaping (Result<GraphQLResult<T.Data>, Error>) -> Void
-//    ) {
-//        service.perform(mutation: mutation) { result in
-//            switch result {
-//            case .success(let graphQLResult):
-//                completion(.success(graphQLResult))
-//            case .failure(let error):
-//                completion(.failure(error))
-//            }
-//        }
-//    }
-
-  
 }
 
 

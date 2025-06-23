@@ -1,0 +1,39 @@
+mutation draftOrderCreate($input: DraftOrderInput!) {
+  draftOrderCreate(input: $input) {
+   draftOrder {
+      id
+      name
+      email
+      subtotalPrice
+      note2
+      totalPrice
+      lineItems(first: 100) {
+          
+          nodes {
+              quantity
+              variant{
+                  id
+                  price
+                  availableForSale
+                  title
+              }
+              product {
+                  
+                id
+                 priceRangeV2{
+                      maxVariantPrice{
+                          amount
+                          currencyCode
+                      }
+                  }
+                title
+                productType
+                featuredImage {
+                    url
+                }
+              }
+          }
+      }
+    }
+  }
+}
