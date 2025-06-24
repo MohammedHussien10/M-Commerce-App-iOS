@@ -43,6 +43,8 @@ public enum SchemaMetadata: ApolloAPI.SchemaMetadata {
     case "Customer": return StoreFrontNameSpace.Objects.Customer
     case "CustomerAccessToken": return StoreFrontNameSpace.Objects.CustomerAccessToken
     case "CustomerAccessTokenCreatePayload": return StoreFrontNameSpace.Objects.CustomerAccessTokenCreatePayload
+    case "CustomerAddressCreatePayload": return StoreFrontNameSpace.Objects.CustomerAddressCreatePayload
+    case "CustomerAddressDeletePayload": return StoreFrontNameSpace.Objects.CustomerAddressDeletePayload
     case "CustomerCreatePayload": return StoreFrontNameSpace.Objects.CustomerCreatePayload
     case "CustomerUserError": return StoreFrontNameSpace.Objects.CustomerUserError
     case "ExternalVideo": return StoreFrontNameSpace.Objects.ExternalVideo
@@ -51,6 +53,7 @@ public enum SchemaMetadata: ApolloAPI.SchemaMetadata {
     case "ImageConnection": return StoreFrontNameSpace.Objects.ImageConnection
     case "Location": return StoreFrontNameSpace.Objects.Location
     case "MailingAddress": return StoreFrontNameSpace.Objects.MailingAddress
+    case "MailingAddressConnection": return StoreFrontNameSpace.Objects.MailingAddressConnection
     case "Market": return StoreFrontNameSpace.Objects.Market
     case "MediaImage": return StoreFrontNameSpace.Objects.MediaImage
     case "MediaPresentation": return StoreFrontNameSpace.Objects.MediaPresentation

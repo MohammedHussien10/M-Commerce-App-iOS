@@ -6,11 +6,13 @@
 //
 
 import Foundation
+import AdminNameSpace
+import StoreFrontNameSpace
 
 class CartViewModel: ObservableObject {
     @Published var cartId: String? = nil
     @Published var cartProducts: [CartProduct] = []
-
+    @Published var shouldProceedCheckingOut: Bool = false
     private let useCase: CartUseCaseProtocol
 
     init(useCase: CartUseCaseProtocol) {
@@ -68,7 +70,7 @@ class CartViewModel: ObservableObject {
                         )
                     }
                     self?.cartProducts = products
-
+                    self?.shouldProceedCheckingOut = !products.isEmpty
                 case .failure(let error):
                     print("Failed to load cart: \(error.localizedDescription)")
                 }

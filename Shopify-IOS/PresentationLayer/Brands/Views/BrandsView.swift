@@ -15,6 +15,7 @@ struct BrandsView: View {
         GridItem(.flexible()),
         GridItem(.flexible())
     ]
+    @Binding var isTabBarHidden: Bool
     var body: some View {
         ScrollView(.vertical, showsIndicators: false){
             VStack(alignment: .leading, spacing: 16) {
@@ -33,7 +34,7 @@ struct BrandsView: View {
                        
                         ForEach(viewModel.products, id: \.id) { product in
                             
-                            ProductItem(product: product).onAppear {
+                            ProductItem(product: product, isTabBarHidden: $isTabBarHidden).onAppear {
                                 print(product.title)
                             }
                         }

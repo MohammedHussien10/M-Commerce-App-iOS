@@ -11,13 +11,16 @@ struct HomeScreen: View {
     @StateObject private var viewModel = HomeViewModel()
     @EnvironmentObject var cartViewModel: CartViewModel
     @State private var showSearchView = false
+    @Binding var isTabBarHidden: Bool
+    @Binding var selectedTab: ViewsContainer.Tab
+    @State private var showCategoryView = false
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: 16) {
                     HeaderWithIconAndLogo(
                         leftIcon: "magnifyingglass",
-                        rightIcon: "panda",
+                        rightIcon: "panda", selectedTab: $selectedTab,
                         onLeftIconTap: {
                             print("Search tapped")
                             showSearchView = true
@@ -33,9 +36,6 @@ struct HomeScreen: View {
                         .bold()
 
                     Coupons()
-                    
-                   
-                
                     if viewModel.isLoading {
                         ProgressView("Loading products...")
                     } else if let error = viewModel.errorMessage {
@@ -43,31 +43,43 @@ struct HomeScreen: View {
                             .foregroundColor(.red)
                     } else {
                         BrandsHeader()
-                        BrandList(collections: viewModel.collections)
+                        BrandList(collections: viewModel.collections, isTabBarHidden: $isTabBarHidden)
                         ProductHeader()
-                        ProductsView(products:  Array(viewModel.products.prefix(4)))
+                        ProductsView(products:  Array(viewModel.products.prefix(4)), isTabBarHidden: $isTabBarHidden)
+                        HStack {
+                            Spacer()
+                            Button(action: {
+                                selectedTab = .grid
+                            }) {
+                                Text("See more...")
+                                    .font(.system(size: 18, weight: .semibold))
+                                    .foregroundColor(.orange)
+                                    .bold()
+                            }
+                        }
+                        .padding(.trailing)
+                        .ignoresSafeArea(.container)
                     }
                 }
                 .padding()
             }
             Rectangle()
               .fill(Color.white.opacity(0.2))
-              .frame(height: 50)
+              .frame(height: 65)
                              
             .onAppear {
+                isTabBarHidden = false
+                viewModel.getAllDiscountCodes()
                 viewModel.fetchProducts()
                 viewModel.fetchCollections()
             }
             .navigationDestination(isPresented: $showSearchView) {
-                SearchView()
+                SearchView(isTabBarHidden: $isTabBarHidden)
             }
+            
         }.tint(.orange)
     }
 }
 
 
 
-
-#Preview {
-    HomeScreen()
-}

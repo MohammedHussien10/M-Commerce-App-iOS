@@ -11,9 +11,10 @@ struct ProductsView: View {
     let products : [Product]
     @EnvironmentObject var cartViewModel: CartViewModel
     let columns = [
-        GridItem(.flexible()),
-        GridItem(.flexible())
+        GridItem(.flexible(), spacing: 32),
+        GridItem(.flexible(), spacing:32)
     ]
+    @Binding var isTabBarHidden: Bool
     var body: some View {
         
         if products.isEmpty {
@@ -32,15 +33,11 @@ struct ProductsView: View {
               .frame(maxWidth: .infinity, maxHeight: .infinity)
           } else {
               ScrollView {
-                  LazyVGrid(columns: columns, spacing: 16) {
+                  LazyVGrid(columns: columns, spacing:15) {
                       ForEach(products, id: \.id) { product in
-                          ProductItem(product: product)
-                              .onAppear {
-                                  print(product.title)
-                              }
+                          ProductItem(product: product, isTabBarHidden: $isTabBarHidden)
                       }
-                  }
-                  .padding()
+                  }.padding()
               }
           }
       }

@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 struct ShoppingCartScreen: View {
     @EnvironmentObject var cartViewModel: CartViewModel
-
+    @Binding var isTabBarHidden: Bool
     var body: some View {
         NavigationView {
             VStack {
@@ -31,21 +31,28 @@ struct ShoppingCartScreen: View {
 
                 
                 
-                NavigationLink(destination: CheckoutScreen(products: cartViewModel.cartProducts)) {
+                NavigationLink(
+                    destination: CheckoutScreen(
+                        viewModel: CheckoutViewModel(
+                            cartProducts: cartViewModel.cartProducts
+                        )
+                    )
+                ) {
                     Text("Check Out")
                         .frame(maxWidth: .infinity)
                         .padding()
-                        .background(Constants.AppColor.primaryColor)
+                        .background(
+                            cartViewModel.shouldProceedCheckingOut ? Constants.AppColor.primaryColor : Color.gray.opacity(0.5)
+                        )
                         .foregroundColor(.white)
                         .cornerRadius(12)
                         .padding(.horizontal)
-                }
+                }.disabled(!cartViewModel.shouldProceedCheckingOut)
                 .padding(.bottom, 16)
-                Spacer().frame(height: 60)
             }
-            .navigationTitle("Shopping Cart")
             .onAppear {
                 cartViewModel.loadCartProducts()
+                isTabBarHidden = true
             }
         }
     }

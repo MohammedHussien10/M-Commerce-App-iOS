@@ -27,6 +27,7 @@ class AuthViewModel: ObservableObject {
     func checkLoginStatus() {
         if let user = Auth.auth().currentUser {
             isLoggedIn = user.isEmailVerified
+            UserDefaults.standard.set(user.email, forKey: "CustomerEmail")
         } else {
             isLoggedIn = false
         }
@@ -68,7 +69,9 @@ class AuthViewModel: ObservableObject {
             }
 
             guard let user = result?.user else { return }
-
+            
+            UserDefaults.standard.set(user.email, forKey: "CustomerEmail")
+            
             if user.isEmailVerified {
                 self.isLoggedIn = true
                 self.createShopifyAccessToken(email: email, password: password) { token in
@@ -87,6 +90,7 @@ class AuthViewModel: ObservableObject {
     func logout() {
         do {
             try Auth.auth().signOut()
+            UserDefaults.standard.set(nil, forKey: "CustomerEmail")
             isLoggedIn = false
         } catch {
             self.setAlert("Failed to logout . Please try again later ")
@@ -104,6 +108,7 @@ class AuthViewModel: ObservableObject {
             }
             
             if let user = Auth.auth().currentUser, user.isEmailVerified {
+                UserDefaults.standard.set(user.email, forKey: "CustomerEmail")
                 self.isLoggedIn = true
                 self.createShopifyCustomer(
                     email: user.email ?? "",
@@ -142,13 +147,21 @@ extension AuthViewModel {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let data):
+                    
                     if let error = data.customerCreate?.customerUserErrors.first?.message {
-                        UserDefaults.standard.set(data.customerCreate?.customer?.id, forKey: "CurrentCustomerID")
                         self.setAlert("Something went wrong. Please try again later.")
                         print("Errror for creating customer in shopify \(error)")
-                    } else if let email = data.customerCreate?.customer?.email {
-                        print("Customer Created successfully with email : \(email)")
                     }
+                    
+                    if let email = data.customerCreate?.customer?.email {
+                        print("Customer Created successfully with email : \(email)")
+                        UserDefaults.standard.set(email, forKey: "CustomerEmail")
+                    }
+                    
+                    if let customerID = data.customerCreate?.customer?.id {
+                        UserDefaults.standard.set(customerID, forKey: "CurrentCustomerID")
+                    }
+                    
                 case .failure(let error):
                     self.setAlert("Something went wrong. Please try again later.")
                     print("GraphQL error: \(error.localizedDescription)")

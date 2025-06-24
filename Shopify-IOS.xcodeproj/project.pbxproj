@@ -88,6 +88,13 @@
 		22DA21A82DF7BF1E001FA5E0 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA21A72DF7BF1E001FA5E0 /* ProfileCell.swift */; };
 		22DB2AA42E05600700F90A9A /* RemoveFromCart.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 22DB2AA32E05600700F90A9A /* RemoveFromCart.graphql */; };
 		22EBEF5C2DF2424100EF8FA6 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 22EBEF5B2DF2424100EF8FA6 /* Apollo */; };
+		7B0283312E0AF2F500D969E2 /* OrderCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0283302E0AF2EF00D969E2 /* OrderCart.swift */; };
+		7B09A45B2E0A0A0E00E844DB /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B09A45A2E0A0A0B00E844DB /* Currency.swift */; };
+		7B09A45D2E0A1B0100E844DB /* GetDiscounts.graphql in Sources */ = {isa = PBXBuildFile; fileRef = 7B09A45C2E0A1AFA00E844DB /* GetDiscounts.graphql */; };
+		7B09A45F2E0A1E0800E844DB /* CreateAddress.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 7B09A45E2E0A1DF700E844DB /* CreateAddress.graphql */; };
+		7B09A4612E0A1E3700E844DB /* DeleteAdress.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 7B09A4602E0A1E2500E844DB /* DeleteAdress.graphql */; };
+		7B09A4632E0A1E5400E844DB /* GetAllAddress.graphql in Sources */ = {isa = PBXBuildFile; fileRef = 7B09A4622E0A1E4D00E844DB /* GetAllAddress.graphql */; };
+		7B2F72C02E0A013A006F56CD /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2F72BF2E0A0132006F56CD /* View+Extensions.swift */; };
 		7B339D4D2E095A7E00D2F549 /* DraftOrders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B339D4C2E095A7700D2F549 /* DraftOrders.swift */; };
 		7B339D4F2E095B6C00D2F549 /* OrdersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B339D4E2E095B6800D2F549 /* OrdersModel.swift */; };
 		7B339D512E095FAF00D2F549 /* DraftOrderExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B339D502E095F9E00D2F549 /* DraftOrderExtentions.swift */; };
@@ -102,9 +109,6 @@
 		7B53AA792E08A00B00B34396 /* DraftOrderCompilation.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 7B53AA782E089FED00B34396 /* DraftOrderCompilation.graphql */; };
 		7B53AA7B2E08A03500B34396 /* GetOrders.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 7B53AA7A2E08A02500B34396 /* GetOrders.graphql */; };
 		7B53AA872E08AA6D00B34396 /* Adminschema.graphqls in Resources */ = {isa = PBXBuildFile; fileRef = 7B53AA862E08AA6D00B34396 /* Adminschema.graphqls */; };
-		7B5E80162E08C061001C280D /* AdminNameSpace in Frameworks */ = {isa = PBXBuildFile; productRef = 7B5E80152E08C061001C280D /* AdminNameSpace */; };
-		7B5E80192E08C081001C280D /* StoreFrontNameSpace in Frameworks */ = {isa = PBXBuildFile; productRef = 7B5E80182E08C081001C280D /* StoreFrontNameSpace */; };
-		7B5E801E2E08C0AB001C280D /* StoreFrontSPM in Resources */ = {isa = PBXBuildFile; fileRef = 7B5E801C2E08C0AB001C280D /* StoreFrontSPM */; };
 		7B65D1B32DFEF31100E7A378 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B65D1B12DFEF31100E7A378 /* Collection.swift */; };
 		7B65D1B52DFEF33700E7A378 /* CollectionExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B65D1B42DFEF32B00E7A378 /* CollectionExtentions.swift */; };
 		7B65D1B72DFEFAF800E7A378 /* BrandList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B65D1B62DFEFAF800E7A378 /* BrandList.swift */; };
@@ -112,6 +116,9 @@
 		7B65D1C32DFF17E200E7A378 /* BrandsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B65D1C22DFF17E200E7A378 /* BrandsHeader.swift */; };
 		7B65D1C52DFF306E00E7A378 /* GetCollectionWithHandel.graphql in Sources */ = {isa = PBXBuildFile; fileRef = 7B65D1C42DFF303F00E7A378 /* GetCollectionWithHandel.graphql */; };
 		7B65D1C72DFF327400E7A378 /* CollectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B65D1C62DFF326C00E7A378 /* CollectionResponse.swift */; };
+		7B9E78172E0A25D200B6FECC /* AdminNameSpace in Frameworks */ = {isa = PBXBuildFile; productRef = 7B9E78162E0A25D200B6FECC /* AdminNameSpace */; };
+		7B9E781C2E0A366200B6FECC /* DiscountManagers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9E781B2E0A365D00B6FECC /* DiscountManagers.swift */; };
+		7BCDF8F42E0A1F5500456A76 /* StoreFrontNameSpace in Frameworks */ = {isa = PBXBuildFile; productRef = 7BCDF8F32E0A1F5500456A76 /* StoreFrontNameSpace */; };
 		C20599532DFAA94F008CD6FE /* Section1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20599522DFAA94F008CD6FE /* Section1.swift */; };
 		C20599552DFAA9C1008CD6FE /* ProductDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20599542DFAA9C0008CD6FE /* ProductDetailsViewModel.swift */; };
 		C205995D2DFAB47B008CD6FE /* Section3.swift in Sources */ = {isa = PBXBuildFile; fileRef = C205995C2DFAB47B008CD6FE /* Section3.swift */; };
@@ -336,6 +343,13 @@
 		22DB2AA52E05625600F90A9A /* GraphQLCodeGen.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLCodeGen.graphql.swift; sourceTree = "<group>"; };
 		22DB2AA72E0562A100F90A9A /* RemoveFromCartMutation.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveFromCartMutation.graphql.swift; sourceTree = "<group>"; };
 		22DB2AA92E05637600F90A9A /* CartLinesRemovePayload.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartLinesRemovePayload.graphql.swift; sourceTree = "<group>"; };
+		7B0283302E0AF2EF00D969E2 /* OrderCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCart.swift; sourceTree = "<group>"; };
+		7B09A45A2E0A0A0B00E844DB /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		7B09A45C2E0A1AFA00E844DB /* GetDiscounts.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetDiscounts.graphql; sourceTree = "<group>"; };
+		7B09A45E2E0A1DF700E844DB /* CreateAddress.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = CreateAddress.graphql; sourceTree = "<group>"; };
+		7B09A4602E0A1E2500E844DB /* DeleteAdress.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = DeleteAdress.graphql; sourceTree = "<group>"; };
+		7B09A4622E0A1E4D00E844DB /* GetAllAddress.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetAllAddress.graphql; sourceTree = "<group>"; };
+		7B2F72BF2E0A0132006F56CD /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		7B339D4C2E095A7700D2F549 /* DraftOrders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftOrders.swift; sourceTree = "<group>"; };
 		7B339D4E2E095B6800D2F549 /* OrdersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersModel.swift; sourceTree = "<group>"; };
 		7B339D502E095F9E00D2F549 /* DraftOrderExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftOrderExtentions.swift; sourceTree = "<group>"; };
@@ -350,8 +364,6 @@
 		7B53AA782E089FED00B34396 /* DraftOrderCompilation.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = DraftOrderCompilation.graphql; sourceTree = "<group>"; };
 		7B53AA7A2E08A02500B34396 /* GetOrders.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetOrders.graphql; sourceTree = "<group>"; };
 		7B53AA862E08AA6D00B34396 /* Adminschema.graphqls */ = {isa = PBXFileReference; lastKnownFileType = text; path = Adminschema.graphqls; sourceTree = "<group>"; };
-		7B5E801A2E08C09F001C280D /* AdminSPM */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AdminSPM; sourceTree = "<group>"; };
-		7B5E801C2E08C0AB001C280D /* StoreFrontSPM */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = StoreFrontSPM; sourceTree = "<group>"; };
 		7B65D1B12DFEF31100E7A378 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		7B65D1B42DFEF32B00E7A378 /* CollectionExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtentions.swift; sourceTree = "<group>"; };
 		7B65D1B62DFEFAF800E7A378 /* BrandList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandList.swift; sourceTree = "<group>"; };
@@ -359,6 +371,9 @@
 		7B65D1C22DFF17E200E7A378 /* BrandsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandsHeader.swift; sourceTree = "<group>"; };
 		7B65D1C42DFF303F00E7A378 /* GetCollectionWithHandel.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetCollectionWithHandel.graphql; sourceTree = "<group>"; };
 		7B65D1C62DFF326C00E7A378 /* CollectionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionResponse.swift; sourceTree = "<group>"; };
+		7B9E78182E0A25E800B6FECC /* AdminSPM */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AdminSPM; sourceTree = "<group>"; };
+		7B9E781B2E0A365D00B6FECC /* DiscountManagers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountManagers.swift; sourceTree = "<group>"; };
+		7BCDF8F72E0A1F7000456A76 /* StoreFrontSPM */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = StoreFrontSPM; sourceTree = "<group>"; };
 		C20599522DFAA94F008CD6FE /* Section1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section1.swift; sourceTree = "<group>"; };
 		C20599542DFAA9C0008CD6FE /* ProductDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewModel.swift; sourceTree = "<group>"; };
 		C205995C2DFAB47B008CD6FE /* Section3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section3.swift; sourceTree = "<group>"; };
@@ -407,9 +422,9 @@
 			files = (
 				221E119D2DF6635500D3B4CD /* Kingfisher in Frameworks */,
 				C21BB2932E03BFA50013F56F /* FirebaseAuth in Frameworks */,
-				7B5E80162E08C061001C280D /* AdminNameSpace in Frameworks */,
-				7B5E80192E08C081001C280D /* StoreFrontNameSpace in Frameworks */,
+				7BCDF8F42E0A1F5500456A76 /* StoreFrontNameSpace in Frameworks */,
 				22EBEF5C2DF2424100EF8FA6 /* Apollo in Frameworks */,
+				7B9E78172E0A25D200B6FECC /* AdminNameSpace in Frameworks */,
 				C21BB28F2E03BFA50013F56F /* FirebaseAnalytics in Frameworks */,
 				C21BB2912E03BFA50013F56F /* FirebaseAnalyticsCore in Frameworks */,
 			);
@@ -577,6 +592,7 @@
 		221E10AA2DF6619600D3B4CD /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				7B2F72BC2E0A00F9006F56CD /* Helpers */,
 				7B339D3F2E092D4C00D2F549 /* CheckOut */,
 				C21BB2872E03AF9D0013F56F /* Auth */,
 				7B65D1BA2DFF061600E7A378 /* Brands */,
@@ -702,6 +718,8 @@
 		221E10CA2DF6619600D3B4CD /* DataLayer */ = {
 			isa = PBXGroup;
 			children = (
+				7B9E781A2E0A365600B6FECC /* Managers */,
+				7B09A4592E0A0A0100E844DB /* Extensions */,
 				222548082E024B20004DAF5D /* Remote */,
 				227CB3DE2DFBD9B900F36E91 /* Repository */,
 				221E10CB2DF6619600D3B4CD /* Coredata Layer */,
@@ -732,8 +750,8 @@
 		221E10D02DF6619600D3B4CD /* GraphQL */ = {
 			isa = PBXGroup;
 			children = (
-				7B5E801D2E08C0AB001C280D /* StoreFront */,
-				7B5E801B2E08C09F001C280D /* Admin */,
+				7B9E78192E0A25E800B6FECC /* Admin */,
+				7BCDF8F82E0A1F7000456A76 /* StoreFront */,
 				7B53AA8B2E08AF3400B34396 /* StoreFrontOperations */,
 				7B53AA882E08AE7B00B34396 /* AdminOperations */,
 				221E10D12DF6619600D3B4CD /* TokenInterceptor.swift */,
@@ -758,6 +776,7 @@
 		221E10D62DF6619600D3B4CD /* Queries */ = {
 			isa = PBXGroup;
 			children = (
+				7B09A4622E0A1E4D00E844DB /* GetAllAddress.graphql */,
 				7B65D1C42DFF303F00E7A378 /* GetCollectionWithHandel.graphql */,
 				221E10D72DF6619600D3B4CD /* GetProducts.graphql */,
 				221E10D82DF6619600D3B4CD /* GetCollections.graphql */,
@@ -936,6 +955,7 @@
 			isa = PBXGroup;
 			children = (
 				22DA219C2DF69CE5001FA5E0 /* Orders.swift */,
+				7B0283302E0AF2EF00D969E2 /* OrderCart.swift */,
 			);
 			path = Orders;
 			sourceTree = "<group>";
@@ -956,6 +976,30 @@
 				22DA21A72DF7BF1E001FA5E0 /* ProfileCell.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		7B09A4592E0A0A0100E844DB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7B09A45A2E0A0A0B00E844DB /* Currency.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7B2F72BC2E0A00F9006F56CD /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7B2F72BD2E0A0102006F56CD /* Extensions */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		7B2F72BD2E0A0102006F56CD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7B2F72BF2E0A0132006F56CD /* View+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		7B46F3222E06EE4A001D67D7 /* Recovered References */ = {
@@ -1099,6 +1143,7 @@
 		7B53AA892E08AEA300B34396 /* Queries */ = {
 			isa = PBXGroup;
 			children = (
+				7B09A45C2E0A1AFA00E844DB /* GetDiscounts.graphql */,
 				7B53AA7A2E08A02500B34396 /* GetOrders.graphql */,
 			);
 			path = Queries;
@@ -1124,18 +1169,26 @@
 			path = StoreFrontOperations;
 			sourceTree = "<group>";
 		};
-		7B5E801B2E08C09F001C280D /* Admin */ = {
+		7B9E78192E0A25E800B6FECC /* Admin */ = {
 			isa = PBXGroup;
 			children = (
-				7B5E801A2E08C09F001C280D /* AdminSPM */,
+				7B9E78182E0A25E800B6FECC /* AdminSPM */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
 		};
-		7B5E801D2E08C0AB001C280D /* StoreFront */ = {
+		7B9E781A2E0A365600B6FECC /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				7B5E801C2E08C0AB001C280D /* StoreFrontSPM */,
+				7B9E781B2E0A365D00B6FECC /* DiscountManagers.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		7BCDF8F82E0A1F7000456A76 /* StoreFront */ = {
+			isa = PBXGroup;
+			children = (
+				7BCDF8F72E0A1F7000456A76 /* StoreFrontSPM */,
 			);
 			path = StoreFront;
 			sourceTree = "<group>";
@@ -1152,6 +1205,8 @@
 		C21BB2B72E042D930013F56F /* Mutations */ = {
 			isa = PBXGroup;
 			children = (
+				7B09A4602E0A1E2500E844DB /* DeleteAdress.graphql */,
+				7B09A45E2E0A1DF700E844DB /* CreateAddress.graphql */,
 				C22E1A242E05093800340107 /* CustomerAccessTokenCreate.graphql */,
 				C21BB29A2E04275D0013F56F /* customerCreate.graphql */,
 			);
@@ -1206,8 +1261,8 @@
 				C21BB28E2E03BFA50013F56F /* FirebaseAnalytics */,
 				C21BB2902E03BFA50013F56F /* FirebaseAnalyticsCore */,
 				C21BB2922E03BFA50013F56F /* FirebaseAuth */,
-				7B5E80152E08C061001C280D /* AdminNameSpace */,
-				7B5E80182E08C081001C280D /* StoreFrontNameSpace */,
+				7BCDF8F32E0A1F5500456A76 /* StoreFrontNameSpace */,
+				7B9E78162E0A25D200B6FECC /* AdminNameSpace */,
 			);
 			productName = "Shopify-IOS";
 			productReference = 22132AA22DEC974500FA9C90 /* Shopify-IOS.app */;
@@ -1286,8 +1341,8 @@
 				22EBEF5A2DF2424100EF8FA6 /* XCRemoteSwiftPackageReference "apollo-ios" */,
 				221E119B2DF6635500D3B4CD /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				C21BB28D2E03BFA50013F56F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				7B5E80142E08C061001C280D /* XCLocalSwiftPackageReference "Shopify-IOS/DataLayer/Network/GraphQL/Admin/AdminSPM" */,
-				7B5E80172E08C081001C280D /* XCLocalSwiftPackageReference "Shopify-IOS/DataLayer/Network/GraphQL/StoreFront/StoreFrontSPM" */,
+				7BCDF8F22E0A1F5500456A76 /* XCLocalSwiftPackageReference "Shopify-IOS/DataLayer/Network/GraphQL/StoreFront/StoreFrontSPM" */,
+				7B9E78152E0A25D200B6FECC /* XCLocalSwiftPackageReference "Shopify-IOS/DataLayer/Network/GraphQL/Admin/AdminSPM" */,
 			);
 			productRefGroup = 22132AA32DEC974500FA9C90 /* Products */;
 			projectDirPath = "";
@@ -1317,12 +1372,13 @@
 				C22E1A252E05094F00340107 /* CustomerAccessTokenCreate.graphql in Resources */,
 				221E11522DF6619600D3B4CD /* GetCollections.graphql in Resources */,
 				C21BB29B2E04276B0013F56F /* customerCreate.graphql in Resources */,
+				7B09A4612E0A1E3700E844DB /* DeleteAdress.graphql in Resources */,
 				221E11422DF6619600D3B4CD /* covers.json in Resources */,
 				221E11382DF6619600D3B4CD /* Configurations.plist in Resources */,
+				7B09A45F2E0A1E0800E844DB /* CreateAddress.graphql in Resources */,
 				221E112A2DF6619600D3B4CD /* Assets.xcassets in Resources */,
 				7B53AA7B2E08A03500B34396 /* GetOrders.graphql in Resources */,
 				221B7AF42E03918F005150CF /* UpdateCartLineMutation.graphql in Resources */,
-				7B5E801E2E08C0AB001C280D /* StoreFrontSPM in Resources */,
 				221B7B042E039B14005150CF /* GetCart.graphql in Resources */,
 				221E11952DF6619700D3B4CD /* StoreFrontschema.graphqls in Resources */,
 				7B53AA772E089F5800B34396 /* DeleteDraftOrder.graphql in Resources */,
@@ -1357,6 +1413,7 @@
 				2285ED832E023CC100C11573 /* CartViewModel.swift in Sources */,
 				221E114D2DF6619600D3B4CD /* TokenInterceptor.swift in Sources */,
 				221E113C2DF6619600D3B4CD /* ViewsContainer.swift in Sources */,
+				7B9E781C2E0A366200B6FECC /* DiscountManagers.swift in Sources */,
 				22DA21A82DF7BF1E001FA5E0 /* ProfileCell.swift in Sources */,
 				221E112E2DF6619600D3B4CD /* QuantityRuel.swift in Sources */,
 				227CB3DB2DFBD86E00F36E91 /* AddressModel.xcdatamodeld in Sources */,
@@ -1376,9 +1433,11 @@
 				221E114E2DF6619600D3B4CD /* RequestType.swift in Sources */,
 				22CDF8CD2DFA369B00DBA7D2 /* SettingsViewModel.swift in Sources */,
 				221E11452DF6619600D3B4CD /* imge.swift in Sources */,
+				7B09A45B2E0A0A0E00E844DB /* Currency.swift in Sources */,
 				221E11982DF6619700D3B4CD /* Shopify_IOSApp.swift in Sources */,
 				221E11412DF6619600D3B4CD /* CouponesIage.swift in Sources */,
 				C205995D2DFAB47B008CD6FE /* Section3.swift in Sources */,
+				7B2F72C02E0A013A006F56CD /* View+Extensions.swift in Sources */,
 				221E112C2DF6619600D3B4CD /* Money.swift in Sources */,
 				7B65D1B52DFEF33700E7A378 /* CollectionExtentions.swift in Sources */,
 				221E114B2DF6619600D3B4CD /* Shopify_IOS.xcdatamodeld in Sources */,
@@ -1404,6 +1463,7 @@
 				226A37292DF667B1008D43E2 /* SettingsCell.swift in Sources */,
 				221E113F2DF6619600D3B4CD /* CategoriesScreen.swift in Sources */,
 				C21BB2992E03D2460013F56F /* EmailVerificationView.swift in Sources */,
+				7B09A4632E0A1E5400E844DB /* GetAllAddress.graphql in Sources */,
 				7B65D1B92DFF057800E7A378 /* BrandItem.swift in Sources */,
 				221E11962DF6619700D3B4CD /* NetworkInterceptorProvider.swift in Sources */,
 				7B4C95392E030BB9000B916E /* ViewExtention.swift in Sources */,
@@ -1426,8 +1486,10 @@
 				221E11482DF6619600D3B4CD /* Coupons.swift in Sources */,
 				221E11322DF6619600D3B4CD /* AppConstant.swift in Sources */,
 				221E11442DF6619600D3B4CD /* ProductsView.swift in Sources */,
+				7B09A45D2E0A1B0100E844DB /* GetDiscounts.graphql in Sources */,
 				7B339D4D2E095A7E00D2F549 /* DraftOrders.swift in Sources */,
 				227CB3DD2DFBD8CB00F36E91 /* AddressViewModel.swift in Sources */,
+				7B0283312E0AF2F500D969E2 /* OrderCart.swift in Sources */,
 				226A372B2DF667B1008D43E2 /* ContactUS.swift in Sources */,
 				221E113B2DF6619600D3B4CD /* TabBarButtonswift.swift in Sources */,
 				7B4C953D2E03F26B000B916E /* RangeSliderView.swift in Sources */,
@@ -1775,11 +1837,11 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		7B5E80142E08C061001C280D /* XCLocalSwiftPackageReference "Shopify-IOS/DataLayer/Network/GraphQL/Admin/AdminSPM" */ = {
+		7B9E78152E0A25D200B6FECC /* XCLocalSwiftPackageReference "Shopify-IOS/DataLayer/Network/GraphQL/Admin/AdminSPM" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "Shopify-IOS/DataLayer/Network/GraphQL/Admin/AdminSPM";
 		};
-		7B5E80172E08C081001C280D /* XCLocalSwiftPackageReference "Shopify-IOS/DataLayer/Network/GraphQL/StoreFront/StoreFrontSPM" */ = {
+		7BCDF8F22E0A1F5500456A76 /* XCLocalSwiftPackageReference "Shopify-IOS/DataLayer/Network/GraphQL/StoreFront/StoreFrontSPM" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "Shopify-IOS/DataLayer/Network/GraphQL/StoreFront/StoreFrontSPM";
 		};
@@ -1823,11 +1885,11 @@
 			package = 22EBEF5A2DF2424100EF8FA6 /* XCRemoteSwiftPackageReference "apollo-ios" */;
 			productName = Apollo;
 		};
-		7B5E80152E08C061001C280D /* AdminNameSpace */ = {
+		7B9E78162E0A25D200B6FECC /* AdminNameSpace */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AdminNameSpace;
 		};
-		7B5E80182E08C081001C280D /* StoreFrontNameSpace */ = {
+		7BCDF8F32E0A1F5500456A76 /* StoreFrontNameSpace */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = StoreFrontNameSpace;
 		};

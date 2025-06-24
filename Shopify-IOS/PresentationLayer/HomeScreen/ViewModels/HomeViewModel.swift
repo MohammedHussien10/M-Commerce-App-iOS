@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import StoreFrontNameSpace
+import AdminNameSpace
 
 class HomeViewModel: ObservableObject {
     @Published var products: [Product] = []
@@ -54,4 +55,16 @@ class HomeViewModel: ObservableObject {
              }
          }
      }
+    
+    func getAllDiscountCodes() {
+        let query = AdminNameSpace.GetAllDiscountCodesQuery(first: 100)
+        NetworkManager.sharedAdmin.queryGraphQLRequest(query: query) { result in
+            switch result {
+            case .success(let success):
+                DiscountsManager.shared.discounts = success.codeDiscountNodes
+            case .failure(let failure):
+                print(failure.localizedDescription)
+            }
+        }
+    }
 }

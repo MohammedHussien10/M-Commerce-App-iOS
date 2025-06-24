@@ -25,6 +25,7 @@ public enum SchemaMetadata: ApolloAPI.SchemaMetadata {
     case "Abandonment": return AdminNameSpace.Objects.Abandonment
     case "AddAllProductsOperation": return AdminNameSpace.Objects.AddAllProductsOperation
     case "AdditionalFee": return AdminNameSpace.Objects.AdditionalFee
+    case "AllDiscountItems": return AdminNameSpace.Objects.AllDiscountItems
     case "App": return AdminNameSpace.Objects.App
     case "AppCatalog": return AdminNameSpace.Objects.AppCatalog
     case "AppCredit": return AdminNameSpace.Objects.AppCredit
@@ -79,11 +80,24 @@ public enum SchemaMetadata: ApolloAPI.SchemaMetadata {
     case "DeliveryProvince": return AdminNameSpace.Objects.DeliveryProvince
     case "DeliveryRateDefinition": return AdminNameSpace.Objects.DeliveryRateDefinition
     case "DeliveryZone": return AdminNameSpace.Objects.DeliveryZone
+    case "DiscountAmount": return AdminNameSpace.Objects.DiscountAmount
     case "DiscountAutomaticBxgy": return AdminNameSpace.Objects.DiscountAutomaticBxgy
     case "DiscountAutomaticNode": return AdminNameSpace.Objects.DiscountAutomaticNode
+    case "DiscountCodeApp": return AdminNameSpace.Objects.DiscountCodeApp
+    case "DiscountCodeBasic": return AdminNameSpace.Objects.DiscountCodeBasic
+    case "DiscountCodeBxgy": return AdminNameSpace.Objects.DiscountCodeBxgy
+    case "DiscountCodeFreeShipping": return AdminNameSpace.Objects.DiscountCodeFreeShipping
     case "DiscountCodeNode": return AdminNameSpace.Objects.DiscountCodeNode
+    case "DiscountCodeNodeConnection": return AdminNameSpace.Objects.DiscountCodeNodeConnection
+    case "DiscountCollections": return AdminNameSpace.Objects.DiscountCollections
+    case "DiscountCustomerGets": return AdminNameSpace.Objects.DiscountCustomerGets
     case "DiscountNode": return AdminNameSpace.Objects.DiscountNode
+    case "DiscountOnQuantity": return AdminNameSpace.Objects.DiscountOnQuantity
+    case "DiscountPercentage": return AdminNameSpace.Objects.DiscountPercentage
+    case "DiscountProducts": return AdminNameSpace.Objects.DiscountProducts
+    case "DiscountRedeemCode": return AdminNameSpace.Objects.DiscountRedeemCode
     case "DiscountRedeemCodeBulkCreation": return AdminNameSpace.Objects.DiscountRedeemCodeBulkCreation
+    case "DiscountRedeemCodeConnection": return AdminNameSpace.Objects.DiscountRedeemCodeConnection
     case "Domain": return AdminNameSpace.Objects.Domain
     case "DraftOrder": return AdminNameSpace.Objects.DraftOrder
     case "DraftOrderCompletePayload": return AdminNameSpace.Objects.DraftOrderCompletePayload

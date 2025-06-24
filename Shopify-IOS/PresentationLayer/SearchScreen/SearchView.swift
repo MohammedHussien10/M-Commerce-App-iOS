@@ -10,7 +10,7 @@ import SwiftUI
 struct SearchView: View {
     @StateObject private var viewModel = SearchViewModel()
     @Environment(\.dismiss) private var dismiss
-
+    @Binding var isTabBarHidden: Bool
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(spacing: 8) {
@@ -56,7 +56,7 @@ struct SearchView: View {
                     Spacer()
                 } else {
                     ScrollView {
-                        ProductsView(products: viewModel.products)
+                        ProductsView(products: viewModel.products, isTabBarHidden: $isTabBarHidden)
                             .padding(.horizontal)
                     }
                 }

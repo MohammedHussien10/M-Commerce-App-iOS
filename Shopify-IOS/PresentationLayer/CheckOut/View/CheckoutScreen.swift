@@ -9,168 +9,287 @@ import SwiftUI
 import PassKit
 
 struct CheckoutScreen: View {
-    let products: [CartProduct]
     @Environment(\.dismiss) private var dismiss
-    @State private var discountApplied = false
+//    @Binding var isTabBarHidden: Bool
+    @State private var discountCode = ""
     @State private var selectedPaymentMethod: String? = nil
-    
+    @State private var discountApplied = false
+    @State private var promoError: String?
+    @State private var showAlert = false
+    @State private var alertMessage = ""
+    @ObservedObject private var viewModel: CheckoutViewModel
+
+    init(viewModel: CheckoutViewModel ) {
+        self.viewModel = viewModel
+//        self._isTabBarHidden = isTabBarHidden
+    }
+
     var body: some View {
         NavigationView {
-            ScrollView(.vertical, showsIndicators: false) {
+            ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
-                    Rectangle()
-                      .fill(Color.white.opacity(0.2))
-                      .frame(height: 10)
-                    // Address Section
-                    VStack(alignment: .leading, spacing: 10) {
-                        Text("Shipping Address")
-                            .font(.title2)
-                            .bold()
-                            .padding()
-                        
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack(spacing: 8) {
-                                ForEach(products) { _ in
-                                    AddressCell()
-                                }
-                            }
-                            .padding(.horizontal, 16)
-                        }
-                    }
-                    .padding(.horizontal, 10)
-                    
-                    // Items Section
-                    VStack(alignment: .leading, spacing: 10) {
-                        Text("Cart Items")
-                            .font(.title2)
-                            .bold()
-                        
-                        if products.isEmpty {
-                            VStack(spacing: 16) {
-                                Image("out-of-stock")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 200, height: 200)
-                                Text("No Products Found")
-                                    .font(.headline)
-                                    .foregroundColor(.gray)
-                            }
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 40)
-                        } else {
-                            ScrollView(.horizontal, showsIndicators: false) {
-                                HStack(spacing: 16) {
-                                    ForEach(products, id: \.id) { product in
-                                        CartProducts(product: product)
-                                            .frame(height: 250)
-                                            .onAppear {
-                                                print(product.title)
-                                            }
-                                    }
-                                }
-                                .padding(.horizontal, 16)
-                            }
-                        }
-                    }
-                    .padding(.horizontal, 16)
-                    Spacer()
-                    // Discount Section
-                    VStack(alignment: .leading, spacing: 10) {
-                        HStack {
-                            Text("Apply Discount Code")
-                                .font(.title3)
-                                .bold()
-                            Spacer()
-                            Button(action: {
-                                discountApplied = true
-                                print("Discount applied")
-                            }) {
-                                Text("Apply")
-                                    .font(.body)
-                                    .fontWeight(.medium)
-                                    .frame(width: 120, height: 44)
-                                    .background(Constants.AppColor.primaryColor)
-                                    .foregroundColor(.white)
-                                    .cornerRadius(10)
-                            }
-                        }
-                    }
-                    .padding(.horizontal, 16)
-                    // Payment Method Section
-                    VStack(alignment: .leading, spacing: 10) {
-                        HStack{
-                            Text("Choose Payment Method ")
-                                .font(.title3)
-                                .bold()
-                                .padding()
-                            Spacer()
-                            Image(systemName: "dollarsign.circle" )
-                                .resizable()
-                                .frame(width: 25, height: 25)
-                                .foregroundColor(Constants.AppColor.primaryColor)
-                        }
-                        
-                        HStack(spacing: 16) {
-                            Button(action: {
-                                selectedPaymentMethod = "Cash"
-                                print("Selected Cash")
-                            }) {
-                                Text("Cash")
-                                    .font(.body)
-                                    .fontWeight(.medium)
-                                    .frame(maxWidth: .infinity)
-                                    .padding(.vertical, 12)
-                                    .background(selectedPaymentMethod == "Cash" ? .orange : .gray.opacity(0.3))
-                                    .foregroundColor(.white)
-                                    .cornerRadius(12)
-                            }
-                            
-                            Button(action: {
-                                selectedPaymentMethod = "Apple Pay"
-                                print("Selected Apple Pay")
-                            }) {
-                                Text("Apple Pay")
-                                    .font(.body)
-                                    .fontWeight(.medium)
-                                    .frame(maxWidth: .infinity)
-                                    .padding(.vertical, 12)
-                                    .background(selectedPaymentMethod == "Apple Pay" ? .orange : .gray.opacity(0.3))
-                                    .foregroundColor(.white)
-                                    .cornerRadius(12)
-                            }
-                        }
-                    }
-                    .padding(.horizontal, 16)
-                    
-                    // Bottom spacing
-                    Spacer()
-                        .frame(height: 20)
+                    shippingAddressSection()
+                    cartItemsSection()
+                    discountSection()
+                    totalPriceSection()
+                    paymentMethodSection()
+                    placeOrderButton()
                 }
-                .padding(.top, 10)
-            }.onAppear(){
-                print(products.first?.Variantid ?? "No Products")
-                let appearance = UINavigationBarAppearance()
-                  appearance.titleTextAttributes = [
-                      .foregroundColor: UIColor.orange,
-                      .font: UIFont.boldSystemFont(ofSize: 20)
-                  ]
-                  UINavigationBar.appearance().standardAppearance = appearance
-                  UINavigationBar.appearance().scrollEdgeAppearance = appearance
+                .padding(.vertical)
+                .onAppear {
+                    configureScreen() // Make this synchronous
+                    Task {
+                       await viewModel.createDraftOrder()
+                    }
+                }
+//                .onDisappear {
+//                              isTabBarHidden = false // ✅ Show tab bar when screen disappears
+//                          }
             }
-        } .navigationTitle("Check Out")
+            .loadingWithBlur(isLoading: $viewModel.isLoading)
+            .navigationTitle("Check Out")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button(action: {
-                        dismiss()
-                    }) {
-                        Image(systemName: "chevron.left")
-                            .foregroundColor(.orange)
-                            .font(.system(size: 18, weight: .bold))
-                    }
+                    backButton()
                 }
             }
+        }.navigationBarBackButtonHidden(true)
     }
 }
 
+// MARK: - Sections
+
+private extension CheckoutScreen {
+    func shippingAddressSection() -> some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text("Shipping Address")
+                .font(.title2).bold().padding(.horizontal)
+
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 8) {
+                    ForEach(viewModel.cartProducts) { _ in
+                        AddressCell()
+                    }
+                }
+                .padding(.horizontal)
+            }
+        }
+    }
+
+    func cartItemsSection() -> some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text("Cart Items").font(.title2).bold().padding(.horizontal)
+
+            if viewModel.cartProducts.isEmpty {
+                emptyCartView()
+            } else {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 16) {
+                        ForEach(viewModel.cartProducts, id: \.id) { product in
+                            CartProducts(product: product)
+                                .frame(height: 250)
+                        }
+                    }
+                    .padding(.horizontal)
+                }
+            }
+        }
+    }
+
+    func discountSection() -> some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text("Promo Code")
+                .font(.title3)
+                .bold()
+                .padding(.horizontal)
+
+            HStack {
+                TextField("Enter promo code", text: $discountCode)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .autocapitalization(.allCharacters)
+                    .disabled(discountApplied) // Disable when applied
+                    .opacity(discountApplied ? 0.5 : 1.0)
+
+                if discountApplied {
+                    Button("Clear") {
+                        Task {
+                          await  viewModel.updateDraftOrder(discountCode: nil, address: nil) {result in }
+                            discountApplied = false
+                            discountCode = ""
+                            promoError = nil
+                        }
+                    }
+                    .buttonStyle(PrimaryButtonStyle())
+                } else {
+                    Button("Apply") {
+                        if discountCode.isEmpty {
+                            promoError = "Please enter a valid promo code."
+                        } else {
+                            Task {
+                             await viewModel.updateDraftOrder(discountCode: discountCode, address: nil) { success in
+                                    if success {
+                                        discountApplied = true
+                                        promoError = nil
+                                    } else {
+                                        promoError = "Promo code not applied. Please try again."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .buttonStyle(PrimaryButtonStyle())
+                }
+            }
+            .padding(.horizontal)
+
+            if discountApplied {
+                Text("Discount Applied!")
+                    .font(.caption)
+                    .foregroundColor(.green)
+                    .padding(.horizontal)
+            }
+
+            if let error = promoError {
+                Text(error)
+                    .font(.caption)
+                    .foregroundColor(.red)
+                    .padding(.horizontal)
+            }
+        }
+    }
+    
+    func totalPriceSection() -> some View {
+        VStack(alignment: .leading, spacing: 8) {
+            HStack {
+                Text("Total Price:")
+                    .font(.title2).bold()
+                Spacer()
+                Text(viewModel.totalPrice)
+                    .font(.title2).bold()
+                    .foregroundColor(.orange)
+            }
+            .padding(.horizontal)
+
+            if discountApplied {
+                Text("Discounted Price: \(viewModel.subtotalPrice)")
+                    .font(.body)
+                    .foregroundColor(.green)
+                    .padding(.horizontal)
+            }
+        }
+    }
+
+    func paymentMethodSection() -> some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text("Choose Payment Method")
+                .font(.title3).bold()
+                .padding(.horizontal)
+
+            HStack(spacing: 16) {
+                paymentMethodButton(title: "Cash")
+                paymentMethodButton(title: "Apple Pay")
+            }
+            .padding(.horizontal)
+        }
+    }
+
+    
+    func placeOrderButton() -> some View {
+        Button("Place Order") {
+            Task {
+              await viewModel.completeDraftOrder { isSuccess in
+                    if isSuccess {
+                        dismiss()
+                    } else {
+                        alertMessage = "Order could not be completed. Please try again."
+                        showAlert = true
+                    }
+                }
+            }
+        }
+        .frame(maxWidth: .infinity)
+        .padding()
+        .background(Constants.AppColor.primaryColor)
+        .foregroundColor(.white)
+        .cornerRadius(12)
+        .padding(.horizontal)
+        .padding(.top, 8)
+        // 👇 Alert modifier for displaying failure message
+        .alert(isPresented: $showAlert) {
+            Alert(
+                title: Text("Error"),
+                message: Text(alertMessage),
+                dismissButton: .default(Text("OK"))
+            )
+        }
+    }
+    
+}
+
+// MARK: - Components
+
+private extension CheckoutScreen {
+    func paymentMethodButton(title: String) -> some View {
+        Button {
+            selectedPaymentMethod = title
+        } label: {
+            Text(title)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 12)
+                .background(selectedPaymentMethod == title ? .orange : .gray.opacity(0.3))
+                .foregroundColor(.white)
+                .cornerRadius(12)
+        }
+    }
+
+    func emptyCartView() -> some View {
+        VStack(spacing: 16) {
+            Image("out-of-stock")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 200, height: 200)
+            Text("No Products Found")
+                .font(.headline)
+                .foregroundColor(.gray)
+        }
+        .frame(maxWidth: .infinity)
+        .padding(.vertical, 30)
+    }
+
+    func backButton() -> some View {
+        Button {
+            Task {
+               await viewModel.deleteDraftOrder {
+                    dismiss()
+                }
+            }
+        } label: {
+            Image(systemName: "chevron.left")
+                .foregroundColor(.orange)
+                .font(.system(size: 18, weight: .bold))
+        }
+    }
+
+    func configureScreen() {
+        let appearance = UINavigationBarAppearance()
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.orange, .font: UIFont.boldSystemFont(ofSize: 20)]
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+    }
+
+}
+
+// MARK: - Styles
+
+struct PrimaryButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .padding(.horizontal)
+            .padding(.vertical, 8)
+            .background(Constants.AppColor.primaryColor)
+            .foregroundColor(.white)
+            .cornerRadius(8)
+    }
+}

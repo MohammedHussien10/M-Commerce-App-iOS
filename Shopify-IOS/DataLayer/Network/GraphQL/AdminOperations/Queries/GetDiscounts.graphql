@@ -1,0 +1,38 @@
+query getAllDiscountCodes($first: Int) {
+    codeDiscountNodes(first: $first) {
+        nodes {
+            id
+            codeDiscount {
+                ... on DiscountCodeBasic {
+                    title
+                    summary
+                    usageLimit
+                    status
+                    customerGets {
+                        items {
+                            __typename
+                        }
+                        value {
+                            __typename
+                            ... on DiscountAmount {
+                                amount {
+                                    amount
+                                    currencyCode
+                                }
+                            }
+                            ... on DiscountPercentage {
+                                percentage
+                            }
+                        }
+                    }
+                    codes(first: $first) {
+                        nodes {
+                            code
+                            id
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

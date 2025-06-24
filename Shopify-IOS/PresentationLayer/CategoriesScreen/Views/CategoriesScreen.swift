@@ -14,7 +14,7 @@ struct CategoriesScreen: View {
     @AppStorage("isGridCat") var isGrid = true
     @State private var searchText: String = ""
     @State private var isPriceFilterPresented: Bool = false
-
+    @Binding var isTabBarHidden: Bool
    
     var body: some View {
         if(viewModel.isLoading){
@@ -114,7 +114,7 @@ struct CategoriesScreen: View {
                             }
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                         }else{
-                            ProductsView(products: viewModel.products)
+                            ProductsView(products: viewModel.products, isTabBarHidden: $isTabBarHidden)
                         }
                     }
                 }
@@ -220,7 +220,7 @@ struct CategoriesScreen: View {
         }
         
         .onAppear(){
-            
+            isTabBarHidden = false
             viewModel.onAppearView()
         }
         

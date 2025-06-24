@@ -11,6 +11,7 @@ struct ProductDetailsView: View {
     @ObservedObject var viewModel: ProductDetailsViewModel
     @EnvironmentObject var cartViewModel: CartViewModel
     @State private var isFavorited = false
+    @Binding var isTabBarHidden: Bool
     var body: some View {
         ScrollView {
             if viewModel.isLoading {
@@ -45,7 +46,7 @@ struct ProductDetailsView: View {
                             .foregroundColor(Color.orangeColor("FF7F00"))
                     }
                     ZStack(alignment: .topTrailing) {
-                        NavigationLink(destination: ShoppingCartScreen()) {
+                        NavigationLink(destination: ShoppingCartScreen( isTabBarHidden: $isTabBarHidden)) {
                             Image(systemName: "cart")
                                 .foregroundColor(Color.orangeColor("FF7F00"))
                                 .font(.title)

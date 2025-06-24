@@ -13,13 +13,14 @@ struct BrandList: View {
            GridItem(.flexible()),
            GridItem(.flexible())
        ]
+    @Binding var isTabBarHidden: Bool
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
              LazyHGrid(rows: rows, spacing: 10) {
                  ForEach(collections, id: \.id) { collection in
                      
                      NavigationLink {
-                         BrandsView(collection: collection)
+                         BrandsView(collection: collection, isTabBarHidden: $isTabBarHidden)
                      } label: {
                        BrandItem(collection: collection)
                      }

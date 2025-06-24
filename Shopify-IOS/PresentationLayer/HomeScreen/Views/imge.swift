@@ -37,25 +37,6 @@ struct imge: View {
                         .font(.custom(Constants.AppFont.lightFont, size: 15))
                     Spacer()
                 }.padding(.leading,26)
-                HStack{
-                    NavigationLink {
-                        
-                        //MARK: - write the logic for coupons here
-                       
-                    } label: {
-                        
-                        Text("Click Me")
-                            .foregroundColor(.black)
-                            .padding()
-                            .background(.white)
-                            .cornerRadius(25)
-                            .frame(width: 150, height: 50)
-                            .padding(.trailing,120)
-                        
-                    }
-                    
-                    Spacer()
-                }
             }
         }
     }

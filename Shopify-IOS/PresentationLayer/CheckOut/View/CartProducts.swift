@@ -45,7 +45,7 @@ struct CartProducts: View {
                         .foregroundColor(.black)
                         .padding(.horizontal)
                   
-                    Text(String(format: "%.1f", product.price)) // ✅ Show price as 23.0
+                    Text("\(product.price * Double(product.quantity))".formatAsCurrency()) // ✅ Show price as 23.0
                         .font(.custom(Constants.AppFont.regularFont, size: 14))
                         .foregroundColor(.black)
                         .bold()

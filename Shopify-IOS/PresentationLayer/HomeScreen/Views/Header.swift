@@ -10,7 +10,7 @@ import SwiftUI
 struct HeaderWithIconAndLogo: View {
     var leftIcon: String = "magnifyingglass"
     var rightIcon: String = "panda"
-
+    @Binding var selectedTab: ViewsContainer.Tab
 
     var onLeftIconTap: (() -> Void)? = nil
     var onRightIconTap: (() -> Void)? = nil
@@ -48,11 +48,11 @@ struct HeaderWithIconAndLogo: View {
             // Right Icon (e.g. cart)
             Button(action: {
                 onRightIconTap?()
+                selectedTab = .profile
             }) {
                 Image(rightIcon)
                     .resizable()
                     .frame(width: 35, height: 35)
-//                    .foregroundColor(Constants.AppColor.primaryColor)
             }
         }
         .frame(height: 40)
