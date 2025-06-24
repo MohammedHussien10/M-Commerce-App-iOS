@@ -17,6 +17,8 @@ class SearchViewModel: ObservableObject {
 
     private var allProducts: [Product] = [] 
     private var cancellables = Set<AnyCancellable>()
+    @Published var maxPrice: Double = 500
+    @Published var currentMaxPrice: Double = 500
 
     init() {
         fetchAllProducts()
@@ -44,21 +46,23 @@ class SearchViewModel: ObservableObject {
 
     private func observeSearchText() {
         $searchText
-            .throttle(for: .milliseconds(500), scheduler: DispatchQueue.global(), latest: true)
-            .removeDuplicates()
-            .receive(on: RunLoop.main)
-            .sink { [weak self] text in
+            .combineLatest($currentMaxPrice)
+            .throttle(for: .milliseconds(300), scheduler: DispatchQueue.main, latest: true)
+            .sink { [weak self] (text, maxPrice) in
                 guard let self else { return }
-                if text.isEmpty {
-                    products = allProducts
-                } else {
-                    products = allProducts.filter {
-                        $0.title.localizedCaseInsensitiveContains(text) ||
-                        $0.vendor.localizedCaseInsensitiveContains(text) ||
-                        $0.productType.localizedCaseInsensitiveContains(text)
-                    }
+                self.products = self.allProducts.filter { product in
+                    let priceString = product.variants.first?.price.amount
+                    let price = Double(priceString!) 
+
+                    let matchesText = text.isEmpty ||
+                        product.title.localizedCaseInsensitiveContains(text) ||
+                        product.vendor.localizedCaseInsensitiveContains(text) ||
+                        product.productType.localizedCaseInsensitiveContains(text)
+
+                    return matchesText && price <= maxPrice
                 }
             }
             .store(in: &cancellables)
     }
+
 }

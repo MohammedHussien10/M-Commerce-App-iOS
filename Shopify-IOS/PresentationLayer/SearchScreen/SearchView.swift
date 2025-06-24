@@ -37,6 +37,16 @@ struct SearchView: View {
                     .background(Color(.systemGray6))
                     .cornerRadius(20)
                     .shadow(color: Color.black.opacity(0.05), radius: 4, x: 0, y: 2)
+                VStack(alignment: .leading) {
+                    Text("Max Price: \(Int(viewModel.currentMaxPrice)) ")
+                        .font(.subheadline)
+                        .padding(.horizontal)
+
+                    Slider(value: $viewModel.currentMaxPrice, in: 0...viewModel.maxPrice, step: 1)
+                        .accentColor(.orange)
+                        .padding(.horizontal)
+                }
+                .padding(.vertical, 4)
 
                 if viewModel.isLoading {
                     ProgressView("Loading...")

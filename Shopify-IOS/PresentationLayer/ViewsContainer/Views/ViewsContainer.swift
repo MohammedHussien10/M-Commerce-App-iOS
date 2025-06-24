@@ -26,7 +26,7 @@ struct ViewsContainer: View {
                 case .cart:
                     ShoppingCartScreen()
                 case .favorites:
-                    Text("Favorites View")
+                    FavoritesView()
                 case .profile:
                     ProfileScreen(authViewModel: authViewModel)
                 }

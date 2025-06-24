@@ -87,6 +87,7 @@ public enum SchemaMetadata: ApolloAPI.SchemaMetadata {
     case "Domain": return AdminNameSpace.Objects.Domain
     case "DraftOrder": return AdminNameSpace.Objects.DraftOrder
     case "DraftOrderCompletePayload": return AdminNameSpace.Objects.DraftOrderCompletePayload
+    case "DraftOrderConnection": return AdminNameSpace.Objects.DraftOrderConnection
     case "DraftOrderCreatePayload": return AdminNameSpace.Objects.DraftOrderCreatePayload
     case "DraftOrderDeletePayload": return AdminNameSpace.Objects.DraftOrderDeletePayload
     case "DraftOrderLineItem": return AdminNameSpace.Objects.DraftOrderLineItem
