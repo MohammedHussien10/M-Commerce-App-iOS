@@ -69,9 +69,7 @@ private extension CheckoutScreen {
 
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 8) {
-                    ForEach(viewModel.cartProducts) { _ in
                         AddressCell()
-                    }
                 }
                 .padding(.horizontal)
             }
