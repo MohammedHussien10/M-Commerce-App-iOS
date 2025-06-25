@@ -34,6 +34,36 @@
             endingLineNumber = "34"
             landmarkName = "fetchOrders()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "340E30E3-2F1C-4D23-9B4B-7447FF32E19B - 21544180eea624b3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;AdminNameSpace.GetOrdersQuery.Data, Swift.Error&gt;) -&gt; () in Shopify_IOS.ProfileViewModel.fetchOrders() -&gt; ()"
+                  moduleName = "Shopify-IOS.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nohaaligomaa/Desktop/M-Commerce-App-iOS/Shopify-IOS/PresentationLayer/ProfileScreen/ProfileViewModel/ProfileViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34">
+               </Location>
+               <Location
+                  uuid = "340E30E3-2F1C-4D23-9B4B-7447FF32E19B - ed98519191383d2a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (AdminNameSpace.GetOrdersQuery.Data.Orders.Edge) -&gt; Shopify_IOS.Order in closure #1 (Swift.Result&lt;AdminNameSpace.GetOrdersQuery.Data, Swift.Error&gt;) -&gt; () in Shopify_IOS.ProfileViewModel.fetchOrders() -&gt; ()"
+                  moduleName = "Shopify-IOS.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nohaaligomaa/Desktop/M-Commerce-App-iOS/Shopify-IOS/PresentationLayer/ProfileScreen/ProfileViewModel/ProfileViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

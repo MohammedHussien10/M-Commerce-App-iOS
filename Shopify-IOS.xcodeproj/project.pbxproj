@@ -119,6 +119,10 @@
 		7B65D1C52DFF306E00E7A378 /* GetCollectionWithHandel.graphql in Sources */ = {isa = PBXBuildFile; fileRef = 7B65D1C42DFF303F00E7A378 /* GetCollectionWithHandel.graphql */; };
 		7B65D1C72DFF327400E7A378 /* CollectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B65D1C62DFF326C00E7A378 /* CollectionResponse.swift */; };
 		7B9E781C2E0A366200B6FECC /* DiscountManagers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9E781B2E0A365D00B6FECC /* DiscountManagers.swift */; };
+		7BE8204C2E0C8F2800C7C32D /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 7BE8204B2E0C8F2800C7C32D /* Apollo */; };
+		7BE8204E2E0C8F2800C7C32D /* ApolloAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 7BE8204D2E0C8F2800C7C32D /* ApolloAPI */; };
+		7BE820502E0C8F2800C7C32D /* ApolloTestSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 7BE8204F2E0C8F2800C7C32D /* ApolloTestSupport */; };
+		7BE820662E0C900B00C7C32D /* ApolloSanityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE820652E0C900100C7C32D /* ApolloSanityTests.swift */; };
 		C20599532DFAA94F008CD6FE /* Section1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20599522DFAA94F008CD6FE /* Section1.swift */; };
 		C20599552DFAA9C1008CD6FE /* ProductDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20599542DFAA9C0008CD6FE /* ProductDetailsViewModel.swift */; };
 		C205995D2DFAB47B008CD6FE /* Section3.swift in Sources */ = {isa = PBXBuildFile; fileRef = C205995C2DFAB47B008CD6FE /* Section3.swift */; };
@@ -378,6 +382,7 @@
 		7B65D1C42DFF303F00E7A378 /* GetCollectionWithHandel.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetCollectionWithHandel.graphql; sourceTree = "<group>"; };
 		7B65D1C62DFF326C00E7A378 /* CollectionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionResponse.swift; sourceTree = "<group>"; };
 		7B9E781B2E0A365D00B6FECC /* DiscountManagers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountManagers.swift; sourceTree = "<group>"; };
+		7BE820652E0C900100C7C32D /* ApolloSanityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloSanityTests.swift; sourceTree = "<group>"; };
 		C20599522DFAA94F008CD6FE /* Section1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section1.swift; sourceTree = "<group>"; };
 		C20599542DFAA9C0008CD6FE /* ProductDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewModel.swift; sourceTree = "<group>"; };
 		C205995C2DFAB47B008CD6FE /* Section3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section3.swift; sourceTree = "<group>"; };
@@ -421,6 +426,8 @@
 		7B339D3F2E092D4C00D2F549 /* CheckOut */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = CheckOut; sourceTree = "<group>"; };
 		7B4C95342E030170000B916E /* ViewModel */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ViewModel; sourceTree = "<group>"; };
 		7B65D1BA2DFF061600E7A378 /* Brands */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Brands; sourceTree = "<group>"; };
+		7BE820C02E0C9DFB00C7C32D /* MockNetwork */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = MockNetwork; sourceTree = "<group>"; };
+		7BE820C12E0C9E1100C7C32D /* NetworkTest */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = NetworkTest; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -442,6 +449,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BE820502E0C8F2800C7C32D /* ApolloTestSupport in Frameworks */,
+				7BE8204E2E0C8F2800C7C32D /* ApolloAPI in Frameworks */,
+				7BE8204C2E0C8F2800C7C32D /* Apollo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,6 +505,9 @@
 		22132ABA2DEC974A00FA9C90 /* Shopify-IOSTests */ = {
 			isa = PBXGroup;
 			children = (
+				7BE820C12E0C9E1100C7C32D /* NetworkTest */,
+				7BE820C02E0C9DFB00C7C32D /* MockNetwork */,
+				7BE820652E0C900100C7C32D /* ApolloSanityTests.swift */,
 				22132ABB2DEC974A00FA9C90 /* Shopify_IOSTests.swift */,
 			);
 			path = "Shopify-IOSTests";
@@ -1301,6 +1314,10 @@
 			dependencies = (
 				22132AB92DEC974A00FA9C90 /* PBXTargetDependency */,
 			);
+			fileSystemSynchronizedGroups = (
+				7BE820C02E0C9DFB00C7C32D /* MockNetwork */,
+				7BE820C12E0C9E1100C7C32D /* NetworkTest */,
+			);
 			name = "Shopify-IOSTests";
 			productName = "Shopify-IOSTests";
 			productReference = 22132AB72DEC974A00FA9C90 /* Shopify-IOSTests.xctest */;
@@ -1536,6 +1553,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BE820662E0C900B00C7C32D /* ApolloSanityTests.swift in Sources */,
 				22132ABC2DEC974A00FA9C90 /* Shopify_IOSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1916,6 +1934,21 @@
 		7B52C0282E0C439D000149B8 /* StoreFrontNameSpace */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = StoreFrontNameSpace;
+		};
+		7BE8204B2E0C8F2800C7C32D /* Apollo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22EBEF5A2DF2424100EF8FA6 /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = Apollo;
+		};
+		7BE8204D2E0C8F2800C7C32D /* ApolloAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22EBEF5A2DF2424100EF8FA6 /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = ApolloAPI;
+		};
+		7BE8204F2E0C8F2800C7C32D /* ApolloTestSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22EBEF5A2DF2424100EF8FA6 /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = ApolloTestSupport;
 		};
 		C21BB28E2E03BFA50013F56F /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
