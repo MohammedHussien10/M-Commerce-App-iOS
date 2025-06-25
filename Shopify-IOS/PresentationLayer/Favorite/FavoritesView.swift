@@ -9,7 +9,8 @@ import Kingfisher
 
 struct FavoritesView: View {
     @ObservedObject var viewModel = FavoritesViewModel()
-
+    @Binding var isTabBarHidden: Bool
+    
     var body: some View {
         NavigationView {
             VStack{
@@ -24,7 +25,10 @@ struct FavoritesView: View {
                         Text("Favorites")
                             .font(.largeTitle.bold())
                             .foregroundStyle(Constants.AppColor.primaryColor)
-                        ProductsView(products: viewModel.favoriteProducts)
+                        ProductsView(
+                            products: viewModel.favoriteProducts,
+                            isTabBarHidden: $isTabBarHidden
+                        )
                     }
                 }
             }

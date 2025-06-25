@@ -103,6 +103,8 @@
 		7B4C95392E030BB9000B916E /* ViewExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4C95382E030BA2000B916E /* ViewExtention.swift */; };
 		7B4C953B2E030C43000B916E /* PartialSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4C953A2E030C31000B916E /* PartialSheet.swift */; };
 		7B4C953D2E03F26B000B916E /* RangeSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4C953C2E03F26B000B916E /* RangeSliderView.swift */; };
+		7B52C0262E0C4379000149B8 /* AdminNameSpace in Frameworks */ = {isa = PBXBuildFile; productRef = 7B52C0252E0C4379000149B8 /* AdminNameSpace */; };
+		7B52C0292E0C439D000149B8 /* StoreFrontNameSpace in Frameworks */ = {isa = PBXBuildFile; productRef = 7B52C0282E0C439D000149B8 /* StoreFrontNameSpace */; };
 		7B53AA732E089EBF00B34396 /* CreateDraftOrder.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 7B53AA722E089E9E00B34396 /* CreateDraftOrder.graphql */; };
 		7B53AA752E089EEB00B34396 /* UpdateDraftOrder.graphql in Sources */ = {isa = PBXBuildFile; fileRef = 7B53AA742E089EDA00B34396 /* UpdateDraftOrder.graphql */; };
 		7B53AA772E089F5800B34396 /* DeleteDraftOrder.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 7B53AA762E089F2A00B34396 /* DeleteDraftOrder.graphql */; };
@@ -116,9 +118,7 @@
 		7B65D1C32DFF17E200E7A378 /* BrandsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B65D1C22DFF17E200E7A378 /* BrandsHeader.swift */; };
 		7B65D1C52DFF306E00E7A378 /* GetCollectionWithHandel.graphql in Sources */ = {isa = PBXBuildFile; fileRef = 7B65D1C42DFF303F00E7A378 /* GetCollectionWithHandel.graphql */; };
 		7B65D1C72DFF327400E7A378 /* CollectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B65D1C62DFF326C00E7A378 /* CollectionResponse.swift */; };
-		7B9E78172E0A25D200B6FECC /* AdminNameSpace in Frameworks */ = {isa = PBXBuildFile; productRef = 7B9E78162E0A25D200B6FECC /* AdminNameSpace */; };
 		7B9E781C2E0A366200B6FECC /* DiscountManagers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9E781B2E0A365D00B6FECC /* DiscountManagers.swift */; };
-		7BCDF8F42E0A1F5500456A76 /* StoreFrontNameSpace in Frameworks */ = {isa = PBXBuildFile; productRef = 7BCDF8F32E0A1F5500456A76 /* StoreFrontNameSpace */; };
 		C20599532DFAA94F008CD6FE /* Section1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20599522DFAA94F008CD6FE /* Section1.swift */; };
 		C20599552DFAA9C1008CD6FE /* ProductDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20599542DFAA9C0008CD6FE /* ProductDetailsViewModel.swift */; };
 		C205995D2DFAB47B008CD6FE /* Section3.swift in Sources */ = {isa = PBXBuildFile; fileRef = C205995C2DFAB47B008CD6FE /* Section3.swift */; };
@@ -133,7 +133,6 @@
 		C21BB2992E03D2460013F56F /* EmailVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21BB2982E03D2440013F56F /* EmailVerificationView.swift */; };
 		C21BB29B2E04276B0013F56F /* customerCreate.graphql in Resources */ = {isa = PBXBuildFile; fileRef = C21BB29A2E04275D0013F56F /* customerCreate.graphql */; };
 		C21BC2532E0AA86C00E8F5AD /* DraftOrderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21BC2522E0AA86B00E8F5AD /* DraftOrderManager.swift */; };
-		C21BC2562E0AA9DC00E8F5AD /* AdminNameSpace in Frameworks */ = {isa = PBXBuildFile; productRef = C21BC2552E0AA9DC00E8F5AD /* AdminNameSpace */; };
 		C21BC2592E0AB78C00E8F5AD /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21BC2582E0AB78A00E8F5AD /* FavoritesViewModel.swift */; };
 		C21BC25B2E0AB7B400E8F5AD /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21BC25A2E0AB7B100E8F5AD /* FavoritesView.swift */; };
 		C22E1A252E05094F00340107 /* CustomerAccessTokenCreate.graphql in Resources */ = {isa = PBXBuildFile; fileRef = C22E1A242E05093800340107 /* CustomerAccessTokenCreate.graphql */; };
@@ -142,7 +141,6 @@
 		C2488BE22DFBB75E00B11CA5 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2488BE12DFBB75E00B11CA5 /* SearchView.swift */; };
 		C2488BE52DFBB81100B11CA5 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2488BE32DFBB80E00B11CA5 /* SearchViewModel.swift */; };
 		C27820E22E0AA47600DCDE13 /* DraftOrdersQuery.graphql in Resources */ = {isa = PBXBuildFile; fileRef = C27820E12E0AA47200DCDE13 /* DraftOrdersQuery.graphql */; };
-		C27820E52E0AA56500DCDE13 /* AdminNameSpace in Frameworks */ = {isa = PBXBuildFile; productRef = C27820E42E0AA56500DCDE13 /* AdminNameSpace */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -364,13 +362,14 @@
 		7B4C95382E030BA2000B916E /* ViewExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtention.swift; sourceTree = "<group>"; };
 		7B4C953A2E030C31000B916E /* PartialSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartialSheet.swift; sourceTree = "<group>"; };
 		7B4C953C2E03F26B000B916E /* RangeSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeSliderView.swift; sourceTree = "<group>"; };
+		7B52C02A2E0C4403000149B8 /* AdminSPM */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AdminSPM; sourceTree = "<group>"; };
+		7B52C02C2E0C4411000149B8 /* StoreFrontSPM */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = StoreFrontSPM; sourceTree = "<group>"; };
 		7B53AA722E089E9E00B34396 /* CreateDraftOrder.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = CreateDraftOrder.graphql; sourceTree = "<group>"; };
 		7B53AA742E089EDA00B34396 /* UpdateDraftOrder.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = UpdateDraftOrder.graphql; sourceTree = "<group>"; };
 		7B53AA762E089F2A00B34396 /* DeleteDraftOrder.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = DeleteDraftOrder.graphql; sourceTree = "<group>"; };
 		7B53AA782E089FED00B34396 /* DraftOrderCompilation.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = DraftOrderCompilation.graphql; sourceTree = "<group>"; };
 		7B53AA7A2E08A02500B34396 /* GetOrders.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetOrders.graphql; sourceTree = "<group>"; };
 		7B53AA862E08AA6D00B34396 /* Adminschema.graphqls */ = {isa = PBXFileReference; lastKnownFileType = text; path = Adminschema.graphqls; sourceTree = "<group>"; };
-		7B5E801C2E08C0AB001C280D /* StoreFrontSPM */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = StoreFrontSPM; sourceTree = "<group>"; };
 		7B65D1B12DFEF31100E7A378 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		7B65D1B42DFEF32B00E7A378 /* CollectionExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtentions.swift; sourceTree = "<group>"; };
 		7B65D1B62DFEFAF800E7A378 /* BrandList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandList.swift; sourceTree = "<group>"; };
@@ -378,9 +377,7 @@
 		7B65D1C22DFF17E200E7A378 /* BrandsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandsHeader.swift; sourceTree = "<group>"; };
 		7B65D1C42DFF303F00E7A378 /* GetCollectionWithHandel.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetCollectionWithHandel.graphql; sourceTree = "<group>"; };
 		7B65D1C62DFF326C00E7A378 /* CollectionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionResponse.swift; sourceTree = "<group>"; };
-		7B9E78182E0A25E800B6FECC /* AdminSPM */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AdminSPM; sourceTree = "<group>"; };
 		7B9E781B2E0A365D00B6FECC /* DiscountManagers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountManagers.swift; sourceTree = "<group>"; };
-		7BCDF8F72E0A1F7000456A76 /* StoreFrontSPM */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = StoreFrontSPM; sourceTree = "<group>"; };
 		C20599522DFAA94F008CD6FE /* Section1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section1.swift; sourceTree = "<group>"; };
 		C20599542DFAA9C0008CD6FE /* ProductDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewModel.swift; sourceTree = "<group>"; };
 		C205995C2DFAB47B008CD6FE /* Section3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section3.swift; sourceTree = "<group>"; };
@@ -418,7 +415,6 @@
 		C2488BE12DFBB75E00B11CA5 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		C2488BE32DFBB80E00B11CA5 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		C27820E12E0AA47200DCDE13 /* DraftOrdersQuery.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = DraftOrdersQuery.graphql; sourceTree = "<group>"; };
-		C27820E62E0AA5B100DCDE13 /* AdminSPM */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AdminSPM; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -434,12 +430,9 @@
 			files = (
 				221E119D2DF6635500D3B4CD /* Kingfisher in Frameworks */,
 				C21BB2932E03BFA50013F56F /* FirebaseAuth in Frameworks */,
-				C21BC2562E0AA9DC00E8F5AD /* AdminNameSpace in Frameworks */,
-				7B5E80162E08C061001C280D /* AdminNameSpace in Frameworks */,
-				7B5E80192E08C081001C280D /* StoreFrontNameSpace in Frameworks */,
-				C27820E52E0AA56500DCDE13 /* AdminNameSpace in Frameworks */,
+				7B52C0262E0C4379000149B8 /* AdminNameSpace in Frameworks */,
+				7B52C0292E0C439D000149B8 /* StoreFrontNameSpace in Frameworks */,
 				22EBEF5C2DF2424100EF8FA6 /* Apollo in Frameworks */,
-				7B9E78172E0A25D200B6FECC /* AdminNameSpace in Frameworks */,
 				C21BB28F2E03BFA50013F56F /* FirebaseAnalytics in Frameworks */,
 				C21BB2912E03BFA50013F56F /* FirebaseAnalyticsCore in Frameworks */,
 			);
@@ -766,8 +759,8 @@
 		221E10D02DF6619600D3B4CD /* GraphQL */ = {
 			isa = PBXGroup;
 			children = (
-				C27820E72E0AA5B100DCDE13 /* Admin */,
-				7B5E801D2E08C0AB001C280D /* StoreFront */,
+				7B52C02D2E0C4411000149B8 /* StoreFront */,
+				7B52C02B2E0C4403000149B8 /* Admin */,
 				7B53AA8B2E08AF3400B34396 /* StoreFrontOperations */,
 				7B53AA882E08AE7B00B34396 /* AdminOperations */,
 				221E10D12DF6619600D3B4CD /* TokenInterceptor.swift */,
@@ -1148,6 +1141,22 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
+		7B52C02B2E0C4403000149B8 /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				7B52C02A2E0C4403000149B8 /* AdminSPM */,
+			);
+			path = Admin;
+			sourceTree = "<group>";
+		};
+		7B52C02D2E0C4411000149B8 /* StoreFront */ = {
+			isa = PBXGroup;
+			children = (
+				7B52C02C2E0C4411000149B8 /* StoreFrontSPM */,
+			);
+			path = StoreFront;
+			sourceTree = "<group>";
+		};
 		7B53AA882E08AE7B00B34396 /* AdminOperations */ = {
 			isa = PBXGroup;
 			children = (
@@ -1187,28 +1196,12 @@
 			path = StoreFrontOperations;
 			sourceTree = "<group>";
 		};
-		7B9E78192E0A25E800B6FECC /* Admin */ = {
-			isa = PBXGroup;
-			children = (
-				7B9E78182E0A25E800B6FECC /* AdminSPM */,
-			);
-			path = Admin;
-			sourceTree = "<group>";
-		};
 		7B9E781A2E0A365600B6FECC /* Managers */ = {
 			isa = PBXGroup;
 			children = (
 				7B9E781B2E0A365D00B6FECC /* DiscountManagers.swift */,
 			);
 			path = Managers;
-			sourceTree = "<group>";
-		};
-		7BCDF8F82E0A1F7000456A76 /* StoreFront */ = {
-			isa = PBXGroup;
-			children = (
-				7BCDF8F72E0A1F7000456A76 /* StoreFrontSPM */,
-			);
-			path = StoreFront;
 			sourceTree = "<group>";
 		};
 		C21BB2872E03AF9D0013F56F /* Auth */ = {
@@ -1261,14 +1254,6 @@
 			path = SearchScreen;
 			sourceTree = "<group>";
 		};
-		C27820E72E0AA5B100DCDE13 /* Admin */ = {
-			isa = PBXGroup;
-			children = (
-				C27820E62E0AA5B100DCDE13 /* AdminSPM */,
-			);
-			path = Admin;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1296,10 +1281,8 @@
 				C21BB28E2E03BFA50013F56F /* FirebaseAnalytics */,
 				C21BB2902E03BFA50013F56F /* FirebaseAnalyticsCore */,
 				C21BB2922E03BFA50013F56F /* FirebaseAuth */,
-				7B5E80152E08C061001C280D /* AdminNameSpace */,
-				7B5E80182E08C081001C280D /* StoreFrontNameSpace */,
-				C27820E42E0AA56500DCDE13 /* AdminNameSpace */,
-				C21BC2552E0AA9DC00E8F5AD /* AdminNameSpace */,
+				7B52C0252E0C4379000149B8 /* AdminNameSpace */,
+				7B52C0282E0C439D000149B8 /* StoreFrontNameSpace */,
 			);
 			productName = "Shopify-IOS";
 			productReference = 22132AA22DEC974500FA9C90 /* Shopify-IOS.app */;
@@ -1378,8 +1361,8 @@
 				22EBEF5A2DF2424100EF8FA6 /* XCRemoteSwiftPackageReference "apollo-ios" */,
 				221E119B2DF6635500D3B4CD /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				C21BB28D2E03BFA50013F56F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				7BCDF8F22E0A1F5500456A76 /* XCLocalSwiftPackageReference "Shopify-IOS/DataLayer/Network/GraphQL/StoreFront/StoreFrontSPM" */,
-				7B9E78152E0A25D200B6FECC /* XCLocalSwiftPackageReference "Shopify-IOS/DataLayer/Network/GraphQL/Admin/AdminSPM" */,
+				7B52C0242E0C4379000149B8 /* XCLocalSwiftPackageReference "Shopify-IOS/DataLayer/Network/GraphQL/Admin/AdminSPM" */,
+				7B52C0272E0C439D000149B8 /* XCLocalSwiftPackageReference "Shopify-IOS/DataLayer/Network/GraphQL/StoreFront/StoreFrontSPM" */,
 			);
 			productRefGroup = 22132AA32DEC974500FA9C90 /* Products */;
 			projectDirPath = "";
@@ -1878,17 +1861,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		7B9E78152E0A25D200B6FECC /* XCLocalSwiftPackageReference "Shopify-IOS/DataLayer/Network/GraphQL/Admin/AdminSPM" */ = {
+		7B52C0242E0C4379000149B8 /* XCLocalSwiftPackageReference "Shopify-IOS/DataLayer/Network/GraphQL/Admin/AdminSPM" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "Shopify-IOS/DataLayer/Network/GraphQL/Admin/AdminSPM";
 		};
-		7BCDF8F22E0A1F5500456A76 /* XCLocalSwiftPackageReference "Shopify-IOS/DataLayer/Network/GraphQL/StoreFront/StoreFrontSPM" */ = {
+		7B52C0272E0C439D000149B8 /* XCLocalSwiftPackageReference "Shopify-IOS/DataLayer/Network/GraphQL/StoreFront/StoreFrontSPM" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "Shopify-IOS/DataLayer/Network/GraphQL/StoreFront/StoreFrontSPM";
-		};
-		C21BC2542E0AA9DC00E8F5AD /* XCLocalSwiftPackageReference "Shopify-IOS/DataLayer/Network/GraphQL/Admin/AdminSPM" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = "Shopify-IOS/DataLayer/Network/GraphQL/Admin/AdminSPM";
 		};
 /* End XCLocalSwiftPackageReference section */
 
@@ -1930,11 +1909,11 @@
 			package = 22EBEF5A2DF2424100EF8FA6 /* XCRemoteSwiftPackageReference "apollo-ios" */;
 			productName = Apollo;
 		};
-		7B9E78162E0A25D200B6FECC /* AdminNameSpace */ = {
+		7B52C0252E0C4379000149B8 /* AdminNameSpace */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AdminNameSpace;
 		};
-		7BCDF8F32E0A1F5500456A76 /* StoreFrontNameSpace */ = {
+		7B52C0282E0C439D000149B8 /* StoreFrontNameSpace */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = StoreFrontNameSpace;
 		};
@@ -1952,14 +1931,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C21BB28D2E03BFA50013F56F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
-		};
-		C21BC2552E0AA9DC00E8F5AD /* AdminNameSpace */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = AdminNameSpace;
-		};
-		C27820E42E0AA56500DCDE13 /* AdminNameSpace */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = AdminNameSpace;
 		};
 /* End XCSwiftPackageProductDependency section */
 

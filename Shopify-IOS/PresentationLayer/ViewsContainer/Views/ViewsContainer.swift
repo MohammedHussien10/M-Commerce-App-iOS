@@ -94,7 +94,7 @@ struct ViewsContainer: View {
                     ProfileScreen(isTabBarHidden: $isTabBarHidden, authViewModel: authViewModel)
                 }
             case .favorites:
-                Text("Favorites View")
+                FavoritesView(isTabBarHidden: $isTabBarHidden)
             }
 
             if !isTabBarHidden {
