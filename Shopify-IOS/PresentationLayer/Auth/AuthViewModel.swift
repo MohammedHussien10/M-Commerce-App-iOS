@@ -90,7 +90,9 @@ class AuthViewModel: ObservableObject {
     func logout() {
         do {
             try Auth.auth().signOut()
-            UserDefaults.standard.set(nil, forKey: "CustomerEmail")
+            UserDefaults.standard.removeObject(forKey: "ShopifyAccessToken")
+            UserDefaults.standard.removeObject(forKey: "CurrentCustomerID")
+            UserDefaults.standard.removeObject(forKey: "CurrentCustomerEmail")
             isLoggedIn = false
         } catch {
             self.setAlert("Failed to logout . Please try again later ")
@@ -126,9 +128,6 @@ class AuthViewModel: ObservableObject {
         self.alertMessage = message
         self.showAlert = true
     }
-}
-extension AuthViewModel {
-    
 }
 
 extension AuthViewModel {

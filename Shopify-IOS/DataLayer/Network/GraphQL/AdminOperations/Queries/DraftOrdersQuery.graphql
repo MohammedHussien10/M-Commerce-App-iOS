@@ -1,0 +1,28 @@
+query DraftOrdersQuery($first: Int!) {
+  draftOrders(first: $first) {
+    nodes {
+      id
+      name
+      email
+      note2
+      lineItems(first: 100) {
+        nodes {
+          quantity
+          variant {
+            id
+            title
+            price
+          }
+          product {
+            id
+            title
+            featuredImage {
+              url
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

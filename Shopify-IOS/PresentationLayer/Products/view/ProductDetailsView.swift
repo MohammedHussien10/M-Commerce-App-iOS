@@ -12,6 +12,7 @@ struct ProductDetailsView: View {
     @EnvironmentObject var cartViewModel: CartViewModel
     @State private var isFavorited = false
     @Binding var isTabBarHidden: Bool
+    @Environment(\.dismiss) private var dismiss
     var body: some View {
         ScrollView {
             if viewModel.isLoading {
@@ -30,19 +31,22 @@ struct ProductDetailsView: View {
                 }.padding(.bottom, 100)
             }
         }.navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
             .toolbar{
-                ToolbarItem(placement: .principal) {
-                    Text(viewModel.Title)
-                        .font(.caption)
-                        .multilineTextAlignment(.center)
-                        .lineLimit(nil)
-                        .fixedSize(horizontal: false, vertical: true)
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        dismiss()
+                    }) {
+                        Image(systemName: "chevron.left")
+                            .foregroundColor(.orange)
+                            .font(.system(size: 18, weight: .bold))
+                    }
                 }
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button(action: {
-                        isFavorited.toggle()
+                        viewModel.toggleFavorite()
                     }) {
-                        Image(systemName: isFavorited ? "heart.fill" : "heart")
+                        Image(systemName: viewModel.isFavorited ? "heart.fill" : "heart")
                             .foregroundColor(Color.orangeColor("FF7F00"))
                     }
                     ZStack(alignment: .topTrailing) {
