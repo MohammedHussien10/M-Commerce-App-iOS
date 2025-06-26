@@ -13,6 +13,7 @@ struct AddressesScreen: View {
     @State private var showAddAddress = false
     @State private var showDeleteAlert = false
     @State private var indexSetToDelete: IndexSet? = nil
+    @Environment(\.dismiss) private var dismiss
     // MARK: - Body
     var body: some View {
         NavigationStack {
@@ -62,6 +63,20 @@ struct AddressesScreen: View {
                 }
             }
             .navigationTitle("Addresses")
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        dismiss()
+                    }) {
+                        Image(systemName: "chevron.left")
+                            .foregroundColor(.orange)
+                            .font(.system(size: 18, weight: .bold))
+                    }
+                }
+            }
+
+
         }.onAppear {
             addressViewModel.getAllAddresses()
         }

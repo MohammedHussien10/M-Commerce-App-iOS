@@ -31,27 +31,6 @@ struct RangeSliderView: View {
             Text("Min: \(Int(validRange.lowerBound))    Max: \(Int(validRange.upperBound))")
                 .font(.caption)
                 .foregroundColor(.gray)
-
-            // Lower bound slider
-            VStack(alignment: .leading, spacing: 4) {
-                Text("Minimum")
-                    .font(.caption2)
-                    .foregroundColor(.secondary)
-                
-                Slider(
-                    value: Binding(
-                        get: { validRange.lowerBound },
-                        set: { newValue in
-                            let clamped = min(newValue, validRange.upperBound - 1)
-                            let finalValue = max(clamped, validBounds.lowerBound)
-                            range = finalValue...validRange.upperBound
-                        }
-                    ),
-                    in: validBounds.lowerBound...(validBounds.upperBound - 1),
-                    step: 1
-                )
-            }
-
             // Upper bound slider
             VStack(alignment: .leading, spacing: 4) {
                 Text("Maximum")

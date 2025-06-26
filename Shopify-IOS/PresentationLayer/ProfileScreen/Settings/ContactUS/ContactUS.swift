@@ -11,7 +11,7 @@ struct ContactUS: View {
         @State private var name = ""
         @State private var email = ""
         @State private var message = ""
-        
+    @Environment(\.dismiss) private var dismiss
         var body: some View {
             ScrollView {
                 VStack(spacing: 16) {
@@ -46,6 +46,20 @@ struct ContactUS: View {
                 .padding()
             }
             .navigationTitle("Contact Us")
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        dismiss()
+                    }) {
+                        Image(systemName: "chevron.left")
+                            .foregroundColor(.orange)
+                            .font(.system(size: 18, weight: .bold))
+                    }
+                }
+            }
+
+
         }
     }
 

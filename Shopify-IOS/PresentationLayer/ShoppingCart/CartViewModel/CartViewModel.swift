@@ -10,14 +10,16 @@ import AdminNameSpace
 import StoreFrontNameSpace
 
 class CartViewModel: ObservableObject {
-    @Published var cartId: String? = nil
+    @Published var cartId: String? = UserDefaults.standard.string(forKey: "CartID")
     @Published var cartProducts: [CartProduct] = []
     @Published var shouldProceedCheckingOut: Bool = false
     private let useCase: CartUseCaseProtocol
 
     init(useCase: CartUseCaseProtocol) {
         self.useCase = useCase
-        createCartIfNeeded()
+        if UserDefaults.standard.string(forKey: "CartID") == nil {
+            createCartIfNeeded()
+        }
     }
 
     func createCartIfNeeded() {
@@ -25,6 +27,7 @@ class CartViewModel: ObservableObject {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let cartId):
+                    UserDefaults.standard.set(cartId, forKey: "CartID")
                     self?.cartId = cartId
                     self?.loadCartProducts()
                 case .failure(let error):
@@ -37,12 +40,12 @@ class CartViewModel: ObservableObject {
 
     func addProduct(productId: String, quantity: Int) {
         guard let cartId = cartId else { return }
-        useCase.addToCart(cartId: cartId, productId: productId, quantity: quantity) { result in
+        useCase.addToCart(cartId: cartId, productId: productId, quantity: quantity) {[weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success:
                     print("Product added to cart")
-                    // Optionally: reload cart lines
+                    self?.loadCartProducts()
                 case .failure(let error):
                     print("Failed to add to cart:", error)
                 }
@@ -117,6 +120,10 @@ class CartViewModel: ObservableObject {
         }
     }
 
-
+    func getFirstProductUnderVariants(variants: [Variant]) -> CartProduct? {
+        cartProducts.first { product in
+            variants.contains(where: { $0.id == product.Variantid })
+        }
+    }
 
 }

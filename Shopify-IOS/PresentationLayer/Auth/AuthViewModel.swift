@@ -160,7 +160,17 @@ extension AuthViewModel {
                     if let customerID = data.customerCreate?.customer?.id {
                         UserDefaults.standard.set(customerID, forKey: "CurrentCustomerID")
                     }
+                    if let firstName = data.customerCreate?.customer?.firstName {
+                        UserDefaults.standard.set(firstName, forKey: "CustomerFirstName")
+                    }
+                    if let lastName = data.customerCreate?.customer?.lastName {
+                        UserDefaults.standard.set(lastName, forKey: "CustomerLastName")
+                                    }
+                    let fullName = "\(firstName) \(lastName)"
                     
+                    UserDefaults.standard.set(firstName, forKey: "CustomerFirstName")
+                    
+                    UserDefaults.standard.set(fullName, forKey: "CustomerFullName")
                 case .failure(let error):
                     self.setAlert("Something went wrong. Please try again later.")
                     print("GraphQL error: \(error.localizedDescription)")

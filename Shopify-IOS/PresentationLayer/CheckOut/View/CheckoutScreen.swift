@@ -17,6 +17,7 @@ struct CheckoutScreen: View {
     @State private var promoError: String?
     @State private var showAlert = false
     @State private var alertMessage = ""
+    @EnvironmentObject private var cartViewModel: CartViewModel
     @ObservedObject private var viewModel: CheckoutViewModel
 
     init(viewModel: CheckoutViewModel ) {
@@ -196,9 +197,12 @@ private extension CheckoutScreen {
     
     func placeOrderButton() -> some View {
         Button("Place Order") {
+            UserDefaults.standard.removeObject(forKey: "CartID")
             Task {
               await viewModel.completeDraftOrder { isSuccess in
                     if isSuccess {
+                        cartViewModel.cartProducts = []
+                        cartViewModel.cartId = nil
                         dismiss()
                     } else {
                         alertMessage = "Order could not be completed. Please try again."

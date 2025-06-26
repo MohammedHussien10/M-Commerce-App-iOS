@@ -175,7 +175,7 @@ struct CategoriesScreen: View {
                           .fill(Color.white.opacity(0.2))
                           .frame(height: 50)
                     }
-                    .frame(height: 400)
+                    .frame(height: 350)
                     
                    
                 }

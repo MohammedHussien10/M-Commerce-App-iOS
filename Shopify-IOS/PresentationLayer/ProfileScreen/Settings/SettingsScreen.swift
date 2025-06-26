@@ -10,6 +10,7 @@ import SwiftUI
 struct SettingsScreen: View {
     @StateObject var settingsViewModel = SettingsViewModel()
     @State private var showCurrencyPicker = false
+    @Environment(\.dismiss) private var dismiss
     var body: some View {
         NavigationStack{
             ScrollView {
@@ -55,6 +56,20 @@ struct SettingsScreen: View {
                 }
                 .padding()
             }.navigationTitle("Settings")
+                .navigationBarBackButtonHidden(true)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button(action: {
+                            dismiss()
+                        }) {
+                            Image(systemName: "chevron.left")
+                                .foregroundColor(.orange)
+                                .font(.system(size: 18, weight: .bold))
+                        }
+                    }
+                }
+
+
         }
     }
 }
