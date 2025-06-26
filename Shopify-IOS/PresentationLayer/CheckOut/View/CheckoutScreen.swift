@@ -33,9 +33,9 @@ struct CheckoutScreen: View {
                     cartItemsSection()
                     discountSection()
                     totalPriceSection()
-                    paymentMethodSection()
-                    placeOrderButton()
+//                    paymentMethodSection()
                     checkoutButton()
+                    placeOrderButton()
                 }
                 .padding(.vertical)
                 .onAppear {
@@ -204,6 +204,7 @@ private extension CheckoutScreen {
                     if isSuccess {
                         cartViewModel.cartProducts = []
                         cartViewModel.cartId = nil
+                        cartViewModel.shouldProceedCheckingOut = false
                         dismiss()
                     } else {
                         alertMessage = "Order could not be completed. Please try again."

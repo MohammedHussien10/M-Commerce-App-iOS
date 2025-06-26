@@ -4,12 +4,11 @@
 //
 //  Created by Noha Ali Gomaa on 23/06/2025.
 
-
-import Foundation
 import AdminNameSpace
 import Apollo
-import SwiftUICore
+import Foundation
 import StoreFrontNameSpace
+import SwiftUICore
 
 @MainActor
 final class CheckoutViewModel: ObservableObject {
@@ -198,9 +197,4 @@ final class CheckoutViewModel: ObservableObject {
         }
     }
 
-
-    
-
-
-    
 }
