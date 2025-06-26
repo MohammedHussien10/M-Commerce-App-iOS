@@ -128,6 +128,9 @@
 		C20599532DFAA94F008CD6FE /* Section1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20599522DFAA94F008CD6FE /* Section1.swift */; };
 		C20599552DFAA9C1008CD6FE /* ProductDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20599542DFAA9C0008CD6FE /* ProductDetailsViewModel.swift */; };
 		C205995D2DFAB47B008CD6FE /* Section3.swift in Sources */ = {isa = PBXBuildFile; fileRef = C205995C2DFAB47B008CD6FE /* Section3.swift */; };
+		C20FC4512E0D80490090FE60 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = C20FC4502E0D80490090FE60 /* FirebaseFirestore */; };
+		C20FC4532E0D81AB0090FE60 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20FC4522E0D819F0090FE60 /* FirestoreManager.swift */; };
+		C20FC4552E0D93CE0090FE60 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = C20FC4542E0D93CE0090FE60 /* FirebaseCore */; };
 		C21BB2882E03AF9D0013F56F /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21BB2862E03AF9D0013F56F /* CustomTextField.swift */; };
 		C21BB2892E03AF9D0013F56F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21BB2842E03AF9D0013F56F /* LoginView.swift */; };
 		C21BB28A2E03AF9D0013F56F /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21BB2822E03AF9D0013F56F /* SignUpView.swift */; };
@@ -146,7 +149,10 @@
 		C2488BDB2DFB0B4400B11CA5 /* SelectedOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2488BDA2DFB0B4100B11CA5 /* SelectedOption.swift */; };
 		C2488BE22DFBB75E00B11CA5 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2488BE12DFBB75E00B11CA5 /* SearchView.swift */; };
 		C2488BE52DFBB81100B11CA5 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2488BE32DFBB80E00B11CA5 /* SearchViewModel.swift */; };
+		C25DAC662E0D6FCD00DB219B /* AdminNameSpace in Frameworks */ = {isa = PBXBuildFile; productRef = C25DAC652E0D6FCD00DB219B /* AdminNameSpace */; };
 		C27820E22E0AA47600DCDE13 /* DraftOrdersQuery.graphql in Resources */ = {isa = PBXBuildFile; fileRef = C27820E12E0AA47200DCDE13 /* DraftOrdersQuery.graphql */; };
+		C28B22672E0D546A001B24C1 /* GetCustomer.graphql in Resources */ = {isa = PBXBuildFile; fileRef = C28B22662E0D544F001B24C1 /* GetCustomer.graphql */; };
+		C28B226A2E0D56BE001B24C1 /* StoreFrontNameSpace in Frameworks */ = {isa = PBXBuildFile; productRef = C28B22692E0D56BE001B24C1 /* StoreFrontNameSpace */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -368,8 +374,6 @@
 		7B4C95382E030BA2000B916E /* ViewExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtention.swift; sourceTree = "<group>"; };
 		7B4C953A2E030C31000B916E /* PartialSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartialSheet.swift; sourceTree = "<group>"; };
 		7B4C953C2E03F26B000B916E /* RangeSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeSliderView.swift; sourceTree = "<group>"; };
-		7B52C02A2E0C4403000149B8 /* AdminSPM */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AdminSPM; sourceTree = "<group>"; };
-		7B52C02C2E0C4411000149B8 /* StoreFrontSPM */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = StoreFrontSPM; sourceTree = "<group>"; };
 		7B53AA722E089E9E00B34396 /* CreateDraftOrder.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = CreateDraftOrder.graphql; sourceTree = "<group>"; };
 		7B53AA742E089EDA00B34396 /* UpdateDraftOrder.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = UpdateDraftOrder.graphql; sourceTree = "<group>"; };
 		7B53AA762E089F2A00B34396 /* DeleteDraftOrder.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = DeleteDraftOrder.graphql; sourceTree = "<group>"; };
@@ -389,6 +393,8 @@
 		C20599522DFAA94F008CD6FE /* Section1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section1.swift; sourceTree = "<group>"; };
 		C20599542DFAA9C0008CD6FE /* ProductDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewModel.swift; sourceTree = "<group>"; };
 		C205995C2DFAB47B008CD6FE /* Section3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section3.swift; sourceTree = "<group>"; };
+		C20FC44E2E0D72940090FE60 /* AdminSPM */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AdminSPM; sourceTree = "<group>"; };
+		C20FC4522E0D819F0090FE60 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		C21BB2822E03AF9D0013F56F /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		C21BB2842E03AF9D0013F56F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		C21BB2862E03AF9D0013F56F /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -423,6 +429,8 @@
 		C2488BE12DFBB75E00B11CA5 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		C2488BE32DFBB80E00B11CA5 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		C27820E12E0AA47200DCDE13 /* DraftOrdersQuery.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = DraftOrdersQuery.graphql; sourceTree = "<group>"; };
+		C28B22662E0D544F001B24C1 /* GetCustomer.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetCustomer.graphql; sourceTree = "<group>"; };
+		C28B226B2E0D56FD001B24C1 /* StoreFrontSPM */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = StoreFrontSPM; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -444,9 +452,13 @@
 				C21BB2932E03BFA50013F56F /* FirebaseAuth in Frameworks */,
 				7B52C0262E0C4379000149B8 /* AdminNameSpace in Frameworks */,
 				7B52C0292E0C439D000149B8 /* StoreFrontNameSpace in Frameworks */,
+				C25DAC662E0D6FCD00DB219B /* AdminNameSpace in Frameworks */,
 				22EBEF5C2DF2424100EF8FA6 /* Apollo in Frameworks */,
 				C21BB28F2E03BFA50013F56F /* FirebaseAnalytics in Frameworks */,
+				C28B226A2E0D56BE001B24C1 /* StoreFrontNameSpace in Frameworks */,
 				C21BB2912E03BFA50013F56F /* FirebaseAnalyticsCore in Frameworks */,
+				C20FC4512E0D80490090FE60 /* FirebaseFirestore in Frameworks */,
+				C20FC4552E0D93CE0090FE60 /* FirebaseCore in Frameworks */,
 				7BE820C42E0CA5CF00C7C32D /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -769,6 +781,7 @@
 		221E10CF2DF6619600D3B4CD /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				C20FC4522E0D819F0090FE60 /* FirestoreManager.swift */,
 				221E10D02DF6619600D3B4CD /* GraphQL */,
 			);
 			path = Network;
@@ -777,8 +790,8 @@
 		221E10D02DF6619600D3B4CD /* GraphQL */ = {
 			isa = PBXGroup;
 			children = (
-				7B52C02D2E0C4411000149B8 /* StoreFront */,
-				7B52C02B2E0C4403000149B8 /* Admin */,
+				C20FC44F2E0D72940090FE60 /* Admin */,
+				C28B226C2E0D56FD001B24C1 /* StoreFront */,
 				7B53AA8B2E08AF3400B34396 /* StoreFrontOperations */,
 				7B53AA882E08AE7B00B34396 /* AdminOperations */,
 				221E10D12DF6619600D3B4CD /* TokenInterceptor.swift */,
@@ -804,6 +817,7 @@
 		221E10D62DF6619600D3B4CD /* Queries */ = {
 			isa = PBXGroup;
 			children = (
+				C28B22662E0D544F001B24C1 /* GetCustomer.graphql */,
 				7B09A4622E0A1E4D00E844DB /* GetAllAddress.graphql */,
 				7B65D1C42DFF303F00E7A378 /* GetCollectionWithHandel.graphql */,
 				221E10D72DF6619600D3B4CD /* GetProducts.graphql */,
@@ -1163,22 +1177,6 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
-		7B52C02B2E0C4403000149B8 /* Admin */ = {
-			isa = PBXGroup;
-			children = (
-				7B52C02A2E0C4403000149B8 /* AdminSPM */,
-			);
-			path = Admin;
-			sourceTree = "<group>";
-		};
-		7B52C02D2E0C4411000149B8 /* StoreFront */ = {
-			isa = PBXGroup;
-			children = (
-				7B52C02C2E0C4411000149B8 /* StoreFrontSPM */,
-			);
-			path = StoreFront;
-			sourceTree = "<group>";
-		};
 		7B53AA882E08AE7B00B34396 /* AdminOperations */ = {
 			isa = PBXGroup;
 			children = (
@@ -1224,6 +1222,14 @@
 				7B9E781B2E0A365D00B6FECC /* DiscountManagers.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		C20FC44F2E0D72940090FE60 /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				C20FC44E2E0D72940090FE60 /* AdminSPM */,
+			);
+			path = Admin;
 			sourceTree = "<group>";
 		};
 		C21BB2872E03AF9D0013F56F /* Auth */ = {
@@ -1276,6 +1282,14 @@
 			path = SearchScreen;
 			sourceTree = "<group>";
 		};
+		C28B226C2E0D56FD001B24C1 /* StoreFront */ = {
+			isa = PBXGroup;
+			children = (
+				C28B226B2E0D56FD001B24C1 /* StoreFrontSPM */,
+			);
+			path = StoreFront;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1308,6 +1322,10 @@
 				7B52C0252E0C4379000149B8 /* AdminNameSpace */,
 				7B52C0282E0C439D000149B8 /* StoreFrontNameSpace */,
 				7BE820C32E0CA5CF00C7C32D /* Lottie */,
+				C28B22692E0D56BE001B24C1 /* StoreFrontNameSpace */,
+				C25DAC652E0D6FCD00DB219B /* AdminNameSpace */,
+				C20FC4502E0D80490090FE60 /* FirebaseFirestore */,
+				C20FC4542E0D93CE0090FE60 /* FirebaseCore */,
 			);
 			productName = "Shopify-IOS";
 			productReference = 22132AA22DEC974500FA9C90 /* Shopify-IOS.app */;
@@ -1390,8 +1408,6 @@
 				22EBEF5A2DF2424100EF8FA6 /* XCRemoteSwiftPackageReference "apollo-ios" */,
 				221E119B2DF6635500D3B4CD /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				C21BB28D2E03BFA50013F56F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				7B52C0242E0C4379000149B8 /* XCLocalSwiftPackageReference "Shopify-IOS/DataLayer/Network/GraphQL/Admin/AdminSPM" */,
-				7B52C0272E0C439D000149B8 /* XCLocalSwiftPackageReference "Shopify-IOS/DataLayer/Network/GraphQL/StoreFront/StoreFrontSPM" */,
 				7BE820C22E0CA5CF00C7C32D /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 22132AA32DEC974500FA9C90 /* Products */;
@@ -1418,6 +1434,7 @@
 				221E11512DF6619600D3B4CD /* GetProducts.graphql in Resources */,
 				7BE820CB2E0CA87100C7C32D /* shopping_splash.json in Resources */,
 				C21BB28C2E03BBFA0013F56F /* GoogleService-Info.plist in Resources */,
+				C28B22672E0D546A001B24C1 /* GetCustomer.graphql in Resources */,
 				221E11352DF6619600D3B4CD /* Preview Assets.xcassets in Resources */,
 				7B53AA732E089EBF00B34396 /* CreateDraftOrder.graphql in Resources */,
 				C27820E22E0AA47600DCDE13 /* DraftOrdersQuery.graphql in Resources */,
@@ -1473,6 +1490,7 @@
 				221E11972DF6619700D3B4CD /* NetworkManagerProtocol.swift in Sources */,
 				221E11372DF6619600D3B4CD /* Colors.swift in Sources */,
 				221E11402DF6619600D3B4CD /* HomeViewModel.swift in Sources */,
+				C20FC4532E0D81AB0090FE60 /* FirestoreManager.swift in Sources */,
 				C22E1A352E05183100340107 /* RootView.swift in Sources */,
 				7B4C95332E030039000B916E /* Taps.swift in Sources */,
 				7B65D1B32DFEF31100E7A378 /* Collection.swift in Sources */,
@@ -1898,17 +1916,6 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		7B52C0242E0C4379000149B8 /* XCLocalSwiftPackageReference "Shopify-IOS/DataLayer/Network/GraphQL/Admin/AdminSPM" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = "Shopify-IOS/DataLayer/Network/GraphQL/Admin/AdminSPM";
-		};
-		7B52C0272E0C439D000149B8 /* XCLocalSwiftPackageReference "Shopify-IOS/DataLayer/Network/GraphQL/StoreFront/StoreFrontSPM" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = "Shopify-IOS/DataLayer/Network/GraphQL/StoreFront/StoreFrontSPM";
-		};
-/* End XCLocalSwiftPackageReference section */
-
 /* Begin XCRemoteSwiftPackageReference section */
 		221E119B2DF6635500D3B4CD /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
@@ -1983,6 +1990,16 @@
 			package = 7BE820C22E0CA5CF00C7C32D /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
 		};
+		C20FC4502E0D80490090FE60 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C21BB28D2E03BFA50013F56F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		C20FC4542E0D93CE0090FE60 /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C21BB28D2E03BFA50013F56F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
 		C21BB28E2E03BFA50013F56F /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C21BB28D2E03BFA50013F56F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
@@ -1997,6 +2014,14 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C21BB28D2E03BFA50013F56F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
+		};
+		C25DAC652E0D6FCD00DB219B /* AdminNameSpace */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AdminNameSpace;
+		};
+		C28B22692E0D56BE001B24C1 /* StoreFrontNameSpace */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = StoreFrontNameSpace;
 		};
 /* End XCSwiftPackageProductDependency section */
 

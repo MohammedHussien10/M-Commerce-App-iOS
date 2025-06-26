@@ -34,8 +34,14 @@ final class DraftOrderManager {
         customerEmail: String,
         customerID: String,
         variantID: String,
+        retryCount: Int = 1,
         completion: @escaping (Result<AdminNameSpace.DraftOrderCreateMutation.Data.DraftOrderCreate.DraftOrder, Error>) -> Void
     ) {
+        print("📦 Sending draft order with:")
+        print("CustomerID: \(customerID)")
+        print("Email: \(customerEmail)")
+        print("VariantID: \(variantID)")
+
         let lineItemInput = AdminNameSpace.DraftOrderLineItemInput(
             quantity: 1,
             variantId: .some(variantID)
@@ -57,8 +63,16 @@ final class DraftOrderManager {
                 } else {
                     completion(.failure(NSError(domain: "DraftOrder", code: -1, userInfo: [NSLocalizedDescriptionKey: "No draft order returned"])))
                 }
+
             case .failure(let error):
-                completion(.failure(error))
+                if retryCount > 0 {
+                    print(" Connection lost. Retrying createDraftOrder... (\(retryCount) left)")
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        self.createDraftOrder(customerEmail: customerEmail, customerID: customerID, variantID: variantID, retryCount: retryCount - 1, completion: completion)
+                    }
+                } else {
+                    completion(.failure(error))
+                }
             }
         }
     }

@@ -4,85 +4,65 @@
 //
 //  Created by Aya Emam on 24/06/2025.
 //
+
 import Foundation
 import Combine
 import AdminNameSpace
 import StoreFrontNameSpace
+
 class FavoritesViewModel: ObservableObject {
-    @Published var favoriteVariants: [FavoriteVariantModel] = []
+    @Published var favoriteProducts: [Product] = []
     @Published var isLoading = false
     @Published var errorMessage: String?
-    @Published var favoriteVariantIDs: [String] = []
-    @Published var favoriteProducts: [Product] = []
-    
-    private let customerID = UserDefaults.standard.string(forKey: "CurrentCustomerID") ?? ""
-    
+
+    private var cancellables = Set<AnyCancellable>()
+
+    private var customerEmail: String {
+        UserDefaults.standard.string(forKey: "CurrentCustomerEmail") ?? ""
+    }
+
     func fetchFavorites() {
+        guard !customerEmail.isEmpty else {
+            errorMessage = "No email found for current user."
+            return
+        }
+
         isLoading = true
         errorMessage = nil
-        DraftOrderManager.shared.fetchDraftOrders { [weak self] result in
-            DispatchQueue.main.async {
-                guard let self = self else { return }
-                
-                switch result {
-                case .success(let orders):
-                    guard let order = orders.first(where: { $0.note2 == self.customerID }) else {
-                        self.favoriteProducts = []
-                        self.isLoading = false
-                        return
-                    }
-                    
-                    let items = order.lineItems.nodes.compactMap { $0 }
-                    let variantIDs = items.compactMap { $0.variant?.id }
-                    self.favoriteVariantIDs = variantIDs
-                    
-                    self.fetchFullProductsMatchingFavorites()
-                    
-                case .failure(let error):
-                    if error.localizedDescription.contains("Throttled") {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                            self.fetchFavorites()
+
+        FirestoreManager.shared.fetchFavoritesPublisher(email: customerEmail)
+            .map { data in
+                data.compactMap { $0["productID"] as? String }
+            }
+            .flatMap { productIDs in
+                let query = StoreFrontNameSpace.GetAllProductsQuery(first: 100)
+
+                return Future<[Product], Error> { promise in
+                    NetworkManager.sharedStoreFront.queryGraphQLRequest(query: query) { result in
+                        switch result {
+                        case .success(let data):
+                            let allProducts = data.products.toDomain()
+                            let cleanIDs = productIDs.map { FirestoreManager.shared.extractNumericID(from: $0) }
+                            let matchingProducts = allProducts.filter {
+                                cleanIDs.contains(FirestoreManager.shared.extractNumericID(from: $0.id))
+                            }
+                            promise(.success(matchingProducts))
+                        case .failure(let error):
+                            promise(.failure(error))
                         }
                     }
-                    self.errorMessage = error.localizedDescription
-                    self.isLoading = false
                 }
+                .eraseToAnyPublisher()
             }
-        }
-    }
-    func fetchFullProductsMatchingFavorites() {
-        let query = StoreFrontNameSpace.GetAllProductsQuery(first: 100)
-
-        NetworkManager.sharedStoreFront.queryGraphQLRequest(query: query) { [weak self] result in
-            DispatchQueue.main.async {
-                guard let self = self else { return }
-                self.isLoading = false
-
-                switch result {
-                case .success(let data):
-                    let allProducts = data.products.toDomain()
-                    let matchingProducts = allProducts.filter { product in
-                        product.variants.contains { variant in
-                            self.favoriteVariantIDs.contains(variant.id)
-                        }
-                    }
-                    self.favoriteProducts = matchingProducts
-
-                case .failure(let error):
-                    
-                    self.errorMessage = error.localizedDescription
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { [weak self] completion in
+                self?.isLoading = false
+                if case .failure(let error) = completion {
+                    self?.errorMessage = "Failed to load favorites: \(error.localizedDescription)"
                 }
-            }
-        }
+            }, receiveValue: { [weak self] products in
+                self?.favoriteProducts = products
+            })
+            .store(in: &cancellables)
     }
-
 }
-
-struct FavoriteVariantModel: Identifiable {
-    var id: String { variantID }
-    let title: String
-    let quantity: Int
-    let variantID: String
-    let imageUrl: Foundation.URL?
-}
-

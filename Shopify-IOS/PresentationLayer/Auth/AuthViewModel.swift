@@ -19,7 +19,6 @@ class AuthViewModel: ObservableObject {
     private var cachedLastName: String = ""
     private var cachedPassword: String = ""
 
-
     init() {
         checkLoginStatus()
     }
@@ -27,7 +26,8 @@ class AuthViewModel: ObservableObject {
     func checkLoginStatus() {
         if let user = Auth.auth().currentUser {
             isLoggedIn = user.isEmailVerified
-            UserDefaults.standard.set(user.email, forKey: "CustomerEmail")
+            // Use consistent key names
+            UserDefaults.standard.set(user.email, forKey: "CurrentCustomerEmail")
         } else {
             isLoggedIn = false
         }
@@ -70,13 +70,14 @@ class AuthViewModel: ObservableObject {
 
             guard let user = result?.user else { return }
             
-            UserDefaults.standard.set(user.email, forKey: "CustomerEmail")
+            UserDefaults.standard.set(user.email, forKey: "CurrentCustomerEmail")
             
             if user.isEmailVerified {
                 self.isLoggedIn = true
                 self.createShopifyAccessToken(email: email, password: password) { token in
                     if let token = token {
                         print("Token saved: \(token)")
+                        self.fetchCustomerDetailsFromStoreFront(accessToken: token)
                     }
                 }
                 completion()
@@ -93,13 +94,15 @@ class AuthViewModel: ObservableObject {
             UserDefaults.standard.removeObject(forKey: "ShopifyAccessToken")
             UserDefaults.standard.removeObject(forKey: "CurrentCustomerID")
             UserDefaults.standard.removeObject(forKey: "CurrentCustomerEmail")
+            
+            NotificationCenter.default.post(name: NSNotification.Name("UserLoggedOut"), object: nil)
+            
             isLoggedIn = false
         } catch {
             self.setAlert("Failed to logout . Please try again later ")
             print(error.localizedDescription)
         }
     }
-
 
     func refreshUserVerificationStatus(completion: @escaping () -> Void) {
         Auth.auth().currentUser?.reload(completion: { error in
@@ -110,7 +113,7 @@ class AuthViewModel: ObservableObject {
             }
             
             if let user = Auth.auth().currentUser, user.isEmailVerified {
-                UserDefaults.standard.set(user.email, forKey: "CustomerEmail")
+                UserDefaults.standard.set(user.email, forKey: "CurrentCustomerEmail")
                 self.isLoggedIn = true
                 self.createShopifyCustomer(
                     email: user.email ?? "",
@@ -124,6 +127,7 @@ class AuthViewModel: ObservableObject {
             }
         })
     }
+    
     private func setAlert(_ message: String) {
         self.alertMessage = message
         self.showAlert = true
@@ -139,7 +143,6 @@ extension AuthViewModel {
             password: password
         )
 
-
         let mutation = StoreFrontNameSpace.CustomerCreateMutation(input: input)
 
         NetworkManager.sharedStoreFront.performGraphQLRequest(mutation: mutation) { result in
@@ -149,16 +152,17 @@ extension AuthViewModel {
                     
                     if let error = data.customerCreate?.customerUserErrors.first?.message {
                         self.setAlert("Something went wrong. Please try again later.")
-                        print("Errror for creating customer in shopify \(error)")
+                        print("Error for creating customer in shopify \(error)")
                     }
                     
                     if let email = data.customerCreate?.customer?.email {
                         print("Customer Created successfully with email : \(email)")
-                        UserDefaults.standard.set(email, forKey: "CustomerEmail")
+                        UserDefaults.standard.set(email, forKey: "CurrentCustomerEmail")
                     }
                     
                     if let customerID = data.customerCreate?.customer?.id {
                         UserDefaults.standard.set(customerID, forKey: "CurrentCustomerID")
+                        print("Customer ID saved: \(customerID)")
                     }
                     if let firstName = data.customerCreate?.customer?.firstName {
                         UserDefaults.standard.set(firstName, forKey: "CustomerFirstName")
@@ -180,34 +184,64 @@ extension AuthViewModel {
     }
     
     func createShopifyAccessToken(email: String, password: String, completion: @escaping (String?) -> Void) {
-            let input = StoreFrontNameSpace.CustomerAccessTokenCreateInput(
-                email: email,
-                password: password
-            )
+        let input = StoreFrontNameSpace.CustomerAccessTokenCreateInput(
+            email: email,
+            password: password
+        )
 
-            let mutation = StoreFrontNameSpace.CustomerAccessTokenCreateMutation(input: input)
+        let mutation = StoreFrontNameSpace.CustomerAccessTokenCreateMutation(input: input)
 
-            NetworkManager.sharedStoreFront.performGraphQLRequest(mutation: mutation) { result in
-                DispatchQueue.main.async {
-                    switch result {
-                    case .success(let data):
-                        if let error = data.customerAccessTokenCreate?.customerUserErrors.first?.message {
-                            self.setAlert("Something went wrong. Please try again later.")
-                            print("Shopify Token Error: \(error)")
-                            completion(nil)
-                        } else if let token = data.customerAccessTokenCreate?.customerAccessToken?.accessToken {
-                            UserDefaults.standard.set(token, forKey: "ShopifyAccessToken")
-                            completion(token)
-                        } else {
-                            self.setAlert("error for token")
-                            completion(nil)
-                        }
-                    case .failure(let error):
+        NetworkManager.sharedStoreFront.performGraphQLRequest(mutation: mutation) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let data):
+                    if let error = data.customerAccessTokenCreate?.customerUserErrors.first?.message {
                         self.setAlert("Something went wrong. Please try again later.")
-                        print("GraphQL error: \(error.localizedDescription)")
+                        print("Shopify Token Error: \(error)")
+                        completion(nil)
+                    } else if let token = data.customerAccessTokenCreate?.customerAccessToken?.accessToken {
+                        UserDefaults.standard.set(token, forKey: "ShopifyAccessToken")
+                        completion(token)
+                    } else {
+                        self.setAlert("error for token")
                         completion(nil)
                     }
+                case .failure(let error):
+                    self.setAlert("Something went wrong. Please try again later.")
+                    print("GraphQL error: \(error.localizedDescription)")
+                    completion(nil)
                 }
             }
         }
+    }
+    
+    func fetchCustomerDetailsFromStoreFront(accessToken: String) {
+        let query = StoreFrontNameSpace.GetCustomerQuery(customerAccessToken: accessToken)
+
+        NetworkManager.sharedStoreFront.queryGraphQLRequest(query: query) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let data):
+                    if let customer = data.customer {
+                        let id = customer.id
+                        UserDefaults.standard.set(id, forKey: "CurrentCustomerID")
+                        print("Customer ID saved: \(id)")
+
+
+                        if let email = customer.email {
+                            UserDefaults.standard.set(email, forKey: "CurrentCustomerEmail")
+                            print("Customer Email saved: \(email)")
+                        }
+
+                        NotificationCenter.default.post(name: NSNotification.Name("UserLoggedIn"), object: nil)
+                    } else {
+                        print("No customer data returned")
+                    }
+
+                case .failure(let error):
+                    print("Failed to fetch customer: \(error.localizedDescription)")
+                }
+            }
+        }
+    }
 }
