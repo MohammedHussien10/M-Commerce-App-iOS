@@ -125,6 +125,8 @@
 		7BE820662E0C900B00C7C32D /* ApolloSanityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE820652E0C900100C7C32D /* ApolloSanityTests.swift */; };
 		7BE820C42E0CA5CF00C7C32D /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 7BE820C32E0CA5CF00C7C32D /* Lottie */; };
 		7BE820CB2E0CA87100C7C32D /* shopping_splash.json in Resources */ = {isa = PBXBuildFile; fileRef = 7BE820CA2E0CA87100C7C32D /* shopping_splash.json */; };
+		9F2BB06A2E0D708C008E3A04 /* AdminNameSpace in Frameworks */ = {isa = PBXBuildFile; productRef = 9F2BB0692E0D708C008E3A04 /* AdminNameSpace */; };
+		9F9B99652E0D70D800E37357 /* StoreFrontNameSpace in Frameworks */ = {isa = PBXBuildFile; productRef = 9F9B99642E0D70D800E37357 /* StoreFrontNameSpace */; };
 		C20599532DFAA94F008CD6FE /* Section1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20599522DFAA94F008CD6FE /* Section1.swift */; };
 		C20599552DFAA9C1008CD6FE /* ProductDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20599542DFAA9C0008CD6FE /* ProductDetailsViewModel.swift */; };
 		C205995D2DFAB47B008CD6FE /* Section3.swift in Sources */ = {isa = PBXBuildFile; fileRef = C205995C2DFAB47B008CD6FE /* Section3.swift */; };
@@ -390,6 +392,8 @@
 		7B9E781B2E0A365D00B6FECC /* DiscountManagers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountManagers.swift; sourceTree = "<group>"; };
 		7BE820652E0C900100C7C32D /* ApolloSanityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloSanityTests.swift; sourceTree = "<group>"; };
 		7BE820CA2E0CA87100C7C32D /* shopping_splash.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = shopping_splash.json; sourceTree = "<group>"; };
+		9F9B99662E0D70F900E37357 /* AdminSPM */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AdminSPM; sourceTree = "<group>"; };
+		9F9B99682E0D70F900E37357 /* StoreFrontSPM */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = StoreFrontSPM; sourceTree = "<group>"; };
 		C20599522DFAA94F008CD6FE /* Section1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section1.swift; sourceTree = "<group>"; };
 		C20599542DFAA9C0008CD6FE /* ProductDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewModel.swift; sourceTree = "<group>"; };
 		C205995C2DFAB47B008CD6FE /* Section3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section3.swift; sourceTree = "<group>"; };
@@ -448,8 +452,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F9B99652E0D70D800E37357 /* StoreFrontNameSpace in Frameworks */,
 				221E119D2DF6635500D3B4CD /* Kingfisher in Frameworks */,
 				C21BB2932E03BFA50013F56F /* FirebaseAuth in Frameworks */,
+				9F2BB06A2E0D708C008E3A04 /* AdminNameSpace in Frameworks */,
 				7B52C0262E0C4379000149B8 /* AdminNameSpace in Frameworks */,
 				7B52C0292E0C439D000149B8 /* StoreFrontNameSpace in Frameworks */,
 				C25DAC662E0D6FCD00DB219B /* AdminNameSpace in Frameworks */,
@@ -1409,6 +1415,8 @@
 				221E119B2DF6635500D3B4CD /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				C21BB28D2E03BFA50013F56F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				7BE820C22E0CA5CF00C7C32D /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				9F2BB0682E0D708C008E3A04 /* XCLocalSwiftPackageReference "Shopify-IOS/DataLayer/Network/GraphQL/Admin/AdminSPM" */,
+				9F9B99632E0D70D800E37357 /* XCLocalSwiftPackageReference "Shopify-IOS/DataLayer/Network/GraphQL/StoreFront/StoreFrontSPM" */,
 			);
 			productRefGroup = 22132AA32DEC974500FA9C90 /* Products */;
 			projectDirPath = "";
@@ -1915,6 +1923,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		9F2BB0682E0D708C008E3A04 /* XCLocalSwiftPackageReference "Shopify-IOS/DataLayer/Network/GraphQL/Admin/AdminSPM" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "Shopify-IOS/DataLayer/Network/GraphQL/Admin/AdminSPM";
+		};
+		9F9B99632E0D70D800E37357 /* XCLocalSwiftPackageReference "Shopify-IOS/DataLayer/Network/GraphQL/StoreFront/StoreFrontSPM" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "Shopify-IOS/DataLayer/Network/GraphQL/StoreFront/StoreFrontSPM";
+		};
+/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
 		221E119B2DF6635500D3B4CD /* XCRemoteSwiftPackageReference "Kingfisher" */ = {

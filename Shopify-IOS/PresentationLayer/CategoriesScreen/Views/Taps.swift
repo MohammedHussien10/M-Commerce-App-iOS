@@ -14,14 +14,14 @@ struct Taps: View {
     /// For Matched Geometry Effect
     @Namespace private var animation // Added
     var body: some View {
- 
+        Text("Test")
     }
     
 }
 
-#Preview {
-    let tags: [String] =   [
-        "all","man", "women", "kids"
-    ]
-    Taps(tags: tags, activeTag: tags[0])
-}
+//#Preview {
+//    let tags: [String] =   [
+//        "all","man", "women", "kids"
+//    ]
+//    Taps(tags: tags, activeTag: tags[0])
+//}

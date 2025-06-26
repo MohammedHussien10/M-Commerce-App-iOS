@@ -9,6 +9,7 @@ import Foundation
 import AdminNameSpace
 import Apollo
 import SwiftUICore
+import StoreFrontNameSpace
 
 @MainActor
 final class CheckoutViewModel: ObservableObject {
@@ -16,7 +17,8 @@ final class CheckoutViewModel: ObservableObject {
     @Published var draftOrder: DraftOrderCreateMutation.Data.DraftOrderCreate.DraftOrder?
     @Published var isLoading: Bool = true
     @Published var errorMessage: String?
-    
+    @Published var checkoutURL: Foundation.URL?
+    @Published var cartId: String?
     var  customerId = UserDefaults.standard.string(
         forKey: "CurrentCustomerID"
     )
@@ -36,9 +38,10 @@ final class CheckoutViewModel: ObservableObject {
         }
     }
     
-    init(cartProducts: [CartProduct]) {
-        self.cartProducts = cartProducts
-    }
+    init(cartProducts: [CartProduct], cartId: String?) {
+          self.cartProducts = cartProducts
+          self.cartId = cartId
+      }
     
     func createDraftOrder() async {
         var draftOrderInput = DraftOrderInput(
@@ -89,7 +92,7 @@ final class CheckoutViewModel: ObservableObject {
         }
     }
     
-    func updateDraftOrder(discountCode: String?, address: MailingAddressInput?, completion: @escaping (Bool) -> Void) async {
+    func updateDraftOrder(discountCode: String?, address: AdminNameSpace.MailingAddressInput?, completion: @escaping (Bool) -> Void) async {
         guard let draftOrderID = draftOrder?.id else {
             completion(false)
             return
@@ -173,5 +176,31 @@ final class CheckoutViewModel: ObservableObject {
             }
         }
     }
+    
+    
+    func fetchCart(checkoutCartId: String) {
+        self.isLoading = true
+        let query = GetCartQuery(cartId: checkoutCartId)
+
+        NetworkManager.sharedStoreFront.queryGraphQLRequest(query: query) { result in
+            DispatchQueue.main.async {
+                self.isLoading = false
+                switch result {
+                case .success(let response):
+                    if let urlString = response.cart?.checkoutUrl,
+                       let url = Foundation.URL(string: urlString) {
+                        self.checkoutURL = url
+                    }
+                case .failure(let error):
+                    self.errorMessage = error.localizedDescription
+                }
+            }
+        }
+    }
+
+
+    
+
+
     
 }

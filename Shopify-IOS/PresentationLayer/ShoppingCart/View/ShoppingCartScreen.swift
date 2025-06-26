@@ -34,7 +34,8 @@ struct ShoppingCartScreen: View {
                 NavigationLink(
                     destination: CheckoutScreen(
                         viewModel: CheckoutViewModel(
-                            cartProducts: cartViewModel.cartProducts
+                            cartProducts: cartViewModel.cartProducts,
+                            cartId: cartViewModel.cartId ?? "" 
                         )
                     )
                 ) {
@@ -47,8 +48,10 @@ struct ShoppingCartScreen: View {
                         .foregroundColor(.white)
                         .cornerRadius(12)
                         .padding(.horizontal)
-                }.disabled(!cartViewModel.shouldProceedCheckingOut)
+                }
+                .disabled(!cartViewModel.shouldProceedCheckingOut)
                 .padding(.bottom, 16)
+
             }
             .onAppear {
                 cartViewModel.loadCartProducts()

@@ -7,7 +7,7 @@ public class GetCartQuery: GraphQLQuery {
   public static let operationName: String = "GetCart"
   public static let operationDocument: ApolloAPI.OperationDocument = .init(
     definition: .init(
-      #"query GetCart($cartId: ID!) { cart(id: $cartId) { __typename id totalQuantity lines(first: 10) { __typename edges { __typename node { __typename id quantity merchandise { __typename ... on ProductVariant { id title image { __typename url } price { __typename amount currencyCode } } } } } } } }"#
+      #"query GetCart($cartId: ID!) { cart(id: $cartId) { __typename id checkoutUrl totalQuantity lines(first: 10) { __typename edges { __typename node { __typename id quantity merchandise { __typename ... on ProductVariant { id title image { __typename url } price { __typename amount currencyCode } } } } } } } }"#
     ))
 
   public var cartId: ID
@@ -42,12 +42,15 @@ public class GetCartQuery: GraphQLQuery {
       public static var __selections: [ApolloAPI.Selection] { [
         .field("__typename", String.self),
         .field("id", StoreFrontNameSpace.ID.self),
+        .field("checkoutUrl", StoreFrontNameSpace.URL.self),
         .field("totalQuantity", Int.self),
         .field("lines", Lines.self, arguments: ["first": 10]),
       ] }
 
       /// A globally-unique ID.
       public var id: StoreFrontNameSpace.ID { __data["id"] }
+      /// The URL of the checkout for the cart.
+      public var checkoutUrl: StoreFrontNameSpace.URL { __data["checkoutUrl"] }
       /// The total number of items in the cart.
       public var totalQuantity: Int { __data["totalQuantity"] }
       /// A list of lines containing information about the items the customer intends to purchase.
