@@ -19,13 +19,14 @@ class ProductDetailsViewModel: ObservableObject {
     private var customerID: String { UserDefaults.standard.string(forKey: "CurrentCustomerID") ?? "" }
     private var customerEmail: String { UserDefaults.standard.string(forKey: "CurrentCustomerEmail") ?? "" }
     private var variantID: String { product.variants.first?.id ?? "" }
-
+    private var productID: String {
+            product.id
+        }
     // MARK: - Init
     init(product: Product) {
-        self.product = product
-        observeUserSessionChanges()
-        loadFavoriteStatus()
-    }
+            self.product = product
+//            checkFavoriteStatus()
+        }
 
     deinit { cancellables.removeAll() }
 
@@ -51,6 +52,30 @@ class ProductDetailsViewModel: ObservableObject {
     }
 
     // MARK: - Favorites
+    
+    func checkFavoriteStatus() {
+        guard !customerEmail.isEmpty else { return }
+        FirestoreManager.shared.isFavorited(email: customerEmail, productID: product.id) { [weak self] isFav in
+            DispatchQueue.main.async {
+                self?.isFavorited = isFav
+            }
+        }
+    }
+
+    func toggleFavorite() {
+        guard !customerEmail.isEmpty else { return }
+
+        let cleanID = FirestoreManager.shared.extractNumericID(from: product.id)
+
+        if isFavorited {
+            FirestoreManager.shared.removeFavorite(email: customerEmail, productID: cleanID)
+        } else {
+            FirestoreManager.shared.addFavorite(email: customerEmail, productID: cleanID)
+        }
+
+        isFavorited.toggle()
+    }
+
     func loadFavoriteStatus() {
         clearFavoriteStatus()
         guard !customerID.isEmpty else {
@@ -84,16 +109,16 @@ class ProductDetailsViewModel: ObservableObject {
         }
     }
 
-    func toggleFavorite() {
-        guard !customerID.isEmpty, !customerEmail.isEmpty else {
-            print("Missing customer info")
-            return
-        }
-
-        isFavorited.toggle()
-
-        isFavorited ? addToFavorites() : removeFromFavorites()
-    }
+//    func toggleFavorite() {
+//        guard !customerID.isEmpty, !customerEmail.isEmpty else {
+//            print("Missing customer info")
+//            return
+//        }
+//
+//        isFavorited.toggle()
+//
+//        isFavorited ? addToFavorites() : removeFromFavorites()
+//    }
 
     private func addToFavorites() {
         let lineItem = AdminNameSpace.DraftOrderLineItemInput(quantity: 1, variantId: .some(variantID))
@@ -187,3 +212,4 @@ class ProductDetailsViewModel: ObservableObject {
         }
     }
 }
+
