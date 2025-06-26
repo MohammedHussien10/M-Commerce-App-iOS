@@ -70,10 +70,10 @@ struct HomeScreen: View {
                              
             .onAppear {
                 isTabBarHidden = false
+                cartViewModel.loadCartProducts()
                 viewModel.getAllDiscountCodes()
                 viewModel.fetchProducts()
                 viewModel.fetchCollections()
-                cartViewModel.loadCartProducts()
             }
             .navigationDestination(isPresented: $showSearchView) {
                 SearchView(isTabBarHidden: $isTabBarHidden)
