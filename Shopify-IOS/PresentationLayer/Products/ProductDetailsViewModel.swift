@@ -9,7 +9,9 @@ class ProductDetailsViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var errorMessage: String?
     @Published var isFavorited = false
-
+    var isOutOfStock: Bool {
+        product.variants.first?.availableForSale == false
+    }
     // MARK: - Private Properties
     private let currency = UserDefaults.standard.string(forKey: "selectedCurrency") ?? "USD"
     private var draftOrderID: String?

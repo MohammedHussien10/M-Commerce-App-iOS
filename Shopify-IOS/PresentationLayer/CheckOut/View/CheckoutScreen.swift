@@ -282,20 +282,21 @@ private extension CheckoutScreen {
                         .cornerRadius(12)
                 }
                 .padding(.horizontal)
-            } else {
-                Button("Load Checkout URL") {
-                    Task {
-                        // Example cartId, replace with actual cartId you saved
-                        await viewModel.fetchCart(checkoutCartId: viewModel.cartId ?? "")
-                    }
-                }
-                .frame(maxWidth: .infinity)
-                .padding()
-                .background(Color.orange)
-                .foregroundColor(.white)
-                .cornerRadius(12)
-                .padding(.horizontal)
             }
+//            else {
+//                Button("Load Checkout URL") {
+//                    Task {
+//                        // Example cartId, replace with actual cartId you saved
+//                        await viewModel.fetchCart(checkoutCartId: viewModel.cartId ?? "")
+//                    }
+//                }
+//                .frame(maxWidth: .infinity)
+//                .padding()
+//                .background(Color.orange)
+//                .foregroundColor(.white)
+//                .cornerRadius(12)
+//                .padding(.horizontal)
+//            }
         }
     }
 

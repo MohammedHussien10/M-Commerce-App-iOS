@@ -27,17 +27,17 @@ struct Section3: View {
                       print("No variant ID available to add to cart")
                   }
             }) {
-                Text("Add to Cart")
+                Text(viewModel.isOutOfStock ? "Out of Stock" : "Add to Cart")
                     .fontWeight(.bold)
                     .frame(maxWidth: .infinity)
                     .padding()
                     .foregroundColor(.white)
-                    .background(Color.orangeColor("FF7F00"))
+                    .background(viewModel.isOutOfStock ? Color.gray : Color.orangeColor("FF7F00"))
                     .cornerRadius(8)
             }
 
 
-        }
+        }.disabled(viewModel.isOutOfStock)
         .padding(.horizontal)
     }
 }
