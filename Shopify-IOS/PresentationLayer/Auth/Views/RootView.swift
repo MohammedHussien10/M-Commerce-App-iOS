@@ -8,14 +8,27 @@ import Foundation
 import SwiftUI
 
 struct RootView: View {
+    @State private var showSplash = true
     @StateObject var authViewModel = AuthViewModel()
     
     var body: some View {
-        NavigationStack {
-            if authViewModel.isLoggedIn {
-                ViewsContainer(authViewModel: authViewModel)
+        ZStack {
+            Color.white.ignoresSafeArea()
+
+            if showSplash {
+                SplashScreenView {
+                    withAnimation {
+                        showSplash = false
+                    }
+                }
             } else {
-                LoginView(authViewModel: authViewModel)
+                NavigationStack {
+                    if authViewModel.isLoggedIn {
+                        ViewsContainer(authViewModel: authViewModel)
+                    } else {
+                        LoginView(authViewModel: authViewModel)
+                    }
+                }
             }
         }
     }

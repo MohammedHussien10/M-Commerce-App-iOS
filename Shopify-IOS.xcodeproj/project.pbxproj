@@ -123,6 +123,8 @@
 		7BE8204E2E0C8F2800C7C32D /* ApolloAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 7BE8204D2E0C8F2800C7C32D /* ApolloAPI */; };
 		7BE820502E0C8F2800C7C32D /* ApolloTestSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 7BE8204F2E0C8F2800C7C32D /* ApolloTestSupport */; };
 		7BE820662E0C900B00C7C32D /* ApolloSanityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE820652E0C900100C7C32D /* ApolloSanityTests.swift */; };
+		7BE820C42E0CA5CF00C7C32D /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 7BE820C32E0CA5CF00C7C32D /* Lottie */; };
+		7BE820CB2E0CA87100C7C32D /* shopping_splash.json in Resources */ = {isa = PBXBuildFile; fileRef = 7BE820CA2E0CA87100C7C32D /* shopping_splash.json */; };
 		C20599532DFAA94F008CD6FE /* Section1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20599522DFAA94F008CD6FE /* Section1.swift */; };
 		C20599552DFAA9C1008CD6FE /* ProductDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20599542DFAA9C0008CD6FE /* ProductDetailsViewModel.swift */; };
 		C205995D2DFAB47B008CD6FE /* Section3.swift in Sources */ = {isa = PBXBuildFile; fileRef = C205995C2DFAB47B008CD6FE /* Section3.swift */; };
@@ -383,6 +385,7 @@
 		7B65D1C62DFF326C00E7A378 /* CollectionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionResponse.swift; sourceTree = "<group>"; };
 		7B9E781B2E0A365D00B6FECC /* DiscountManagers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountManagers.swift; sourceTree = "<group>"; };
 		7BE820652E0C900100C7C32D /* ApolloSanityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloSanityTests.swift; sourceTree = "<group>"; };
+		7BE820CA2E0CA87100C7C32D /* shopping_splash.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = shopping_splash.json; sourceTree = "<group>"; };
 		C20599522DFAA94F008CD6FE /* Section1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section1.swift; sourceTree = "<group>"; };
 		C20599542DFAA9C0008CD6FE /* ProductDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewModel.swift; sourceTree = "<group>"; };
 		C205995C2DFAB47B008CD6FE /* Section3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section3.swift; sourceTree = "<group>"; };
@@ -428,6 +431,7 @@
 		7B65D1BA2DFF061600E7A378 /* Brands */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Brands; sourceTree = "<group>"; };
 		7BE820C02E0C9DFB00C7C32D /* MockNetwork */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = MockNetwork; sourceTree = "<group>"; };
 		7BE820C12E0C9E1100C7C32D /* NetworkTest */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = NetworkTest; sourceTree = "<group>"; };
+		7BE820C52E0CA5E200C7C32D /* Splash */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Splash; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -442,6 +446,7 @@
 				22EBEF5C2DF2424100EF8FA6 /* Apollo in Frameworks */,
 				C21BB28F2E03BFA50013F56F /* FirebaseAnalytics in Frameworks */,
 				C21BB2912E03BFA50013F56F /* FirebaseAnalyticsCore in Frameworks */,
+				7BE820C42E0CA5CF00C7C32D /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,12 +570,9 @@
 			children = (
 				7B339D522E09657300D2F549 /* OrderExtentions.swift */,
 				7B339D502E095F9E00D2F549 /* DraftOrderExtentions.swift */,
-				7B4C953A2E030C31000B916E /* PartialSheet.swift */,
-				7B4C95382E030BA2000B916E /* ViewExtention.swift */,
 				7B65D1B42DFEF32B00E7A378 /* CollectionExtentions.swift */,
 				221E109E2DF6619600D3B4CD /* ArrayExtention.swift */,
 				221E109F2DF6619600D3B4CD /* AppConstant.swift */,
-				221E10A02DF6619600D3B4CD /* ImageViewExtension.swift */,
 				221E10A12DF6619600D3B4CD /* ProducteExtentions.swift */,
 			);
 			path = Utilites;
@@ -613,6 +615,7 @@
 		221E10AA2DF6619600D3B4CD /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				7BE820C52E0CA5E200C7C32D /* Splash */,
 				7B2F72BC2E0A00F9006F56CD /* Helpers */,
 				C21BC2572E0AB78000E8F5AD /* Favorite */,
 				7B339D3F2E092D4C00D2F549 /* CheckOut */,
@@ -832,6 +835,7 @@
 		221E11282DF6619600D3B4CD /* App */ = {
 			isa = PBXGroup;
 			children = (
+				7BE820CA2E0CA87100C7C32D /* shopping_splash.json */,
 				221E11292DF6619600D3B4CD /* Shopify_IOSApp.swift */,
 			);
 			path = App;
@@ -1020,6 +1024,9 @@
 		7B2F72BD2E0A0102006F56CD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				7B4C953A2E030C31000B916E /* PartialSheet.swift */,
+				7B4C95382E030BA2000B916E /* ViewExtention.swift */,
+				221E10A02DF6619600D3B4CD /* ImageViewExtension.swift */,
 				7B2F72BF2E0A0132006F56CD /* View+Extensions.swift */,
 			);
 			path = Extensions;
@@ -1286,6 +1293,7 @@
 				7B339D3F2E092D4C00D2F549 /* CheckOut */,
 				7B4C95342E030170000B916E /* ViewModel */,
 				7B65D1BA2DFF061600E7A378 /* Brands */,
+				7BE820C52E0CA5E200C7C32D /* Splash */,
 			);
 			name = "Shopify-IOS";
 			packageProductDependencies = (
@@ -1296,6 +1304,7 @@
 				C21BB2922E03BFA50013F56F /* FirebaseAuth */,
 				7B52C0252E0C4379000149B8 /* AdminNameSpace */,
 				7B52C0282E0C439D000149B8 /* StoreFrontNameSpace */,
+				7BE820C32E0CA5CF00C7C32D /* Lottie */,
 			);
 			productName = "Shopify-IOS";
 			productReference = 22132AA22DEC974500FA9C90 /* Shopify-IOS.app */;
@@ -1380,6 +1389,7 @@
 				C21BB28D2E03BFA50013F56F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				7B52C0242E0C4379000149B8 /* XCLocalSwiftPackageReference "Shopify-IOS/DataLayer/Network/GraphQL/Admin/AdminSPM" */,
 				7B52C0272E0C439D000149B8 /* XCLocalSwiftPackageReference "Shopify-IOS/DataLayer/Network/GraphQL/StoreFront/StoreFrontSPM" */,
+				7BE820C22E0CA5CF00C7C32D /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 22132AA32DEC974500FA9C90 /* Products */;
 			projectDirPath = "";
@@ -1403,6 +1413,7 @@
 				7B53AA872E08AA6D00B34396 /* Adminschema.graphqls in Resources */,
 				22DB2AA42E05600700F90A9A /* RemoveFromCart.graphql in Resources */,
 				221E11512DF6619600D3B4CD /* GetProducts.graphql in Resources */,
+				7BE820CB2E0CA87100C7C32D /* shopping_splash.json in Resources */,
 				C21BB28C2E03BBFA0013F56F /* GoogleService-Info.plist in Resources */,
 				221E11352DF6619600D3B4CD /* Preview Assets.xcassets in Resources */,
 				7B53AA732E089EBF00B34396 /* CreateDraftOrder.graphql in Resources */,
@@ -1906,6 +1917,14 @@
 				minimumVersion = 1.22.0;
 			};
 		};
+		7BE820C22E0CA5CF00C7C32D /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.2;
+			};
+		};
 		C21BB28D2E03BFA50013F56F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1949,6 +1968,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 22EBEF5A2DF2424100EF8FA6 /* XCRemoteSwiftPackageReference "apollo-ios" */;
 			productName = ApolloTestSupport;
+		};
+		7BE820C32E0CA5CF00C7C32D /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7BE820C22E0CA5CF00C7C32D /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 		C21BB28E2E03BFA50013F56F /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;

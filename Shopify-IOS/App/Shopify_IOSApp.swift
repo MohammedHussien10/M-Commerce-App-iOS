@@ -18,16 +18,14 @@ struct Shopify_IOSApp: App {
          )
      )
 
-     var body: some Scene {
-         WindowGroup {
-             RootView()
-                 .environment(
-                    \.managedObjectContext,
-                     persistenceController.container.viewContext
-                 )
-                 .environmentObject(cartViewModel)
-         }
-     }
+
+    var body: some Scene {
+        WindowGroup {
+            RootView()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(cartViewModel)
+        }
+    }
 }
 
 class AppDelegate: NSObject, UIApplicationDelegate {
