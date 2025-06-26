@@ -30,7 +30,7 @@ struct Section1: View {
         .frame(height: 300)
         
         VStack(alignment: .leading, spacing: 12) {
-            Text(viewModel.Title)
+            Text(viewModel.title)
                 .font(.title3)
                 .bold()
             HStack(){

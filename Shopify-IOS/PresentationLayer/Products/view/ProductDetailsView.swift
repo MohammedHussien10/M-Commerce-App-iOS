@@ -32,6 +32,9 @@ struct ProductDetailsView: View {
             }
         }.navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
+            .onAppear {
+                        viewModel.refreshFavoriteStatus()
+                    }
             .toolbar{
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
