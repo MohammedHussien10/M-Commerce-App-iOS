@@ -19,10 +19,10 @@ struct CheckoutScreen: View {
     @State private var alertMessage = ""
     @ObservedObject private var viewModel: CheckoutViewModel
 
-    init(viewModel: CheckoutViewModel ) {
+    init(viewModel: CheckoutViewModel) {
         self.viewModel = viewModel
-//        self._isTabBarHidden = isTabBarHidden
     }
+
 
     var body: some View {
         NavigationView {
@@ -34,6 +34,7 @@ struct CheckoutScreen: View {
                     totalPriceSection()
                     paymentMethodSection()
                     placeOrderButton()
+                    checkoutButton()
                 }
                 .padding(.vertical)
                 .onAppear {
@@ -275,6 +276,36 @@ private extension CheckoutScreen {
         appearance.titleTextAttributes = [.foregroundColor: UIColor.orange, .font: UIFont.boldSystemFont(ofSize: 20)]
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
+    }
+    
+    
+    func checkoutButton() -> some View {
+        Group {
+            if let checkoutURL = viewModel.checkoutURL {
+                Link(destination: checkoutURL) {
+                    Text("Proceed to Checkout")
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.green)
+                        .foregroundColor(.white)
+                        .cornerRadius(12)
+                }
+                .padding(.horizontal)
+            } else {
+                Button("Load Checkout URL") {
+                    Task {
+                        // Example cartId, replace with actual cartId you saved
+                        await viewModel.fetchCart(checkoutCartId: viewModel.cartId ?? "")
+                    }
+                }
+                .frame(maxWidth: .infinity)
+                .padding()
+                .background(Color.orange)
+                .foregroundColor(.white)
+                .cornerRadius(12)
+                .padding(.horizontal)
+            }
+        }
     }
 
 }
