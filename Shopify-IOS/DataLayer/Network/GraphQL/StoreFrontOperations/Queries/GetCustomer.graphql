@@ -1,9 +1,0 @@
-query GetCustomer($customerAccessToken: String!) {
-      customer(customerAccessToken: $customerAccessToken) {
-        id
-        email
-        firstName
-        lastName
-      }
-    }
-
