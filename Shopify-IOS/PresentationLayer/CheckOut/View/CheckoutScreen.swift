@@ -1,28 +1,19 @@
-//
-//  CheckoutScreen.swift
-//  Shopify-IOS
-//
-//  Created by Noha Ali Gomaa on 23/06/2025.
-//
-
 import SwiftUI
 import PassKit
 
 struct CheckoutScreen: View {
     @Environment(\.dismiss) private var dismiss
-//    @Binding var isTabBarHidden: Bool
     @State private var discountCode = ""
-    @State private var selectedPaymentMethod: String? = nil
     @State private var discountApplied = false
     @State private var promoError: String?
     @State private var showAlert = false
     @State private var alertMessage = ""
     @ObservedObject private var viewModel: CheckoutViewModel
+    let paymentHandler = PaymentHandler()
 
     init(viewModel: CheckoutViewModel) {
         self.viewModel = viewModel
     }
-
 
     var body: some View {
         NavigationView {
@@ -38,27 +29,83 @@ struct CheckoutScreen: View {
                 }
                 .padding(.vertical)
                 .onAppear {
-                    configureScreen() // Make this synchronous
+                    configureScreen()
                     Task {
-                       await viewModel.createDraftOrder()
+                        await viewModel.createDraftOrder()
                     }
                 }
-//                .onDisappear {
-//                              isTabBarHidden = false // ✅ Show tab bar when screen disappears
-//                          }
-            }
-            .loadingWithBlur(isLoading: $viewModel.isLoading)
+            }.loadingWithBlur(isLoading: $viewModel.isLoading)
             .navigationTitle("Check Out")
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     backButton()
                 }
             }
-        }.navigationBarBackButtonHidden(true)
+            .alert(isPresented: $showAlert) {
+                Alert(
+                    title: Text("Error"),
+                    message: Text(alertMessage),
+                    dismissButton: .default(Text("OK"))
+                )
+            }
+        }
     }
 }
+
+extension CheckoutScreen {
+    var applePayButton: some View {
+        VStack {
+            if PKPaymentAuthorizationViewController.canMakePayments() {
+                PayWithApplePayButton {
+                    startApplePay()
+                }
+                .frame(height: 50)
+                .padding()
+            } else {
+                Text("Apple Pay is not available.")
+                    .foregroundColor(.red)
+            }
+        }
+    }
+
+    func startApplePay() {
+        var paymentItems: [PKPaymentSummaryItem] = viewModel.cartProducts.map { product in
+            PKPaymentSummaryItem(
+                label: product.title,
+                amount: NSDecimalNumber(value: product.price * Double(product.quantity))
+            )
+        }
+
+        paymentItems.append(
+            PKPaymentSummaryItem(
+                label: "Total",
+                amount: NSDecimalNumber(
+                    string: viewModel.totalPrice.filter("0123456789.".contains)
+                )
+            )
+        )
+
+        paymentHandler.startPayment(items: paymentItems) { success, data in
+            if success {
+                print("✅ Apple Pay Payment Success")
+                Task {
+                    await viewModel.completeDraftOrder { isSuccess in
+                        if isSuccess {
+                            dismiss()
+                        } else {
+                            alertMessage = "Order could not be completed. Please try again."
+                            showAlert = true
+                        }
+                    }
+                }
+            } else {
+                print("❌ Apple Pay Payment Failed")
+            }
+        }
+    }
+}
+
 
 // MARK: - Sections
 
@@ -70,7 +117,7 @@ private extension CheckoutScreen {
 
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 8) {
-                        AddressCell()
+                    AddressCell()
                 }
                 .padding(.horizontal)
             }
@@ -108,13 +155,13 @@ private extension CheckoutScreen {
                 TextField("Enter promo code", text: $discountCode)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .autocapitalization(.allCharacters)
-                    .disabled(discountApplied) // Disable when applied
+                    .disabled(discountApplied)
                     .opacity(discountApplied ? 0.5 : 1.0)
 
                 if discountApplied {
                     Button("Clear") {
                         Task {
-                          await  viewModel.updateDraftOrder(discountCode: nil, address: nil) {result in }
+                            await viewModel.updateDraftOrder(discountCode: nil, address: nil) { _ in }
                             discountApplied = false
                             discountCode = ""
                             promoError = nil
@@ -127,7 +174,7 @@ private extension CheckoutScreen {
                             promoError = "Please enter a valid promo code."
                         } else {
                             Task {
-                             await viewModel.updateDraftOrder(discountCode: discountCode, address: nil) { success in
+                                await viewModel.updateDraftOrder(discountCode: discountCode, address: nil) { success in
                                     if success {
                                         discountApplied = true
                                         promoError = nil
@@ -158,7 +205,7 @@ private extension CheckoutScreen {
             }
         }
     }
-    
+
     func totalPriceSection() -> some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack {
@@ -187,18 +234,16 @@ private extension CheckoutScreen {
                 .padding(.horizontal)
 
             HStack(spacing: 16) {
-                paymentMethodButton(title: "Cash")
-                paymentMethodButton(title: "Apple Pay")
+                applePayButton
             }
             .padding(.horizontal)
         }
     }
 
-    
     func placeOrderButton() -> some View {
         Button("Place Order") {
             Task {
-              await viewModel.completeDraftOrder { isSuccess in
+                await viewModel.completeDraftOrder { isSuccess in
                     if isSuccess {
                         dismiss()
                     } else {
@@ -215,34 +260,13 @@ private extension CheckoutScreen {
         .cornerRadius(12)
         .padding(.horizontal)
         .padding(.top, 8)
-        // 👇 Alert modifier for displaying failure message
-        .alert(isPresented: $showAlert) {
-            Alert(
-                title: Text("Error"),
-                message: Text(alertMessage),
-                dismissButton: .default(Text("OK"))
-            )
-        }
     }
-    
 }
+
 
 // MARK: - Components
 
 private extension CheckoutScreen {
-    func paymentMethodButton(title: String) -> some View {
-        Button {
-            selectedPaymentMethod = title
-        } label: {
-            Text(title)
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 12)
-                .background(selectedPaymentMethod == title ? .orange : .gray.opacity(0.3))
-                .foregroundColor(.white)
-                .cornerRadius(12)
-        }
-    }
-
     func emptyCartView() -> some View {
         VStack(spacing: 16) {
             Image("out-of-stock")
@@ -260,7 +284,7 @@ private extension CheckoutScreen {
     func backButton() -> some View {
         Button {
             Task {
-               await viewModel.deleteDraftOrder {
+                await viewModel.deleteDraftOrder {
                     dismiss()
                 }
             }
@@ -273,12 +297,14 @@ private extension CheckoutScreen {
 
     func configureScreen() {
         let appearance = UINavigationBarAppearance()
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.orange, .font: UIFont.boldSystemFont(ofSize: 20)]
+        appearance.titleTextAttributes = [
+            .foregroundColor: UIColor.orange,
+            .font: UIFont.boldSystemFont(ofSize: 20)
+        ]
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
     }
-    
-    
+
     func checkoutButton() -> some View {
         Group {
             if let checkoutURL = viewModel.checkoutURL {
@@ -291,26 +317,12 @@ private extension CheckoutScreen {
                         .cornerRadius(12)
                 }
                 .padding(.horizontal)
-            } else {
-                Button("Load Checkout URL") {
-                    Task {
-                        // Example cartId, replace with actual cartId you saved
-                        await viewModel.fetchCart(checkoutCartId: viewModel.cartId ?? "")
-                    }
-                }
-                .frame(maxWidth: .infinity)
-                .padding()
-                .background(Color.orange)
-                .foregroundColor(.white)
-                .cornerRadius(12)
-                .padding(.horizontal)
             }
         }
     }
-
 }
 
-// MARK: - Styles
+// MARK: - Button Style
 
 struct PrimaryButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
@@ -320,5 +332,25 @@ struct PrimaryButtonStyle: ButtonStyle {
             .background(Constants.AppColor.primaryColor)
             .foregroundColor(.white)
             .cornerRadius(8)
+    }
+}
+
+extension View {
+    func loadingWithBlur(isLoading: Binding<Bool>) -> some View {
+        ZStack {
+            self
+                .blur(radius: isLoading.wrappedValue ? 3 : 0)
+                .disabled(isLoading.wrappedValue)
+
+            if isLoading.wrappedValue {
+                Color.black.opacity(0.4)
+                    .ignoresSafeArea()
+
+                ProgressView("Loading...")
+                    .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                    .foregroundColor(.white)
+                    .scaleEffect(1.5)
+            }
+        }
     }
 }
