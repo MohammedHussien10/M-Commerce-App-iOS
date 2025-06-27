@@ -13,20 +13,25 @@ struct ShoppingCartScreen: View {
     var body: some View {
         NavigationView {
             VStack {
-                List(cartViewModel.cartProducts) { product in
-                    if let cartId = cartViewModel.cartId {
-                        CartProductRow(
-                            product: product,
-                            cartId: cartId,
-                            onUpdateQuantity: { lineId, newQuantity in
-                                cartViewModel.updateProductQuantity(cartId: cartId, lineId: lineId, newQuantity: newQuantity)
-                            },
-                            onRemove: { lineId in
-                                cartViewModel.removeProduct(lineId: lineId)
-                            }
-                        )
-                    }
-                }.listStyle(PlainListStyle())
+                if (cartViewModel.cartProducts.isEmpty) {
+                    emptyCartView()
+                    Spacer()
+                } else {
+                    List(cartViewModel.cartProducts) { product in
+                        if let cartId = cartViewModel.cartId {
+                            CartProductRow(
+                                product: product,
+                                cartId: cartId,
+                                onUpdateQuantity: { lineId, newQuantity in
+                                    cartViewModel.updateProductQuantity(cartId: cartId, lineId: lineId, newQuantity: newQuantity)
+                                },
+                                onRemove: { lineId in
+                                    cartViewModel.removeProduct(lineId: lineId)
+                                }
+                            )
+                        }
+                    }.listStyle(PlainListStyle())
+                }
                 
                 NavigationLink(
                     destination: CheckoutScreen(
