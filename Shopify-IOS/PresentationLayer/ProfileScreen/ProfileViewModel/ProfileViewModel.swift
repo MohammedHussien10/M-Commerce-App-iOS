@@ -24,7 +24,7 @@ class ProfileViewModel: ObservableObject {
     
     
     func fetchOrders() {
-        guard let email = UserDefaults.standard.string(forKey: "CustomerEmail") else {
+        guard let email = UserDefaults.standard.string(forKey: "CurrentCustomerEmail") else {
             return
         }
         let query = AdminNameSpace.GetOrdersQuery(first: 100, query: GraphQLNullable.some("email:\(email)"))
