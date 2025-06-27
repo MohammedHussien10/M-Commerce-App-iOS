@@ -14,20 +14,19 @@ import SwiftUICore
 final class CheckoutViewModel: ObservableObject {
     // MARK: - Published Properties
     @Published var draftOrder: DraftOrderCreateMutation.Data.DraftOrderCreate.DraftOrder?
-    @Published var isLoading: Bool = true
+    @Published var isLoading: Bool = false
     @Published var errorMessage: String?
     @Published var checkoutURL: Foundation.URL?
     @Published var cartId: String?
+    @Published var addresses: [AddressModel] = []
+    @Published var selectedAddress: AddressModel?
+    @Published var subtotalPrice: String = "0.00".formatAsCurrency()
+    @Published var totalPrice: String = "0.00".formatAsCurrency()
     var  customerId = UserDefaults.standard.string(
         forKey: "CurrentCustomerID"
     )
     var cartProducts: [CartProduct]
-    var subtotalPrice: String {
-        return draftOrder?.subtotalPrice.formatAsCurrency() ?? "0.00".formatAsCurrency()
-    }
-    var totalPrice: String {
-        return draftOrder?.totalPrice.formatAsCurrency() ?? "0.00".formatAsCurrency()
-    }
+    
     var draftOrderLineItems: [DraftOrderLineItemInput] {
         return cartProducts.compactMap { product in
             DraftOrderLineItemInput(
@@ -42,31 +41,38 @@ final class CheckoutViewModel: ObservableObject {
           self.cartId = cartId
       }
     
+    @MainActor
     func createDraftOrder() async {
+        errorMessage = nil
+
         var draftOrderInput = DraftOrderInput(
             lineItems: GraphQLNullable.some(draftOrderLineItems)
         )
-        
+
         if let email = UserDefaults.standard.string(forKey: "CustomerEmail") {
             draftOrderInput.email = GraphQLNullable.some(email)
         }
-        
+
         let createDraftOrderMutation = AdminNameSpace.DraftOrderCreateMutation(
             input: draftOrderInput
         )
-        
-        NetworkManager.sharedAdmin.performGraphQLRequest(
-            mutation: createDraftOrderMutation
-        ) {[weak self] result in
-            guard let self else { return }
-            DispatchQueue.main.async {
-                self.isLoading = false
-            }
-            switch result {
-            case .success(let response):
-                draftOrder = response.draftOrderCreate?.draftOrder
-            case .failure(let error):
-                errorMessage = error.localizedDescription
+
+        await withCheckedContinuation { continuation in
+            NetworkManager.sharedAdmin.performGraphQLRequest(mutation: createDraftOrderMutation) { [weak self] result in
+                guard let self = self else {
+                    continuation.resume()
+                    return
+                }
+                
+                switch result {
+                case .success(let response):
+                    self.draftOrder = response.draftOrderCreate?.draftOrder
+                    setPrices()
+                case .failure(let error):
+                    self.errorMessage = error.localizedDescription
+                }
+
+                continuation.resume()
             }
         }
     }
@@ -79,7 +85,7 @@ final class CheckoutViewModel: ObservableObject {
         
         let draftOrderDeleteInput = DraftOrderDeleteInput(id: draftOrderId)
         let draftOrderDeleteMutation = DraftOrderDeleteMutation(input: draftOrderDeleteInput)
-        DispatchQueue.main.async {
+        await MainActor.run {
             self.isLoading = true
         }
 
@@ -129,7 +135,7 @@ final class CheckoutViewModel: ObservableObject {
             draftOrderInput.billingAddress = GraphQLNullable.some(address)
         }
         
-        DispatchQueue.main.async {
+        await MainActor.run {
             self.isLoading = true
         }
 
@@ -145,6 +151,7 @@ final class CheckoutViewModel: ObservableObject {
                 if let dataDic = data.draftOrderUpdate?.draftOrder?.__data {
                     let subtotalPrice = draftOrder?.subtotalPrice
                     draftOrder = DraftOrderCreateMutation.Data.DraftOrderCreate.DraftOrder(_dataDict: dataDic)
+                    setPrices()
                     let isApplied = draftOrder?.subtotalPrice != subtotalPrice
                     completion(isApplied)
                 } else {
@@ -164,7 +171,7 @@ final class CheckoutViewModel: ObservableObject {
         }
         
         let completeDraftOrderMutation = DraftOrderCompleteMutation(id: draftOrderId)
-        DispatchQueue.main.async {
+        await MainActor.run {
             self.isLoading = true
         }
 
@@ -202,5 +209,37 @@ final class CheckoutViewModel: ObservableObject {
             }
         }
     }
+    
+    private func setPrices() {
+        self.subtotalPrice = draftOrder?.subtotalPrice.formatAsCurrency() ?? "0.00".formatAsCurrency()
+        self.totalPrice = draftOrder?.totalPrice.formatAsCurrency() ?? "0.00".formatAsCurrency()
+    }
+    
+    @MainActor
+    func getAddresses(accessToken: String) async {
+        let query = GetAddressesQuery(accessToken: accessToken)
 
+        await withCheckedContinuation { continuation in
+            NetworkManager.sharedStoreFront.queryGraphQLRequest(query: query) { [weak self] result in
+                guard let self = self else {
+                    continuation.resume()
+                    return
+                }
+                switch result {
+                case .success(let data):
+                    if let customer = data.customer {
+                        let defaultId = customer.defaultAddress?.id
+                        self.addresses = customer.addresses.toDomain(defaultId: defaultId)
+                    } else {
+                        self.addresses = []
+                    }
+                case .failure(let error):
+                    self.errorMessage = error.localizedDescription
+                }
+
+                continuation.resume()
+            }
+        }
+    }
+    
 }

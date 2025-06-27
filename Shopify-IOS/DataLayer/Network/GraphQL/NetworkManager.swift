@@ -16,7 +16,7 @@ final class NetworkManager: NetworkManagerProtocol {
     static var sharedAdmin: NetworkManager = NetworkManager(requestType: .admin)
     static var sharedStoreFront: NetworkManager = NetworkManager(requestType: .storeFront)
 
-    private init(requestType: RequestType) {
+    init(requestType: RequestType) {
         self.requestType = requestType
     }
 

@@ -8,98 +8,85 @@
 import SwiftUI
 
 struct AddressesScreen: View {
-    // MARK: - Properties
-    @StateObject private var addressViewModel = AddressViewModel(repository: RepositoryImp(remoteDataSource: RemoteDataSource()))
+    @StateObject private var viewModel = AddressViewModel(
+        useCase: AddressUseCase(repository: RepositoryImp(remoteDataSource: RemoteDataSource()))
+    )
+    
     @State private var showAddAddress = false
+    @State private var selectedAddress: AddressModel? = nil
     @State private var showDeleteAlert = false
-    @State private var indexSetToDelete: IndexSet? = nil
-    @Environment(\.dismiss) private var dismiss
-    // MARK: - Body
+    @State private var addressToDelete: AddressModel? = nil
+    let token = SessionManager.shared.accessToken
+    
     var body: some View {
         NavigationStack {
-            VStack (spacing : 0){
-                // MARK: - Address List
-                List {
-                    ForEach(addressViewModel.addresses) { address in
-                        VStack(alignment: .leading) {
-                            Text("Address Name : \(address.addressName ?? "")")
-                                .font(.headline)
-                            Text("Address Details : \(address.detailedAddress ?? "")")
-                                .font(.subheadline)
-                            Text("Country : \(address.country ?? "")")
-                                .font(.subheadline)
-                            Text("City : \(address.city ?? "")")
-                                .font(.subheadline)
-                            Text("Name of Customer : \(address.personName ?? "")")
-                                .font(.subheadline)
-                            Text("Number Phone of Customer : \(address.phoneNumber ?? "")")
-                                .font(.subheadline)
-                            
-                        }.padding(.vertical, 8)
-                        
+            ZStack {
+                VStack {
+                    if viewModel.addresses.isEmpty {
+                        Text("No addresses found.")
+                            .foregroundColor(.gray)
+                    } else {
+                        List {
+                            ForEach(viewModel.addresses) { address in
+                                AddressRow(
+                                    address: address,
+                                    token: token,
+                                    viewModel: viewModel,
+                                    addressToDelete: $addressToDelete,
+                                    showDeleteAlert: $showDeleteAlert,
+                                    selectedAddress: $selectedAddress
+                                )
+                            }
+                        }
+
+                        .listStyle(.plain)
                     }
-                    .onDelete { indexSet in
-                        self.indexSetToDelete = indexSet
-                        self.showDeleteAlert = true
+
+                    Button(action: {
+                        showAddAddress = true
+                    }) {
+                        Text("+ Add New Address")
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color.orange)
+                            .cornerRadius(12)
+                            .padding(.horizontal)
                     }
-                } .listStyle(.plain)
-                // MARK: - Add Address Button
-                Spacer(minLength: 10)
-                Button(action: {
-                    showAddAddress = true
-                }) {
-                    Text(" + Add New Address")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color.orangeColor("FF7F00"))
-                        .cornerRadius(12)
-                        .padding(.horizontal)
+                    .padding(.bottom, 20)
                 }
-                .padding(.bottom, 90)
-                .sheet(isPresented: $showAddAddress) {
-                    AddAddressScreen(viewModel: addressViewModel)
-                }
+
             }
             .navigationTitle("Addresses")
-            .navigationBarBackButtonHidden(true)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button(action: {
-                        dismiss()
-                    }) {
-                        Image(systemName: "chevron.left")
-                            .foregroundColor(.orange)
-                            .font(.system(size: 18, weight: .bold))
+            .onAppear {
+                Task {
+                  await viewModel.getAddresses(accessToken: token)
+                }
+            }
+            .alert("Are you sure you want to delete this address?", isPresented: $showDeleteAlert) {
+                Button("Delete", role: .destructive) {
+                    if let address = addressToDelete {
+                        viewModel.deleteAddress(id: address.id, token: token)
                     }
                 }
+                Button("Cancel", role: .cancel) {}
             }
-
-
-        }.onAppear {
-            addressViewModel.getAllAddresses()
-        }
-        
-        // MARK: - Delete Alert
-        .alert("Are you sure you want to delete this address?", isPresented: $showDeleteAlert) {
-            Button("Delete", role: .destructive) {
-                if let indexSet = indexSetToDelete {
-                    delete(at: indexSet)
-                    indexSetToDelete = nil
-                }
+            .sheet(isPresented: $showAddAddress) {
+                AddAddressScreen(viewModel: viewModel)
             }
-            Button("Cancel", role: .cancel) {
-                indexSetToDelete = nil
+            .sheet(item: $selectedAddress) { address in
+                EditAddressScreen(address: address, viewModel: viewModel)
             }
-        }
-    }
-    
-    // MARK: - Functions
-    func delete(at offsets: IndexSet) {
-        offsets.forEach { index in
-            let address = addressViewModel.addresses[index]
-            addressViewModel.deleteAddress(address)
+            .alert(isPresented: Binding<Bool>(
+                get: { viewModel.errorMessage != nil },
+                set: { _ in viewModel.errorMessage = nil }
+            )) {
+                Alert(
+                    title: Text("Error"),
+                    message: Text(viewModel.errorMessage ?? ""),
+                    dismissButton: .default(Text("OK"))
+                )
+            }
         }
     }
 }

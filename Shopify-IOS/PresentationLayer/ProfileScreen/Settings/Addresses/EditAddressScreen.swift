@@ -1,26 +1,38 @@
 //
-//  AddAddressScreen.swift
+//  EditAddressScreen.swift
 //  Shopify-IOS
 //
-//  Created by Macos on 14/06/2025.
+//  Created by JETS Mobile Lab7 on 25/06/2025.
 //
 
 import SwiftUI
 import StoreFrontNameSpace
 
-struct AddAddressScreen: View {
+struct EditAddressScreen: View {
     @Environment(\.dismiss) var dismiss
 
-    @State private var firstName = ""
-    @State private var lastName = ""
-    @State private var address1 = ""
-    @State private var phone = ""
-    @State private var city = LocationConstants.egyptGovernorates.first ?? ""
-    @State private var country = LocationConstants.countries.first ?? ""
+    @State private var firstName: String
+    @State private var lastName: String
+    @State private var address1: String
+    @State private var city: String
+    @State private var country: String
+    @State private var phone: String
 
-
+    let address: AddressModel
     @ObservedObject var viewModel: AddressViewModel
-    let token = SessionManager.shared.accessToken
+    let userToken = SessionManager.shared.accessToken
+
+
+    init(address: AddressModel, viewModel: AddressViewModel) {
+        self.address = address
+        self.viewModel = viewModel
+        _firstName = State(initialValue: address.firstName)
+        _lastName = State(initialValue: address.lastName)
+        _address1 = State(initialValue: address.address1)
+        _city = State(initialValue: address.city)
+        _country = State(initialValue: address.country)
+        _phone = State(initialValue: address.phone)
+    }
 
     var body: some View {
         NavigationStack {
@@ -42,25 +54,26 @@ struct AddAddressScreen: View {
                                    }
                                    .pickerStyle(MenuPickerStyle())
 
+                                   Picker("Country", selection: $country) {
                                        ForEach(LocationConstants.countries, id: \.self) { country in
                                            Text(country).tag(country)
                                        }
-                                  
-                                 
+                                   }
+                                   .pickerStyle(MenuPickerStyle())
                                }
 
                 Button(action: {
-                    saveAddress()
+                    updateAddress()
                 }) {
-                    Text("Save Address")
+                    Text("Update Address")
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
                         .padding()
-                        .background(Color.orange)
+                        .background(Color.blue)
                         .cornerRadius(12)
                 }
             }
-            .navigationTitle("Add New Address")
+            .navigationTitle("Edit Address")
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") {
@@ -71,7 +84,7 @@ struct AddAddressScreen: View {
         }
     }
 
-    func saveAddress() {
+    func updateAddress() {
         let input = MailingAddressInput(
             address1: address1.gql,
             city: city.gql,
@@ -80,15 +93,9 @@ struct AddAddressScreen: View {
             lastName: lastName.gql,
             phone: phone.gql
         )
-        viewModel.createAddress(input: input, token: token) {
-            Task {
-                await viewModel.getAddresses(accessToken: token)
-                dismiss()
-            }
-        }
 
+        viewModel.updateAddress(id: address.id, newAddress: input, token: userToken)
+        dismiss()
     }
-
-
 }
 

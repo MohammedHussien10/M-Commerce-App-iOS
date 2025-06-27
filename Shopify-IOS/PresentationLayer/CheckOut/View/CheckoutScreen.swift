@@ -19,14 +19,15 @@ struct CheckoutScreen: View {
     @State private var alertMessage = ""
     @EnvironmentObject private var cartViewModel: CartViewModel
     @ObservedObject private var viewModel: CheckoutViewModel
+    @ObservedObject private var addressViewModel: AddressViewModel
     let token = SessionManager.shared.accessToken
     let paymentHandler = PaymentHandler()
     
-    init(viewModel: CheckoutViewModel) {
+    init(viewModel: CheckoutViewModel, addressViewModel: AddressViewModel) {
         self.viewModel = viewModel
+        self.addressViewModel = addressViewModel
     }
-
-
+    
     var body: some View {
         NavigationView {
             ScrollView {
@@ -44,11 +45,15 @@ struct CheckoutScreen: View {
                     .padding(.horizontal)
                 }
                 .padding(.vertical)
+                .task {
+                    viewModel.isLoading = true
+                    async let draftOrderTask: () = viewModel.createDraftOrder()
+                    async let addressTask: () = viewModel.getAddresses(accessToken: token)
+                    _ = await (draftOrderTask, addressTask)
+                    viewModel.isLoading = false
+                }
                 .onAppear {
                     configureScreen() // Make this synchronous
-                    Task {
-                       await viewModel.createDraftOrder()
-                    }
                 }
 //                .onDisappear {
 //                              isTabBarHidden = false // ✅ Show tab bar when screen disappears
@@ -75,11 +80,30 @@ private extension CheckoutScreen {
             Text("Shipping Address")
                 .font(.title2).bold().padding(.horizontal)
 
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 8) {
-                        AddressCell()
+            if viewModel.addresses.isEmpty {
+                Text("No Address Found")
+                    .foregroundColor(.gray)
+                    .padding(.horizontal)
+            } else {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 8) {
+                        ForEach(viewModel.addresses) { address in
+                            AddressCell(address: address)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 15)
+                                        .stroke(
+                                            viewModel.selectedAddress?.id == address.id ? Color.orange : Color.clear,
+                                            lineWidth: 3
+                                        )
+                                )
+                                .onTapGesture {
+                                    viewModel.selectedAddress = address
+                                }
+                        }
+
+                    }
+                    .padding(.horizontal)
                 }
-                .padding(.horizontal)
             }
         }
     }
