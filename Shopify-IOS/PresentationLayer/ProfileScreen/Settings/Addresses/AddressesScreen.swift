@@ -17,7 +17,9 @@ struct AddressesScreen: View {
     @State private var showDeleteAlert = false
     @State private var addressToDelete: AddressModel? = nil
     let token = SessionManager.shared.accessToken
-    
+    @State private var indexSetToDelete: IndexSet? = nil
+    @Environment(\.dismiss) private var dismiss
+    // MARK: - Body
     var body: some View {
         NavigationStack {
             ZStack {
@@ -63,9 +65,26 @@ struct AddressesScreen: View {
                 }
             }
             .navigationTitle("Addresses")
-            .onAppear {
-                viewModel.getAddresses(accessToken: token)
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        dismiss()
+                    }) {
+                        Image(systemName: "chevron.left")
+                            .foregroundColor(.orange)
+                            .font(.system(size: 18, weight: .bold))
+                    }
+                }
             }
+
+
+        }.onAppear {
+                viewModel.getAddresses(accessToken: token)
+        }
+        
+        // MARK: - Delete Alert
+        .alert("Are you sure you want to delete this address?", isPresented: $showDeleteAlert) {
             .alert("Are you sure you want to delete this address?", isPresented: $showDeleteAlert) {
                 Button("Delete", role: .destructive) {
                     if let address = addressToDelete {

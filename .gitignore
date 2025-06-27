@@ -1,0 +1,13 @@
+# macOS system files
+.DS_Store
+
+# Xcode
+*.xcuserdatad
+*.xcuserdata
+*.xcscheme
+*.xcschememanagement.plist
+
+# Derived data
+DerivedData/
+build/
+

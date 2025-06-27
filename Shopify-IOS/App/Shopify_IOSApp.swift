@@ -17,8 +17,6 @@ struct Shopify_IOSApp: App {
              repository: RepositoryImp(remoteDataSource: RemoteDataSource())
          )
      )
-
-
     var body: some Scene {
         WindowGroup {
             RootView()

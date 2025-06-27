@@ -34,7 +34,7 @@ struct HeaderWithIconAndLogo: View {
                       .font(.title2)
                       .foregroundColor(Constants.AppColor.primaryColor)
                       .bold()
-                Image("genie")
+                Image("three")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 24, height: 24)

@@ -45,7 +45,6 @@ struct HomeScreen: View {
                         BrandsHeader()
                         BrandList(collections: viewModel.collections, isTabBarHidden: $isTabBarHidden)
                         ProductHeader()
-                        ProductsView(products:  Array(viewModel.products.prefix(4)), isTabBarHidden: $isTabBarHidden)
                         HStack {
                             Spacer()
                             Button(action: {
@@ -59,6 +58,8 @@ struct HomeScreen: View {
                         }
                         .padding(.trailing)
                         .ignoresSafeArea(.container)
+                        ProductsView(products:  Array(viewModel.products.prefix(4)), isTabBarHidden: $isTabBarHidden)
+                     
                     }
                 }
                 .padding()
@@ -69,6 +70,7 @@ struct HomeScreen: View {
                              
             .onAppear {
                 isTabBarHidden = false
+                cartViewModel.loadCartProducts()
                 viewModel.getAllDiscountCodes()
                 viewModel.fetchProducts()
                 viewModel.fetchCollections()

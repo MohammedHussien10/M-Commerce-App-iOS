@@ -8,6 +8,7 @@ struct CheckoutScreen: View {
     @State private var promoError: String?
     @State private var showAlert = false
     @State private var alertMessage = ""
+    @EnvironmentObject private var cartViewModel: CartViewModel
     @ObservedObject private var viewModel: CheckoutViewModel
 
     @ObservedObject private var addressViewModel: AddressViewModel
@@ -27,9 +28,9 @@ struct CheckoutScreen: View {
                     cartItemsSection()
                     discountSection()
                     totalPriceSection()
-                    paymentMethodSection()
-                    placeOrderButton()
+//                    paymentMethodSection()
                     checkoutButton()
+                    placeOrderButton()
                 }
                 .padding(.vertical)
                 .onAppear {
@@ -262,9 +263,13 @@ private extension CheckoutScreen {
 
     func placeOrderButton() -> some View {
         Button("Place Order") {
+            UserDefaults.standard.removeObject(forKey: "CartID")
             Task {
                 await viewModel.completeDraftOrder { isSuccess in
                     if isSuccess {
+                        cartViewModel.cartProducts = []
+                        cartViewModel.cartId = nil
+                        cartViewModel.shouldProceedCheckingOut = false
                         dismiss()
                     } else {
                         alertMessage = "Order could not be completed. Please try again."
@@ -299,6 +304,17 @@ private extension CheckoutScreen {
         }
         .frame(maxWidth: .infinity)
         .padding(.vertical, 30)
+    func paymentMethodButton(title: String) -> some View {
+        Button {
+            selectedPaymentMethod = title
+        } label: {
+            Text(title)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 12)
+                .background(selectedPaymentMethod == title ? .orange : .gray.opacity(0.3))
+                .foregroundColor(.white)
+                .cornerRadius(12)
+        }
     }
 
     func backButton() -> some View {
@@ -338,6 +354,20 @@ private extension CheckoutScreen {
                 }
                 .padding(.horizontal)
             }
+//            else {
+//                Button("Load Checkout URL") {
+//                    Task {
+//                        // Example cartId, replace with actual cartId you saved
+//                        await viewModel.fetchCart(checkoutCartId: viewModel.cartId ?? "")
+//                    }
+//                }
+//                .frame(maxWidth: .infinity)
+//                .padding()
+//                .background(Color.orange)
+//                .foregroundColor(.white)
+//                .cornerRadius(12)
+//                .padding(.horizontal)
+//            }
         }
     }
 }

@@ -10,7 +10,6 @@ import SwiftUI
 struct ProductDetailsView: View {
     @ObservedObject var viewModel: ProductDetailsViewModel
     @EnvironmentObject var cartViewModel: CartViewModel
-    @State private var isFavorited = false
     @Binding var isTabBarHidden: Bool
     @Environment(\.dismiss) private var dismiss
     var body: some View {
@@ -32,6 +31,9 @@ struct ProductDetailsView: View {
             }
         }.navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
+            .onAppear {
+                viewModel.checkFavoriteStatus()
+            }
             .toolbar{
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {

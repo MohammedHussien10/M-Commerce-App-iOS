@@ -38,3 +38,20 @@ extension View {
         )
     }
 }
+
+extension View {
+    func emptyCartView() -> some View {
+        VStack(spacing: 16) {
+            Image("out-of-stock")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 200, height: 200)
+
+            Text("No Products Found")
+                .font(.headline)
+                .foregroundColor(.gray)
+        }
+        .frame(maxWidth: .infinity)
+        .padding(.vertical, 30)
+    }
+}

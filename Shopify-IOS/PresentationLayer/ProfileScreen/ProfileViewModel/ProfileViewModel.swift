@@ -9,11 +9,11 @@ import Foundation
 import AdminNameSpace
 
 class ProfileViewModel: ObservableObject {
-    @Published var personName: String = ""
-    @Published var personEmail: String = ""
     @Published var personImageURL: String = ""
     @Published var orders: [Order] = []
     let token = UserDefaults.standard.string(forKey: "ShopifyAccessToken")
+    let name = UserDefaults.standard.string(forKey: "CustomerFullName") ?? "Guest"
+    let email = UserDefaults.standard.string(forKey:  "CustomerEmail") ?? "Guest@guest.com"
     func fetchUserData() {
         
 //            self.personName = user.displayName ?? "default name"

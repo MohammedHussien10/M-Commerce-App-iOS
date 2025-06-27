@@ -4,16 +4,27 @@ import Kingfisher
 struct ProductItem: View {
     let product: Product
     @EnvironmentObject var cartViewModel: CartViewModel
+    @StateObject private  var  productViewModel:ProductDetailsViewModel
     @Binding var isTabBarHidden: Bool
     let currency = UserDefaults.standard.string(forKey: "selectedCurrency") ?? "USD"
     
     @State private var isFavorited = false
     @State private var isAddedToCart = false
+    @State private var pressCount = 0
+    private var isOutOfStock: Bool {
+        product.variants.first?.availableForSale == false
+    }
     
+    init(product: Product, isTabBarHidden: Binding<Bool>) {
+         self.product = product
+         self._isTabBarHidden = isTabBarHidden
+        _productViewModel = StateObject(wrappedValue: ProductDetailsViewModel(product: product))
+     }
+
     var body: some View {
         ZStack(alignment: .topTrailing) {
             VStack(alignment: .leading, spacing: 6) {
-                NavigationLink(destination: ProductDetailsView(viewModel: ProductDetailsViewModel(product: product), isTabBarHidden: $isTabBarHidden)) {
+                NavigationLink(destination: ProductDetailsView(viewModel: productViewModel, isTabBarHidden: $isTabBarHidden)) {
                     VStack(alignment: .leading, spacing: 4) {
                         // Image
                         KFImage(product.images.first ?? URL(string: "https://theperfectroundgolf.com/wp-content/uploads/2022/04/placeholder.png")!)
@@ -68,38 +79,60 @@ struct ProductItem: View {
             
             // Top-right buttons
             HStack(spacing: 10) {
-                // Favorite Button
-                Button(action: {
-                    isFavorited.toggle()
-                }) {
-                    Image(systemName: isFavorited ? "heart.fill" : "heart")
-                        .foregroundColor(.white)
-                        .padding(8)
-                        .background(Color.orange.opacity(0.85))
-                        .clipShape(Circle())
-                }
-
-                // Add to Cart Button
-                Button(action: {
-                    if let variantId = product.variants.first?.id {
-                        cartViewModel.addProduct(productId: variantId, quantity: 1)
-                        isAddedToCart = true
-                        // Optional: Reset back to original icon after 2 seconds
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                            isAddedToCart = false
+                if (self.isOutOfStock) {
+                    Text("Out of Stock")
+                              .font(.caption)
+                              .fontWeight(.bold)
+                              .padding(.horizontal, 8)
+                              .padding(.vertical, 4)
+                              .background(Color.red)
+                              .foregroundColor(.white)
+                              .cornerRadius(12)
+                              .padding(10)
+                } else {
+                    // Add to Cart Button
+                    Button(action: {
+                        if let variantId = product.variants.first?.id {
+                            cartViewModel.addProduct(productId: variantId, quantity: 1)
+                            isAddedToCart = true
+                            pressCount += 1
+                            
+                            // Reset icon after 2 seconds
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                isAddedToCart = false
+                            }
+                        } else {
+                            print("No variant ID available to add to cart")
                         }
-                    } else {
-                        print("No variant ID available to add to cart")
-                    }
-                }) {
-                    Image(systemName: isAddedToCart ? "checkmark.circle.fill" : "cart.badge.plus")
-                        .foregroundColor(.white)
-                        .padding(8)
-                        .background(Color.orange.opacity(0.85))
-                        .clipShape(Circle())
+                    }) {
+                        ZStack(alignment: .topTrailing) {
+                            Image(systemName: isAddedToCart ? "checkmark.circle.fill" : "cart.badge.plus")
+                                .foregroundColor(.white)
+                                .padding(8)
+                                .background(Color.orange.opacity(0.85))
+                                .clipShape(Circle())
+                            
+                            // Counter Badge
+                            if pressCount > 0 {
+                                Text("\(pressCount)")
+                                    .font(.caption2)
+                                    .foregroundColor(.white)
+                                    .padding(5)
+                                    .background(Color.red)
+                                    .clipShape(Circle())
+                                    .offset(x: 10, y: -10)
+                            }
+                        }
+                    }.padding(10)
                 }
+                    
             }
-            .padding(10)
+           
+        } .onAppear {
+            if let currentProductFromCart = cartViewModel.getFirstProductUnderVariants(variants: product.variants) {
+                pressCount = currentProductFromCart.quantity
+            }
+            productViewModel.loadFavoriteStatus()
         }
     }
 }

@@ -25,8 +25,8 @@ struct ProfileScreen: View {
                             .padding(.bottom, 10)
 
                         ProfileHeader(
-                            personName: profileViewModel.personName,
-                            personEmail: profileViewModel.personEmail,
+                            personName: profileViewModel.name,
+                            personEmail: profileViewModel.email,
                             personImg: profileViewModel.personImageURL
                         )
 

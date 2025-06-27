@@ -20,23 +20,20 @@ struct ShoppingCartScreen: View {
     var body: some View {
         NavigationView {
             VStack {
-            List(cartViewModel.cartProducts) { product in
-                if let cartId = cartViewModel.cartId {
-                    CartProductRow(
-                        product: product,
-                        cartId: cartId,
-                        onUpdateQuantity: { lineId, newQuantity in
-                            cartViewModel.updateProductQuantity(cartId: cartId, lineId: lineId, newQuantity: newQuantity)
-                        },
-                        onRemove: { lineId in
-                                  cartViewModel.removeProduct(lineId: lineId)  
-                          }
-                    )
-                }
-            }
-            .listStyle(PlainListStyle())
-
-                
+                List(cartViewModel.cartProducts) { product in
+                    if let cartId = cartViewModel.cartId {
+                        CartProductRow(
+                            product: product,
+                            cartId: cartId,
+                            onUpdateQuantity: { lineId, newQuantity in
+                                cartViewModel.updateProductQuantity(cartId: cartId, lineId: lineId, newQuantity: newQuantity)
+                            },
+                            onRemove: { lineId in
+                                cartViewModel.removeProduct(lineId: lineId)
+                            }
+                        )
+                    }
+                }.listStyle(PlainListStyle())
                 
                 NavigationLink(
                     destination: CheckoutScreen(
@@ -45,6 +42,7 @@ struct ShoppingCartScreen: View {
                             cartId: cartViewModel.cartId ?? ""
                             
                         ), addressViewModel: addressViewModel
+                        )
                     )
                 ) {
                     Text("Check Out")
@@ -59,13 +57,13 @@ struct ShoppingCartScreen: View {
                 }
                 .disabled(!cartViewModel.shouldProceedCheckingOut)
                 .padding(.bottom, 16)
-
             }
-            .onAppear {
-                cartViewModel.loadCartProducts()
-                isTabBarHidden = true
-            }
+        }
+        .onAppear {
+            cartViewModel.loadCartProducts()
+            isTabBarHidden = true
         }
     }
 }
+
 

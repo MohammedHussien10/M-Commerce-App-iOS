@@ -4,12 +4,11 @@
 //
 //  Created by Noha Ali Gomaa on 23/06/2025.
 
-
-import Foundation
 import AdminNameSpace
 import Apollo
-import SwiftUICore
+import Foundation
 import StoreFrontNameSpace
+import SwiftUICore
 
 @MainActor
 final class CheckoutViewModel: ObservableObject {
@@ -76,7 +75,10 @@ final class CheckoutViewModel: ObservableObject {
     }
     
     func deleteDraftOrder(onComplete: @escaping () -> Void) async {
-        guard let draftOrderId = draftOrder?.id else { return }
+        guard let draftOrderId = draftOrder?.id else {
+            onComplete()
+            return
+        }
         
         let draftOrderDeleteInput = DraftOrderDeleteInput(id: draftOrderId)
         let draftOrderDeleteMutation = DraftOrderDeleteMutation(input: draftOrderDeleteInput)
@@ -159,7 +161,10 @@ final class CheckoutViewModel: ObservableObject {
     }
     
     func completeDraftOrder(onComplete: @escaping (Bool) -> Void) async {
-        guard let draftOrderId = draftOrder?.id else { return }
+        guard let draftOrderId = draftOrder?.id else {
+            onComplete(false)
+            return
+        }
         
         let completeDraftOrderMutation = DraftOrderCompleteMutation(id: draftOrderId)
         DispatchQueue.main.async {
@@ -181,7 +186,7 @@ final class CheckoutViewModel: ObservableObject {
     }
     
     
-    func fetchCart(checkoutCartId: String) {
+    func fetchCart(checkoutCartId: String) async {
         self.isLoading = true
         let query = GetCartQuery(cartId: checkoutCartId)
 
@@ -201,9 +206,4 @@ final class CheckoutViewModel: ObservableObject {
         }
     }
 
-
-    
-
-
-    
 }
