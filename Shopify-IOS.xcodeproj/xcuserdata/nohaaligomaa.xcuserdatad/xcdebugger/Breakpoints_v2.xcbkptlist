@@ -162,6 +162,36 @@
             endingLineNumber = "81"
             landmarkName = "deleteDraftOrder(onComplete:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "77EACD90-E29F-42B6-BD20-CD42EBCED4B6 - 19383eddbce546a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for Shopify_IOS.CheckoutViewModel.deleteDraftOrder(onComplete: () -&gt; ()) async -&gt; ()"
+                  moduleName = "Shopify-IOS.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nohaaligomaa/Desktop/M-Commerce-App-iOS-stable/Shopify-IOS/PresentationLayer/CheckOut/ViewModel/CheckoutViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81">
+               </Location>
+               <Location
+                  uuid = "77EACD90-E29F-42B6-BD20-CD42EBCED4B6 - 75f0fc8d7fa59074"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Shopify_IOS.CheckoutViewModel.deleteDraftOrder(onComplete: () -&gt; ()) async -&gt; ()"
+                  moduleName = "Shopify-IOS.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nohaaligomaa/Desktop/M-Commerce-App-iOS-stable/Shopify-IOS/PresentationLayer/CheckOut/ViewModel/CheckoutViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -216,7 +246,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "A063D442-5644-4933-8FAD-B2A07EA08FA6"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Shopify-IOS/DataLayer/Remote/RemoteDataSource.swift"
@@ -258,6 +288,36 @@
             endingLineNumber = "24"
             landmarkName = "body"
             landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "996E8810-730C-4EFA-A341-8C1F1B593125 - e103d2da68bbb70c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 @Swift.MainActor () -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Text, &lt;&lt;opaque return type of SwiftUI.View.frame(minWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, idealWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, maxWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, minHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, idealHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, maxHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0, SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.cornerRadius(_: CoreGraphics.CGFloat, antialiased: Swift.Bool) -&gt; some&gt;&gt;.0&gt;)&gt; in Shopify_IOS.Section3.body.getter : some"
+                  moduleName = "Shopify-IOS.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nohaaligomaa/Desktop/M-Commerce-App-iOS-stable/Shopify-IOS/PresentationLayer/Products/view/Section3.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24">
+               </Location>
+               <Location
+                  uuid = "996E8810-730C-4EFA-A341-8C1F1B593125 - e103d2da68bbb70c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 @Swift.MainActor () -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Text, &lt;&lt;opaque return type of SwiftUI.View.frame(minWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, idealWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, maxWidth: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, minHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, idealHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, maxHeight: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0, SwiftUI.Button&lt;&lt;&lt;opaque return type of SwiftUI.View.cornerRadius(_: CoreGraphics.CGFloat, antialiased: Swift.Bool) -&gt; some&gt;&gt;.0&gt;)&gt; in Shopify_IOS.Section3.body.getter : some"
+                  moduleName = "Shopify-IOS.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nohaaligomaa/Desktop/M-Commerce-App-iOS-stable/Shopify-IOS/PresentationLayer/Products/view/Section3.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -274,13 +334,43 @@
             endingLineNumber = "92"
             landmarkName = "updateProductQuantity(cartId:lineId:newQuantity:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D4B3EA33-3F4C-460B-85D3-1307CDB96E8B - 604223e789e30d58"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Shopify_IOS.CartViewModel.updateProductQuantity(cartId: Swift.String, lineId: Swift.String, newQuantity: Swift.Int) -&gt; ()"
+                  moduleName = "Shopify-IOS.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nohaaligomaa/Desktop/M-Commerce-App-iOS-stable/Shopify-IOS/PresentationLayer/ShoppingCart/CartViewModel/CartViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "93"
+                  endingLineNumber = "93">
+               </Location>
+               <Location
+                  uuid = "D4B3EA33-3F4C-460B-85D3-1307CDB96E8B - 3d12b65563050e1d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Result&lt;(), Swift.Error&gt;) -&gt; () in Shopify_IOS.CartViewModel.updateProductQuantity(cartId: Swift.String, lineId: Swift.String, newQuantity: Swift.Int) -&gt; ()"
+                  moduleName = "Shopify-IOS.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nohaaligomaa/Desktop/M-Commerce-App-iOS-stable/Shopify-IOS/PresentationLayer/ShoppingCart/CartViewModel/CartViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "93"
+                  endingLineNumber = "93">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "B645E65D-0AB4-4FCC-B304-34C2D69E82F1"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Shopify-IOS/DataLayer/Remote/RemoteDataSource.swift"
@@ -290,13 +380,43 @@
             endingLineNumber = "50"
             landmarkName = "addToCart(cartId:productId:quantity:completion:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B645E65D-0AB4-4FCC-B304-34C2D69E82F1 - 1bddb363f125749"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;StoreFrontNameSpace.AddToCartMutation.Data, Swift.Error&gt;) -&gt; () in Shopify_IOS.RemoteDataSource.addToCart(cartId: Swift.String, productId: Swift.String, quantity: Swift.Int, completion: (Swift.Result&lt;(), Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Shopify-IOS.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nohaaligomaa/Desktop/M-Commerce-App-iOS-stable/Shopify-IOS/DataLayer/Remote/RemoteDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50">
+               </Location>
+               <Location
+                  uuid = "B645E65D-0AB4-4FCC-B304-34C2D69E82F1 - 1bddb363f125749"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;StoreFrontNameSpace.AddToCartMutation.Data, Swift.Error&gt;) -&gt; () in Shopify_IOS.RemoteDataSource.addToCart(cartId: Swift.String, productId: Swift.String, quantity: Swift.Int, completion: (Swift.Result&lt;(), Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Shopify-IOS.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nohaaligomaa/Desktop/M-Commerce-App-iOS-stable/Shopify-IOS/DataLayer/Remote/RemoteDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "C0BE756B-6ABB-477D-B435-72245ED24B61"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Shopify-IOS/DataLayer/Remote/RemoteDataSource.swift"
@@ -312,7 +432,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "4EACA34E-12E1-422F-B0DF-9511B7FD5254"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Shopify-IOS/Domin/Utilites/CollectionExtentions.swift"
@@ -376,7 +496,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "F96E162E-ADE7-4491-B7F2-3F70002FE653"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Shopify-IOS/PresentationLayer/ProfileScreen/Settings/Addresses/AddressViewModel.swift"
@@ -392,7 +512,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "DAE99B61-4C26-4301-A1DC-7BA50A507DA6"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Shopify-IOS/PresentationLayer/ProfileScreen/Settings/Addresses/AddressViewModel.swift"
@@ -408,7 +528,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "00898ECD-C14A-460E-869B-2A161BCA58A7"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Shopify-IOS/PresentationLayer/CheckOut/ViewModel/CheckoutViewModel.swift"
@@ -418,6 +538,130 @@
             endingLineNumber = "69"
             landmarkName = "createDraftOrder()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8C923F84-4C55-461B-A256-DE80A6147264"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shopify-IOS/PresentationLayer/ProfileScreen/Settings/Addresses/AddAddressScreen.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "saveAddress()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8C923F84-4C55-461B-A256-DE80A6147264 - bf3d2790d37ee9c0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Shopify_IOS.AddAddressScreen.saveAddress() -&gt; ()"
+                  moduleName = "Shopify-IOS.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nohaaligomaa/Desktop/M-Commerce-App-iOS-stable/Shopify-IOS/PresentationLayer/ProfileScreen/Settings/Addresses/AddAddressScreen.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83">
+               </Location>
+               <Location
+                  uuid = "8C923F84-4C55-461B-A256-DE80A6147264 - baef7af844d1395c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in Shopify_IOS.AddAddressScreen.saveAddress() -&gt; ()"
+                  moduleName = "Shopify-IOS.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nohaaligomaa/Desktop/M-Commerce-App-iOS-stable/Shopify-IOS/PresentationLayer/ProfileScreen/Settings/Addresses/AddAddressScreen.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "744FB7DF-3F73-4705-9C95-61ED272A071E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shopify-IOS/DataLayer/Remote/RemoteDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
+            landmarkName = "createAddress(address:token:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "065AE558-BAB3-4163-91DC-76053C56C6B2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shopify-IOS/PresentationLayer/Auth/AuthViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "login(email:password:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4704215D-BA12-4EB8-94DD-A4362C04D936"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shopify-IOS/DataLayer/Remote/RemoteDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "addToCart(cartId:productId:quantity:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4704215D-BA12-4EB8-94DD-A4362C04D936 - 1bddb363f1257a8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;StoreFrontNameSpace.AddToCartMutation.Data, Swift.Error&gt;) -&gt; () in Shopify_IOS.RemoteDataSource.addToCart(cartId: Swift.String, productId: Swift.String, quantity: Swift.Int, completion: (Swift.Result&lt;(), Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Shopify-IOS.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nohaaligomaa/Desktop/M-Commerce-App-iOS-stable/Shopify-IOS/DataLayer/Remote/RemoteDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49">
+               </Location>
+               <Location
+                  uuid = "4704215D-BA12-4EB8-94DD-A4362C04D936 - 1bddb363f1257a8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;StoreFrontNameSpace.AddToCartMutation.Data, Swift.Error&gt;) -&gt; () in Shopify_IOS.RemoteDataSource.addToCart(cartId: Swift.String, productId: Swift.String, quantity: Swift.Int, completion: (Swift.Result&lt;(), Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Shopify-IOS.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nohaaligomaa/Desktop/M-Commerce-App-iOS-stable/Shopify-IOS/DataLayer/Remote/RemoteDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

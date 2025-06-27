@@ -77,6 +77,7 @@ class AuthViewModel: ObservableObject {
                 self.createShopifyAccessToken(email: email, password: password) { token in
                     if let token = token {
                         print("Token saved: \(token)")
+                        SessionManager.shared.saveToken(token)
                         self.fetchCustomerDetailsFromStoreFront(accessToken: token)
                     }
                 }

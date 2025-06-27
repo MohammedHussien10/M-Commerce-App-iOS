@@ -49,7 +49,7 @@ final class CheckoutViewModel: ObservableObject {
             lineItems: GraphQLNullable.some(draftOrderLineItems)
         )
 
-        if let email = UserDefaults.standard.string(forKey: "CustomerEmail") {
+        if let email = UserDefaults.standard.string(forKey: "CurrentCustomerEmail") {
             draftOrderInput.email = GraphQLNullable.some(email)
         }
 
