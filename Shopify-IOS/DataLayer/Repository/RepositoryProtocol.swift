@@ -23,5 +23,14 @@ protocol RepositoryProtocol{
     func updateCartLine(cartId: String, lineId: String, quantity: Int, completion: @escaping (Result<Void, Error>) -> Void)
     func getCart(cartId: String, completion: @escaping (Result<StoreFrontNameSpace.GetCartQuery.Data.Cart, Error>) -> Void)
     func removeCartLine(cartId: String, lineId: String, completion: @escaping (Result<Void, Error>) -> Void)
-
+    func createAddress(
+        address: MailingAddressInput,
+        token: String,
+        completion: @escaping (
+            Result<AddressModel, Error>
+        ) -> Void
+    )
+    func updateAddress(id: String, address: MailingAddressInput, token: String, completion: @escaping (Result<AddressModel, Error>) -> Void)
+    func deleteAddress(id: String, token: String, completion: @escaping (Result<String, Error>) -> Void)
+    func setDefaultAddress(addressId: String, accessToken: String, completion: @escaping (Result<Bool, Error>) -> Void)
 }
