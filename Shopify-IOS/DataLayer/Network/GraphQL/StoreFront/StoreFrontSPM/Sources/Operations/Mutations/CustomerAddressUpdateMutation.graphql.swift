@@ -3,27 +3,31 @@
 
 @_exported import ApolloAPI
 
-public class CustomerAddressCreateMutation: GraphQLMutation {
-  public static let operationName: String = "customerAddressCreate"
+public class CustomerAddressUpdateMutation: GraphQLMutation {
+  public static let operationName: String = "customerAddressUpdate"
   public static let operationDocument: ApolloAPI.OperationDocument = .init(
     definition: .init(
-      #"mutation customerAddressCreate($address: MailingAddressInput!, $customerAccessToken: String!) { customerAddressCreate( address: $address customerAccessToken: $customerAccessToken ) { __typename customerAddress { __typename id address1 city country firstName lastName phone } customerUserErrors { __typename field message } } }"#
+      #"mutation customerAddressUpdate($address: MailingAddressInput!, $customerAccessToken: String!, $id: ID!) { customerAddressUpdate( address: $address customerAccessToken: $customerAccessToken id: $id ) { __typename customerAddress { __typename id address1 city country firstName lastName phone } customerUserErrors { __typename field message } userErrors { __typename field message } } }"#
     ))
 
   public var address: MailingAddressInput
   public var customerAccessToken: String
+  public var id: ID
 
   public init(
     address: MailingAddressInput,
-    customerAccessToken: String
+    customerAccessToken: String,
+    id: ID
   ) {
     self.address = address
     self.customerAccessToken = customerAccessToken
+    self.id = id
   }
 
   public var __variables: Variables? { [
     "address": address,
-    "customerAccessToken": customerAccessToken
+    "customerAccessToken": customerAccessToken,
+    "id": id
   ] }
 
   public struct Data: StoreFrontNameSpace.SelectionSet {
@@ -32,35 +36,40 @@ public class CustomerAddressCreateMutation: GraphQLMutation {
 
     public static var __parentType: any ApolloAPI.ParentType { StoreFrontNameSpace.Objects.Mutation }
     public static var __selections: [ApolloAPI.Selection] { [
-      .field("customerAddressCreate", CustomerAddressCreate?.self, arguments: [
+      .field("customerAddressUpdate", CustomerAddressUpdate?.self, arguments: [
         "address": .variable("address"),
-        "customerAccessToken": .variable("customerAccessToken")
+        "customerAccessToken": .variable("customerAccessToken"),
+        "id": .variable("id")
       ]),
     ] }
 
-    /// Creates a new address for a customer.
-    public var customerAddressCreate: CustomerAddressCreate? { __data["customerAddressCreate"] }
+    /// Updates the address of an existing customer.
+    public var customerAddressUpdate: CustomerAddressUpdate? { __data["customerAddressUpdate"] }
 
-    /// CustomerAddressCreate
+    /// CustomerAddressUpdate
     ///
-    /// Parent Type: `CustomerAddressCreatePayload`
-    public struct CustomerAddressCreate: StoreFrontNameSpace.SelectionSet {
+    /// Parent Type: `CustomerAddressUpdatePayload`
+    public struct CustomerAddressUpdate: StoreFrontNameSpace.SelectionSet {
       public let __data: DataDict
       public init(_dataDict: DataDict) { __data = _dataDict }
 
-      public static var __parentType: any ApolloAPI.ParentType { StoreFrontNameSpace.Objects.CustomerAddressCreatePayload }
+      public static var __parentType: any ApolloAPI.ParentType { StoreFrontNameSpace.Objects.CustomerAddressUpdatePayload }
       public static var __selections: [ApolloAPI.Selection] { [
         .field("__typename", String.self),
         .field("customerAddress", CustomerAddress?.self),
         .field("customerUserErrors", [CustomerUserError].self),
+        .field("userErrors", [UserError].self),
       ] }
 
-      /// The new customer address object.
+      /// The customer’s updated mailing address.
       public var customerAddress: CustomerAddress? { __data["customerAddress"] }
       /// The list of errors that occurred from executing the mutation.
       public var customerUserErrors: [CustomerUserError] { __data["customerUserErrors"] }
+      /// The list of errors that occurred from executing the mutation.
+      @available(*, deprecated, message: "Use `customerUserErrors` instead.")
+      public var userErrors: [UserError] { __data["userErrors"] }
 
-      /// CustomerAddressCreate.CustomerAddress
+      /// CustomerAddressUpdate.CustomerAddress
       ///
       /// Parent Type: `MailingAddress`
       public struct CustomerAddress: StoreFrontNameSpace.SelectionSet {
@@ -97,7 +106,7 @@ public class CustomerAddressCreateMutation: GraphQLMutation {
         public var phone: String? { __data["phone"] }
       }
 
-      /// CustomerAddressCreate.CustomerUserError
+      /// CustomerAddressUpdate.CustomerUserError
       ///
       /// Parent Type: `CustomerUserError`
       public struct CustomerUserError: StoreFrontNameSpace.SelectionSet {
@@ -105,6 +114,26 @@ public class CustomerAddressCreateMutation: GraphQLMutation {
         public init(_dataDict: DataDict) { __data = _dataDict }
 
         public static var __parentType: any ApolloAPI.ParentType { StoreFrontNameSpace.Objects.CustomerUserError }
+        public static var __selections: [ApolloAPI.Selection] { [
+          .field("__typename", String.self),
+          .field("field", [String]?.self),
+          .field("message", String.self),
+        ] }
+
+        /// The path to the input field that caused the error.
+        public var field: [String]? { __data["field"] }
+        /// The error message.
+        public var message: String { __data["message"] }
+      }
+
+      /// CustomerAddressUpdate.UserError
+      ///
+      /// Parent Type: `UserError`
+      public struct UserError: StoreFrontNameSpace.SelectionSet {
+        public let __data: DataDict
+        public init(_dataDict: DataDict) { __data = _dataDict }
+
+        public static var __parentType: any ApolloAPI.ParentType { StoreFrontNameSpace.Objects.UserError }
         public static var __selections: [ApolloAPI.Selection] { [
           .field("__typename", String.self),
           .field("field", [String]?.self),

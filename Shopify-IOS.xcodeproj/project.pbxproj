@@ -91,14 +91,22 @@
 		7B0283312E0AF2F500D969E2 /* OrderCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0283302E0AF2EF00D969E2 /* OrderCart.swift */; };
 		7B09A45B2E0A0A0E00E844DB /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B09A45A2E0A0A0B00E844DB /* Currency.swift */; };
 		7B09A45D2E0A1B0100E844DB /* GetDiscounts.graphql in Sources */ = {isa = PBXBuildFile; fileRef = 7B09A45C2E0A1AFA00E844DB /* GetDiscounts.graphql */; };
-		7B09A45F2E0A1E0800E844DB /* CreateAddress.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 7B09A45E2E0A1DF700E844DB /* CreateAddress.graphql */; };
-		7B09A4612E0A1E3700E844DB /* DeleteAdress.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 7B09A4602E0A1E2500E844DB /* DeleteAdress.graphql */; };
 		7B09A4632E0A1E5400E844DB /* GetAllAddress.graphql in Sources */ = {isa = PBXBuildFile; fileRef = 7B09A4622E0A1E4D00E844DB /* GetAllAddress.graphql */; };
 		7B2F72C02E0A013A006F56CD /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2F72BF2E0A0132006F56CD /* View+Extensions.swift */; };
 		7B339D4D2E095A7E00D2F549 /* DraftOrders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B339D4C2E095A7700D2F549 /* DraftOrders.swift */; };
 		7B339D4F2E095B6C00D2F549 /* OrdersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B339D4E2E095B6800D2F549 /* OrdersModel.swift */; };
 		7B339D512E095FAF00D2F549 /* DraftOrderExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B339D502E095F9E00D2F549 /* DraftOrderExtentions.swift */; };
 		7B339D532E09657C00D2F549 /* OrderExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B339D522E09657300D2F549 /* OrderExtentions.swift */; };
+		7B3D974F2E0F0F82006A6601 /* AddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3D974E2E0F0F81006A6601 /* AddressModel.swift */; };
+		7B3D97512E0F0F9D006A6601 /* LocationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3D97502E0F0F9C006A6601 /* LocationConstants.swift */; };
+		7B3D977A2E0F112E006A6601 /* customerAddressUpdate.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 7B3D97782E0F112E006A6601 /* customerAddressUpdate.graphql */; };
+		7B3D977B2E0F112E006A6601 /* customerAddressDelete.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 7B3D97772E0F112E006A6601 /* customerAddressDelete.graphql */; };
+		7B3D977D2E0F112E006A6601 /* customerAddressCreate.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 7B3D97762E0F112E006A6601 /* customerAddressCreate.graphql */; };
+		7B3D977F2E0F1195006A6601 /* customerDefaultAddressUpdate.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 7B3D977E2E0F1195006A6601 /* customerDefaultAddressUpdate.graphql */; };
+		7B3D97812E0F11B6006A6601 /* getCustomerAddress.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 7B3D97802E0F11B6006A6601 /* getCustomerAddress.graphql */; };
+		7B3D97842E0F122D006A6601 /* AdminNameSpace in Frameworks */ = {isa = PBXBuildFile; productRef = 7B3D97832E0F122D006A6601 /* AdminNameSpace */; };
+		7B3D97872E0F1244006A6601 /* StoreFrontNameSpace in Frameworks */ = {isa = PBXBuildFile; productRef = 7B3D97862E0F1244006A6601 /* StoreFrontNameSpace */; };
+		7B3D978D2E0F12D3006A6601 /* AddressModel + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3D978C2E0F12D0006A6601 /* AddressModel + Extensions.swift */; };
 		7B4C95332E030039000B916E /* Taps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4C95322E030039000B916E /* Taps.swift */; };
 		7B4C95392E030BB9000B916E /* ViewExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4C95382E030BA2000B916E /* ViewExtention.swift */; };
 		7B4C953B2E030C43000B916E /* PartialSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4C953A2E030C31000B916E /* PartialSheet.swift */; };
@@ -124,8 +132,6 @@
 		7BE820662E0C900B00C7C32D /* ApolloSanityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE820652E0C900100C7C32D /* ApolloSanityTests.swift */; };
 		7BE820C42E0CA5CF00C7C32D /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 7BE820C32E0CA5CF00C7C32D /* Lottie */; };
 		7BE820CB2E0CA87100C7C32D /* shopping_splash.json in Resources */ = {isa = PBXBuildFile; fileRef = 7BE820CA2E0CA87100C7C32D /* shopping_splash.json */; };
-		7BE821BB2E0D9E2A00C7C32D /* AdminNameSpace in Frameworks */ = {isa = PBXBuildFile; productRef = 7BE821BA2E0D9E2A00C7C32D /* AdminNameSpace */; };
-		7BE821BE2E0D9E4900C7C32D /* StoreFrontNameSpace in Frameworks */ = {isa = PBXBuildFile; productRef = 7BE821BD2E0D9E4900C7C32D /* StoreFrontNameSpace */; };
 		9F2BB06A2E0D708C008E3A04 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		9F9B99652E0D70D800E37357 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		C20599532DFAA94F008CD6FE /* Section1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20599522DFAA94F008CD6FE /* Section1.swift */; };
@@ -363,14 +369,22 @@
 		7B0283302E0AF2EF00D969E2 /* OrderCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCart.swift; sourceTree = "<group>"; };
 		7B09A45A2E0A0A0B00E844DB /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		7B09A45C2E0A1AFA00E844DB /* GetDiscounts.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetDiscounts.graphql; sourceTree = "<group>"; };
-		7B09A45E2E0A1DF700E844DB /* CreateAddress.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = CreateAddress.graphql; sourceTree = "<group>"; };
-		7B09A4602E0A1E2500E844DB /* DeleteAdress.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = DeleteAdress.graphql; sourceTree = "<group>"; };
 		7B09A4622E0A1E4D00E844DB /* GetAllAddress.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetAllAddress.graphql; sourceTree = "<group>"; };
 		7B2F72BF2E0A0132006F56CD /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		7B339D4C2E095A7700D2F549 /* DraftOrders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftOrders.swift; sourceTree = "<group>"; };
 		7B339D4E2E095B6800D2F549 /* OrdersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersModel.swift; sourceTree = "<group>"; };
 		7B339D502E095F9E00D2F549 /* DraftOrderExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftOrderExtentions.swift; sourceTree = "<group>"; };
 		7B339D522E09657300D2F549 /* OrderExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderExtentions.swift; sourceTree = "<group>"; };
+		7B3D974E2E0F0F81006A6601 /* AddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressModel.swift; sourceTree = "<group>"; };
+		7B3D97502E0F0F9C006A6601 /* LocationConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationConstants.swift; sourceTree = "<group>"; };
+		7B3D97762E0F112E006A6601 /* customerAddressCreate.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = customerAddressCreate.graphql; sourceTree = "<group>"; };
+		7B3D97772E0F112E006A6601 /* customerAddressDelete.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = customerAddressDelete.graphql; sourceTree = "<group>"; };
+		7B3D97782E0F112E006A6601 /* customerAddressUpdate.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = customerAddressUpdate.graphql; sourceTree = "<group>"; };
+		7B3D977E2E0F1195006A6601 /* customerDefaultAddressUpdate.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = customerDefaultAddressUpdate.graphql; sourceTree = "<group>"; };
+		7B3D97802E0F11B6006A6601 /* getCustomerAddress.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = getCustomerAddress.graphql; sourceTree = "<group>"; };
+		7B3D97882E0F1256006A6601 /* AdminSPM */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AdminSPM; sourceTree = "<group>"; };
+		7B3D978A2E0F125E006A6601 /* StoreFrontSPM */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = StoreFrontSPM; sourceTree = "<group>"; };
+		7B3D978C2E0F12D0006A6601 /* AddressModel + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressModel + Extensions.swift"; sourceTree = "<group>"; };
 		7B4C95322E030039000B916E /* Taps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taps.swift; sourceTree = "<group>"; };
 		7B4C95382E030BA2000B916E /* ViewExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtention.swift; sourceTree = "<group>"; };
 		7B4C953A2E030C31000B916E /* PartialSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartialSheet.swift; sourceTree = "<group>"; };
@@ -392,8 +406,6 @@
 		7B9E781B2E0A365D00B6FECC /* DiscountManagers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountManagers.swift; sourceTree = "<group>"; };
 		7BE820652E0C900100C7C32D /* ApolloSanityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloSanityTests.swift; sourceTree = "<group>"; };
 		7BE820CA2E0CA87100C7C32D /* shopping_splash.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = shopping_splash.json; sourceTree = "<group>"; };
-		7BE821B52E0D9DF900C7C32D /* AdminSPM */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AdminSPM; sourceTree = "<group>"; };
-		7BE821B72E0D9E0B00C7C32D /* StoreFrontSPM */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = StoreFrontSPM; sourceTree = "<group>"; };
 		C20599522DFAA94F008CD6FE /* Section1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section1.swift; sourceTree = "<group>"; };
 		C20599542DFAA9C0008CD6FE /* ProductDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewModel.swift; sourceTree = "<group>"; };
 		C205995C2DFAB47B008CD6FE /* Section3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section3.swift; sourceTree = "<group>"; };
@@ -452,11 +464,11 @@
 			files = (
 				9F9B99652E0D70D800E37357 /* (null) in Frameworks */,
 				221E119D2DF6635500D3B4CD /* Kingfisher in Frameworks */,
-				7BE821BB2E0D9E2A00C7C32D /* AdminNameSpace in Frameworks */,
+				7B3D97842E0F122D006A6601 /* AdminNameSpace in Frameworks */,
 				C21BB2932E03BFA50013F56F /* FirebaseAuth in Frameworks */,
 				9F2BB06A2E0D708C008E3A04 /* (null) in Frameworks */,
 				22EBEF5C2DF2424100EF8FA6 /* Apollo in Frameworks */,
-				7BE821BE2E0D9E4900C7C32D /* StoreFrontNameSpace in Frameworks */,
+				7B3D97872E0F1244006A6601 /* StoreFrontNameSpace in Frameworks */,
 				C21BB28F2E03BFA50013F56F /* FirebaseAnalytics in Frameworks */,
 				C21BB2912E03BFA50013F56F /* FirebaseAnalyticsCore in Frameworks */,
 				C20FC4512E0D80490090FE60 /* FirebaseFirestore in Frameworks */,
@@ -564,6 +576,8 @@
 		221E10962DF6619600D3B4CD /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				7B3D97502E0F0F9C006A6601 /* LocationConstants.swift */,
+				7B3D974E2E0F0F81006A6601 /* AddressModel.swift */,
 				7B339D4E2E095B6800D2F549 /* OrdersModel.swift */,
 				7B339D4C2E095A7700D2F549 /* DraftOrders.swift */,
 				7B65D1C62DFF326C00E7A378 /* CollectionResponse.swift */,
@@ -583,6 +597,7 @@
 		221E109D2DF6619600D3B4CD /* Utilites */ = {
 			isa = PBXGroup;
 			children = (
+				7B3D978C2E0F12D0006A6601 /* AddressModel + Extensions.swift */,
 				7B6B809B2E0F0618000EB742 /* SessionManager.swift */,
 				7B339D522E09657300D2F549 /* OrderExtentions.swift */,
 				7B339D502E095F9E00D2F549 /* DraftOrderExtentions.swift */,
@@ -793,8 +808,8 @@
 		221E10D02DF6619600D3B4CD /* GraphQL */ = {
 			isa = PBXGroup;
 			children = (
-				7BE821B82E0D9E0B00C7C32D /* StoreFront */,
-				7BE821B62E0D9DF900C7C32D /* Admin */,
+				7B3D978B2E0F125E006A6601 /* StoreFront */,
+				7B3D97892E0F1256006A6601 /* Admin */,
 				7B53AA8B2E08AF3400B34396 /* StoreFrontOperations */,
 				7B53AA882E08AE7B00B34396 /* AdminOperations */,
 				221E10D12DF6619600D3B4CD /* TokenInterceptor.swift */,
@@ -820,6 +835,7 @@
 		221E10D62DF6619600D3B4CD /* Queries */ = {
 			isa = PBXGroup;
 			children = (
+				7B3D97802E0F11B6006A6601 /* getCustomerAddress.graphql */,
 				C28B22662E0D544F001B24C1 /* GetCustomer.graphql */,
 				7B09A4622E0A1E4D00E844DB /* GetAllAddress.graphql */,
 				7B65D1C42DFF303F00E7A378 /* GetCollectionWithHandel.graphql */,
@@ -1051,6 +1067,22 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		7B3D97892E0F1256006A6601 /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				7B3D97882E0F1256006A6601 /* AdminSPM */,
+			);
+			path = Admin;
+			sourceTree = "<group>";
+		};
+		7B3D978B2E0F125E006A6601 /* StoreFront */ = {
+			isa = PBXGroup;
+			children = (
+				7B3D978A2E0F125E006A6601 /* StoreFrontSPM */,
+			);
+			path = StoreFront;
+			sourceTree = "<group>";
+		};
 		7B46F3222E06EE4A001D67D7 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -1227,22 +1259,6 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
-		7BE821B62E0D9DF900C7C32D /* Admin */ = {
-			isa = PBXGroup;
-			children = (
-				7BE821B52E0D9DF900C7C32D /* AdminSPM */,
-			);
-			path = Admin;
-			sourceTree = "<group>";
-		};
-		7BE821B82E0D9E0B00C7C32D /* StoreFront */ = {
-			isa = PBXGroup;
-			children = (
-				7BE821B72E0D9E0B00C7C32D /* StoreFrontSPM */,
-			);
-			path = StoreFront;
-			sourceTree = "<group>";
-		};
 		C21BB2872E03AF9D0013F56F /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -1255,8 +1271,10 @@
 		C21BB2B72E042D930013F56F /* Mutations */ = {
 			isa = PBXGroup;
 			children = (
-				7B09A4602E0A1E2500E844DB /* DeleteAdress.graphql */,
-				7B09A45E2E0A1DF700E844DB /* CreateAddress.graphql */,
+				7B3D977E2E0F1195006A6601 /* customerDefaultAddressUpdate.graphql */,
+				7B3D97762E0F112E006A6601 /* customerAddressCreate.graphql */,
+				7B3D97772E0F112E006A6601 /* customerAddressDelete.graphql */,
+				7B3D97782E0F112E006A6601 /* customerAddressUpdate.graphql */,
 				C22E1A242E05093800340107 /* CustomerAccessTokenCreate.graphql */,
 				C21BB29A2E04275D0013F56F /* customerCreate.graphql */,
 			);
@@ -1325,8 +1343,8 @@
 				7BE820C32E0CA5CF00C7C32D /* Lottie */,
 				C20FC4502E0D80490090FE60 /* FirebaseFirestore */,
 				C20FC4542E0D93CE0090FE60 /* FirebaseCore */,
-				7BE821BA2E0D9E2A00C7C32D /* AdminNameSpace */,
-				7BE821BD2E0D9E4900C7C32D /* StoreFrontNameSpace */,
+				7B3D97832E0F122D006A6601 /* AdminNameSpace */,
+				7B3D97862E0F1244006A6601 /* StoreFrontNameSpace */,
 			);
 			productName = "Shopify-IOS";
 			productReference = 22132AA22DEC974500FA9C90 /* Shopify-IOS.app */;
@@ -1410,8 +1428,8 @@
 				221E119B2DF6635500D3B4CD /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				C21BB28D2E03BFA50013F56F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				7BE820C22E0CA5CF00C7C32D /* XCRemoteSwiftPackageReference "lottie-ios" */,
-				7BE821B92E0D9E2A00C7C32D /* XCLocalSwiftPackageReference "Shopify-IOS/DataLayer/Network/GraphQL/Admin/AdminSPM" */,
-				7BE821BC2E0D9E4900C7C32D /* XCLocalSwiftPackageReference "Shopify-IOS/DataLayer/Network/GraphQL/StoreFront/StoreFrontSPM" */,
+				7B3D97822E0F122D006A6601 /* XCLocalSwiftPackageReference "Shopify-IOS/DataLayer/Network/GraphQL/Admin/AdminSPM" */,
+				7B3D97852E0F1244006A6601 /* XCLocalSwiftPackageReference "Shopify-IOS/DataLayer/Network/GraphQL/StoreFront/StoreFrontSPM" */,
 			);
 			productRefGroup = 22132AA32DEC974500FA9C90 /* Products */;
 			projectDirPath = "";
@@ -1432,10 +1450,12 @@
 				222548072E024238004DAF5D /* AddToCartMutation.graphql in Resources */,
 				2285ED7B2E0238C400C11573 /* CreateCartMutation.graphql in Resources */,
 				7B53AA792E08A00B00B34396 /* DraftOrderCompilation.graphql in Resources */,
+				7B3D97812E0F11B6006A6601 /* getCustomerAddress.graphql in Resources */,
 				7B53AA872E08AA6D00B34396 /* Adminschema.graphqls in Resources */,
 				22DB2AA42E05600700F90A9A /* RemoveFromCart.graphql in Resources */,
 				221E11512DF6619600D3B4CD /* GetProducts.graphql in Resources */,
 				7BE820CB2E0CA87100C7C32D /* shopping_splash.json in Resources */,
+				7B3D977F2E0F1195006A6601 /* customerDefaultAddressUpdate.graphql in Resources */,
 				C21BB28C2E03BBFA0013F56F /* GoogleService-Info.plist in Resources */,
 				C28B22672E0D546A001B24C1 /* GetCustomer.graphql in Resources */,
 				221E11352DF6619600D3B4CD /* Preview Assets.xcassets in Resources */,
@@ -1444,14 +1464,15 @@
 				C22E1A252E05094F00340107 /* CustomerAccessTokenCreate.graphql in Resources */,
 				221E11522DF6619600D3B4CD /* GetCollections.graphql in Resources */,
 				C21BB29B2E04276B0013F56F /* customerCreate.graphql in Resources */,
-				7B09A4612E0A1E3700E844DB /* DeleteAdress.graphql in Resources */,
 				221E11422DF6619600D3B4CD /* covers.json in Resources */,
 				221E11382DF6619600D3B4CD /* Configurations.plist in Resources */,
-				7B09A45F2E0A1E0800E844DB /* CreateAddress.graphql in Resources */,
 				221E112A2DF6619600D3B4CD /* Assets.xcassets in Resources */,
 				7B53AA7B2E08A03500B34396 /* GetOrders.graphql in Resources */,
 				221B7AF42E03918F005150CF /* UpdateCartLineMutation.graphql in Resources */,
 				221B7B042E039B14005150CF /* GetCart.graphql in Resources */,
+				7B3D977A2E0F112E006A6601 /* customerAddressUpdate.graphql in Resources */,
+				7B3D977B2E0F112E006A6601 /* customerAddressDelete.graphql in Resources */,
+				7B3D977D2E0F112E006A6601 /* customerAddressCreate.graphql in Resources */,
 				221E11952DF6619700D3B4CD /* StoreFrontschema.graphqls in Resources */,
 				7B53AA772E089F5800B34396 /* DeleteDraftOrder.graphql in Resources */,
 			);
@@ -1506,6 +1527,7 @@
 				7B339D4F2E095B6C00D2F549 /* OrdersModel.swift in Sources */,
 				221E114E2DF6619600D3B4CD /* RequestType.swift in Sources */,
 				22CDF8CD2DFA369B00DBA7D2 /* SettingsViewModel.swift in Sources */,
+				7B3D974F2E0F0F82006A6601 /* AddressModel.swift in Sources */,
 				C21BC25B2E0AB7B400E8F5AD /* FavoritesView.swift in Sources */,
 				221E11452DF6619600D3B4CD /* imge.swift in Sources */,
 				7B09A45B2E0A0A0E00E844DB /* Currency.swift in Sources */,
@@ -1541,12 +1563,14 @@
 				7B09A4632E0A1E5400E844DB /* GetAllAddress.graphql in Sources */,
 				7B65D1B92DFF057800E7A378 /* BrandItem.swift in Sources */,
 				221E11962DF6619700D3B4CD /* NetworkInterceptorProvider.swift in Sources */,
+				7B3D978D2E0F12D3006A6601 /* AddressModel + Extensions.swift in Sources */,
 				7B4C95392E030BB9000B916E /* ViewExtention.swift in Sources */,
 				7B6B809C2E0F0619000EB742 /* SessionManager.swift in Sources */,
 				226A372C2DF667B1008D43E2 /* SettingsScreen.swift in Sources */,
 				C21BB2882E03AF9D0013F56F /* CustomTextField.swift in Sources */,
 				C21BB2892E03AF9D0013F56F /* LoginView.swift in Sources */,
 				7B53AA752E089EEB00B34396 /* UpdateDraftOrder.graphql in Sources */,
+				7B3D97512E0F0F9D006A6601 /* LocationConstants.swift in Sources */,
 				C21BB28A2E03AF9D0013F56F /* SignUpView.swift in Sources */,
 				221E112B2DF6619600D3B4CD /* Mappable.swift in Sources */,
 				2225480A2E024B32004DAF5D /* RemoteDataSourceProtocol.swift in Sources */,
@@ -1921,11 +1945,11 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		7BE821B92E0D9E2A00C7C32D /* XCLocalSwiftPackageReference "Shopify-IOS/DataLayer/Network/GraphQL/Admin/AdminSPM" */ = {
+		7B3D97822E0F122D006A6601 /* XCLocalSwiftPackageReference "Shopify-IOS/DataLayer/Network/GraphQL/Admin/AdminSPM" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "Shopify-IOS/DataLayer/Network/GraphQL/Admin/AdminSPM";
 		};
-		7BE821BC2E0D9E4900C7C32D /* XCLocalSwiftPackageReference "Shopify-IOS/DataLayer/Network/GraphQL/StoreFront/StoreFrontSPM" */ = {
+		7B3D97852E0F1244006A6601 /* XCLocalSwiftPackageReference "Shopify-IOS/DataLayer/Network/GraphQL/StoreFront/StoreFrontSPM" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "Shopify-IOS/DataLayer/Network/GraphQL/StoreFront/StoreFrontSPM";
 		};
@@ -1977,6 +2001,14 @@
 			package = 22EBEF5A2DF2424100EF8FA6 /* XCRemoteSwiftPackageReference "apollo-ios" */;
 			productName = Apollo;
 		};
+		7B3D97832E0F122D006A6601 /* AdminNameSpace */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AdminNameSpace;
+		};
+		7B3D97862E0F1244006A6601 /* StoreFrontNameSpace */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = StoreFrontNameSpace;
+		};
 		7BE8204B2E0C8F2800C7C32D /* Apollo */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 22EBEF5A2DF2424100EF8FA6 /* XCRemoteSwiftPackageReference "apollo-ios" */;
@@ -1996,14 +2028,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7BE820C22E0CA5CF00C7C32D /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
-		};
-		7BE821BA2E0D9E2A00C7C32D /* AdminNameSpace */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = AdminNameSpace;
-		};
-		7BE821BD2E0D9E4900C7C32D /* StoreFrontNameSpace */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = StoreFrontNameSpace;
 		};
 		C20FC4502E0D80490090FE60 /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;

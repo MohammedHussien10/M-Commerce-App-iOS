@@ -1,5 +1,0 @@
-mutation MutationDeleteAddress($customerAddressDeleteId: ID!, $customerAccessToken: String!) {
-  customerAddressDelete(id: $customerAddressDeleteId, customerAccessToken: $customerAccessToken) {
-    deletedCustomerAddressId
-  }
-}
