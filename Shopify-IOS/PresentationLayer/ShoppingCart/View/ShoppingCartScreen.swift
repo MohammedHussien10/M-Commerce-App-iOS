@@ -9,6 +9,13 @@ import Foundation
 import SwiftUI
 struct ShoppingCartScreen: View {
     @EnvironmentObject var cartViewModel: CartViewModel
+    @StateObject private var addressViewModel = AddressViewModel(
+        useCase: AddressUseCase(
+            repository: RepositoryImp(
+                remoteDataSource: RemoteDataSource()
+            )
+        )
+    )
     @Binding var isTabBarHidden: Bool
     var body: some View {
         NavigationView {
@@ -35,8 +42,9 @@ struct ShoppingCartScreen: View {
                     destination: CheckoutScreen(
                         viewModel: CheckoutViewModel(
                             cartProducts: cartViewModel.cartProducts,
-                            cartId: cartViewModel.cartId ?? "" 
-                        )
+                            cartId: cartViewModel.cartId ?? ""
+                            
+                        ), addressViewModel: addressViewModel
                     )
                 ) {
                     Text("Check Out")

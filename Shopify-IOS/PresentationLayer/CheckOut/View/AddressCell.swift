@@ -8,62 +8,39 @@
 import SwiftUI
 
 struct AddressCell: View {
-    var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            Text("Shipping Address")
-                .font(.system(size: 18, weight: .semibold))
-                .foregroundColor(.black)
-            
-            Divider()
+    let address: AddressModel
 
-            VStack(alignment: .leading, spacing: 6) {
-                HStack {
-                    Text("Street:")
-                        .font(.custom(Constants.AppFont.regularFont, size: 13))
-                        .foregroundColor(.gray)
-                    Text("123 Main Street")
-                        .font(.system(size: 13))
-                }
-                
-                HStack {
-                    Text("Apartment:")
-                        .font(.custom(Constants.AppFont.regularFont, size: 13))
-                        .foregroundColor(.gray)
-                    Text("Apt 4B")
-                        .font(.system(size: 13))
-                }
-                
-                HStack {
-                    Text("City:")
-                        .font(.custom(Constants.AppFont.regularFont, size: 13))
-                        .foregroundColor(.gray)
-                    Text("Cairo")
-                        .font(.system(size: 13))
-                }
-                
-                HStack {
-                    Text("State:")
-                        .font(.custom(Constants.AppFont.regularFont, size: 13))
-                        .foregroundColor(.gray)
-                    Text("Giza")
-                        .font(.system(size: 13))
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            HStack {
+                Text("\(address.firstName) \(address.lastName)")
+                    .font(.headline)
+                Spacer()
+                if address.isDefault {
+                    Text("Default")
+                        .font(.caption)
+                        .foregroundColor(.white)
+                        .padding(6)
+                        .background(Color.yellow)
+                        .cornerRadius(8)
                 }
             }
 
-            Spacer()
+            Text("Address: \(address.address1)")
+                .font(.subheadline)
+
+            Text("City: \(address.city)")
+                .font(.subheadline)
+
+            Text("Country: \(address.country)")
+                .font(.subheadline)
+
+            Text("Phone: \(address.phone)")
+                .font(.subheadline)
         }
         .padding()
-        .frame(width: 250, height: 180)
         .background(Color.white)
-        .cornerRadius(25)
-        .overlay(
-            RoundedRectangle(cornerRadius: 25)
-                .stroke(Color.orange, lineWidth: 1.5)
-        )
-        .shadow(color: .gray.opacity(0.2), radius: 4, x: 0, y: 2)
+        .cornerRadius(15)
+        .shadow(radius: 3)
     }
-}
-
-#Preview {
-    AddressCell()
 }

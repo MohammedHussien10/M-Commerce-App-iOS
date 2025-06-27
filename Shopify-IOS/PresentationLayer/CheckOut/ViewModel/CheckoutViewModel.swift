@@ -19,6 +19,9 @@ final class CheckoutViewModel: ObservableObject {
     @Published var errorMessage: String?
     @Published var checkoutURL: Foundation.URL?
     @Published var cartId: String?
+    @Published var addresses: [AddressModel] = []
+    @Published var selectedAddress: AddressModel?
+
     var  customerId = UserDefaults.standard.string(
         forKey: "CurrentCustomerID"
     )

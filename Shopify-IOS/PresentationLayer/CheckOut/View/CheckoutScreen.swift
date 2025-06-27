@@ -9,11 +9,15 @@ struct CheckoutScreen: View {
     @State private var showAlert = false
     @State private var alertMessage = ""
     @ObservedObject private var viewModel: CheckoutViewModel
+
+    @ObservedObject private var addressViewModel: AddressViewModel
+    let token = SessionManager.shared.accessToken
     let paymentHandler = PaymentHandler()
 
-    init(viewModel: CheckoutViewModel) {
-        self.viewModel = viewModel
-    }
+    init(viewModel: CheckoutViewModel, addressViewModel: AddressViewModel) {
+           self.viewModel = viewModel
+           self.addressViewModel = addressViewModel
+       }
 
     var body: some View {
         NavigationView {
@@ -32,16 +36,12 @@ struct CheckoutScreen: View {
                     configureScreen()
                     Task {
                         await viewModel.createDraftOrder()
+                        addressViewModel.getAddresses(accessToken: token)
                     }
                 }
-            }.loadingWithBlur(isLoading: $viewModel.isLoading)
-            .navigationTitle("Check Out")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    backButton()
-                }
+
             }
+            .navigationBarTitleDisplayMode(.inline)
             .alert(isPresented: $showAlert) {
                 Alert(
                     title: Text("Error"),
@@ -88,7 +88,7 @@ extension CheckoutScreen {
 
         paymentHandler.startPayment(items: paymentItems) { success, data in
             if success {
-                print("✅ Apple Pay Payment Success")
+                print("Apple Pay Payment Success")
                 Task {
                     await viewModel.completeDraftOrder { isSuccess in
                         if isSuccess {
@@ -100,7 +100,7 @@ extension CheckoutScreen {
                     }
                 }
             } else {
-                print("❌ Apple Pay Payment Failed")
+                print("Apple Pay Payment Failed")
             }
         }
     }
@@ -115,14 +115,34 @@ private extension CheckoutScreen {
             Text("Shipping Address")
                 .font(.title2).bold().padding(.horizontal)
 
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 8) {
-                    AddressCell()
+            if addressViewModel.addresses.isEmpty {
+                Text("No Address Found")
+                    .foregroundColor(.gray)
+                    .padding(.horizontal)
+            } else {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 8) {
+                        ForEach(addressViewModel.addresses) { address in
+                            AddressCell(address: address)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 15)
+                                        .stroke(
+                                            viewModel.selectedAddress?.id == address.id ? Color.orange : Color.clear,
+                                            lineWidth: 3
+                                        )
+                                )
+                                .onTapGesture {
+                                    viewModel.selectedAddress = address
+                                }
+                        }
+
+                    }
+                    .padding(.horizontal)
                 }
-                .padding(.horizontal)
             }
         }
     }
+
 
     func cartItemsSection() -> some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -332,25 +352,5 @@ struct PrimaryButtonStyle: ButtonStyle {
             .background(Constants.AppColor.primaryColor)
             .foregroundColor(.white)
             .cornerRadius(8)
-    }
-}
-
-extension View {
-    func loadingWithBlur(isLoading: Binding<Bool>) -> some View {
-        ZStack {
-            self
-                .blur(radius: isLoading.wrappedValue ? 3 : 0)
-                .disabled(isLoading.wrappedValue)
-
-            if isLoading.wrappedValue {
-                Color.black.opacity(0.4)
-                    .ignoresSafeArea()
-
-                ProgressView("Loading...")
-                    .progressViewStyle(CircularProgressViewStyle(tint: .white))
-                    .foregroundColor(.white)
-                    .scaleEffect(1.5)
-            }
-        }
     }
 }

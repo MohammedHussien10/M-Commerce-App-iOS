@@ -10,6 +10,7 @@ import StoreFrontNameSpace
 
 // MARK: - Repository Implementation
 class RepositoryImp: RepositoryProtocol{
+ 
     
     // MARK: - Properties
     private let coreDataManager = CoreDataManager.shared
@@ -60,5 +61,24 @@ class RepositoryImp: RepositoryProtocol{
     func removeCartLine(cartId: String, lineId: String, completion: @escaping (Result<Void, Error>) -> Void) {
         remoteDataSource.removeCartLine(cartId: cartId, lineId: lineId, completion: completion)
     }
+    
+    //address
+ 
+    func createAddress(address: StoreFrontNameSpace.MailingAddressInput, token: String, completion: @escaping (Result<AddressModel, any Error>) -> Void) {
+        remoteDataSource.createAddress(address: address, token: token, completion: completion)
+    }
+    
+    func deleteAddress(id: String, token: String, completion: @escaping (Result<String, Error>) -> Void) {
+        remoteDataSource.deleteAddress(id: id, token: token, completion: completion)
+    }
+    
+    func updateAddress(id: String, address: MailingAddressInput, token: String, completion: @escaping (Result<AddressModel, Error>) -> Void) {
+        remoteDataSource.updateAddress(id: id, address: address, token: token, completion: completion)
+    }
+
+    func setDefaultAddress(addressId id: String, accessToken: String, completion: @escaping (Result<Bool, Error>) -> Void) {
+        remoteDataSource.setDefaultAddress(addressId: id, accessToken: accessToken, completion: completion)
+        }
+    
 
 }
