@@ -19,7 +19,9 @@ struct CheckoutScreen: View {
     @State private var alertMessage = ""
     @EnvironmentObject private var cartViewModel: CartViewModel
     @ObservedObject private var viewModel: CheckoutViewModel
-
+    let token = SessionManager.shared.accessToken
+    let paymentHandler = PaymentHandler()
+    
     init(viewModel: CheckoutViewModel) {
         self.viewModel = viewModel
     }
@@ -35,7 +37,11 @@ struct CheckoutScreen: View {
                     totalPriceSection()
 //                    paymentMethodSection()
                     checkoutButton()
-                    placeOrderButton()
+                    VStack(spacing: 16) {
+                        applePayButton
+                        placeOrderButton()
+                    }
+                    .padding(.horizontal)
                 }
                 .padding(.vertical)
                 .onAppear {
@@ -181,31 +187,18 @@ private extension CheckoutScreen {
         }
     }
 
-    func paymentMethodSection() -> some View {
-        VStack(alignment: .leading, spacing: 10) {
-            Text("Choose Payment Method")
-                .font(.title3).bold()
-                .padding(.horizontal)
-
-            HStack(spacing: 16) {
-                paymentMethodButton(title: "Cash")
-                paymentMethodButton(title: "Apple Pay")
-            }
-            .padding(.horizontal)
-        }
-    }
-
-    
     func placeOrderButton() -> some View {
-        Button("Place Order") {
+        Button("Cash On Delivery") {
             UserDefaults.standard.removeObject(forKey: "CartID")
             Task {
               await viewModel.completeDraftOrder { isSuccess in
                     if isSuccess {
-                        cartViewModel.cartProducts = []
-                        cartViewModel.cartId = nil
-                        cartViewModel.shouldProceedCheckingOut = false
-                        dismiss()
+                        Task {
+                            await cartViewModel.completeOrder()
+                            DispatchQueue.main.async {
+                                dismiss()
+                            }
+                        }
                     } else {
                         alertMessage = "Order could not be completed. Please try again."
                         showAlert = true
@@ -240,6 +233,7 @@ private extension CheckoutScreen {
             selectedPaymentMethod = title
         } label: {
             Text(title)
+                .frame(height: 50)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 12)
                 .background(selectedPaymentMethod == title ? .orange : .gray.opacity(0.3))
@@ -269,6 +263,18 @@ private extension CheckoutScreen {
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
     }
     
+    func paymentMethodSection() -> some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text("Choose Payment Method")
+                .font(.title3).bold()
+                .padding(.horizontal)
+
+            HStack(spacing: 16) {
+                applePayButton
+            }
+            .padding(.horizontal)
+        }
+    }
     
     func checkoutButton() -> some View {
         Group {
@@ -302,6 +308,65 @@ private extension CheckoutScreen {
 
 }
 
+extension CheckoutScreen {
+    var applePayButton: some View {
+        VStack {
+            if PKPaymentAuthorizationViewController.canMakePayments() {
+                ApplePayButtonWrapper {
+                    startApplePay()
+                }
+                .frame(height: 50)
+                .frame(maxWidth: .infinity)
+                .padding(.horizontal)
+            } else {
+                Text("Apple Pay is not available.")
+                    .foregroundColor(.red)
+            }
+        }
+    }
+
+    func startApplePay() {
+        var paymentItems: [PKPaymentSummaryItem] = viewModel.cartProducts.map { product in
+            PKPaymentSummaryItem(
+                label: product.title,
+                amount: NSDecimalNumber(value: product.price * Double(product.quantity))
+            )
+        }
+
+        paymentItems.append(
+            PKPaymentSummaryItem(
+                label: "Total",
+                amount: NSDecimalNumber(
+                    string: viewModel.totalPrice.filter("0123456789.".contains)
+                )
+            )
+        )
+
+        paymentHandler.startPayment(items: paymentItems) { success, data in
+            if success {
+                print("Apple Pay Payment Success")
+                Task {
+                    await viewModel.completeDraftOrder { isSuccess in
+                        if isSuccess {
+                            Task {
+                                await cartViewModel.completeOrder()
+                                DispatchQueue.main.async {
+                                   dismiss()
+                                }
+                            }
+                        } else {
+                            alertMessage = "Order could not be completed. Please try again."
+                            showAlert = true
+                        }
+                    }
+                }
+            } else {
+                print("Apple Pay Payment Failed")
+            }
+        }
+    }
+}
+
 // MARK: - Styles
 
 struct PrimaryButtonStyle: ButtonStyle {
@@ -312,5 +377,34 @@ struct PrimaryButtonStyle: ButtonStyle {
             .background(Constants.AppColor.primaryColor)
             .foregroundColor(.white)
             .cornerRadius(8)
+    }
+}
+
+struct ApplePayButtonWrapper: UIViewRepresentable {
+    let action: () -> Void
+
+    func makeUIView(context: Context) -> PKPaymentButton {
+        let button = PKPaymentButton(paymentButtonType: .buy, paymentButtonStyle: .black)
+        button.cornerRadius = 12
+        button.addTarget(context.coordinator, action: #selector(Coordinator.didTap), for: .touchUpInside)
+        return button
+    }
+
+    func updateUIView(_ uiView: PKPaymentButton, context: Context) {}
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator(action: action)
+    }
+
+    class Coordinator {
+        let action: () -> Void
+
+        init(action: @escaping () -> Void) {
+            self.action = action
+        }
+
+        @objc func didTap() {
+            action()
+        }
     }
 }

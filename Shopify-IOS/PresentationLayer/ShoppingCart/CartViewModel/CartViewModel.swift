@@ -126,4 +126,13 @@ class CartViewModel: ObservableObject {
         }
     }
 
+    func completeOrder() async {
+        DispatchQueue.main.async {[weak self] in
+            self?.cartProducts = []
+            self?.cartId = nil
+            self?.shouldProceedCheckingOut = false
+        }
+        UserDefaults.standard.removeObject(forKey: "CartID")
+        createCartIfNeeded()
+    }
 }
