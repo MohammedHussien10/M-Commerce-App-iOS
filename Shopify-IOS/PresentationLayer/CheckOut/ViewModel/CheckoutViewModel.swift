@@ -46,6 +46,8 @@ final class CheckoutViewModel: ObservableObject {
       }
     
     func createDraftOrder() async {
+
+        
         var draftOrderInput = DraftOrderInput(
             lineItems: GraphQLNullable.some(draftOrderLineItems)
         )
@@ -58,6 +60,10 @@ final class CheckoutViewModel: ObservableObject {
             input: draftOrderInput
         )
         
+        DispatchQueue.main.async { [weak self] in
+            self?.isLoading = true
+        }
+        
         NetworkManager.sharedAdmin.performGraphQLRequest(
             mutation: createDraftOrderMutation
         ) {[weak self] result in
@@ -67,7 +73,12 @@ final class CheckoutViewModel: ObservableObject {
             }
             switch result {
             case .success(let response):
-                draftOrder = response.draftOrderCreate?.draftOrder
+                if let dataDict = response.draftOrderCreate?.draftOrder?.__data {
+                    draftOrder = DraftOrderCreateMutation.Data.DraftOrderCreate.DraftOrder(_dataDict: dataDict)
+                    print("✅ Draft order ID set:", draftOrder?.id ?? "nil")
+                } else {
+                    print("❌ Draft order _dataDict is nil")
+                }
             case .failure(let error):
                 errorMessage = error.localizedDescription
             }
