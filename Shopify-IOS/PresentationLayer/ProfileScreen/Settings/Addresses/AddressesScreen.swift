@@ -40,7 +40,6 @@ struct AddressesScreen: View {
                                 )
                             }
                         }
-
                         .listStyle(.plain)
                     }
 
@@ -58,7 +57,6 @@ struct AddressesScreen: View {
                     .padding(.bottom, 20)
                 }
 
-                // Loading Indicator
                 if viewModel.isLoading {
                     ProgressView("Loading...")
                         .progressViewStyle(CircularProgressViewStyle())
@@ -77,21 +75,16 @@ struct AddressesScreen: View {
                     }
                 }
             }
-
-
-        }.onAppear {
+            .onAppear {
                 viewModel.getAddresses(accessToken: token)
-        }
-        
-        // MARK: - Delete Alert
-        .alert("Are you sure you want to delete this address?", isPresented: $showDeleteAlert) {
+            }
             .alert("Are you sure you want to delete this address?", isPresented: $showDeleteAlert) {
                 Button("Delete", role: .destructive) {
                     if let address = addressToDelete {
                         viewModel.deleteAddress(id: address.id, token: token)
                     }
                 }
-                Button("Cancel", role: .cancel) {}
+                Button("Cancel", role: .cancel) { }
             }
             .sheet(isPresented: $showAddAddress) {
                 AddAddressScreen(viewModel: viewModel)
@@ -111,4 +104,5 @@ struct AddressesScreen: View {
             }
         }
     }
+
 }

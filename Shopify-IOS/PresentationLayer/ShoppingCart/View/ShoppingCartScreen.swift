@@ -36,20 +36,23 @@ struct ShoppingCartScreen: View {
                 }.listStyle(PlainListStyle())
                 
                 NavigationLink(
-                    destination: CheckoutScreen(
-                        viewModel: CheckoutViewModel(
-                            cartProducts: cartViewModel.cartProducts,
-                            cartId: cartViewModel.cartId ?? ""
-                            
-                        ), addressViewModel: addressViewModel
+                    destination: {
+                        CheckoutScreen(
+                            viewModel: CheckoutViewModel(
+                                cartProducts: cartViewModel.cartProducts,
+                                cartId: cartViewModel.cartId ?? ""
+                            ),
+                            addressViewModel: addressViewModel
                         )
-                    )
+                    }
                 ) {
                     Text("Check Out")
                         .frame(maxWidth: .infinity)
                         .padding()
                         .background(
-                            cartViewModel.shouldProceedCheckingOut ? Constants.AppColor.primaryColor : Color.gray.opacity(0.5)
+                            cartViewModel.shouldProceedCheckingOut
+                                ? Constants.AppColor.primaryColor
+                                : Color.gray.opacity(0.5)
                         )
                         .foregroundColor(.white)
                         .cornerRadius(12)
@@ -57,6 +60,7 @@ struct ShoppingCartScreen: View {
                 }
                 .disabled(!cartViewModel.shouldProceedCheckingOut)
                 .padding(.bottom, 16)
+
             }
         }
         .onAppear {
