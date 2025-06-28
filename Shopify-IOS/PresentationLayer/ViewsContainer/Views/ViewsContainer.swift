@@ -11,6 +11,11 @@ import Apollo
 struct ViewsContainer: View {
     @State private var selectedTab: Tab = .home
     @ObservedObject var authViewModel: AuthViewModel
+    @StateObject var cartViewModel = CartViewModel(
+         useCase: CartUseCase(
+             repository: RepositoryImp(remoteDataSource: RemoteDataSource())
+         )
+     )
     
     enum Tab {
         case home, grid, cart, favorites, profile
@@ -138,13 +143,15 @@ struct ViewsContainer: View {
                         HStack {
                             TabBarButtonswift(icon: "house", tab: .home, selectedTab: $selectedTab)
                             TabBarButtonswift(icon: "square.grid.2x2", tab: .grid, selectedTab: $selectedTab)
-                            
+
                             Spacer(minLength: 50)
-                            
+
                             TabBarButtonswift(icon: "heart", tab: .favorites, selectedTab: $selectedTab)
                             TabBarButtonswift(icon: "person", tab: .profile, selectedTab: $selectedTab)
+
                         }
                         .padding(.horizontal)
+
                         
                         // Center Floating Cart Button
                         Button(action: {
@@ -159,11 +166,24 @@ struct ViewsContainer: View {
                                 .shadow(radius: 5)
                         }
                         .offset(y: -40)
+                        if cartViewModel.cartProducts.count > 0 {
+                              Text("\(cartViewModel.cartProducts.count)")
+                                  .font(.caption2)
+                                  .foregroundColor(.white)
+                                  .padding(6)
+                                  .background(Color.red)
+                                  .clipShape(Circle())
+                                  .offset(x: 15, y: -55)
+                        
+                          }
                     }
                 }
             }
         }
         .edgesIgnoringSafeArea(.bottom)
         .navigationBarBackButtonHidden(true)
+        .onAppear {
+                   cartViewModel.loadCartProducts()
+               }
     }
 }
