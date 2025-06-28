@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CategoriesScreen: View {
     @ObservedObject var viewModel = CategoryViewModel()
+    @EnvironmentObject var cartViewModel: CartViewModel
     @Namespace private var animation
     @State private var isModalPresented: Bool = false
     @AppStorage("isGridCat") var isGrid = true

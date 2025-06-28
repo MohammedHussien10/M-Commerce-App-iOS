@@ -11,7 +11,7 @@ struct AddressesScreen: View {
     @StateObject private var viewModel = AddressViewModel(
         useCase: AddressUseCase(repository: RepositoryImp(remoteDataSource: RemoteDataSource()))
     )
-    
+    @Environment(\.dismiss) private var dismiss
     @State private var showAddAddress = false
     @State private var selectedAddress: AddressModel? = nil
     @State private var showDeleteAlert = false
@@ -58,6 +58,18 @@ struct AddressesScreen: View {
 
             }
             .navigationTitle("Addresses")
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        dismiss()
+                    }) {
+                        Image(systemName: "chevron.left")
+                            .foregroundColor(.orange)
+                            .font(.system(size: 18, weight: .bold))
+                    }
+                }
+            }
             .onAppear {
                 Task {
                   await viewModel.getAddresses(accessToken: token)

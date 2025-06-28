@@ -30,9 +30,11 @@ struct ViewsContainer: View {
             switch selectedTab {
             case .home:
                 HomeScreen(isTabBarHidden: $isTabBarHidden, selectedTab: $selectedTab)
+                    .environmentObject(cartViewModel)
                 
             case .grid:
                 CategoriesScreen(isTabBarHidden: $isTabBarHidden)
+                    .environmentObject(cartViewModel)
                 
             case .cart:
                 if authViewModel.isLoggedIn {
@@ -61,6 +63,7 @@ struct ViewsContainer: View {
                         .shadow(color: .gray.opacity(0.2), radius: 2, x: 0, y: 2)
                         
                         ShoppingCartScreen(isTabBarHidden: $isTabBarHidden)
+                            .environmentObject(cartViewModel)
                     }
                 } else {
                     GuestModePromptView(
@@ -106,6 +109,7 @@ struct ViewsContainer: View {
 
                     if authViewModel.isLoggedIn {
                         ProfileScreen(isTabBarHidden: $isTabBarHidden, authViewModel: authViewModel)
+                            .environmentObject(cartViewModel)
                     } else {
                         GuestModePromptView(
                             feature: "Profile",
@@ -119,6 +123,7 @@ struct ViewsContainer: View {
             case .favorites:
                 if authViewModel.isLoggedIn {
                     FavoritesView(isTabBarHidden: $isTabBarHidden)
+                        .environmentObject(cartViewModel)
                 } else {
                     GuestModePromptView(
                         feature: "Wishlist",

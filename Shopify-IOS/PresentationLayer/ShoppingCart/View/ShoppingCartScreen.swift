@@ -67,20 +67,27 @@ struct ShoppingCartScreen: View {
                         .frame(maxWidth: .infinity)
                         .padding()
                         .background(
-                            cartViewModel.shouldProceedCheckingOut ? Constants.AppColor.primaryColor : Color.gray.opacity(0.5)
-                        )
+                                  (cartViewModel.shouldProceedCheckingOut && !addressViewModel.addresses.isEmpty) ?
+                                  Constants.AppColor.primaryColor : Color.gray.opacity(0.5)
+                              )
                         .foregroundColor(.white)
                         .cornerRadius(12)
                         .padding(.horizontal)
                 }
-                .disabled(!cartViewModel.shouldProceedCheckingOut)
+                .disabled(!cartViewModel.shouldProceedCheckingOut || addressViewModel.addresses.isEmpty)
                 .padding(.bottom, 16)
             }
         }
         .onAppear {
             cartViewModel.loadCartProducts()
+  
+            Task {
+                await addressViewModel.getAddresses(accessToken: SessionManager.shared.accessToken)
+            }
+       
             isTabBarHidden = true
         }
+
     }
 }
 

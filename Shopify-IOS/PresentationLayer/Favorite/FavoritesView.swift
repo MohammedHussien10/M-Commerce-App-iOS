@@ -10,7 +10,7 @@ import Kingfisher
 struct FavoritesView: View {
     @ObservedObject var viewModel = FavoritesViewModel()
     @Binding var isTabBarHidden: Bool
-    
+    @EnvironmentObject var cartViewModel: CartViewModel
     var body: some View {
         NavigationView {
             VStack{

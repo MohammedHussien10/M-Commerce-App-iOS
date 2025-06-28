@@ -11,6 +11,7 @@ struct ProfileScreen: View {
     @Binding var isTabBarHidden: Bool
     @ObservedObject var authViewModel: AuthViewModel
     @StateObject var profileViewModel = ProfileViewModel()
+    @EnvironmentObject var cartViewModel: CartViewModel
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
