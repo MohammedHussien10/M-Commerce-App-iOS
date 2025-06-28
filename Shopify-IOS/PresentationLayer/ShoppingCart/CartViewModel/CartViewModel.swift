@@ -67,10 +67,13 @@ class CartViewModel: ObservableObject {
                             id: edge.node.id,
                             Variantid: variant.id,
                             quantity: edge.node.quantity,
-                            title: variant.title,
+                            title: variant.product.title,
+                            VariantTitle: variant.title,
+
                             imageURL: variant.image?.url ?? "",
                             price: Double(variant.price.amount) ?? 0.0
                         )
+
                     }
                     self?.cartProducts = products
                     self?.shouldProceedCheckingOut = !products.isEmpty
@@ -136,3 +139,4 @@ class CartViewModel: ObservableObject {
         createCartIfNeeded()
     }
 }
+

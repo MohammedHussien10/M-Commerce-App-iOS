@@ -12,6 +12,7 @@ struct CartProduct: Identifiable {
     let Variantid: String
     var quantity: Int
     let title: String
+    let VariantTitle :String
     let imageURL: String
     let price: Double
 }

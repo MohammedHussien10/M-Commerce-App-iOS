@@ -16,6 +16,7 @@ struct ShoppingCartScreen: View {
             )
         )
     )
+    
     @Binding var isTabBarHidden: Bool
     var body: some View {
         NavigationView {
@@ -38,6 +39,19 @@ struct ShoppingCartScreen: View {
                             )
                         }
                     }.listStyle(PlainListStyle())
+                    
+                    HStack {
+                                  Text("Total:")
+                                      .font(.title2)
+                                      .bold()
+                                  Spacer()
+                                  Text(
+                                      String(format: "$%.2f", cartViewModel.cartProducts.reduce(0) { $0 + ($1.price * Double($1.quantity)) })
+                                  )
+                                  .font(.title2)
+                                  .foregroundColor(.green)
+                              }
+                              .padding()
                 }
                 
                 NavigationLink(
