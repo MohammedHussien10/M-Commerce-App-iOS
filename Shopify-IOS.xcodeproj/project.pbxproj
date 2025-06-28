@@ -164,6 +164,8 @@
 		C2488BE52DFBB81100B11CA5 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2488BE32DFBB80E00B11CA5 /* SearchViewModel.swift */; };
 		C27820E22E0AA47600DCDE13 /* DraftOrdersQuery.graphql in Resources */ = {isa = PBXBuildFile; fileRef = C27820E12E0AA47200DCDE13 /* DraftOrdersQuery.graphql */; };
 		C28B22672E0D546A001B24C1 /* GetCustomer.graphql in Resources */ = {isa = PBXBuildFile; fileRef = C28B22662E0D544F001B24C1 /* GetCustomer.graphql */; };
+		C299C6522E0F759300CFCD96 /* AuthenticationChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C299C6512E0F759100CFCD96 /* AuthenticationChoiceView.swift */; };
+		C299C6542E0F763700CFCD96 /* GuestModePromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C299C6532E0F763600CFCD96 /* GuestModePromptView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -453,6 +455,8 @@
 		C2488BE32DFBB80E00B11CA5 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		C27820E12E0AA47200DCDE13 /* DraftOrdersQuery.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = DraftOrdersQuery.graphql; sourceTree = "<group>"; };
 		C28B22662E0D544F001B24C1 /* GetCustomer.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetCustomer.graphql; sourceTree = "<group>"; };
+		C299C6512E0F759100CFCD96 /* AuthenticationChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationChoiceView.swift; sourceTree = "<group>"; };
+		C299C6532E0F763600CFCD96 /* GuestModePromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestModePromptView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -1296,6 +1300,8 @@
 		C21BB2C72E044C8F0013F56F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C299C6532E0F763600CFCD96 /* GuestModePromptView.swift */,
+				C299C6512E0F759100CFCD96 /* AuthenticationChoiceView.swift */,
 				C22E1A342E05182F00340107 /* RootView.swift */,
 				C21BB2822E03AF9D0013F56F /* SignUpView.swift */,
 				C21BB2842E03AF9D0013F56F /* LoginView.swift */,
@@ -1569,6 +1575,7 @@
 				22DA21A32DF79E51001FA5E0 /* ProfileViewModel.swift in Sources */,
 				7B65D1C32DFF17E200E7A378 /* BrandsHeader.swift in Sources */,
 				226A37292DF667B1008D43E2 /* SettingsCell.swift in Sources */,
+				C299C6522E0F759300CFCD96 /* AuthenticationChoiceView.swift in Sources */,
 				221E113F2DF6619600D3B4CD /* CategoriesScreen.swift in Sources */,
 				C21BB2992E03D2460013F56F /* EmailVerificationView.swift in Sources */,
 				7B3D97972E0F154E006A6601 /* AddressViewModel.swift in Sources */,
@@ -1593,6 +1600,7 @@
 				22CDF8D32DFAA87600DBA7D2 /* CurrencySettingsCell.swift in Sources */,
 				C20599532DFAA94F008CD6FE /* Section1.swift in Sources */,
 				7B3D97902E0F1451006A6601 /* AddressUseCaseProtocol.swift in Sources */,
+				C299C6542E0F763700CFCD96 /* GuestModePromptView.swift in Sources */,
 				7B3D97912E0F1451006A6601 /* AddressUseCase.swift in Sources */,
 				221E11312DF6619600D3B4CD /* ArrayExtention.swift in Sources */,
 				221E11302DF6619600D3B4CD /* Product.swift in Sources */,

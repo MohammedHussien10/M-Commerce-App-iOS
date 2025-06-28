@@ -23,8 +23,10 @@ struct RootView: View {
                     NavigationStack {
                         if authViewModel.isLoggedIn {
                             ViewsContainer(authViewModel: authViewModel)
+                        } else if authViewModel.isGuestMode {
+                            ViewsContainer(authViewModel: authViewModel)
                         } else {
-                            LoginView(authViewModel: authViewModel)
+                            AuthenticationChoiceView(authViewModel: authViewModel)
                         }
                     }
                 }

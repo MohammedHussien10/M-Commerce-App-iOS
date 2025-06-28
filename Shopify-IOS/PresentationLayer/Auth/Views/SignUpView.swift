@@ -17,6 +17,7 @@ struct SignUpView: View {
     @State private var isPasswordVisible: Bool = false
     @State private var isConfirmPasswordVisible: Bool = false
     @State private var navigateToVerify = false
+    @State private var showSuccessAlert = false
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
@@ -31,7 +32,7 @@ struct SignUpView: View {
                         .font(.largeTitle).bold()
                           .foregroundColor(Constants.AppColor.primaryColor)
                           .bold()
-                    Image("genie")
+                    Image("three")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 60, height: 60)
@@ -74,7 +75,7 @@ struct SignUpView: View {
                             password: password,
                             confirmPassword: confirmPassword
                         ) {
-                            navigateToVerify = true
+                            showSuccessAlert = true
                         }
                     }) {
                         Text("Sign Up")
@@ -87,6 +88,14 @@ struct SignUpView: View {
                     .alert(authViewModel.alertMessage, isPresented: $authViewModel.showAlert) {
                         Button("OK", role: .cancel) { }
                     }
+                    .alert("Success", isPresented: $showSuccessAlert) {
+                        Button("OK") {
+                            navigateToVerify = true
+                        }
+                    } message: {
+                        Text("Verification email sent. Please verify your email.")
+                    }
+                    
                     HStack {
                         Text("Already have an account?")
                             .foregroundColor(.gray)
@@ -123,9 +132,7 @@ struct SignUpView: View {
             .navigationBarBackButtonHidden(true)
             .navigationDestination(isPresented: $navigateToVerify) {
                 EmailVerificationView(authViewModel: authViewModel)
-                
             }
         }
     }
 }
-

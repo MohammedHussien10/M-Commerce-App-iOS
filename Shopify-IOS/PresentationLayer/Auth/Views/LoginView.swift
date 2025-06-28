@@ -13,6 +13,8 @@ struct LoginView: View {
     @State private var password: String = ""
     @State private var isPasswordVisible: Bool = false
     @State private var navigateToSign = false
+    @State private var navigateTOHome = false
+    @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         NavigationStack
@@ -28,7 +30,7 @@ struct LoginView: View {
                         .font(.largeTitle).bold()
                         .foregroundColor(Constants.AppColor.primaryColor)
                         .bold()
-                    Image("genie")
+                    Image("three")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 60, height: 60)
@@ -58,7 +60,9 @@ struct LoginView: View {
                         }
                     Spacer().frame(height: 20)
                     Button(action: {
-                        authViewModel.login(email: email, password: password){}
+                        authViewModel.login(email: email, password: password) {
+                            navigateTOHome = true
+                        }
                     }) {
                         Text("Login")
                             .frame(maxWidth: .infinity)
@@ -81,8 +85,6 @@ struct LoginView: View {
                                 .foregroundColor(.white)
                                 .bold()
                         }
-
-
                     }
                 }.frame(maxWidth: .infinity , maxHeight: .infinity)
                     .padding()
@@ -91,10 +93,25 @@ struct LoginView: View {
                     .ignoresSafeArea(edges: .bottom)
                     .navigationDestination(isPresented: $navigateToSign) {
                         SignUpView(authViewModel: authViewModel)
-                        
+                    }
+                    .navigationDestination(isPresented: $navigateTOHome) {
+                        ViewsContainer(authViewModel: authViewModel)
                     }
             }
             .background(Color.white.ignoresSafeArea())
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        dismiss()
+                    }) {
+                        Image(systemName: "chevron.left")
+                            .foregroundColor(.orange)
+                            .font(.system(size: 18, weight: .bold))
+                    }
+                }
+            }
         }
     }
 }

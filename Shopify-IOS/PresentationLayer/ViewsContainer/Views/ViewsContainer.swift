@@ -11,13 +11,15 @@ import Apollo
 struct ViewsContainer: View {
     @State private var selectedTab: Tab = .home
     @ObservedObject var authViewModel: AuthViewModel
+    
     enum Tab {
         case home, grid, cart, favorites, profile
     }
+    
     @State private var isTabBarHidden: Bool = false
     @State private var path = NavigationPath()
+    
     var body: some View {
-        
         ZStack {
             // MARK: - Tab Content
             switch selectedTab {
@@ -28,45 +30,49 @@ struct ViewsContainer: View {
                 CategoriesScreen(isTabBarHidden: $isTabBarHidden)
                 
             case .cart:
-                VStack(spacing: 0) {
-                    // Custom NavBar
-                    ZStack {
-                        // Centered Title
-                        Text("Shopping Cart")
-                            .font(.system(size: 20, weight: .bold))
-                            .foregroundColor(.orange)
-                        
-                        // Back Button
-                        HStack {
-                            Button(action: {
-                                selectedTab = .home
-                            }) {
-                                Image(systemName: "chevron.left")
-                                    .foregroundColor(.orange)
-                                Text("Back")
-                                    .foregroundColor(.orange)
-                            }
-                            .padding(.leading)
+                if authViewModel.isLoggedIn {
+                    VStack(spacing: 0) {
+                        ZStack {
+                            Text("Shopping Cart")
+                                .font(.system(size: 20, weight: .bold))
+                                .foregroundColor(.orange)
                             
-                            Spacer()
+                            HStack {
+                                Button(action: {
+                                    selectedTab = .home
+                                }) {
+                                    Image(systemName: "chevron.left")
+                                        .foregroundColor(.orange)
+                                    Text("Back")
+                                        .foregroundColor(.orange)
+                                }
+                                .padding(.leading)
+                                
+                                Spacer()
+                            }
                         }
+                        .padding(.vertical, 12)
+                        .background(Color.white)
+                        .shadow(color: .gray.opacity(0.2), radius: 2, x: 0, y: 2)
+                        
+                        ShoppingCartScreen(isTabBarHidden: $isTabBarHidden)
                     }
-                    .padding(.vertical, 12)
-                    .background(Color.white)
-                    .shadow(color: .gray.opacity(0.2), radius: 2, x: 0, y: 2)
-                    
-                    ShoppingCartScreen(isTabBarHidden: $isTabBarHidden)
+                } else {
+                    GuestModePromptView(
+                        feature: "Shopping Cart",
+                        icon: "cart.fill",
+                        authViewModel: authViewModel,
+                        onBack: { selectedTab = .home }
+                    )
                 }
                 
             case .profile:
                 VStack(spacing: 0) {
                     ZStack {
-                        // Centered Title
                         Text("Profile")
                             .font(.system(size: 20, weight: .bold))
                             .foregroundColor(.orange)
 
-                        // Back + Settings
                         HStack {
                             Button(action: {
                                 selectedTab = .home
@@ -80,21 +86,42 @@ struct ViewsContainer: View {
 
                             Spacer()
 
-                            NavigationLink(destination: SettingsScreen()) {
-                                Image(systemName: "gearshape")
-                                    .foregroundColor(Color.orange)
+                            if authViewModel.isLoggedIn {
+                                NavigationLink(destination: SettingsScreen()) {
+                                    Image(systemName: "gearshape")
+                                        .foregroundColor(Color.orange)
+                                }
+                                .padding(.trailing)
                             }
-                            .padding(.trailing)
                         }
                     }
                     .padding(.vertical, 12)
                     .background(Color.white)
                     .shadow(color: .gray.opacity(0.2), radius: 2, x: 0, y: 2)
 
-                    ProfileScreen(isTabBarHidden: $isTabBarHidden, authViewModel: authViewModel)
+                    if authViewModel.isLoggedIn {
+                        ProfileScreen(isTabBarHidden: $isTabBarHidden, authViewModel: authViewModel)
+                    } else {
+                        GuestModePromptView(
+                            feature: "Profile",
+                            icon: "person.fill",
+                            authViewModel: authViewModel,
+                            onBack: { selectedTab = .home }
+                        )
+                    }
                 }
+                
             case .favorites:
-                FavoritesView(isTabBarHidden: $isTabBarHidden)
+                if authViewModel.isLoggedIn {
+                    FavoritesView(isTabBarHidden: $isTabBarHidden)
+                } else {
+                    GuestModePromptView(
+                        feature: "Wishlist",
+                        icon: "heart.fill",
+                        authViewModel: authViewModel,
+                        onBack: { selectedTab = .home }
+                    )
+                }
             }
 
             if !isTabBarHidden {
@@ -106,6 +133,7 @@ struct ViewsContainer: View {
                             .fill(Color.white)
                             .frame(height: 80)
                             .shadow(radius: 5)
+                        
                         // MARK: - Floating Center Button
                         HStack {
                             TabBarButtonswift(icon: "house", tab: .home, selectedTab: $selectedTab)
@@ -136,11 +164,6 @@ struct ViewsContainer: View {
             }
         }
         .edgesIgnoringSafeArea(.bottom)
+        .navigationBarBackButtonHidden(true)
     }
-    
 }
-
-
-
-
-

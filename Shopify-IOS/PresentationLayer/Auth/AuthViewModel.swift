@@ -12,8 +12,10 @@ import StoreFrontNameSpace
 
 class AuthViewModel: ObservableObject {
     @Published var isLoggedIn = false
+    @Published var isGuestMode = false
     @Published var alertMessage: String = ""
     @Published var showAlert: Bool = false
+    @Published var showGuestPrompt: Bool = false
 
     private var cachedFirstName: String = ""
     private var cachedLastName: String = ""
@@ -26,10 +28,11 @@ class AuthViewModel: ObservableObject {
     func checkLoginStatus() {
         if let user = Auth.auth().currentUser {
             isLoggedIn = user.isEmailVerified
-            // Use consistent key names
+            isGuestMode = false
             UserDefaults.standard.set(user.email, forKey: "CurrentCustomerEmail")
         } else {
             isLoggedIn = false
+            isGuestMode = UserDefaults.standard.bool(forKey: "IsGuestMode")
         }
     }
 
@@ -54,7 +57,7 @@ class AuthViewModel: ObservableObject {
                     self.setAlert("Something went wrong while sending verification email. Please try again later")
                     print("faild to send verification email: \(error.localizedDescription)")
                 } else {
-                    self.setAlert("Verification email sent, Please verify your email")
+                    print("Verification email sent successfully")
                     completion()
                 }
             }
@@ -74,6 +77,8 @@ class AuthViewModel: ObservableObject {
             
             if user.isEmailVerified {
                 self.isLoggedIn = true
+                self.isGuestMode = false
+                UserDefaults.standard.set(false, forKey: "IsGuestMode")
                 self.createShopifyAccessToken(email: email, password: password) { token in
                     if let token = token {
                         print("Token saved: \(token)")
@@ -95,10 +100,12 @@ class AuthViewModel: ObservableObject {
             UserDefaults.standard.removeObject(forKey: "ShopifyAccessToken")
             UserDefaults.standard.removeObject(forKey: "CurrentCustomerID")
             UserDefaults.standard.removeObject(forKey: "CurrentCustomerEmail")
+            UserDefaults.standard.set(false, forKey: "IsGuestMode")
             
             NotificationCenter.default.post(name: NSNotification.Name("UserLoggedOut"), object: nil)
             
             isLoggedIn = false
+            isGuestMode = false
         } catch {
             self.setAlert("Failed to logout . Please try again later ")
             print(error.localizedDescription)
@@ -116,6 +123,8 @@ class AuthViewModel: ObservableObject {
             if let user = Auth.auth().currentUser, user.isEmailVerified {
                 UserDefaults.standard.set(user.email, forKey: "CurrentCustomerEmail")
                 self.isLoggedIn = true
+                self.isGuestMode = false
+                UserDefaults.standard.set(false, forKey: "IsGuestMode")
                 self.createShopifyCustomer(
                     email: user.email ?? "",
                     password: self.cachedPassword,
@@ -127,6 +136,19 @@ class AuthViewModel: ObservableObject {
                 self.setAlert("Email is still not verified")
             }
         })
+    }
+    
+    func continueAsGuest() {
+        isGuestMode = true
+        isLoggedIn = false
+        UserDefaults.standard.set(true, forKey: "IsGuestMode")
+        UserDefaults.standard.removeObject(forKey: "CurrentCustomerEmail")
+        UserDefaults.standard.removeObject(forKey: "CurrentCustomerID")
+    }
+
+    func showAuthPrompt(for feature: String) {
+        alertMessage = "To use \(feature), please sign in or create an account for the best experience."
+        showGuestPrompt = true
     }
     
     private func setAlert(_ message: String) {

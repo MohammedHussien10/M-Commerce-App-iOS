@@ -10,6 +10,8 @@ import SwiftUI
 struct Section3: View {
     @ObservedObject var viewModel: ProductDetailsViewModel
     @EnvironmentObject var cartViewModel: CartViewModel
+    @State private var showGuestPrompt: Bool = false
+    @ObservedObject var authViewModel: AuthViewModel
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text("Description")
@@ -21,11 +23,17 @@ struct Section3: View {
             }
             .frame(minHeight: 100)
             Button(action: {
-                if let variantId = viewModel.product.variants.first?.id {
-                      cartViewModel.addProduct(productId: variantId, quantity: 1)
-                  } else {
-                      print("No variant ID available to add to cart")
-                  }
+                if authViewModel.isLoggedIn {
+                    // user loggid in
+                    if let variantId = viewModel.product.variants.first?.id {
+                        cartViewModel.addProduct(productId: variantId, quantity: 1)
+                    } else {
+                        print("No variant ID available to add to cart")
+                    }
+                } else {
+                    // user not logged in 
+                    showGuestPrompt = true
+                }
             }) {
                 Text(viewModel.isOutOfStock ? "Out of Stock" : "Add to Cart")
                     .fontWeight(.bold)
@@ -35,8 +43,17 @@ struct Section3: View {
                     .background(viewModel.isOutOfStock ? Color.gray : Color.orangeColor("FF7F00"))
                     .cornerRadius(8)
             }
-
-
+            .disabled(viewModel.isOutOfStock)
+            .sheet(isPresented: $showGuestPrompt) {
+                GuestModePromptView(
+                    feature: "Shopping Cart",
+                    icon: "cart.fill",
+                    authViewModel: authViewModel,
+                    onBack: {
+                        showGuestPrompt = false
+                    }
+                )
+            }
         }.disabled(viewModel.isOutOfStock)
         .padding(.horizontal)
     }
