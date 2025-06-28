@@ -5,7 +5,9 @@ Genie Store is a modern mobile M-Commerce application that provides users with a
 👨‍💻 Team Members & Tasks
 
 Mohammed Hussein	Shopping Cart, Checkout Process, Address Management, Payment Flow
+
 Noha Ail Home,OnBorading,Splach Screen, User Profile,Categories,Brands,Orders & Confirmation Email,Cupons Discount
+
 Aya Elsayed	Product Listing, Product Details, Favorites,guest mode,Auth & Verification email,Product info ,Search Favourites
 
 ✅ Trello Board: Trello Project Link
