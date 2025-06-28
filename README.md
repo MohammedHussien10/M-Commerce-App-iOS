@@ -10,10 +10,10 @@ Noha Ail => Home,OnBorading,Splach Screen, User Profile,Categories,Brands,Orders
 
 Aya Elsayed =>	Product Listing, Product Details, Favorites,guest mode,Auth & Verification email,Product info ,Search Favourites
 
-✅ Trello Board: Trello Project Link
+✅ Trello Board: [Trello Project Link](https://trello.com/b/FlfRCzLZ/final-project)
 
 🔗 Project Links
-GitHub Repository: M-Commerce-App-iOS
+GitHub Repository: https://github.com/MohammedHussien10/M-Commerce-App-iOS/
 
 🏗️ Architectural Design Pattern
 MVVM + UseCase + Repository Pattern,Remote
