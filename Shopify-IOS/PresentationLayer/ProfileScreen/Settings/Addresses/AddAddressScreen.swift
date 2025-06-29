@@ -10,7 +10,8 @@ import StoreFrontNameSpace
 
 struct AddAddressScreen: View {
     @Environment(\.dismiss) var dismiss
-
+    @State private var showAlert = false
+    @State private var alertMessage = ""
     @State private var firstName = ""
     @State private var lastName = ""
     @State private var address1 = ""
@@ -67,11 +68,22 @@ struct AddAddressScreen: View {
                         dismiss()
                     }
                 }
+            }       .alert(isPresented: $showAlert) {
+                Alert(
+                    title: Text("Missing Information"),
+                    message: Text(alertMessage),
+                    dismissButton: .default(Text("OK"))
+                )
             }
         }
     }
 
     func saveAddress() {
+        if firstName.isEmpty || lastName.isEmpty || address1.isEmpty || phone.isEmpty {
+             alertMessage = "Please fill in all fields."
+             showAlert = true
+             return
+         }
         let input = MailingAddressInput(
             address1: address1.gql,
             city: city.gql,
