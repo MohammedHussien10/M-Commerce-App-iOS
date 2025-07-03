@@ -8,7 +8,6 @@ import AdminNameSpace
 import Apollo
 import Foundation
 import StoreFrontNameSpace
-import SwiftUICore
 
 @MainActor
 final class CheckoutViewModel: ObservableObject {

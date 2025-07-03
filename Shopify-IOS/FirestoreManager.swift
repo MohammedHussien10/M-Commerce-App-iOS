@@ -7,8 +7,8 @@
 
 import Foundation
 import Firebase
-import FirebaseFirestore
 import Combine
+import FirebaseFirestore
 
 final class FirestoreManager {
     static let shared = FirestoreManager()
