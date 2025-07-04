@@ -10,7 +10,6 @@ import PassKit
 
 struct CheckoutScreen: View {
     @Environment(\.dismiss) private var dismiss
-//    @Binding var isTabBarHidden: Bool
     @State private var discountCode = ""
     @State private var selectedPaymentMethod: String? = nil
     @State private var discountApplied = false
@@ -36,7 +35,6 @@ struct CheckoutScreen: View {
                     cartItemsSection()
                     discountSection()
                     totalPriceSection()
-//                    paymentMethodSection()
                     checkoutButton()
                     VStack(spacing: 16) {
                         applePayButton
@@ -55,9 +53,6 @@ struct CheckoutScreen: View {
                 .onAppear {
                     configureScreen() // Make this synchronous
                 }
-//                .onDisappear {
-//                              isTabBarHidden = false // ✅ Show tab bar when screen disappears
-//                          }
             }
             .loadingWithBlur(isLoading: $viewModel.isLoading)
             .navigationTitle("Check Out")
@@ -313,20 +308,6 @@ private extension CheckoutScreen {
                 }
                 .padding(.horizontal)
             }
-//            else {
-//                Button("Load Checkout URL") {
-//                    Task {
-//                        // Example cartId, replace with actual cartId you saved
-//                        await viewModel.fetchCart(checkoutCartId: viewModel.cartId ?? "")
-//                    }
-//                }
-//                .frame(maxWidth: .infinity)
-//                .padding()
-//                .background(Color.orange)
-//                .foregroundColor(.white)
-//                .cornerRadius(12)
-//                .padding(.horizontal)
-//            }
         }
     }
 

@@ -9,6 +9,9 @@ import Foundation
 import SwiftUI
 struct ShoppingCartScreen: View {
     @EnvironmentObject var cartViewModel: CartViewModel
+    @State private var showAlart = false
+    @State private var alertMessage = ""
+    @State private var navigateToCheckout = false
     @StateObject private var addressViewModel = AddressViewModel(
         useCase: AddressUseCase(
             repository: RepositoryImp(
@@ -54,28 +57,39 @@ struct ShoppingCartScreen: View {
                               .padding()
                 }
                 
-                NavigationLink(
-                    destination: CheckoutScreen(
-                        viewModel: CheckoutViewModel(
-                            cartProducts: cartViewModel.cartProducts,
-                            cartId: cartViewModel.cartId ?? ""
-                            
-                        ), addressViewModel: addressViewModel
-                    )
-                ) {
+                Button(action:{
+                    if cartViewModel.shouldProceedCheckingOut && !addressViewModel.addresses.isEmpty{
+                        navigateToCheckout = true
+                    }else{
+                        if !cartViewModel.shouldProceedCheckingOut{
+                            alertMessage = "Your cart is empty !"
+                        }else if addressViewModel.addresses.isEmpty{
+                            alertMessage = "please add a shipping address first !"
+                        }
+                        showAlart = true
+                    }
+                }){
                     Text("Check Out")
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(
-                                  (cartViewModel.shouldProceedCheckingOut && !addressViewModel.addresses.isEmpty) ?
-                                  Constants.AppColor.primaryColor : Color.gray.opacity(0.5)
-                              )
-                        .foregroundColor(.white)
-                        .cornerRadius(12)
-                        .padding(.horizontal)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Constants.AppColor.primaryColor)
+                            .foregroundColor(.white)
+                            .cornerRadius(12)
+                            .padding(.horizontal)
+                    
+                }.alert(isPresented: $showAlart){
+                    Alert(title: Text ("Can't Go to Payment CheckPoint"),
+                          message: Text(alertMessage),
+                          dismissButton: .default(Text("Ok")))
                 }
-                .disabled(!cartViewModel.shouldProceedCheckingOut || addressViewModel.addresses.isEmpty)
                 .padding(.bottom, 16)
+                
+                NavigationLink( destination: CheckoutScreen(viewModel: CheckoutViewModel(cartProducts: cartViewModel.cartProducts, cartId: cartViewModel.cartId ?? ""), addressViewModel: addressViewModel),
+                                isActive: $navigateToCheckout
+                
+                ){
+                    EmptyView()
+                }
             }
         }
         .onAppear {

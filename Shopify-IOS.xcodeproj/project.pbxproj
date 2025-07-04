@@ -425,14 +425,13 @@
 		22132AA42DEC974500FA9C90 /* Shopify-IOS */ = {
 			isa = PBXGroup;
 			children = (
-				22E0A5922E15EE9600B2027E /* FirestoreManager.swift */,
+				221E119E2DF664F600D3B4CD /* ContentView.swift */,
 				22E0A5E42E15EED900B2027E /* App */,
 				22E0A5C42E15EED900B2027E /* Domin */,
 				22E0A5E72E15EED900B2027E /* PresentationLayer */,
 				22E0A6582E15EED900B2027E /* Preview Content */,
 				22E0A65A2E15EED900B2027E /* Resources */,
 				22E0A65C2E15EED900B2027E /* Units */,
-				221E119E2DF664F600D3B4CD /* ContentView.swift */,
 				221E10CA2DF6619600D3B4CD /* DataLayer */,
 			);
 			path = "Shopify-IOS";
@@ -511,6 +510,7 @@
 		22E0A5622E15EE9600B2027E /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				22E0A5922E15EE9600B2027E /* FirestoreManager.swift */,
 				22E0A5632E15EE9600B2027E /* GraphQL */,
 			);
 			path = Network;
