@@ -13,6 +13,8 @@ class CartViewModel: ObservableObject {
     @Published var cartId: String? = UserDefaults.standard.string(forKey: "CartID")
     @Published var cartProducts: [CartProduct] = []
     @Published var shouldProceedCheckingOut: Bool = false
+    @Published var exchangeRate: Double = 1.0
+
     private let useCase: CartUseCaseProtocol
 
     init(useCase: CartUseCaseProtocol) {
@@ -138,5 +140,17 @@ class CartViewModel: ObservableObject {
         UserDefaults.standard.removeObject(forKey: "CartID")
         createCartIfNeeded()
     }
+    
+    func fetchExchangeRate() {
+        let currency = UserDefaults.standard.string(forKey: "selectedCurrency") ?? "USD"
+        ExchangeRateService.fetchExchangeRate(from: "USD", to: currency) { rate in
+            if let rate = rate {
+                DispatchQueue.main.async {
+                    self.exchangeRate = rate
+                }
+            }
+        }
+    }
+
 }
 

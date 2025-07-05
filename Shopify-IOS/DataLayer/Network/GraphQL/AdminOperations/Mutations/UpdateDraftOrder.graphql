@@ -5,6 +5,7 @@ mutation draftOrderUpdate($id: ID!, $input: DraftOrderInput!) {
       name
       email
       subtotalPrice
+      totalTax
     lineItemsSubtotalPrice{
           presentmentMoney{
               amount

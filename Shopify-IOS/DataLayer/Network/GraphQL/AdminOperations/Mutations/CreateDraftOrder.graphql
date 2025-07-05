@@ -5,6 +5,7 @@ mutation draftOrderCreate($input: DraftOrderInput!) {
       name
       email
       subtotalPrice
+      totalTax 
       note2
       totalPrice
       lineItems(first: 100) {

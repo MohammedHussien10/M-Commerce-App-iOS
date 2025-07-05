@@ -8,7 +8,7 @@ struct ProductItem: View {
     @StateObject private var  authViewModel:AuthViewModel
     @Binding var isTabBarHidden: Bool
     let currency = UserDefaults.standard.string(forKey: "selectedCurrency") ?? "USD"
-    
+    @State private var convertedPrice: String?
     @State private var isFavorited = false
     @State private var isAddedToCart = false
     @State private var pressCount = 0
@@ -54,9 +54,8 @@ struct ProductItem: View {
                             .padding(.horizontal, 5)
                         
                         // Price
-                        if let firstVariant = product.variants.first {
-                            let price = firstVariant.price.amount
-                            Text(price.priceFormatter(with: currency))
+                        if let convertedPrice = convertedPrice {
+                            Text(convertedPrice)
                                 .font(.system(size: 16, weight: .bold))
                                 .foregroundColor(.black)
                                 .lineLimit(1)
@@ -92,46 +91,24 @@ struct ProductItem: View {
                               .cornerRadius(12)
                               .padding(10)
                 }
-//                    else {
-                    // Add to Cart Button
-//                    Button(action: {
-//                        if let variantId = product.variants.first?.id {
-//                            cartViewModel.addProduct(productId: variantId, quantity: 1)
-//                            isAddedToCart = true
-//                            pressCount += 1
-//                            
-//                            // Reset icon after 2 seconds
-//                            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-//                                isAddedToCart = false
-//                            }
-//                        } else {
-//                            print("No variant ID available to add to cart")
-//                        }
-//                    })
-//                    {
-//                        ZStack(alignment: .topTrailing) {
-//                            Image(systemName: isAddedToCart ? "checkmark.circle.fill" : "cart.badge.plus")
-//                                .foregroundColor(.white)
-//                                .padding(8)
-//                                .background(Color.orange.opacity(0.85))
-//                                .clipShape(Circle())
-//                            
-//                            if pressCount > 0 {
-//                                Text("\(pressCount)")
-//                                    .font(.caption2)
-//                                    .foregroundColor(.white)
-//                                    .padding(5)
-//                                    .background(Color.red)
-//                                    .clipShape(Circle())
-//                                    .offset(x: 10, y: -10)
-//                            }
-//                        }
-//                    }.padding(10)
-//                }
+
                     
             }
            
         } .onAppear {
+            //convert the Price
+            if let price = product.variants.first?.price.amount{
+                       ExchangeRateService.fetchExchangeRate(from: "USD", to: currency) { rate in
+                           if let rate = rate {
+                               let converted = price * rate
+                               DispatchQueue.main.async {
+                                   self.convertedPrice = converted.priceFormatter(with: currency)
+                               }
+                           }
+                       }
+             }
+            
+            
             if let currentProductFromCart = cartViewModel.getFirstProductUnderVariants(variants: product.variants) {
                 pressCount = currentProductFromCart.quantity
             }

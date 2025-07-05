@@ -9,6 +9,7 @@ class ProductDetailsViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var errorMessage: String?
     @Published var isFavorited = false
+    @Published var convertedPrice: String?
     var isOutOfStock: Bool {
         product.variants.first?.availableForSale == false
     }
@@ -17,7 +18,6 @@ class ProductDetailsViewModel: ObservableObject {
     private var draftOrderID: String?
     private var currentLineItems: [AdminNameSpace.DraftOrderLineItemInput] = []
     private var cancellables = Set<AnyCancellable>()
-
     private var customerID: String { UserDefaults.standard.string(forKey: "CurrentCustomerID") ?? "" }
     private var customerEmail: String { UserDefaults.standard.string(forKey: "CurrentCustomerEmail") ?? "" }
     private var variantID: String { product.variants.first?.id ?? "" }
@@ -26,9 +26,10 @@ class ProductDetailsViewModel: ObservableObject {
         }
     // MARK: - Init
     init(product: Product) {
-            self.product = product
-//            checkFavoriteStatus()
-        }
+        self.product = product
+        getConvertedPrice()
+    }
+
 
     deinit { cancellables.removeAll() }
 
@@ -176,9 +177,10 @@ class ProductDetailsViewModel: ObservableObject {
 
     var description: String { product.descriptionHtml }
 
-    var price: String {
-        product.variants.first?.price.amount.priceFormatter(with: currency) ?? ""
-    }
+//    var price: String {
+//        product.variants.first?.price.amount.priceFormatter(with: currency) ?? ""
+//        
+//    }
 
     var sizes: [String] {
         Array(Set(product.variants
@@ -213,5 +215,19 @@ class ProductDetailsViewModel: ObservableObject {
             }
         }
     }
+    
+    func getConvertedPrice() {
+        guard let price = product.variants.first?.price.amount else { return }
+
+        ExchangeRateService.fetchExchangeRate(from: "USD", to: currency) { rate in
+            if let rate = rate {
+                let converted = price * rate
+                DispatchQueue.main.async {
+                    self.convertedPrice = converted.priceFormatter(with: self.currency)
+                }
+            }
+        }
+    }
+
 }
 

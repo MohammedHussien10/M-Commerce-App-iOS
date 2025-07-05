@@ -11,6 +11,10 @@
 		221E114C2DF6619600D3B4CD /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221E10CE2DF6619600D3B4CD /* Persistence.swift */; };
 		221E119F2DF664F600D3B4CD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221E119E2DF664F600D3B4CD /* ContentView.swift */; };
 		222BAC5E2E16EE7B0088C57F /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 222BAC5D2E16EE7B0088C57F /* Lottie */; };
+		2248A4652E19BDE600C1E30E /* AdminNameSpace in Frameworks */ = {isa = PBXBuildFile; productRef = 2248A4642E19BDE600C1E30E /* AdminNameSpace */; };
+		2248A4672E19BE0500C1E30E /* StoreFrontNameSpace in Frameworks */ = {isa = PBXBuildFile; productRef = 2248A4662E19BE0500C1E30E /* StoreFrontNameSpace */; };
+		2248A46C2E19BE2100C1E30E /* StoreFrontSPM in Resources */ = {isa = PBXBuildFile; fileRef = 2248A4692E19BE2100C1E30E /* StoreFrontSPM */; };
+		2248A46D2E19BE2100C1E30E /* AdminSPM in Resources */ = {isa = PBXBuildFile; fileRef = 2248A46B2E19BE2100C1E30E /* AdminSPM */; };
 		224E2D8B2E172A89005E7311 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 224E2D8A2E172A89005E7311 /* FirebaseAnalytics */; };
 		224E2D8D2E172A89005E7311 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 224E2D8C2E172A89005E7311 /* FirebaseAuth */; };
 		224E2D8F2E172A89005E7311 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 224E2D8E2E172A89005E7311 /* FirebaseFirestore */; };
@@ -25,6 +29,7 @@
 		224E2DAD2E172DB4005E7311 /* Shopify_IOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224E2DAB2E172DB4005E7311 /* Shopify_IOSUITestsLaunchTests.swift */; };
 		227CB3DB2DFBD86E00F36E91 /* AddressModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 227CB3D92DFBD86E00F36E91 /* AddressModel.xcdatamodeld */; };
 		227CB3E42DFBDDE900F36E91 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227CB3E32DFBDDE900F36E91 /* CoreDataManager.swift */; };
+		228DD8652E180D8A00B89821 /* ExchangeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228DD8642E180D8A00B89821 /* ExchangeRate.swift */; };
 		22E0A59A2E15EE9600B2027E /* RemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E0A5602E15EE9600B2027E /* RemoteDataSource.swift */; };
 		22E0A59B2E15EE9600B2027E /* RemoteDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E0A5612E15EE9600B2027E /* RemoteDataSourceProtocol.swift */; };
 		22E0A59C2E15EE9600B2027E /* TokenInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E0A5642E15EE9600B2027E /* TokenInterceptor.swift */; };
@@ -45,7 +50,6 @@
 		22E0A5AB2E15EE9600B2027E /* RemoveFromCart.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 22E0A5762E15EE9600B2027E /* RemoveFromCart.graphql */; };
 		22E0A5AC2E15EE9600B2027E /* GetCart.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 22E0A5772E15EE9600B2027E /* GetCart.graphql */; };
 		22E0A5AD2E15EE9600B2027E /* GetCollectionWithHandel.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 22E0A5782E15EE9600B2027E /* GetCollectionWithHandel.graphql */; };
-		22E0A5AE2E15EE9600B2027E /* StoreFrontSPM in Resources */ = {isa = PBXBuildFile; fileRef = 22E0A57A2E15EE9600B2027E /* StoreFrontSPM */; };
 		22E0A5AF2E15EE9600B2027E /* UpdateDraftOrder.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 22E0A57D2E15EE9600B2027E /* UpdateDraftOrder.graphql */; };
 		22E0A5B02E15EE9600B2027E /* DeleteDraftOrder.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 22E0A57E2E15EE9600B2027E /* DeleteDraftOrder.graphql */; };
 		22E0A5B12E15EE9600B2027E /* DraftOrderCompilation.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 22E0A57F2E15EE9600B2027E /* DraftOrderCompilation.graphql */; };
@@ -56,7 +60,6 @@
 		22E0A5B62E15EE9600B2027E /* RequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E0A5862E15EE9600B2027E /* RequestType.swift */; };
 		22E0A5B72E15EE9600B2027E /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E0A5872E15EE9600B2027E /* NetworkConstants.swift */; };
 		22E0A5B82E15EE9600B2027E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E0A5882E15EE9600B2027E /* NetworkManager.swift */; };
-		22E0A5B92E15EE9600B2027E /* AdminSPM in Resources */ = {isa = PBXBuildFile; fileRef = 22E0A58A2E15EE9600B2027E /* AdminSPM */; };
 		22E0A5BA2E15EE9600B2027E /* StoreFrontschema.graphqls in Resources */ = {isa = PBXBuildFile; fileRef = 22E0A58C2E15EE9600B2027E /* StoreFrontschema.graphqls */; };
 		22E0A5BB2E15EE9600B2027E /* Adminschema.graphqls in Resources */ = {isa = PBXBuildFile; fileRef = 22E0A58D2E15EE9600B2027E /* Adminschema.graphqls */; };
 		22E0A5BC2E15EE9600B2027E /* DraftOrderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E0A58E2E15EE9600B2027E /* DraftOrderManager.swift */; };
@@ -205,6 +208,8 @@
 		221E10CD2DF6619600D3B4CD /* Shopify_IOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shopify_IOS.xcdatamodel; sourceTree = "<group>"; };
 		221E10CE2DF6619600D3B4CD /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		221E119E2DF664F600D3B4CD /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2248A4692E19BE2100C1E30E /* StoreFrontSPM */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = StoreFrontSPM; sourceTree = "<group>"; };
+		2248A46B2E19BE2100C1E30E /* AdminSPM */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AdminSPM; sourceTree = "<group>"; };
 		224E2D9E2E172D92005E7311 /* ApolloSanityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApolloSanityTests.swift; sourceTree = "<group>"; };
 		224E2DA02E172D92005E7311 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		224E2DA22E172D92005E7311 /* MockNetworkManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockNetworkManagerTest.swift; sourceTree = "<group>"; };
@@ -214,6 +219,7 @@
 		224E2DAB2E172DB4005E7311 /* Shopify_IOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shopify_IOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		227CB3DA2DFBD86E00F36E91 /* AddressModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AddressModel.xcdatamodel; sourceTree = "<group>"; };
 		227CB3E32DFBDDE900F36E91 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		228DD8642E180D8A00B89821 /* ExchangeRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRate.swift; sourceTree = "<group>"; };
 		22E0A5602E15EE9600B2027E /* RemoteDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteDataSource.swift; sourceTree = "<group>"; };
 		22E0A5612E15EE9600B2027E /* RemoteDataSourceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteDataSourceProtocol.swift; sourceTree = "<group>"; };
 		22E0A5642E15EE9600B2027E /* TokenInterceptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenInterceptor.swift; sourceTree = "<group>"; };
@@ -234,7 +240,6 @@
 		22E0A5762E15EE9600B2027E /* RemoveFromCart.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RemoveFromCart.graphql; sourceTree = "<group>"; };
 		22E0A5772E15EE9600B2027E /* GetCart.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GetCart.graphql; sourceTree = "<group>"; };
 		22E0A5782E15EE9600B2027E /* GetCollectionWithHandel.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GetCollectionWithHandel.graphql; sourceTree = "<group>"; };
-		22E0A57A2E15EE9600B2027E /* StoreFrontSPM */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = StoreFrontSPM; sourceTree = "<group>"; };
 		22E0A57D2E15EE9600B2027E /* UpdateDraftOrder.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UpdateDraftOrder.graphql; sourceTree = "<group>"; };
 		22E0A57E2E15EE9600B2027E /* DeleteDraftOrder.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DeleteDraftOrder.graphql; sourceTree = "<group>"; };
 		22E0A57F2E15EE9600B2027E /* DraftOrderCompilation.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DraftOrderCompilation.graphql; sourceTree = "<group>"; };
@@ -245,7 +250,6 @@
 		22E0A5862E15EE9600B2027E /* RequestType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestType.swift; sourceTree = "<group>"; };
 		22E0A5872E15EE9600B2027E /* NetworkConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		22E0A5882E15EE9600B2027E /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		22E0A58A2E15EE9600B2027E /* AdminSPM */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AdminSPM; sourceTree = "<group>"; };
 		22E0A58C2E15EE9600B2027E /* StoreFrontschema.graphqls */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StoreFrontschema.graphqls; sourceTree = "<group>"; };
 		22E0A58D2E15EE9600B2027E /* Adminschema.graphqls */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Adminschema.graphqls; sourceTree = "<group>"; };
 		22E0A58E2E15EE9600B2027E /* DraftOrderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraftOrderManager.swift; sourceTree = "<group>"; };
@@ -373,9 +377,11 @@
 			files = (
 				22E0A6E82E15F6F200B2027E /* Kingfisher in Frameworks */,
 				222BAC5E2E16EE7B0088C57F /* Lottie in Frameworks */,
+				2248A4652E19BDE600C1E30E /* AdminNameSpace in Frameworks */,
 				224E2D8B2E172A89005E7311 /* FirebaseAnalytics in Frameworks */,
 				224E2D912E172A89005E7311 /* FirebaseFirestoreCombine-Community in Frameworks */,
 				22E0A6E52E15F6E100B2027E /* Apollo in Frameworks */,
+				2248A4672E19BE0500C1E30E /* StoreFrontNameSpace in Frameworks */,
 				224E2D932E172A89005E7311 /* FirebaseFirestoreSwift in Frameworks */,
 				22E0A6D32E15EF7A00B2027E /* StoreFrontNameSpace in Frameworks */,
 				224E2D8F2E172A89005E7311 /* FirebaseFirestore in Frameworks */,
@@ -481,6 +487,22 @@
 			path = "Coredata Layer";
 			sourceTree = "<group>";
 		};
+		2248A4682E19BE2100C1E30E /* StoreFront */ = {
+			isa = PBXGroup;
+			children = (
+				2248A4692E19BE2100C1E30E /* StoreFrontSPM */,
+			);
+			path = StoreFront;
+			sourceTree = "<group>";
+		};
+		2248A46A2E19BE2100C1E30E /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				2248A46B2E19BE2100C1E30E /* AdminSPM */,
+			);
+			path = Admin;
+			sourceTree = "<group>";
+		};
 		224E2D9F2E172D92005E7311 /* NetworkTest */ = {
 			isa = PBXGroup;
 			children = (
@@ -519,13 +541,13 @@
 		22E0A5632E15EE9600B2027E /* GraphQL */ = {
 			isa = PBXGroup;
 			children = (
+				2248A46A2E19BE2100C1E30E /* Admin */,
+				2248A4682E19BE2100C1E30E /* StoreFront */,
 				22E0A5642E15EE9600B2027E /* TokenInterceptor.swift */,
 				22E0A5652E15EE9600B2027E /* StoreFrontOperations */,
-				22E0A5792E15EE9600B2027E /* StoreFront */,
 				22E0A57B2E15EE9600B2027E /* AdminOperations */,
 				22E0A5852E15EE9600B2027E /* Enums */,
 				22E0A5882E15EE9600B2027E /* NetworkManager.swift */,
-				22E0A5892E15EE9600B2027E /* Admin */,
 				22E0A58B2E15EE9600B2027E /* GraphQLSchemas */,
 				22E0A58E2E15EE9600B2027E /* DraftOrderManager.swift */,
 				22E0A58F2E15EE9600B2027E /* NetworkInterceptorProvider.swift */,
@@ -574,14 +596,6 @@
 			path = Queries;
 			sourceTree = "<group>";
 		};
-		22E0A5792E15EE9600B2027E /* StoreFront */ = {
-			isa = PBXGroup;
-			children = (
-				22E0A57A2E15EE9600B2027E /* StoreFrontSPM */,
-			);
-			path = StoreFront;
-			sourceTree = "<group>";
-		};
 		22E0A57B2E15EE9600B2027E /* AdminOperations */ = {
 			isa = PBXGroup;
 			children = (
@@ -619,14 +633,6 @@
 				22E0A5872E15EE9600B2027E /* NetworkConstants.swift */,
 			);
 			path = Enums;
-			sourceTree = "<group>";
-		};
-		22E0A5892E15EE9600B2027E /* Admin */ = {
-			isa = PBXGroup;
-			children = (
-				22E0A58A2E15EE9600B2027E /* AdminSPM */,
-			);
-			path = Admin;
 			sourceTree = "<group>";
 		};
 		22E0A58B2E15EE9600B2027E /* GraphQLSchemas */ = {
@@ -699,6 +705,7 @@
 				22E0A5D12E15EED900B2027E /* OrdersModel.swift */,
 				22E0A5D22E15EED900B2027E /* LocationConstants.swift */,
 				22E0A5D32E15EED900B2027E /* AddressModel.swift */,
+				228DD8642E180D8A00B89821 /* ExchangeRate.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -1215,6 +1222,8 @@
 				224E2D8E2E172A89005E7311 /* FirebaseFirestore */,
 				224E2D902E172A89005E7311 /* FirebaseFirestoreCombine-Community */,
 				224E2D922E172A89005E7311 /* FirebaseFirestoreSwift */,
+				2248A4642E19BDE600C1E30E /* AdminNameSpace */,
+				2248A4662E19BE0500C1E30E /* StoreFrontNameSpace */,
 			);
 			productName = "Shopify-IOS";
 			productReference = 22132AA22DEC974500FA9C90 /* Shopify-IOS.app */;
@@ -1319,7 +1328,6 @@
 				22E0A5BA2E15EE9600B2027E /* StoreFrontschema.graphqls in Resources */,
 				22E0A5BB2E15EE9600B2027E /* Adminschema.graphqls in Resources */,
 				22E0A5A22E15EE9600B2027E /* customerAddressDelete.graphql in Resources */,
-				22E0A5B92E15EE9600B2027E /* AdminSPM in Resources */,
 				22E0A5A62E15EE9600B2027E /* AddToCartMutation.graphql in Resources */,
 				22E0A5AB2E15EE9600B2027E /* RemoveFromCart.graphql in Resources */,
 				22E0A6C92E15EED900B2027E /* Preview Assets.xcassets in Resources */,
@@ -1331,7 +1339,6 @@
 				22E0A5B52E15EE9600B2027E /* DraftOrdersQuery.graphql in Resources */,
 				22E0A59E2E15EE9600B2027E /* customerCreate.graphql in Resources */,
 				22E0A5A42E15EE9600B2027E /* GetAllAddress.graphql in Resources */,
-				22E0A5AE2E15EE9600B2027E /* StoreFrontSPM in Resources */,
 				22E0A5A72E15EE9600B2027E /* UpdateCartLineMutation.graphql in Resources */,
 				22E0A6CD2E15EED900B2027E /* Configurations.plist in Resources */,
 				22E0A5A92E15EE9600B2027E /* GetCollections.graphql in Resources */,
@@ -1345,6 +1352,8 @@
 				22E0A67E2E15EED900B2027E /* shopping_splash.json in Resources */,
 				22E0A5AA2E15EE9600B2027E /* GetCustomer.graphql in Resources */,
 				22E0A59D2E15EE9600B2027E /* customerAddressCreate.graphql in Resources */,
+				2248A46D2E19BE2100C1E30E /* AdminSPM in Resources */,
+				2248A46C2E19BE2100C1E30E /* StoreFrontSPM in Resources */,
 				22E0A5A32E15EE9600B2027E /* CreateCartMutation.graphql in Resources */,
 				22E0A5B02E15EE9600B2027E /* DeleteDraftOrder.graphql in Resources */,
 				C21BB28C2E03BBFA0013F56F /* GoogleService-Info.plist in Resources */,
@@ -1460,6 +1469,7 @@
 				22E0A6C82E15EED900B2027E /* OnboardingView.swift in Sources */,
 				22E0A5BD2E15EE9600B2027E /* NetworkInterceptorProvider.swift in Sources */,
 				227CB3E42DFBDDE900F36E91 /* CoreDataManager.swift in Sources */,
+				228DD8652E180D8A00B89821 /* ExchangeRate.swift in Sources */,
 				22E0A59A2E15EE9600B2027E /* RemoteDataSource.swift in Sources */,
 				22E0A6882E15EED900B2027E /* Section3.swift in Sources */,
 				221E114C2DF6619600D3B4CD /* Persistence.swift in Sources */,
@@ -1887,6 +1897,14 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 222BAC5C2E16EE7B0088C57F /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		2248A4642E19BDE600C1E30E /* AdminNameSpace */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AdminNameSpace;
+		};
+		2248A4662E19BE0500C1E30E /* StoreFrontNameSpace */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = StoreFrontNameSpace;
 		};
 		224E2D8A2E172A89005E7311 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;

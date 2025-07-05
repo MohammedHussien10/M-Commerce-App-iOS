@@ -21,6 +21,10 @@ final class CheckoutViewModel: ObservableObject {
     @Published var selectedAddress: AddressModel?
     @Published var subtotalPrice: String = "0.00".formatAsCurrency()
     @Published var totalPrice: String = "0.00".formatAsCurrency()
+    @Published var exchangeRate: Double = 1.0
+    @Published var subtotalPriceRaw: Double = 0.0
+    @Published var discountedSubtotalRaw: Double = 0.0
+    @Published var taxesRaw: Double = 0.0
     var  customerId = UserDefaults.standard.string(
         forKey: "CurrentCustomerID"
     )
@@ -212,6 +216,33 @@ final class CheckoutViewModel: ObservableObject {
     private func setPrices() {
         self.subtotalPrice = draftOrder?.subtotalPrice.formatAsCurrency() ?? "0.00".formatAsCurrency()
         self.totalPrice = draftOrder?.totalPrice.formatAsCurrency() ?? "0.00".formatAsCurrency()
+        
+        // Subtotal (raw)
+         if let rawSubtotal = draftOrder?.subtotalPrice,
+            let doubleValue = Double(rawSubtotal.filter("0123456789.".contains)) {
+             self.subtotalPriceRaw = doubleValue
+         } else {
+             self.subtotalPriceRaw = 0.0
+         }
+
+         // Taxes (raw)
+         if let rawTaxes = draftOrder?.totalTax,
+            let taxDouble = Double(rawTaxes.filter("0123456789.".contains)) {
+             self.taxesRaw = taxDouble
+         } else {
+             self.taxesRaw = 0.0
+         }
+
+         // Total (raw)
+         var totalPriceRaw: Double = 0.0
+         if let rawTotal = draftOrder?.totalPrice,
+            let totalDouble = Double(rawTotal.filter("0123456789.".contains)) {
+             totalPriceRaw = totalDouble
+         }
+
+         // discountedSubtotalRaw
+
+         self.discountedSubtotalRaw = totalPriceRaw - self.taxesRaw
     }
     
     @MainActor
@@ -240,5 +271,16 @@ final class CheckoutViewModel: ObservableObject {
             }
         }
     }
+    func fetchExchangeRate() {
+        let currency = UserDefaults.standard.string(forKey: "selectedCurrency") ?? "USD"
+        ExchangeRateService.fetchExchangeRate(from: "USD", to: currency) { [weak self] rate in
+            if let rate = rate {
+                DispatchQueue.main.async {
+                    self?.exchangeRate = rate
+                }
+            }
+        }
+    }
+
     
 }

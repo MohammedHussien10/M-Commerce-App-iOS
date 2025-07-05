@@ -10,6 +10,8 @@ import SwiftUI
 struct CartProductRow: View {
     let product: CartProduct
     let cartId: String
+    let exchangeRate: Double
+    let currency: String
     var onUpdateQuantity: (_ lineId: String, _ newQuantity: Int) -> Void
     var onRemove: (_ lineId: String) -> Void
     @State private var showDeleteAlert = false
@@ -59,9 +61,11 @@ struct CartProductRow: View {
                                        .disabled(product.quantity >= 5)
                     
                     Spacer()
-                    Text(String(format: "$%.2f", product.price * Double(product.quantity)))
-                              .font(.subheadline)
-                              .foregroundColor(.green)
+                    Text(
+                        (product.price * Double(product.quantity) * exchangeRate)
+                            .priceFormatter(with: currency)
+                    )
+
                     Button(action: {
                         showDeleteAlert = true
                       

@@ -11,6 +11,7 @@ import PassKit
 struct CheckoutScreen: View {
     @Environment(\.dismiss) private var dismiss
     @State private var discountCode = ""
+    
     @State private var selectedPaymentMethod: String? = nil
     @State private var discountApplied = false
     @State private var promoError: String?
@@ -21,7 +22,7 @@ struct CheckoutScreen: View {
     @ObservedObject private var addressViewModel: AddressViewModel
     let token = SessionManager.shared.accessToken
     let paymentHandler = PaymentHandler()
-    
+
     init(viewModel: CheckoutViewModel, addressViewModel: AddressViewModel) {
         self.viewModel = viewModel
         self.addressViewModel = addressViewModel
@@ -51,6 +52,7 @@ struct CheckoutScreen: View {
                     viewModel.isLoading = false
                 }
                 .onAppear {
+                    viewModel.fetchExchangeRate()
                     configureScreen() // Make this synchronous
                 }
             }
@@ -186,25 +188,69 @@ private extension CheckoutScreen {
     }
     
     func totalPriceSection() -> some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: 12) {
+            let currency = UserDefaults.standard.string(forKey: "selectedCurrency") ?? "USD"
+            let subtotal = viewModel.subtotalPriceRaw * viewModel.exchangeRate
+            let taxes = viewModel.taxesRaw * viewModel.exchangeRate
+            let total = subtotal + taxes
+            let discountedSubtotal = viewModel.discountedSubtotalRaw * viewModel.exchangeRate
+
+            // Subtotal
             HStack {
-                Text("Total Price:")
-                    .font(.title2).bold()
+                Text("Subtotal:")
+                    .font(.callout).bold()
                 Spacer()
-                Text(viewModel.totalPrice)
-                    .font(.title2).bold()
+                Text(subtotal.priceFormatter(with: currency))
+                    .font(.subheadline).bold()
                     .foregroundColor(.orange)
             }
-            .padding(.horizontal)
 
+            // Taxes
+            if taxes > 0 {
+                HStack {
+                    Text("Taxes:")
+                        .font(.callout).bold()
+                    Spacer()
+                    Text(taxes.priceFormatter(with: currency))
+                        .font(.subheadline).bold()
+                        .foregroundColor(.orange)
+                }
+            }
+
+            // Discounted price (if any)
             if discountApplied {
-                Text("Discounted Price: \(viewModel.subtotalPrice)")
-                    .font(.body)
-                    .foregroundColor(.green)
-                    .padding(.horizontal)
+                HStack {
+                    Text("Discounted Subtotal:")
+                        .font(.callout).bold()
+                    Spacer()
+                    Text(discountedSubtotal.priceFormatter(with: currency))
+                        .font(.subheadline).bold()
+                        .foregroundColor(.green)
+                }
+
+                HStack {
+                    Text("Total with Taxes:")
+                        .font(.title3).bold()
+                    Spacer()
+                    Text((discountedSubtotal + taxes).priceFormatter(with: currency))
+                        .font(.title3).bold()
+                        .foregroundColor(.green)
+                }
+            } else {
+                // Final Total (no discount)
+                HStack {
+                    Text("Total Price:")
+                        .font(.title3).bold()
+                    Spacer()
+                    Text(total.priceFormatter(with: currency))
+                        .font(.title3).bold()
+                        .foregroundColor(.green)
+                }
             }
         }
+        .padding(.horizontal)
     }
+
 
     func placeOrderButton() -> some View {
         Button("Cash On Delivery") {

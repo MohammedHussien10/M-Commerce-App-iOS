@@ -33,6 +33,8 @@ struct ShoppingCartScreen: View {
                             CartProductRow(
                                 product: product,
                                 cartId: cartId,
+                                exchangeRate: cartViewModel.exchangeRate,
+                                currency: UserDefaults.standard.string(forKey: "selectedCurrency") ?? "USD",
                                 onUpdateQuantity: { lineId, newQuantity in
                                     cartViewModel.updateProductQuantity(cartId: cartId, lineId: lineId, newQuantity: newQuantity)
                                 },
@@ -40,21 +42,28 @@ struct ShoppingCartScreen: View {
                                     cartViewModel.removeProduct(lineId: lineId)
                                 }
                             )
+
+
                         }
                     }.listStyle(PlainListStyle())
                     
                     HStack {
-                                  Text("Total:")
-                                      .font(.title2)
-                                      .bold()
-                                  Spacer()
-                                  Text(
-                                      String(format: "$%.2f", cartViewModel.cartProducts.reduce(0) { $0 + ($1.price * Double($1.quantity)) })
-                                  )
-                                  .font(.title2)
-                                  .foregroundColor(.green)
-                              }
-                              .padding()
+                        Text("Total:")
+                            .font(.title2)
+                            .bold()
+
+                        Spacer()
+
+                        let total = cartViewModel.cartProducts.reduce(0) { $0 + ($1.price * Double($1.quantity)) }
+                        let convertedTotal = total * cartViewModel.exchangeRate
+                        let currency = UserDefaults.standard.string(forKey: "selectedCurrency") ?? "USD"
+
+                        Text(convertedTotal.priceFormatter(with: currency))
+                            .font(.title2)
+                            .foregroundColor(.green)
+                    }
+                    .padding()
+
                 }
                 
                 Button(action:{
@@ -94,7 +103,7 @@ struct ShoppingCartScreen: View {
         }
         .onAppear {
             cartViewModel.loadCartProducts()
-  
+            cartViewModel.fetchExchangeRate()
             Task {
                 await addressViewModel.getAddresses(accessToken: SessionManager.shared.accessToken)
             }

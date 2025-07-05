@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CartProduct: Identifiable {
+struct CartProduct: Identifiable,Equatable {
     let id: String
     let Variantid: String
     var quantity: Int

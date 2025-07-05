@@ -43,9 +43,15 @@ struct Section1: View {
                         .font(.caption)
                 }
                 Spacer()
-                Text(viewModel.price)
-                    .font(.title2)
-                    .foregroundColor(.orange)
+                if let converted = viewModel.convertedPrice {
+                    Text(converted)
+                        .font(.title).foregroundColor(.orange)
+                } else {
+                    ProgressView()
+                           .progressViewStyle(CircularProgressViewStyle(tint: .gray))
+                           .frame(height: 20)
+                }
+
             }
             if !viewModel.sizes.isEmpty{
                             HStack {
@@ -75,7 +81,10 @@ struct Section1: View {
                 }
                 .padding(.vertical)
             }
+        }.onAppear {
+            viewModel.getConvertedPrice()
         }
+
         .padding(.horizontal)
     }
 }
