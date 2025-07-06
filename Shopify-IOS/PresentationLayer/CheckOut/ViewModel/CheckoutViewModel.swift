@@ -56,6 +56,12 @@ final class CheckoutViewModel: ObservableObject {
         if let email = UserDefaults.standard.string(forKey: "CurrentCustomerEmail") {
             draftOrderInput.email = GraphQLNullable.some(email)
         }
+        
+        //add address
+        if let selectedAddress = self.selectedAddress {
+               let addressInput = selectedAddress.toAdminMailingAddressInput()
+               draftOrderInput.shippingAddress = GraphQLNullable.some(addressInput)
+           }
 
         let createDraftOrderMutation = AdminNameSpace.DraftOrderCreateMutation(
             input: draftOrderInput
@@ -104,7 +110,7 @@ final class CheckoutViewModel: ObservableObject {
         }
     }
     
-    func updateDraftOrder(discountCode: String?, address: AdminNameSpace.MailingAddressInput?, completion: @escaping (Bool) -> Void) async {
+    func updateDraftOrder(discountCode: String?, address:AddressModel?, completion: @escaping (Bool) -> Void) async {
         guard let draftOrderID = draftOrder?.id else {
             completion(false)
             return
@@ -135,9 +141,11 @@ final class CheckoutViewModel: ObservableObject {
         }
         
         if let address {
-            draftOrderInput.shippingAddress = GraphQLNullable.some(address)
-            draftOrderInput.billingAddress = GraphQLNullable.some(address)
+            let input = address.toAdminMailingAddressInput()
+            draftOrderInput.shippingAddress = GraphQLNullable.some(input)
+            draftOrderInput.billingAddress = GraphQLNullable.some(input)
         }
+
         
         await MainActor.run {
             self.isLoading = true

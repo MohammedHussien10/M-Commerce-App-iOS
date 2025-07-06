@@ -45,13 +45,29 @@ struct CheckoutScreen: View {
                     .padding(.horizontal)
                 }
                 .padding(.vertical)
+//                .task {
+//                    viewModel.isLoading = true
+//                    async let draftOrderTask: () = viewModel.createDraftOrder()
+//                    async let addressTask: () = viewModel.getAddresses(accessToken: token)
+//                    _ = await (draftOrderTask, addressTask)
+//                    viewModel.isLoading = false
+//                }
+                
+                //send address order
                 .task {
                     viewModel.isLoading = true
-                    async let draftOrderTask: () = viewModel.createDraftOrder()
-                    async let addressTask: () = viewModel.getAddresses(accessToken: token)
-                    _ = await (draftOrderTask, addressTask)
+                    await viewModel.getAddresses(accessToken: token)
+                    
+                    if let defaultAddress = viewModel.addresses.first(where: { $0.isDefault }) {
+                        viewModel.selectedAddress = defaultAddress
+                    } else {
+                        viewModel.selectedAddress = viewModel.addresses.first
+                    }
+
+                    await viewModel.createDraftOrder()
                     viewModel.isLoading = false
                 }
+
                 .onAppear {
                     viewModel.fetchExchangeRate()
                     cartViewModel.fetchExchangeRate()
@@ -158,7 +174,7 @@ private extension CheckoutScreen {
                             promoError = "Please enter a valid promo code."
                         } else {
                             Task {
-                             await viewModel.updateDraftOrder(discountCode: discountCode, address: nil) { success in
+                                await viewModel.updateDraftOrder(discountCode: discountCode, address: viewModel.selectedAddress) { success in
                                     if success {
                                         discountApplied = true
                                         promoError = nil

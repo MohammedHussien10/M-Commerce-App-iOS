@@ -5,6 +5,7 @@
 //  Created by JETS Mobile Lab7 on 24/06/2025.
 //
 import StoreFrontNameSpace
+import AdminNameSpace
 
 extension AddressModel {
     
@@ -79,3 +80,15 @@ extension String {
     }
 }
 
+
+extension AddressModel {
+    func toAdminMailingAddressInput() -> AdminNameSpace.MailingAddressInput {
+        return AdminNameSpace.MailingAddressInput(
+            address1: self.address1.gql,
+            city: self.city.gql,
+            firstName: self.firstName.gql,
+            lastName: self.lastName.gql,
+            phone: self.phone.gql
+        )
+    }
+}
