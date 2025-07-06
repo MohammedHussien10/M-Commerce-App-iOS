@@ -3,7 +3,8 @@ import Kingfisher
 
 struct CartProducts: View {
     let product: CartProduct
-
+    let exchangeRate: Double
+    let currency: String
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
             // Product Image
@@ -41,12 +42,13 @@ struct CartProducts: View {
                 Divider()
                 HStack {
                     Text("Price:")
-                        .font(.custom(Constants.AppFont.regularFont, size: 13))
+                        .font(.custom(Constants.AppFont.regularFont, size: 12))
                         .foregroundColor(.black)
                         .padding(.horizontal)
-                  
-                    Text("\(product.price * Double(product.quantity))".formatAsCurrency()) // ✅ Show price as 23.0
-                        .font(.custom(Constants.AppFont.regularFont, size: 14))
+                    Text(
+                        (product.price * Double(product.quantity) * exchangeRate)
+                            .priceFormatter(with: currency)  )
+                        .font(.custom(Constants.AppFont.regularFont, size: 12))
                         .foregroundColor(.black)
                         .bold()
                 }

@@ -9,7 +9,9 @@ import SwiftUI
 
 struct OrderCard: View {
     let order : Order
-
+    let exchangeRate: Double
+    let currency: String
+    
     var body: some View {
         HStack(spacing: 12) {
             // Static Image
@@ -20,7 +22,7 @@ struct OrderCard: View {
                 .padding(8)
                 .background(Color.gray.opacity(0.2))
                 .cornerRadius(10)
-
+            
             // Order Info
             VStack(alignment: .leading, spacing: 4) {
                 Text(order.name)
@@ -28,7 +30,8 @@ struct OrderCard: View {
                     .foregroundColor(.black)
                 
                 if let amount = order.totalPriceSet?.presentmentMoney.amount {
-                    Text("Total: \(amount.formatAsCurrency())")
+                    let convertedAmount = amount * exchangeRate
+                    Text("Total: \(convertedAmount.priceFormatter(with: currency))")
                         .font(.custom(Constants.AppFont.regularFont, size: 14))
                         .foregroundColor(.black)
                 } else {
@@ -36,13 +39,13 @@ struct OrderCard: View {
                         .font(.custom(Constants.AppFont.regularFont, size: 14))
                         .foregroundColor(.gray)
                 }
-
+                
                 Text("Order ID: \(order.id)")
                     .font(.custom(Constants.AppFont.regularFont, size: 12))
                     .foregroundColor(.gray)
-
-               
-
+                
+                
+                
             }
             .frame(maxWidth: .infinity, alignment: .leading)
         }

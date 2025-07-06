@@ -30,7 +30,7 @@ struct CartProductRow: View {
             VStack(alignment: .leading, spacing: 6) {
                 Text(product.title)
                     .font(.headline)
-
+                
                 Text(product.VariantTitle)
                     .font(.headline)
                 
@@ -45,30 +45,30 @@ struct CartProductRow: View {
                         Image(systemName: "minus.circle")
                     }
                     .buttonStyle(.plain)
-
+                    
                     Text("\(product.quantity)")
                         .padding(.horizontal)
                     
                     Button(action: {
-                                           if product.quantity < 5 {
-                                               onUpdateQuantity(product.id, product.quantity + 1)
-                                           }
-                                       }) {
-                                           Image(systemName: "plus.circle")
-                                               .foregroundColor(product.quantity < 5 ? .blue : .gray)
-                                       }
-                                       .buttonStyle(.plain)
-                                       .disabled(product.quantity >= 5)
+                        if product.quantity < 5 {
+                            onUpdateQuantity(product.id, product.quantity + 1)
+                        }
+                    }) {
+                        Image(systemName: "plus.circle")
+                            .foregroundColor(product.quantity < 5 ? .blue : .gray)
+                    }
+                    .buttonStyle(.plain)
+                    .disabled(product.quantity >= 5)
                     
                     Spacer()
                     Text(
                         (product.price * Double(product.quantity) * exchangeRate)
                             .priceFormatter(with: currency)
                     )
-
+                    
                     Button(action: {
                         showDeleteAlert = true
-                      
+                        
                     }) {
                         Image(systemName: "trash")
                             .foregroundColor(.red)
@@ -81,15 +81,15 @@ struct CartProductRow: View {
         }
         .padding(.vertical, 8)
         .alert(isPresented: $showDeleteAlert) {
-                Alert(
-                    title: Text("Delete Item"),
-                    message: Text("Are you sure you want to remove this item from your cart?"),
-                    primaryButton: .destructive(Text("Delete")) {
-                        onRemove(product.id)
-                    },
-                    secondaryButton: .cancel()
-                )
-            }
+            Alert(
+                title: Text("Delete Item"),
+                message: Text("Are you sure you want to remove this item from your cart?"),
+                primaryButton: .destructive(Text("Delete")) {
+                    onRemove(product.id)
+                },
+                secondaryButton: .cancel()
+            )
+        }
     }
 }
 

@@ -51,7 +51,11 @@ struct ProfileScreen: View {
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack(spacing: 12) {
                                     ForEach(profileViewModel.orders) { order in
-                                        OrderCard(order: order)
+                                        OrderCard(
+                                            order: order,
+                                            exchangeRate: cartViewModel.exchangeRate,
+                                            currency: UserDefaults.standard.string(forKey: "selectedCurrency") ?? "USD"
+                                        )
                                     }
                                 }
                                 .padding(.vertical, 4)

@@ -25,6 +25,7 @@ final class CheckoutViewModel: ObservableObject {
     @Published var subtotalPriceRaw: Double = 0.0
     @Published var discountedSubtotalRaw: Double = 0.0
     @Published var taxesRaw: Double = 0.0
+    @Published var originalSubtotalRaw: Double = 0.0
     var  customerId = UserDefaults.standard.string(
         forKey: "CurrentCustomerID"
     )
@@ -217,32 +218,36 @@ final class CheckoutViewModel: ObservableObject {
         self.subtotalPrice = draftOrder?.subtotalPrice.formatAsCurrency() ?? "0.00".formatAsCurrency()
         self.totalPrice = draftOrder?.totalPrice.formatAsCurrency() ?? "0.00".formatAsCurrency()
         
-        // Subtotal (raw)
-         if let rawSubtotal = draftOrder?.subtotalPrice,
-            let doubleValue = Double(rawSubtotal.filter("0123456789.".contains)) {
-             self.subtotalPriceRaw = doubleValue
-         } else {
-             self.subtotalPriceRaw = 0.0
-         }
+        // Subtotal (raw) after discount
+        if let rawSubtotal = draftOrder?.subtotalPrice,
+           let discounted = Double(rawSubtotal.filter("0123456789.".contains)) {
+            self.subtotalPriceRaw = discounted
+        } else {
+            self.subtotalPriceRaw = 0.0
+        }
 
-         // Taxes (raw)
-         if let rawTaxes = draftOrder?.totalTax,
-            let taxDouble = Double(rawTaxes.filter("0123456789.".contains)) {
-             self.taxesRaw = taxDouble
-         } else {
-             self.taxesRaw = 0.0
-         }
+        // Taxes
+        if let rawTaxes = draftOrder?.totalTax,
+           let taxDouble = Double(rawTaxes.filter("0123456789.".contains)) {
+            self.taxesRaw = taxDouble
+        } else {
+            self.taxesRaw = 0.0
+        }
 
-         // Total (raw)
-         var totalPriceRaw: Double = 0.0
-         if let rawTotal = draftOrder?.totalPrice,
-            let totalDouble = Double(rawTotal.filter("0123456789.".contains)) {
-             totalPriceRaw = totalDouble
-         }
+        // Total
+        var totalPriceRaw: Double = 0.0
+        if let rawTotal = draftOrder?.totalPrice,
+           let totalDouble = Double(rawTotal.filter("0123456789.".contains)) {
+            totalPriceRaw = totalDouble
+        }
 
-         // discountedSubtotalRaw
+        // Discounted subtotal = total - taxes
+        self.discountedSubtotalRaw = totalPriceRaw - self.taxesRaw
 
-         self.discountedSubtotalRaw = totalPriceRaw - self.taxesRaw
+        //  original total
+        if self.originalSubtotalRaw == 0.0 {
+            self.originalSubtotalRaw = self.discountedSubtotalRaw
+        }
     }
     
     @MainActor

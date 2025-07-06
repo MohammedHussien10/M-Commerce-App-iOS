@@ -1,3 +1,4 @@
+
 //
 //  CheckoutScreen.swift
 //  Shopify-IOS
@@ -53,6 +54,7 @@ struct CheckoutScreen: View {
                 }
                 .onAppear {
                     viewModel.fetchExchangeRate()
+                    cartViewModel.fetchExchangeRate()
                     configureScreen() // Make this synchronous
                 }
             }
@@ -115,7 +117,7 @@ private extension CheckoutScreen {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 16) {
                         ForEach(viewModel.cartProducts, id: \.id) { product in
-                            CartProducts(product: product)
+                            CartProducts(product: product,exchangeRate:cartViewModel.exchangeRate,currency: UserDefaults.standard.string(forKey: "selectedCurrency") ?? "USD")
                                 .frame(height: 250)
                         }
                     }
@@ -146,6 +148,7 @@ private extension CheckoutScreen {
                             discountApplied = false
                             discountCode = ""
                             promoError = nil
+                            viewModel.originalSubtotalRaw = 0.0
                         }
                     }
                     .buttonStyle(PrimaryButtonStyle())
@@ -190,65 +193,66 @@ private extension CheckoutScreen {
     func totalPriceSection() -> some View {
         VStack(alignment: .leading, spacing: 12) {
             let currency = UserDefaults.standard.string(forKey: "selectedCurrency") ?? "USD"
-            let subtotal = viewModel.subtotalPriceRaw * viewModel.exchangeRate
+            let subtotal = viewModel.originalSubtotalRaw * viewModel.exchangeRate
             let taxes = viewModel.taxesRaw * viewModel.exchangeRate
-            let total = subtotal + taxes
             let discountedSubtotal = viewModel.discountedSubtotalRaw * viewModel.exchangeRate
-
+            let total = discountedSubtotal + taxes
+            let discountValue = subtotal - discountedSubtotal
+            
             // Subtotal
             HStack {
-                Text("Subtotal:")
+                Text("Original Subtotal:")
                     .font(.callout).bold()
                 Spacer()
                 Text(subtotal.priceFormatter(with: currency))
-                    .font(.subheadline).bold()
-                    .foregroundColor(.orange)
+                   .font(.subheadline).bold()
+                   .foregroundColor(.gray)
+                   .strikethrough(discountApplied)
             }
-
-            // Taxes
-            if taxes > 0 {
-                HStack {
-                    Text("Taxes:")
-                        .font(.callout).bold()
-                    Spacer()
-                    Text(taxes.priceFormatter(with: currency))
-                        .font(.subheadline).bold()
-                        .foregroundColor(.orange)
+     
+                    if discountApplied && discountValue > 0 {
+                        HStack {
+                            Text("Discount:")
+                                .font(.callout).bold()
+                            Spacer()
+                            Text("-" + discountValue.priceFormatter(with: currency))
+                                .font(.subheadline).bold()
+                                .foregroundColor(.red)
+                        }
+                    }
+          
+                    if discountApplied {
+                        HStack {
+                            Text("Discounted Subtotal:")
+                                .font(.callout).bold()
+                            Spacer()
+                            Text(discountedSubtotal.priceFormatter(with: currency))
+                                .font(.subheadline).bold()
+                                .foregroundColor(.green)
+                        }
+                    }
+         
+                    if taxes > 0 {
+                        HStack {
+                            Text("Taxes:")
+                                .font(.callout).bold()
+                            Spacer()
+                            Text(taxes.priceFormatter(with: currency))
+                                .font(.subheadline).bold()
+                                .foregroundColor(.orange)
+                        }
+                    }
+  
+                    HStack {
+                        Text("Total with Taxes:")
+                            .font(.title3).bold()
+                        Spacer()
+                        Text(total.priceFormatter(with: currency))
+                            .font(.title3).bold()
+                            .foregroundColor(.orange)
+                    }
                 }
-            }
-
-            // Discounted price (if any)
-            if discountApplied {
-                HStack {
-                    Text("Discounted Subtotal:")
-                        .font(.callout).bold()
-                    Spacer()
-                    Text(discountedSubtotal.priceFormatter(with: currency))
-                        .font(.subheadline).bold()
-                        .foregroundColor(.green)
-                }
-
-                HStack {
-                    Text("Total with Taxes:")
-                        .font(.title3).bold()
-                    Spacer()
-                    Text((discountedSubtotal + taxes).priceFormatter(with: currency))
-                        .font(.title3).bold()
-                        .foregroundColor(.green)
-                }
-            } else {
-                // Final Total (no discount)
-                HStack {
-                    Text("Total Price:")
-                        .font(.title3).bold()
-                    Spacer()
-                    Text(total.priceFormatter(with: currency))
-                        .font(.title3).bold()
-                        .foregroundColor(.green)
-                }
-            }
-        }
-        .padding(.horizontal)
+                .padding(.horizontal)
     }
 
 
@@ -459,3 +463,5 @@ struct ApplePayButtonWrapper: UIViewRepresentable {
         }
     }
 }
+
+
