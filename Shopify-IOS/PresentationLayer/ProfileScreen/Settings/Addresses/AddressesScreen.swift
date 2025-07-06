@@ -16,6 +16,7 @@ struct AddressesScreen: View {
     @State private var selectedAddress: AddressModel? = nil
     @State private var showDeleteAlert = false
     @State private var addressToDelete: AddressModel? = nil
+    @State private var showEditAddress = false
     let token = SessionManager.shared.accessToken
     
     var body: some View {
@@ -34,7 +35,8 @@ struct AddressesScreen: View {
                                     viewModel: viewModel,
                                     addressToDelete: $addressToDelete,
                                     showDeleteAlert: $showDeleteAlert,
-                                    selectedAddress: $selectedAddress
+                                    selectedAddress: $selectedAddress,
+                                    showEditAddress: $showEditAddress
                                 )
                             }
                         }
@@ -86,9 +88,16 @@ struct AddressesScreen: View {
             .sheet(isPresented: $showAddAddress) {
                 AddAddressScreen(viewModel: viewModel)
             }
-            .sheet(item: $selectedAddress) { address in
-                EditAddressScreen(address: address, viewModel: viewModel)
+            .sheet(isPresented: $showEditAddress, onDismiss: {
+                Task {
+                    await viewModel.getAddresses(accessToken: token)
+                }
+            }) {
+                if let address = selectedAddress {
+                    EditAddressScreen(address: address, viewModel: viewModel)
+                }
             }
+
             .alert(isPresented: Binding<Bool>(
                 get: { viewModel.errorMessage != nil },
                 set: { _ in viewModel.errorMessage = nil }

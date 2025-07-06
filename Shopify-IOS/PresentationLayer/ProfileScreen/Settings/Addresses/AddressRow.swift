@@ -14,7 +14,7 @@ struct AddressRow: View {
     @Binding var addressToDelete: AddressModel?
     @Binding var showDeleteAlert: Bool
     @Binding var selectedAddress: AddressModel?
-
+    @Binding var showEditAddress: Bool
     var body: some View {
         AddressCell(address: address)
             .swipeActions {
@@ -27,9 +27,14 @@ struct AddressRow: View {
 
                 Button {
                     selectedAddress = address
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        showEditAddress = true
+                        
+                    }
                 } label: {
                     Label("Edit", systemImage: "pencil")
                 }
+
 
                 Button {
                     viewModel.makeDefaultAddress(id: address.id, accessToken: token)

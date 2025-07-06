@@ -143,7 +143,6 @@ final class CheckoutViewModel: ObservableObject {
         if let address {
             let input = address.toAdminMailingAddressInput()
             draftOrderInput.shippingAddress = GraphQLNullable.some(input)
-            draftOrderInput.billingAddress = GraphQLNullable.some(input)
         }
 
         

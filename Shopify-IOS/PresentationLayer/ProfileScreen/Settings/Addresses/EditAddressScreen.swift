@@ -95,7 +95,15 @@ struct EditAddressScreen: View {
         )
 
         viewModel.updateAddress(id: address.id, newAddress: input, token: userToken)
-        dismiss()
+
+        Task {
+            await viewModel.getAddresses(accessToken: userToken)
+            DispatchQueue.main.async {
+                dismiss()
+            }
+        }
+
+
     }
 }
 
