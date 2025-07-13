@@ -14,20 +14,21 @@ struct BrandsHeader: View {
                 Text("Brands")
                     .font(.custom(Constants.AppFont.boldFont, size: UIScreen.main.bounds.width * 0.065))
                     .padding(.bottom, -1)
+                    .foregroundColor(Color.forText)
                     .bold()
                 Text("Top picks for you")
                     .font(.custom(Constants.AppFont.boldFont, size: UIScreen.main.bounds.width * 0.04))
-                    .foregroundColor(.gray)
+                    .foregroundColor(Color.gray)
             }
             Spacer()
             Image("brand")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 30, height: 30)
-        }
+        }.background(Color.forBackground)
     }
 }
 
 #Preview {
-    BrandsHeader()
+    BrandsHeader().environment(\.colorScheme, .dark)
 }

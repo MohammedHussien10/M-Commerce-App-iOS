@@ -16,10 +16,11 @@ struct Section3: View {
         VStack(alignment: .leading, spacing: 8) {
             Text("Description")
                 .font(.headline)
-
+                .foregroundColor(.forText)
             ScrollView(.vertical) {
                 Text(viewModel.description)
                     .font(.body)
+                    .foregroundColor(.forText)
             }
             .frame(minHeight: 100)
             Button(action: {
@@ -56,6 +57,7 @@ struct Section3: View {
             }
         }.disabled(viewModel.isOutOfStock)
         .padding(.horizontal)
+        .background(Color.forBackground)
     }
 }
 //extension Section3 {

@@ -22,6 +22,7 @@ struct ProductDetailsView: View {
         ScrollView {
             if viewModel.isLoading {
                 ProgressView("Loading product details...")
+                    .foregroundColor(Color.forText)
             } else if let error = viewModel.errorMessage {
                 Spacer()
                 Text("Error: \(error)")
@@ -36,6 +37,7 @@ struct ProductDetailsView: View {
                 }.padding(.bottom, 100)
             }
         }
+        .background(Color.forBackground.ignoresSafeArea()) 
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
         .onAppear {

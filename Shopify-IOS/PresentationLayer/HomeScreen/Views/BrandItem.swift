@@ -22,11 +22,12 @@ struct BrandItem: View {
 
             Text(collection.title.uppercased())
                 .fontWeight(.light)
-                .foregroundColor(.black)
+                .foregroundColor(Color.forText)
 
             Spacer()
         }
-        .padding()
-        .cornerRadius(10)
+        .padding(8)
+           .background(Color.forBackground)
+           .cornerRadius(12)
     }
 }

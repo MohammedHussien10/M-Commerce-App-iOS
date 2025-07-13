@@ -17,11 +17,15 @@ struct Shopify_IOSApp: App {
              repository: RepositoryImp(remoteDataSource: RemoteDataSource())
          )
      )
+    @StateObject private var themeViewModel = ThemeViewModel() // add dark mode
     var body: some Scene {
         WindowGroup {
             RootView()
+                .preferredColorScheme(themeViewModel.isDarkMode ? .dark : .light)
+                          .animation(.easeInOut, value: themeViewModel.isDarkMode)
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .environmentObject(cartViewModel)
+                .environmentObject(themeViewModel)
         }
     }
 }

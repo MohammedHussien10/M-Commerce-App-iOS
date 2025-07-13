@@ -45,7 +45,7 @@ struct Coupons: View {
                     }
                 }
                 ).padding(.horizontal)
-                  
+                    .background(Color.forBackground)
                  
             }
    }.onAppear{

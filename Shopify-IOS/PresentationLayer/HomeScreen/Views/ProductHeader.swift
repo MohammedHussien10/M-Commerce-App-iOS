@@ -14,9 +14,10 @@ struct ProductHeader: View {
                 Text("Trending")
                     .font(.custom(Constants.AppFont.boldFont, size: UIScreen.main.bounds.width * 0.06))
                     .padding(.bottom, -1)
+                    .foregroundColor(.forText)
                 Text("You have never seen it before")
                     .font(.custom(Constants.AppFont.boldFont, size: UIScreen.main.bounds.width * 0.04))
-                    .foregroundColor(.gray)
+                    .foregroundColor(.gray.opacity(0.7))
             }
             Spacer()
             Image("fire")
@@ -24,9 +25,11 @@ struct ProductHeader: View {
                 .scaledToFit()
                 .frame(width: 30, height: 30)
         }
+        .padding(.horizontal)
+        .background(Color.clear)
     }
 }
 
 #Preview {
-    ProductHeader()
+    ProductHeader().background(Color.forBackground)
 }

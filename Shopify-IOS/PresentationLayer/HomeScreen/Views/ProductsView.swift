@@ -27,10 +27,11 @@ struct ProductsView: View {
                       .padding()
                   Text("No Products Found")
                       .font(.headline)
-                      .foregroundColor(.gray)
+                      .foregroundColor(.forText)
                   Spacer()
               }
               .frame(maxWidth: .infinity, maxHeight: .infinity)
+              .background(Color.forBackground)
           } else {
               ScrollView {
                   LazyVGrid(columns: columns, spacing:15) {
@@ -38,7 +39,7 @@ struct ProductsView: View {
                           ProductItem(product: product, isTabBarHidden: $isTabBarHidden)
                       }
                   }.padding()
-              }
+              }  .background(Color.forBackground)
           }
       }
 }

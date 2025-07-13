@@ -6,3 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
+final class ThemeViewModel: ObservableObject {
+    @AppStorage("isDarkMode") var isDarkMode: Bool = false
+}

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct BrandList: View {
+    @EnvironmentObject var themeViewModel: ThemeViewModel
     let collections: [CollectionModel]
     let rows = [
            GridItem(.flexible()),
@@ -30,6 +31,7 @@ struct BrandList: View {
              .frame(height: UIScreen.main.bounds.width * 0.55)
              .padding(.vertical, 10)
          }
+        .background(Color.forBackground)
     }
 }
 

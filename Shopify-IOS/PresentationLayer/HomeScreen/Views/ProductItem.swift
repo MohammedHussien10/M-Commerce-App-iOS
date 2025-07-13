@@ -41,7 +41,7 @@ struct ProductItem: View {
                         let parts = product.title.split(separator: "|")
                         Text(parts.count > 4 ? String(parts[1]) : product.title)
                             .font(.system(size: 16, weight: .medium))
-                            .foregroundColor(.black)
+                            .foregroundColor(.forText)
                             .lineLimit(1)
                             .layoutPriority(1)
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -57,7 +57,7 @@ struct ProductItem: View {
                         if let convertedPrice = convertedPrice {
                             Text(convertedPrice)
                                 .font(.system(size: 16, weight: .bold))
-                                .foregroundColor(.black)
+                                .foregroundColor(.forText)
                                 .lineLimit(1)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                         } else {
@@ -71,7 +71,7 @@ struct ProductItem: View {
             }
             .padding()
             .frame(width: 170, height: 210) // reduced bottom space
-            .background(Color.white)
+            .background(Color.forBackground)
             .cornerRadius(25)
             .overlay(
                 RoundedRectangle(cornerRadius: 25)

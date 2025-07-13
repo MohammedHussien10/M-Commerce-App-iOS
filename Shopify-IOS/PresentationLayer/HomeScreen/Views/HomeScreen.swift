@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeScreen: View {
+    @EnvironmentObject var themeViewModel: ThemeViewModel  // add dark mode
     @StateObject private var viewModel = HomeViewModel()
     @EnvironmentObject var cartViewModel: CartViewModel
     @State private var showSearchView = false
@@ -30,10 +31,27 @@ struct HomeScreen: View {
                         })
 
                     // Example visible content
-                    Text("Welcome to Genie!")
-                        .font(.title2)
-                        .frame(alignment: .trailing)
-                        .bold()
+                    HStack(spacing: 16) {
+                        Text("Welcome to Genie!")
+                            .font(.title2)
+                            .foregroundColor(Color.forText)
+                            .frame(alignment: .center)
+                            .bold()
+            
+                        Spacer()
+                        Button(action: {
+                            withAnimation {
+                                themeViewModel.isDarkMode.toggle()
+                            }
+                        }) {
+                            Image(systemName: themeViewModel.isDarkMode ? "sun.max.fill" : "moon.fill")
+                                .font(.title3)
+                                .foregroundColor(.orange)
+                                .padding(8)
+                                .background(Color.forToggleButtonBackground)
+                                .clipShape(Circle())
+                        }
+                    }
 
                     Coupons()
                     if viewModel.isLoading {
@@ -64,8 +82,9 @@ struct HomeScreen: View {
                 }
                 .padding()
             }
+            .background(Color.forBackground)
             Rectangle()
-              .fill(Color.white.opacity(0.2))
+            .fill(Color.forBackground.opacity(0.2))
               .frame(height: 65)
                              
             .onAppear {

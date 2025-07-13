@@ -34,12 +34,13 @@ struct SearchView: View {
                     }
                     .padding(.horizontal, 12)
                     .padding(.vertical, 6)
-                    .background(Color(.systemGray6))
+                    .background(Color.forText.opacity(0.07))
                     .cornerRadius(20)
                     .shadow(color: Color.black.opacity(0.05), radius: 4, x: 0, y: 2)
                 VStack(alignment: .leading) {
                     Text("Max Price: \(Int(viewModel.currentMaxPrice)) ")
                         .font(.subheadline)
+                        .foregroundColor(.forText)
                         .padding(.horizontal)
 
                     Slider(value: $viewModel.currentMaxPrice, in: 0...viewModel.maxPrice, step: 1)
@@ -70,7 +71,7 @@ struct SearchView: View {
                             .padding(.horizontal)
                     }
                 }
-            }
+            }.padding().background(Color.forBackground)
             .onAppear{
                 let appearance = UINavigationBarAppearance()
                   appearance.titleTextAttributes = [

@@ -19,22 +19,30 @@ struct imge: View {
                 .frame(width: UIScreen.main.bounds.width * 0.90 ,height: UIScreen.main.bounds.width * 0.50 )
                 .scaledToFit()
                 .cornerRadius(25)
+                .overlay(
+                          Color.black.opacity(0.4)
+                              .cornerRadius(25)
+                      )
             VStack{
                 HStack{
                     Text(CoverImage.title)
                         .font(.custom(Constants.AppFont.boldFont, size: 30))
+                        .foregroundColor(.forText)
                     Spacer()
                 }.padding(.leading,24)
                 HStack{
                     Text(CoverImage.des)
                         .font(.custom(Constants.AppFont.regularFont, size: 20))
+                        .foregroundColor(.forText)
                     Spacer()
                 }.padding(.leading,20)
                 HStack{
                     Text("With code:")
                         .font(.custom(Constants.AppFont.lightFont, size: 15))
+                        .foregroundColor(.forText)
                     Text(CoverImage.code)
                         .font(.custom(Constants.AppFont.lightFont, size: 15))
+                        .foregroundColor(.forText)
                     Spacer()
                 }.padding(.leading,26)
             }

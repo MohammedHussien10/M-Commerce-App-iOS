@@ -24,7 +24,7 @@ struct HeaderWithIconAndLogo: View {
                 Image(systemName: leftIcon)
                     .resizable()
                     .frame(width: 25, height: 25)
-                    .foregroundColor(Constants.AppColor.primaryColor)
+                    .foregroundColor(.forText)
             }
 
             Spacer()
@@ -32,7 +32,7 @@ struct HeaderWithIconAndLogo: View {
                 // Logo (center)
                 Text("Gen")
                       .font(.title2)
-                      .foregroundColor(Constants.AppColor.primaryColor)
+                      .foregroundColor(.forText)
                       .bold()
                 Image("three")
                     .resizable()
@@ -40,7 +40,7 @@ struct HeaderWithIconAndLogo: View {
                     .frame(width: 24, height: 24)
                 Text("ie")
                       .font(.title2)
-                      .foregroundColor(Constants.AppColor.primaryColor)
+                      .foregroundColor(.forText)
                       .bold()
             }
             Spacer()
@@ -56,6 +56,6 @@ struct HeaderWithIconAndLogo: View {
             }
         }
         .frame(height: 40)
-        .background(Color.white.shadow(radius: 1))
+        .background(Color.forBackground.shadow(radius: 1))
     }
 }

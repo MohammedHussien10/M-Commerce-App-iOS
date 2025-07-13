@@ -33,6 +33,7 @@ struct Section1: View {
             Text(viewModel.title)
                 .font(.title3)
                 .bold()
+                .foregroundColor(Color.forText)
             HStack(){
                 HStack(spacing: 4) {
                     ForEach(0..<5) { i in
@@ -41,6 +42,7 @@ struct Section1: View {
                     }
                     Text("(\(String(format: "%.1f", 4.6)))")
                         .font(.caption)
+                        .foregroundColor(Color.forText)
                 }
                 Spacer()
                 if let converted = viewModel.convertedPrice {
@@ -57,10 +59,11 @@ struct Section1: View {
                             HStack {
                                 Text("Sizes:")
                                     .font(.subheadline)
-
+                                    .foregroundColor(Color.forText)
                                 Picker("Sizes", selection: $selectedSize) {
                                     ForEach(viewModel.sizes, id: \.self) { size in
-                                        Text(size).tag(size)
+                                        Text(size).foregroundColor(Color.forText).tag(size)
+                                            
                                     }
                                 }
                                 .pickerStyle(.segmented)
@@ -71,10 +74,10 @@ struct Section1: View {
                 HStack {
                     Text("Available Colors:")
                         .font(.subheadline)
-                    
+                        .foregroundColor(Color.forText)
                     Picker("Available Colors", selection: $selectedColor) {
                         ForEach(viewModel.colorOptions, id: \.self) { color in
-                            Text(color).tag(color)
+                            Text(color) .foregroundColor(Color.forText).tag(color)
                         }
                     }
                     .pickerStyle(.segmented)
