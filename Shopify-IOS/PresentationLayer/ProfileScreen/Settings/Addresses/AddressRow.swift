@@ -36,12 +36,7 @@ struct AddressRow: View {
                 }
 
 
-                Button {
-                    viewModel.makeDefaultAddress(id: address.id, accessToken: token)
-                } label: {
-                    Label("Default", systemImage: "star")
-                }
-                .tint(.yellow)
             }
+
     }
 }

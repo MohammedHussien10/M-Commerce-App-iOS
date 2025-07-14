@@ -42,67 +42,75 @@ class AddressViewModel: ObservableObject {
             }
         }
     }
-
-
+    
+    
     
     func deleteAddress(id: String, token: String) {
-            useCase.delete(id: id, token: token) { result in
-                DispatchQueue.main.async {
-                    switch result {
-                    case .success(let deletedId):
-                        self.addresses.removeAll { $0.id == deletedId }
-                    case .failure(let error):
-                        self.errorMessage = error.localizedDescription
+        useCase.delete(id: id, token: token) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let deletedId):
+                    let wasDefault = self.addresses.first(where: { $0.id == deletedId })?.isDefault ?? false
+                    self.addresses.removeAll { $0.id == deletedId }
+                    if wasDefault, let firstAddress = self.addresses.first {
+                        self.makeDefaultAddress(id: firstAddress.id, accessToken: token)
+                        
+                        Task {
+                            await self.getAddresses(accessToken: token)
+                        }
                     }
+                case .failure(let error):
+                    self.errorMessage = error.localizedDescription
                 }
             }
         }
+    }
     
     func updateAddress(id: String, newAddress: MailingAddressInput, token: String) {
-            useCase.updateAddress(id: id, address: newAddress, token: token) { result in
-                DispatchQueue.main.async {
-                    switch result {
-                    case .success(let updatedAddress):
-                        let model = AddressModel(
-                            id: updatedAddress.id,
-                            firstName: updatedAddress.firstName,
-                            lastName: updatedAddress.lastName,
-                            address1: updatedAddress.address1 ,
-                            city: updatedAddress.city,
-                            country: updatedAddress.country,
-                            phone: updatedAddress.phone
-                        )
-
-                        if let index = self.addresses.firstIndex(where: { $0.id == model.id }) {
-                            self.addresses[index] = model
-                        }
-                    case .failure(let error):
-                        self.errorMessage = error.localizedDescription
+        useCase.updateAddress(id: id, address: newAddress, token: token) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let updatedAddress):
+                    let model = AddressModel(
+                        id: updatedAddress.id,
+                        firstName: updatedAddress.firstName,
+                        lastName: updatedAddress.lastName,
+                        address1: updatedAddress.address1 ,
+                        city: updatedAddress.city,
+                        country: updatedAddress.country,
+                        phone: updatedAddress.phone
+                    )
+                    
+                    if let index = self.addresses.firstIndex(where: { $0.id == model.id }) {
+                        self.addresses[index] = model
                     }
+                case .failure(let error):
+                    self.errorMessage = error.localizedDescription
                 }
             }
         }
-
+    }
+    
     
     func makeDefaultAddress(id: String, accessToken: String) {
-            isLoading = true
-            useCase.updateDefaultAddress(id: id, accessToken: accessToken) { [weak self] result in
-                DispatchQueue.main.async {
-                    self?.isLoading = false
-                    switch result {
-                    case .success:
-                        print("Default address updated")
-                    case .failure(let error):
-                        self?.errorMessage = error.localizedDescription
-                    }
+        isLoading = true
+        useCase.updateDefaultAddress(id: id, accessToken: accessToken) { [weak self] result in
+            DispatchQueue.main.async {
+                self?.isLoading = false
+                switch result {
+                case .success:
+                    print("Default address updated")
+                case .failure(let error):
+                    self?.errorMessage = error.localizedDescription
                 }
             }
         }
+    }
     
     @MainActor
     func getAddresses(accessToken: String) async {
         let query = GetAddressesQuery(accessToken: accessToken)
-
+        
         await withCheckedContinuation { continuation in
             NetworkManager.sharedStoreFront.queryGraphQLRequest(query: query) { [weak self] result in
                 guard let self = self else {
@@ -120,7 +128,7 @@ class AddressViewModel: ObservableObject {
                 case .failure(let error):
                     self.errorMessage = error.localizedDescription
                 }
-
+                
                 continuation.resume()
             }
         }

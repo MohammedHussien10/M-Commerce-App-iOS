@@ -37,8 +37,10 @@ struct AddressesScreen: View {
                                     showDeleteAlert: $showDeleteAlert,
                                     selectedAddress: $selectedAddress,
                                     showEditAddress: $showEditAddress
-                                ) .listRowBackground(Color.forBackground)
+                                )
+                                .listRowBackground(Color.forBackground)
                             }
+
                         }
 
                         .scrollContentBackground(.hidden)
