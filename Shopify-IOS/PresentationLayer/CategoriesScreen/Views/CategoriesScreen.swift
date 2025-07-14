@@ -20,6 +20,7 @@ struct CategoriesScreen: View {
     var body: some View {
         if(viewModel.isLoading){
             ProgressView("Loading products...")
+                .foregroundColor(.forText)
         }else{
             VStack {
                 Spacer()
@@ -27,10 +28,10 @@ struct CategoriesScreen: View {
                     // Search Bar
                     HStack {
                         Image(systemName: "magnifyingglass")
-                            .foregroundColor(.gray)
+                            .foregroundColor(Color.gray.opacity(0.6))
                         
                         TextField("Search...", text: $searchText)
-                            .foregroundColor(.primary)
+                            .foregroundColor(.forText)
                             .onChange(of: searchText) { newValue in
                                 viewModel.searchProducts(query: newValue)
                             }
@@ -40,13 +41,13 @@ struct CategoriesScreen: View {
                                 searchText = ""
                             }) {
                                 Image(systemName: "xmark.circle.fill")
-                                    .foregroundColor(.gray)
+                                    .foregroundColor(Color.gray.opacity(0.6))
                             }
                         }
                     }
                     .padding(.vertical, 10)
                     .padding(.horizontal)
-                    .background(Color(.systemGray6))
+                    .background(Color.forBackground)
                     .cornerRadius(10)
                     
                     // Filter Button
@@ -57,7 +58,7 @@ struct CategoriesScreen: View {
                             .font(.title2)
                             .foregroundColor(Constants.AppColor.primaryColor)
                             .padding(10)
-                            .background(Color(.systemGray6))
+                            .background(Color.forBackground)
                             .cornerRadius(10)
                     }
                     Button(action: {
@@ -67,7 +68,7 @@ struct CategoriesScreen: View {
                               .font(.title2)
                               .foregroundColor(Constants.AppColor.primaryColor)
                               .padding(10)
-                              .background(Color(.systemGray6))
+                              .background(Color.forBackground)
                               .cornerRadius(10)
                       }
                 }
@@ -81,12 +82,13 @@ struct CategoriesScreen: View {
                     HStack {
                         Text("category")
                             .font(.largeTitle.bold())
-                            .foregroundStyle(Constants.AppColor.primaryColor)
+                            .foregroundColor(Color.forText)
                         
                         Text("Recommended")
                             .fontWeight(.semibold)
                             .padding(.leading, 15)
-                            .foregroundColor(.gray)
+                            .foregroundColor(Color.gray.opacity(0.6))
+
                             .offset(y: 2)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -97,20 +99,22 @@ struct CategoriesScreen: View {
                 }
                 ScrollView(.vertical, showsIndicators: false, content: {
                     VStack(spacing: 0) {
+                        Color.forBackground.ignoresSafeArea()
                         if(viewModel.products.count == 0){
                             VStack {
                                 Spacer()
-                                Rectangle()
-                                  .fill(Color.white.opacity(0.2))
-                                  .frame(height: 100)
+//                                Rectangle()
+//                                  .fill(Color.white.opacity(0.2))
+//                                  .frame(height: 100)
                                 Image("out-of-stock")
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 200, height: 200)
                                     .padding()
+                                    .background(Color.forBackground)
                                 Text("No Products Found")
                                     .font(.headline)
-                                    .foregroundColor(.gray)
+                                    .foregroundColor(.forText)
                                 Spacer()
                             }
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -121,11 +125,14 @@ struct CategoriesScreen: View {
                 }
                 )}.ignoresSafeArea(.all, edges: .top)
                 .padding(.bottom, 65)
+                .background(Color.forBackground)
                 .partialSheet(presented: $isModalPresented) {
                     VStack {
+                        
                         Text("Filter By")
                             .font(.headline)
                             .padding()
+                            .foregroundColor(.forText)
                         
                         VStack(alignment: .leading) {
                             ScrollView{
@@ -138,16 +145,19 @@ struct CategoriesScreen: View {
                                         Text(value)
                                             .font(.custom(Constants.AppFont.semiBoldFont, size: 15))
                                             .padding()
-                                            .foregroundColor(viewModel.filterBy == value ? Constants.AppColor.primaryColor  : Color.black)
-                                            .font(.body)
+                                            .foregroundColor(viewModel.filterBy == value ? Constants.AppColor.primaryColor : .forText)
+                                        
                                         Spacer()
-                                    }.frame(height: 40)
+                                    } .padding(.horizontal)
+                                        .background(Color.forBackground)
 
                                 }
-                                Spacer()
+                              
                             }
-                        }.padding(.leading, 10)
-                    }.frame(height: 350)
+                        }.padding(.bottom, 10)
+                            .background(Color.forBackground)
+                    }  .frame(height: 350)
+                        .background(Color.forBackground)
                 }.partialSheet(presented: $isPriceFilterPresented) {
                     VStack {
                         Text("Select Price Range")
@@ -156,7 +166,7 @@ struct CategoriesScreen: View {
 
                         Text("From \(Int(viewModel.selectedPriceRange.lowerBound)) to \(Int(viewModel.selectedPriceRange.upperBound))")
                             .font(.caption)
-                            .foregroundColor(.gray)
+                            .foregroundColor(Color.gray.opacity(0.6))
                             .padding(.bottom, 5)
 
                         RangeSliderView(range: $viewModel.selectedPriceRange, bounds: viewModel.allProductsPriceRange)
@@ -173,19 +183,19 @@ struct CategoriesScreen: View {
                         .cornerRadius(10)
                         .padding()
                         Rectangle()
-                          .fill(Color.white.opacity(0.2))
+                            .fill(Color.forBackground.opacity(0.2))
                           .frame(height: 50)
                     }
                     .frame(height: 350)
                     
-                   
+                    .background(Color.forBackground)
                 }
                 .onAppear(){
                     viewModel.onAppearView()
                     
                 }
             Rectangle()
-              .fill(Color.white.opacity(0.2))
+                .fill(Color.forBackground.opacity(0.2))
               .frame(height: 50)
         }
     }
@@ -205,7 +215,7 @@ struct CategoriesScreen: View {
                                     .matchedGeometryEffect(id: "ACTIVETAG", in: animation) // Added
                             } else {
                                 Capsule()
-                                    .fill(.gray.opacity(0.2))
+                                    .fill(Color.forBackground.opacity(0.3))
                             }
                         }
                         .foregroundColor(viewModel.activeTag == tag ? .white : .gray)

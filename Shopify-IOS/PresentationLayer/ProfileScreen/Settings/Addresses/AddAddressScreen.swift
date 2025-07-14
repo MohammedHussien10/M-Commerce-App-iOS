@@ -28,14 +28,17 @@ struct AddAddressScreen: View {
             Form {
                 Section(header: Text("Personal Info")) {
                     TextField("First Name", text: $firstName)
+                        .foregroundColor(.forText)
                     TextField("Last Name", text: $lastName)
+                        .foregroundColor(.forText)
                     TextField("Phone", text: $phone)
                         .keyboardType(.phonePad)
+                        .foregroundColor(.forText)
                 }
 
                 Section(header: Text("Address Info")) {
                                    TextField("Address", text: $address1)
-
+                        .foregroundColor(.forText)
                                    Picker("City", selection: $city) {
                                        ForEach(LocationConstants.egyptGovernorates, id: \.self) { governorate in
                                            Text(governorate).tag(governorate)
@@ -59,23 +62,37 @@ struct AddAddressScreen: View {
                         .padding()
                         .background(Color.orange)
                         .cornerRadius(12)
-                }
+                }   .listRowBackground(Color.clear)
             }
+            .scrollContentBackground(.hidden)
+            .background(Color.forBackground)
             .navigationTitle("Add New Address")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbarBackground(Color.forBackground, for: .navigationBar)
             .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") {
-                        dismiss()
+                            ToolbarItem(placement: .navigationBarLeading) {
+                                Button {
+                                    dismiss()
+                                } label: {
+                                    Image(systemName: "chevron.left")
+                                        .foregroundColor(.orange)
+                                        .font(.system(size: 18, weight: .bold))
+                                }
+                            }
+                            ToolbarItem(placement: .principal) {
+                                Text("Add New Address")
+                                    .font(.system(size: 20, weight: .bold))
+                                    .foregroundColor(.orange)
+                            }
+                        }
+                        .alert(isPresented: $showAlert) {
+                            Alert(
+                                title: Text("Missing Information"),
+                                message: Text(alertMessage),
+                                dismissButton: .default(Text("OK"))
+                            )
+                        }
                     }
-                }
-            }       .alert(isPresented: $showAlert) {
-                Alert(
-                    title: Text("Missing Information"),
-                    message: Text(alertMessage),
-                    dismissButton: .default(Text("OK"))
-                )
-            }
-        }
     }
 
     func saveAddress() {

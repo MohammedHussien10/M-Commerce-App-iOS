@@ -29,6 +29,7 @@ struct ProfileHeader: View {
             
             Text(personName.isEmpty ? "Person Name" : personName)
                 .font(.headline)
+                .foregroundColor(.primary)
             Text(personEmail.isEmpty ? "Person Email" : personEmail)
                 .font(.subheadline)
                 .foregroundColor(.gray)

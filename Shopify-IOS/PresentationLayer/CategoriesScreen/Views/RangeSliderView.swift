@@ -53,6 +53,7 @@ struct RangeSliderView: View {
            
         }
         .padding()
+        .background(Color.forBackground)
         .onAppear {
             // Validate and fix the range on appear
             let correctedRange = validRange

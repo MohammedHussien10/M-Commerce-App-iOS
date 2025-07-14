@@ -15,7 +15,7 @@ struct ProfileCell: View {
     var body: some View {
         HStack {
             Image(systemName: CellIcon)
-                .foregroundColor(.black)
+                .foregroundColor(.primary)
             
             Text(nameOfCell)
                 .font(.headline) 
@@ -23,15 +23,16 @@ struct ProfileCell: View {
             Spacer()
             if let trailingText = trailingText {
                             Text(trailingText)
-                                .foregroundColor(.gray)
+                    .foregroundColor(.secondary)
                         }
             
             if !dropIcon.isEmpty {
                 Image(systemName: dropIcon)
-                    .foregroundColor(.black)
+                    .foregroundColor(.primary)
             }
         }
         .padding()
+        .background(Color.forBackground)
     }
 }
 

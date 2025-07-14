@@ -25,7 +25,7 @@ struct AddressesScreen: View {
                 VStack {
                     if viewModel.addresses.isEmpty {
                         Text("No addresses found.")
-                            .foregroundColor(.gray)
+                            .foregroundColor(.forText.opacity(0.6))
                     } else {
                         List {
                             ForEach(viewModel.addresses) { address in
@@ -37,11 +37,13 @@ struct AddressesScreen: View {
                                     showDeleteAlert: $showDeleteAlert,
                                     selectedAddress: $selectedAddress,
                                     showEditAddress: $showEditAddress
-                                )
+                                ) .listRowBackground(Color.forBackground)
                             }
                         }
 
-                        .listStyle(.plain)
+                        .scrollContentBackground(.hidden)
+                                              .background(Color.forBackground)
+                                              .listStyle(.plain)
                     }
 
                     Button(action: {
@@ -59,9 +61,17 @@ struct AddressesScreen: View {
                 }
 
             }
-            .navigationTitle("Addresses")
-            .navigationBarBackButtonHidden(true)
+            .background(Color.forBackground)
+                        .navigationBarBackButtonHidden(true)
+                        .navigationBarTitleDisplayMode(.inline)
+                        .toolbarBackground(Color.forBackground, for: .navigationBar)
             .toolbar {
+                
+                ToolbarItem(placement: .principal) {
+                    Text("Addresses")
+                        .font(.system(size: 20, weight: .bold))
+                        .foregroundColor(.orange)
+                }
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
                         dismiss()

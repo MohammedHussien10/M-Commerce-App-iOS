@@ -15,6 +15,7 @@ struct AddressCell: View {
             HStack {
                 Text("\(address.firstName) \(address.lastName)")
                     .font(.headline)
+                    .foregroundColor(.forText)
                 Spacer()
                 if address.isDefault {
                     Text("Default")
@@ -26,21 +27,18 @@ struct AddressCell: View {
                 }
             }
 
-            Text("Address: \(address.address1)")
-                .font(.subheadline)
-
-            Text("City: \(address.city)")
-                .font(.subheadline)
-
-            Text("Country: \(address.country)")
-                .font(.subheadline)
-
-            Text("Phone: \(address.phone)")
-                .font(.subheadline)
+            Group {
+                            Text("Address: \(address.address1)")
+                            Text("City: \(address.city)")
+                            Text("Country: \(address.country)")
+                            Text("Phone: \(address.phone)")
+                        }
+                        .font(.subheadline)
+                        .foregroundColor(.forText)
         }
         .padding()
-        .background(Color.white)
+        .background(Color.forBackground)
         .cornerRadius(15)
-        .shadow(radius: 3)
+        .shadow(color: .black.opacity(0.1), radius: 4, x: 0, y: 2)
     }
 }

@@ -45,15 +45,7 @@ struct CheckoutScreen: View {
                     .padding(.horizontal)
                 }
                 .padding(.vertical)
-//                .task {
-//                    viewModel.isLoading = true
-//                    async let draftOrderTask: () = viewModel.createDraftOrder()
-//                    async let addressTask: () = viewModel.getAddresses(accessToken: token)
-//                    _ = await (draftOrderTask, addressTask)
-//                    viewModel.isLoading = false
-//                }
-                
-                //send address order
+                .background(Color.forBackground)
                 .task {
                     viewModel.isLoading = true
                     await viewModel.getAddresses(accessToken: token)
@@ -94,10 +86,10 @@ private extension CheckoutScreen {
         VStack(alignment: .leading, spacing: 10) {
             Text("Shipping Address")
                 .font(.title2).bold().padding(.horizontal)
-
+                .foregroundColor(.forText)
             if viewModel.addresses.isEmpty {
                 Text("No Address Found")
-                    .foregroundColor(.gray)
+                    .foregroundColor(.forText)
                     .padding(.horizontal)
             } else {
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -126,7 +118,7 @@ private extension CheckoutScreen {
     func cartItemsSection() -> some View {
         VStack(alignment: .leading, spacing: 10) {
             Text("Cart Items").font(.title2).bold().padding(.horizontal)
-
+                .foregroundColor(.forText)
             if viewModel.cartProducts.isEmpty {
                 emptyCartView()
             } else {
@@ -149,7 +141,7 @@ private extension CheckoutScreen {
                 .font(.title3)
                 .bold()
                 .padding(.horizontal)
-
+                .foregroundColor(.forText)
             HStack {
                 TextField("Enter promo code", text: $discountCode)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -222,7 +214,7 @@ private extension CheckoutScreen {
                 Spacer()
                 Text(subtotal.priceFormatter(with: currency))
                    .font(.subheadline).bold()
-                   .foregroundColor(.gray)
+                   .foregroundColor(.forText)
                    .strikethrough(discountApplied)
             }
      
@@ -321,7 +313,7 @@ private extension CheckoutScreen {
                 .frame(height: 50)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 12)
-                .background(selectedPaymentMethod == title ? .orange : .gray.opacity(0.3))
+                .background(selectedPaymentMethod == title ? .orange : Color.forText.opacity(0.3))
                 .foregroundColor(.white)
                 .cornerRadius(12)
         }

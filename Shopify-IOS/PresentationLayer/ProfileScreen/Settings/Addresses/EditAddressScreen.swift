@@ -39,14 +39,17 @@ struct EditAddressScreen: View {
             Form {
                 Section(header: Text("Personal Info")) {
                     TextField("First Name", text: $firstName)
+                        .foregroundColor(.forText)
                     TextField("Last Name", text: $lastName)
+                        .foregroundColor(.forText)
                     TextField("Phone", text: $phone)
                         .keyboardType(.phonePad)
+                        .foregroundColor(.forText)
                 }
 
                 Section(header: Text("Address Info")) {
                                    TextField("Address", text: $address1)
-
+                        .foregroundColor(.forText)
                                    Picker("City", selection: $city) {
                                        ForEach(LocationConstants.egyptGovernorates, id: \.self) { governorate in
                                            Text(governorate).tag(governorate)
@@ -69,18 +72,32 @@ struct EditAddressScreen: View {
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
                         .padding()
-                        .background(Color.blue)
+                        .background(Color.orange)
                         .cornerRadius(12)
                 }
+                .listRowBackground(Color.clear)
             }
+            .scrollContentBackground(.hidden)
+            .background(Color.forBackground)
             .navigationTitle("Edit Address")
-            .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") {
-                        dismiss()
-                    }
-                }
-            }
+            .navigationBarTitleDisplayMode(.inline)
+                     .toolbarBackground(Color.forBackground, for: .navigationBar)
+                     .toolbar {
+                                  ToolbarItem(placement: .principal) {
+                                      Text("Edit Address")
+                                          .font(.system(size: 20, weight: .bold))
+                                          .foregroundColor(.orange)
+                                  }
+                                  ToolbarItem(placement: .navigationBarLeading) {
+                                      Button {
+                                          dismiss()
+                                      } label: {
+                                          Image(systemName: "chevron.left")
+                                              .foregroundColor(.orange)
+                                              .font(.system(size: 18, weight: .bold))
+                                      }
+                                  }
+                              }
         }
     }
 

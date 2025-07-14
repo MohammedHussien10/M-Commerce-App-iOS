@@ -46,11 +46,11 @@ struct ShoppingCartScreen: View {
 
                         }
                     }.listStyle(PlainListStyle())
-                    
+                        .background(Color.forBackground)
                     HStack {
                         Text("Total:")
                             .font(.title2)
-                            .bold()
+                            .bold()    .foregroundColor(.primary)
 
                         Spacer()
 
@@ -63,7 +63,7 @@ struct ShoppingCartScreen: View {
                             .foregroundColor(.green)
                     }
                     .padding()
-
+                    .background(Color.forBackground)
                 }
                 
                 Button(action:{
@@ -100,6 +100,7 @@ struct ShoppingCartScreen: View {
                     EmptyView()
                 }
             }
+            .background(Color.forBackground)
         }
         .onAppear {
             cartViewModel.loadCartProducts()

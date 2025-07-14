@@ -20,7 +20,7 @@ struct imge: View {
                 .scaledToFit()
                 .cornerRadius(25)
                 .overlay(
-                          Color.black.opacity(0.4)
+                          Color.black.opacity(0.1)
                               .cornerRadius(25)
                       )
             VStack{

@@ -13,7 +13,7 @@ extension Color {
     static var forBackground: Color {
         Color(UIColor { traitCollection in
             traitCollection.userInterfaceStyle == .dark
-            ? UIColor(red: 28/255, green: 28/255, blue: 30/255, alpha: 1) // Dark gray
+            ? UIColor(red: 28/255, green: 28/255, blue: 30/255, alpha: 1) 
             : .white
         })
     }

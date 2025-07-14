@@ -17,6 +17,7 @@ struct FavoritesView: View {
                 Group {
                     if viewModel.isLoading {
                         ProgressView("Loading favorites...")
+                            .foregroundColor(.forText)
                     } else if viewModel.favoriteProducts.isEmpty {
                         Text("No favorites yet.")
                             .font(.headline)
@@ -31,7 +32,7 @@ struct FavoritesView: View {
                         )
                     }
                 }
-            }
+            }.background(Color.forBackground)
             .onAppear {
                 viewModel.fetchFavorites()
             }

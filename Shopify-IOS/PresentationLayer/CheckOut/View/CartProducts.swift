@@ -25,38 +25,38 @@ struct CartProducts: View {
                 let parts = product.title.split(separator: "|")
                 Text(parts.count > 1 ? String(parts[1]) : product.title)
                     .font(.system(size: 16, weight: .semibold))
-                    .foregroundColor(.black)
+                    .foregroundColor(.forText)
                     .lineLimit(1)
                 Divider()
                 HStack {
                     Text("Quantity:")
                         .font(.custom(Constants.AppFont.regularFont, size: 13))
-                        .foregroundColor(.black)
+                        .foregroundColor(.forText)
                         .padding(.horizontal)
                     
                     Text("\(product.quantity)")
                         .font(.custom(Constants.AppFont.regularFont, size: 14))
-                        .foregroundColor(.black)
+                        .foregroundColor(.forText)
                         .bold()
                 }
                 Divider()
                 HStack {
                     Text("Price:")
                         .font(.custom(Constants.AppFont.regularFont, size: 12))
-                        .foregroundColor(.black)
+                        .foregroundColor(.forText)
                         .padding(.horizontal)
                     Text(
                         (product.price * Double(product.quantity) * exchangeRate)
                             .priceFormatter(with: currency)  )
                         .font(.custom(Constants.AppFont.regularFont, size: 12))
-                        .foregroundColor(.black)
+                        .foregroundColor(.forText)
                         .bold()
                 }
             }
         }
         .padding()
         .frame(width: 180, height: 230)
-        .background(Color.white)
+        .background(Color.forBackground)
         .cornerRadius(20)
         .overlay(
             RoundedRectangle(cornerRadius: 20)

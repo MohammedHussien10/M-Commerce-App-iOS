@@ -20,12 +20,14 @@ struct BrandsView: View {
         ScrollView(.vertical, showsIndicators: false){
             VStack(alignment: .leading, spacing: 16) {
                 Rectangle()
-                  .fill(Color.white.opacity(0.2))
+                    .fill(Color.forBackground.opacity(0.2))
                   .frame(height: 30)
+                 
                 LazyVGrid(columns: columns, spacing: 16) {
                     if viewModel.isLoading {
                         ProgressView("Loading \(collection.title) products...")
                             .frame(maxWidth: .infinity, alignment: .center)
+                            .foregroundColor(.forText)
                     } else if let error = viewModel.errorMessage {
                         Text("Error: \(error)")
                             .foregroundColor(.red)
@@ -41,9 +43,10 @@ struct BrandsView: View {
                     }
                 }
                 Rectangle()
-                  .fill(Color.white.opacity(0.2))
+                    .fill(Color.forBackground.opacity(0.2))
                   .frame(height: 50)
-            }.onAppear{
+            }.background(Color.forBackground)
+            .onAppear{
                 viewModel.fetchCollectionProducts(handle: collection.handle)
                 let appearance = UINavigationBarAppearance()
                   appearance.titleTextAttributes = [

@@ -22,6 +22,7 @@ struct ProfileScreen: View {
                         Text("Your Profile")
                             .font(.title)
                             .bold()
+                            .foregroundColor(.forText)
                             .frame(maxWidth: .infinity, alignment: .center)
                             .padding(.bottom, 10)
 
@@ -45,7 +46,7 @@ struct ProfileScreen: View {
 
                                 Text("Recent Orders")
                                     .font(.headline)
-                                    .foregroundColor(.black)
+                                    .foregroundColor(.primary)
                             }
 
                             ScrollView(.horizontal, showsIndicators: false) {

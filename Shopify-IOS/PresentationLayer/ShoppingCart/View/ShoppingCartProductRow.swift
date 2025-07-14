@@ -30,10 +30,10 @@ struct CartProductRow: View {
             VStack(alignment: .leading, spacing: 6) {
                 Text(product.title)
                     .font(.headline)
-                
+                    .foregroundColor(.primary)
                 Text(product.VariantTitle)
                     .font(.headline)
-                
+                    .foregroundColor(.secondary)
                 HStack {
                     Button(action: {
                         if product.quantity > 1 {
@@ -43,12 +43,13 @@ struct CartProductRow: View {
                         }
                     }) {
                         Image(systemName: "minus.circle")
+                            .foregroundColor(.blue)
                     }
                     .buttonStyle(.plain)
                     
                     Text("\(product.quantity)")
                         .padding(.horizontal)
-                    
+                        .foregroundColor(.primary)
                     Button(action: {
                         if product.quantity < 5 {
                             onUpdateQuantity(product.id, product.quantity + 1)
@@ -65,7 +66,7 @@ struct CartProductRow: View {
                         (product.price * Double(product.quantity) * exchangeRate)
                             .priceFormatter(with: currency)
                     )
-                    
+                    .foregroundColor(.primary)
                     Button(action: {
                         showDeleteAlert = true
                         
@@ -80,6 +81,7 @@ struct CartProductRow: View {
             Spacer()
         }
         .padding(.vertical, 8)
+        .background(Color.forBackground)
         .alert(isPresented: $showDeleteAlert) {
             Alert(
                 title: Text("Delete Item"),

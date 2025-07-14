@@ -16,21 +16,22 @@ struct CurrencySettingsCell: View {
     var body: some View {
         HStack {
             Image(systemName: CellIcon)
-                .foregroundColor(.black)
+                .foregroundColor(.forText)
             
             Text(nameOfCell)
-                .font(.headline)                .foregroundColor(.primary)
+                .font(.headline)                 .foregroundColor(.forText)
             Spacer()
             if let trailingText = trailingText {
                 Text(trailingText.rawValue)
-                                .foregroundColor(.gray)
+                    .foregroundColor(.forText)
                         }
             
             if !dropIcon.isEmpty {
                 Image(systemName: dropIcon)
-                    .foregroundColor(.black)
+                    .foregroundColor(.forText)
             }
         }
         .padding()
+        .background(Color.forBackground)
     }
 }

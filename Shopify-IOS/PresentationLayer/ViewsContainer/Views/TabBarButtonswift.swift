@@ -19,7 +19,7 @@ struct TabBarButtonswift: View {
                   }) {
                       Image(systemName: icon)
                           .font(.system(size: 22))
-                          .foregroundColor(selectedTab == tab ? Color.orangeColor("#FF7F00") : .gray)
+                          .foregroundColor(selectedTab == tab ? Color.orangeColor("#FF7F00") : Color.forText.opacity(0.7))
                           .frame(maxWidth: .infinity)
                           .bold()
                   }

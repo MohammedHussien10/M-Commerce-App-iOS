@@ -59,8 +59,8 @@ struct ViewsContainer: View {
                             }
                         }
                         .padding(.vertical, 12)
-                        .background(Color.white)
-                        .shadow(color: .gray.opacity(0.2), radius: 2, x: 0, y: 2)
+                        .background(Color.forBackground)
+                        .shadow(color: .black.opacity(0.1), radius: 2, x: 0, y: 2)
                         
                         ShoppingCartScreen(isTabBarHidden: $isTabBarHidden)
                             .environmentObject(cartViewModel)
@@ -104,8 +104,8 @@ struct ViewsContainer: View {
                         }
                     }
                     .padding(.vertical, 12)
-                    .background(Color.white)
-                    .shadow(color: .gray.opacity(0.2), radius: 2, x: 0, y: 2)
+                    .background(Color.forBackground)
+                    .shadow(color: .black.opacity(0.1), radius: 2, x: 0, y: 2)
 
                     if authViewModel.isLoggedIn {
                         ProfileScreen(isTabBarHidden: $isTabBarHidden, authViewModel: authViewModel)
@@ -140,7 +140,7 @@ struct ViewsContainer: View {
                     ZStack {
                         // MARK: - Background of Tab Bar
                         CustomTabBarShape()
-                            .fill(Color.white)
+                            .fill(Color.forBackground)
                             .frame(height: 80)
                             .shadow(radius: 5)
                         
@@ -189,6 +189,6 @@ struct ViewsContainer: View {
         .navigationBarBackButtonHidden(true)
         .onAppear {
                    cartViewModel.loadCartProducts()
-               }
+               }       .background(Color.forBackground.ignoresSafeArea())
     }
 }
