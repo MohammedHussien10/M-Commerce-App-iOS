@@ -18,7 +18,8 @@ struct BrandList: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
              LazyHGrid(rows: rows, spacing: 10) {
-                 ForEach(collections, id: \.id) { collection in
+                 ForEach(collections.filter { $0.title.lowercased() != "home page" }, id: \.id) { collection in
+
                      
                      NavigationLink {
                          BrandsView(collection: collection, isTabBarHidden: $isTabBarHidden)

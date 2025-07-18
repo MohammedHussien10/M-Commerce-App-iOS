@@ -42,7 +42,8 @@ struct ShoppingCartScreen: View {
                                     cartViewModel.removeProduct(lineId: lineId)
                                 }
                             )
-
+                            .background(Color.forBackground)
+                                    .listRowBackground(Color.forBackground)
 
                         }
                     }.listStyle(PlainListStyle())

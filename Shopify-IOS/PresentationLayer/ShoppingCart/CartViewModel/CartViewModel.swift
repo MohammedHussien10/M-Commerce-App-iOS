@@ -132,14 +132,31 @@ class CartViewModel: ObservableObject {
     }
 
     func completeOrder() async {
-        DispatchQueue.main.async {[weak self] in
+        guard let cartId = cartId else { return }
+
+        let lineItemIds = cartProducts.map { $0.id }
+        
+        for lineId in lineItemIds {
+            await removeCartLineAsync(cartId: cartId, lineId: lineId)
+        }
+
+        DispatchQueue.main.async { [weak self] in
             self?.cartProducts = []
             self?.cartId = nil
             self?.shouldProceedCheckingOut = false
         }
+
         UserDefaults.standard.removeObject(forKey: "CartID")
         createCartIfNeeded()
     }
+    func removeCartLineAsync(cartId: String, lineId: String) async {
+        await withCheckedContinuation { continuation in
+            useCase.removeCartLine(cartId: cartId, lineId: lineId) { result in
+                continuation.resume()
+            }
+        }
+    }
+
     
     func fetchExchangeRate() {
         let currency = UserDefaults.standard.string(forKey: "selectedCurrency") ?? "USD"

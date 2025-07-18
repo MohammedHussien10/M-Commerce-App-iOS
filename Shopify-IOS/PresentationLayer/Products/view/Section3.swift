@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Section3: View {
+    @State private var showToast: Bool = false
     @ObservedObject var viewModel: ProductDetailsViewModel
     @EnvironmentObject var cartViewModel: CartViewModel
     @State private var showGuestPrompt: Bool = false
@@ -28,15 +29,19 @@ struct Section3: View {
                     // user loggid in
                     if let variantId = viewModel.product.variants.first?.id {
                         cartViewModel.addProduct(productId: variantId, quantity: 1)
+                        showToast = true
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                        showToast = false
+                                    }
                     } else {
-                        print("No variant ID available to add to cart")
+                        showGuestPrompt = true
                     }
                 } else {
                     // user not logged in 
                     showGuestPrompt = true
                 }
             }) {
-                Text(viewModel.isOutOfStock ? "Out of Stock" : "Add to Cart")
+                Text(viewModel.isOutOfStock ? "Out of Stock" : (showToast ? "Succeed Added to Cart!" : "Add to Cart"))
                     .fontWeight(.bold)
                     .frame(maxWidth: .infinity)
                     .padding()

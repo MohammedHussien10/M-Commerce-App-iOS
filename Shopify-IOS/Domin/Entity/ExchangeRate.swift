@@ -15,7 +15,7 @@ let target_code: String
 }
 
 final class ExchangeRateService{
-    static let apiKey = "72a177ded65e8bbef6d92ae0"
+    static let apiKey = "521ac55c4216da3802ec8a8d"
     
     static func fetchExchangeRate(from base: String,to target:String, completion:@escaping(Double?) ->Void){
         let urlString =  "https://v6.exchangerate-api.com/v6/\(apiKey)/pair/\(base)/\(target)"

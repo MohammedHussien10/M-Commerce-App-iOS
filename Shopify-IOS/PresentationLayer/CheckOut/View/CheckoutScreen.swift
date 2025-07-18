@@ -152,7 +152,9 @@ private extension CheckoutScreen {
                 if discountApplied {
                     Button("Clear") {
                         Task {
-                          await  viewModel.updateDraftOrder(discountCode: nil, address: nil) {result in }
+                         await  viewModel.updateDraftOrder(discountCode: nil, address: nil) {result in }
+
+
                             discountApplied = false
                             discountCode = ""
                             promoError = nil
@@ -266,10 +268,11 @@ private extension CheckoutScreen {
 
     func placeOrderButton() -> some View {
         Button("Cash On Delivery") {
-            UserDefaults.standard.removeObject(forKey: "CartID")
+          
             Task {
               await viewModel.completeDraftOrder { isSuccess in
                     if isSuccess {
+                        UserDefaults.standard.removeObject(forKey: "CartID")
                         Task {
                             await cartViewModel.completeOrder()
                             DispatchQueue.main.async {
@@ -290,7 +293,7 @@ private extension CheckoutScreen {
         .cornerRadius(12)
         .padding(.horizontal)
         .padding(.top, 8)
-        // 👇 Alert modifier for displaying failure message
+    
         .alert(isPresented: $showAlert) {
             Alert(
                 title: Text("Error"),
@@ -411,6 +414,7 @@ extension CheckoutScreen {
                 Task {
                     await viewModel.completeDraftOrder { isSuccess in
                         if isSuccess {
+                            UserDefaults.standard.removeObject(forKey: "CartID")
                             Task {
                                 await cartViewModel.completeOrder()
                                 DispatchQueue.main.async {

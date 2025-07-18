@@ -25,8 +25,8 @@ class PaymentHandler : NSObject {
         paymentRequest.paymentSummaryItems = items
         paymentRequest.merchantIdentifier = "merchant.fake.applepay"
         paymentRequest.merchantCapabilities = .capability3DS
-        paymentRequest.countryCode = "EG"
-        paymentRequest.currencyCode = "EGP"
+        paymentRequest.countryCode = "US"
+        paymentRequest.currencyCode = "USD"
         paymentRequest.supportedNetworks = [.amex,.visa,.masterCard,.mada]
         
         paymentController = PKPaymentAuthorizationController(paymentRequest: paymentRequest)

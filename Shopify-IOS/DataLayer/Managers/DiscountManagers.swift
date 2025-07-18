@@ -28,7 +28,7 @@ class DiscountsManager {
         let fixedAmountAsDouble = NSString(string: customerGets?.asDiscountAmount?.amount.amount ?? "").doubleValue
         let percentageAmount = customerGets?.asDiscountPercentage?.percentage ?? 0.00
         
-        return isFixed ? fixedAmountAsDouble : percentageAmount
+        return isFixed ? fixedAmountAsDouble : percentageAmount 
     }
     
     func getValueWithCurrency(_ discount: GetAllDiscountCodesQuery.Data.CodeDiscountNodes.Node?) -> MoneyInput? {
