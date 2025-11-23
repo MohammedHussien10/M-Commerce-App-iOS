@@ -1,4 +1,4 @@
-M-Commerce App - Genie Store
+## M-Commerce App - Genie Store
 
 ## Overview
 
