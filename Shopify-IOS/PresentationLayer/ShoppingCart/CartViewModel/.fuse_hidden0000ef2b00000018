@@ -14,8 +14,7 @@ class CartViewModel: ObservableObject {
     @Published var cartProducts: [CartProduct] = []
     @Published var shouldProceedCheckingOut: Bool = false
     @Published var exchangeRate: Double = 1.0
-    private var lineVersions: [String: Int] = [:]
-
+    private var updatingLines: Set<String> = []
 
     private let useCase: CartUseCaseProtocol
 
@@ -91,8 +90,8 @@ class CartViewModel: ObservableObject {
     
     func updateProductQuantity(cartId: String, lineId: String, newQuantity: Int) {
 
-        let version = (lineVersions[lineId] ?? 0) + 1
-        lineVersions[lineId] = version
+        guard !updatingLines.contains(lineId) else { return }
+        updatingLines.insert(lineId)
 
         if let index = cartProducts.firstIndex(where: { $0.id == lineId }) {
             cartProducts[index].quantity = newQuantity
@@ -102,23 +101,18 @@ class CartViewModel: ObservableObject {
             DispatchQueue.main.async {
 
                 guard let self else { return }
-
-                guard self.lineVersions[lineId] == version else {
-                    print("Ignored stale response")
-                    return
-                }
+                self.updatingLines.remove(lineId)
 
                 switch result {
                 case .success:
                     break
-
-                case .failure:
+                case .failure(let error):
+                    print(error)
                     self.loadCartProducts()
                 }
             }
         }
     }
-
 
     
     
